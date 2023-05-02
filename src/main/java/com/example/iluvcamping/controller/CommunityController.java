@@ -4,6 +4,7 @@ package com.example.iluvcamping.controller;
 import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.domain.community.CommunityRepository;
 import com.example.iluvcamping.service.CommunityService;
+import com.example.iluvcamping.util.KeyGenerator;
 import com.example.iluvcamping.util.Timestamp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,17 +24,20 @@ public class CommunityController extends Timestamp {
 
     private final CommunityRepository communityRepository;
     private final CommunityService communityService;
-
+    private final KeyGenerator keyGenerator;
 
     // create
 
 //    public String addCommunity(@RequestBody )
 
-//    @PostMapping("/community/add")
-//    public void addCommunity(Community community) {
-//        communityRepository.save(community);
-//    }
+    @PostMapping("/community/add")
+    public void addCommunity(Community community) {
+        communityRepository.save(community);
+    }
 
+//    public String communityWrite(
+//     String code = keyGenerator
+//    )
 
     // read [ all ]
     @GetMapping("/community/readall")
