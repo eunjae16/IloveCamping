@@ -1,5 +1,6 @@
 package com.example.iluvcamping.domain.community;
 
+import com.example.iluvcamping.util.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

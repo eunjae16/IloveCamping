@@ -1,28 +1,36 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.client.Client;
+import com.example.iluvcamping.domain.client.ClientRequestDTO;
+import com.example.iluvcamping.domain.owner.Owner;
+import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+@SessionAttributes
 @Controller
 @RequiredArgsConstructor
 public class RegistController {
 
-    private final com.example.campsite.service.ClientService clientService;
-    private final com.example.campsite.service.OwnerService ownerService;
+    private final com.example.iluvcamping.service.ClientService clientService;
+    private final com.example.iluvcamping.service.OwnerService ownerService;
     private final KeyGenerator keyGenerator;
 
     // Join / Create
 
+    @SessionScope
     @PostMapping("/regist/client")
-    public String joinClient(@RequestBody ClientRequestDTO clientDto, HttpSession session) {
+    public String joinClient(@RequestBody ClientRequestDTO clientDto, Model model) {
         Client client = new Client(clientDto);
         String code = keyGenerator.randomKey("A");
         client.setClientCode(code);
@@ -30,8 +38,8 @@ public class RegistController {
 
         System.out.println("name : " + clientDto.getClientNickname());
 
-//        session.setAttribute("log", client);
-//        session.setAttribute("logType", "client");
+        model.addAttribute("log", client);
+        model.addAttribute("logType", "client");
 
         return "joinSuccess";
     }

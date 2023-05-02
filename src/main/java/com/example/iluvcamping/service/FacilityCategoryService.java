@@ -1,5 +1,12 @@
 package com.example.iluvcamping.service;
 
+import com.example.iluvcamping.controller.FacilityCategoryController;
+import com.example.iluvcamping.domain.facilityCategory.FacilityCategory;
+import com.example.iluvcamping.domain.facilityCategory.FacilityCategoryRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 @RequiredArgsConstructor
 @Service
 public class FacilityCategoryService {

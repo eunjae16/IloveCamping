@@ -1,6 +1,16 @@
 package com.example.iluvcamping.controller;
 
 
+import com.example.iluvcamping.domain.client.Client;
+import com.example.iluvcamping.domain.client.ClientRepository;
+import com.example.iluvcamping.service.ClientService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @Controller
 public class LoginController {
     private final ClientRepository clientRepository;

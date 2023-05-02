@@ -19,7 +19,7 @@ public class CommunityCategory {
 
     private String communityCategoryName;
 
-    public CommunityCategory (CommunityCategoryRepository communityCategoryDto) {
+    public CommunityCategory (CommunityCategoryRequestDTO communityCategoryDto) {
         this.communityCategoryCode = communityCategoryDto.getCommunityCategoryCode();
         this.communityCategoryName = communityCategoryDto.getCommunityCategoryName();
     }

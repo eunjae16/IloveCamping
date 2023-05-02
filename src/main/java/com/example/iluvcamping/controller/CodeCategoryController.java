@@ -1,8 +1,8 @@
-package com.example.campsite.controller;
+package com.example.iluvcamping.controller;
 
 
-import com.example.campsite.domain.codeCategory.CodeCategory;
-import com.example.campsite.domain.codeCategory.CodeCategoryRepository;
+import com.example.iluvcamping.domain.codeCategory.CodeCategory;
+import com.example.iluvcamping.domain.codeCategory.CodeCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,5 +1,12 @@
 package com.example.iluvcamping.service;
 
+import com.example.iluvcamping.domain.owner.Owner;
+import com.example.iluvcamping.domain.owner.OwnerRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class OwnerService {

@@ -1,7 +1,17 @@
 package com.example.iluvcamping.controller;
 
 
+import com.example.iluvcamping.domain.community.Community;
+import com.example.iluvcamping.domain.community.CommunityRepository;
+import com.example.iluvcamping.service.CommunityService;
+import com.example.iluvcamping.util.Timestamp;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -46,8 +56,8 @@ public class CommunityController extends Timestamp {
 
     // paging
     @GetMapping("/community/page")
-    public List<Community> getCommunityPage(@PageableDefault(sort={"writeCode"}, direction = Sort.Direction.DESC)Pageable pageable) {
-        return communityService.getCommunityWithPage(pageable.withPage(1));
+    public List<Community> getCommunityPage(@PageableDefault(sort={"writeCode"}, direction = Sort.Direction.DESC) Pageable pageable) {
+        return communityService.getCommunityWithPage((SpringDataWebProperties.Pageable) pageable.withPage(1));
     }
 
 

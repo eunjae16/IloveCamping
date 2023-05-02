@@ -1,5 +1,7 @@
 package com.example.iluvcamping.util;
 
+import com.example.iluvcamping.controller.CodeCategoryController;
+import com.example.iluvcamping.domain.client.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +16,7 @@ public class KeyGenerator {
     // 4. 키를 발행하고
     // 5. 중복 검사 후 리턴
 
-    private final com.example.campsite.controller.CodeCategoryController codeCategoryController;
+    private final CodeCategoryController codeCategoryController;
 
     @Autowired
     private ClientRepository clientRepository;

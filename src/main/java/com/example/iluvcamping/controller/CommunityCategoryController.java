@@ -1,6 +1,10 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.communityCategory.CommunityCategory;
+import com.example.iluvcamping.domain.communityCategory.CommunityCategoryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
