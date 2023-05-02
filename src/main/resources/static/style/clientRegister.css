@@ -1,0 +1,10 @@
+.client-register-container {
+    margin: 0 auto;
+    width: 400px;
+    height: 500px;
+    background-color: #FFFBEB;
+}
+
+input[type=text], input[type=password] {
+    border: 0;
+}
