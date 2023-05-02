@@ -21,14 +21,14 @@
                 <li><a href="/community">캠핑 이야기</a></li>
             </ul>
             <ul>
-                <c:if test="${sessionScope.log.userId != null}">
+                <c:if test="${!empty sessionScope.usertype}">
                     <li><a href="../service?command=logout">로그아웃</a></li>
                     <li><a href="/">내 정보</a></li>
                 </c:if>
-                <c:if test="${sessionScope.log.userId eq ''}">
+                <c:if test="${sessionScope.usertype eq 'owner'}">
                     <li><a href="/ownerSales">매출 통계</a></li>
                 </c:if>
-                <c:if test="${sessionScope.log.userId == null}">
+                <c:if test="${empty sessionScope.log}">
                     <li><a href="/login">로그인</a></li>
                     <li><a href="/regist">회원가입</a></li>
                 </c:if>
