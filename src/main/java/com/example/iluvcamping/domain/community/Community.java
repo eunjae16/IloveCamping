@@ -38,10 +38,6 @@ public class Community extends Timestamp {
         this.writeCode = writeCode;
     }
 
-    public void setWriterNickname(String writerNickname) {
-        this.writerNickname = writerNickname;
-    }
-
     public void setCommunity(Community community) {
         this.writeCode = community.getWriteCode();
         this.writerNickname = community.getWriterNickname();

@@ -17,10 +17,22 @@
                 <td><input type="text" name="id" id="id" placeholder="아이디"></td>
             </tr>
             <tr>
+                <td><p> ### 중복체크 메세지 ###</p></td>
+            </tr>
+            <tr>
+                <td><button type="submit">아이디 중복체크</button>/td>
+            </tr>
+            <tr>
                 <td><input type="password" name="password" id="password" placeholder="비밀번호"></td>
             </tr>
             <tr>
                 <td><input type="text" name="nickname" id="nickname" placeholder="닉네임"></td>
+            </tr>
+            <tr>
+                <td><p> ### 중복체크 메세지 ###</p></td>
+            </tr>
+            <tr>
+                <td><button type="submit">닉네임 중복체크</button>/td>
             </tr>
             <tr>
                 <td><input type="text" name="phone" id="phone" placeholder="연락처"></td>

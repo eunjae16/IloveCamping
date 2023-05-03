@@ -16,7 +16,13 @@ public class MemberController {
     @GetMapping("/regist/leave/owner")
     public String leaveOwnerByCode(@RequestParam String ownerCode){
         memberService.deleteOwnerByCode(ownerCode);
+        return "index";
+    }
 
+    // Client 탈퇴
+    @GetMapping("/register/leave/client")
+    public String leaveClientByCode(@RequestParam String clientCode){
+        memberService.deleteClientByCode(clientCode);
         return "index";
     }
 
