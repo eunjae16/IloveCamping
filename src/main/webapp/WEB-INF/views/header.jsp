@@ -21,18 +21,13 @@
                 <li><a href="/community">캠핑 이야기</a></li>
             </ul>
             <ul>
-                <c:choose>
-                    <c:when test="${sessionScope.usertype eq 'owner'}">
+                <c:if test="${sessionScope.usertype eq 'owner'}">
                     <li><a href="../service?command=logout">로그아웃</a></li>
                     <li><a href="/mypageowner">내 정보</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li><a href="../service?command=logout">로그아웃</a></li>
-                        <li><a href="/mypageclient">내 정보</a></li>
-                    </c:otherwise>
-                </c:choose>
-                <c:if test="${sessionScope.usertype eq 'owner'}">
-                    <li><a href="/ownerSales">매출 통계</a></li>
+                </c:if>
+                <c:if test="${sessionScope.usertype eq 'client'}">
+                    <li><a href="../service?command=logout">로그아웃</a></li>
+                    <li><a href="/mypageclient">내 정보</a></li>
                 </c:if>
                 <c:if test="${empty sessionScope.log}">
                     <li><a href="/login">로그인</a></li>

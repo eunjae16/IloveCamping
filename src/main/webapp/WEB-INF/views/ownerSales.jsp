@@ -3,22 +3,22 @@
 <html>
 <c:import url="header.jsp"/>
 <link rel="stylesheet" href="style/ownerSales.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <body>
 <section>
     <h3>매출 현황</h3>
-    <div class="tab">
-        <ul class="tabnav">
-            <li><a href="#">일별</a></li>
-            <li><a href="#">월별</a></li>
-        </ul>
-        <div class="tabcontent">
-            <div id="tab01"><div id="columnchart_material" style="width: 900px; height: 300px;"></div></div>
-            <div id="tab02"></div>
+    <div class="container">
+        <div class="button-container">
+            <button type="button" id="btn">연도별 매출</button>
+            <button type="button" id="btn2">월별 매출</button>
         </div>
+        <div id="column_chart_div1" style="width: 900px; height: 500px;"></div>
     </div>
 </section>
-<script type="text/javascript" src="script/ownerSales.js"></script>
+<script src="../resources/ownerSales.js"></script>
 <c:import url="footer.jsp"/>
 </body>
 </html>

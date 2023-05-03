@@ -9,8 +9,8 @@
     <h2>회원가입을 축하합니다!</h2>
 </div>
 <div class="buttonContainer">
-    <button class="canvasBtn" id="stopButton">한 번 더!</button>
-    <button class="canvasBtn" id="startButton">그만!</button>
+    <button class="canvasBtn" id="stopButton">그만!</button>
+    <button class="canvasBtn" id="startButton">한 번 더!</button>
 </div>
 <canvas id="canvas"></canvas>
 <c:import url="footer.jsp"/>

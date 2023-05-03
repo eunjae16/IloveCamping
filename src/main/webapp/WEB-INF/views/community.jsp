@@ -2,13 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>커뮤니티</title>
-</head>
 <c:import url="header.jsp"/>
-<link rel="stylesheet" href="style/header.css">
+<link rel="stylesheet" href="style/community.css">
+</head>
 <body>
 <section>
-    <h4>커뮤니티</h4>
+    <div class="community-bg"><h2>캠핑 이야기</h2></div>
     <table>
         <tr>
             <th>작성자코드</th>
@@ -22,5 +21,6 @@
     </div>
 </section>
 <script src="script/community.js"></script>
+<c:import url="/footer"/>
 </body>
 </html>

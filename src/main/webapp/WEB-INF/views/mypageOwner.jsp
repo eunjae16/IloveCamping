@@ -9,15 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <c:import url="/header"/>
 </head>
 <body>
 <div>
     <h2>${sessionScope.log.ownerNickname}님의 마이페이지</h2>
     <div>
+        <button onclick="location.href='ownerSales'">매출 통계</button>
         <button onclick="location.href='modifyowner'">회원정보수정</button>
         <input type="button" onclick="leaveOwner()" value="탈퇴하기">
     </div>
 </div>
+<c:import url="/footer"/>
 <script src="/script/mypage.js"></script>
 </body>
 </html>

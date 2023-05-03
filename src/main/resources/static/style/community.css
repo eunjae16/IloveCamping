@@ -1,0 +1,15 @@
+.community-bg {
+    background-image: url("../image/bg-02.jpg");
+    height: 100px;
+}
+
+.community-bg h2 {
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+table {
+    margin: 0 auto;
+    border-spacing: 20px;
+}

@@ -42,8 +42,8 @@
             <input id="join-button" type="button" value="회원가입" onclick="checkValue(form)">
         </div>
     </form>
-    <c:import url="/footer"/>
 </div>
+    <c:import url="/footer"/>
 <script src="/script/clientRegister.js"></script>
 </body>
 </html>
