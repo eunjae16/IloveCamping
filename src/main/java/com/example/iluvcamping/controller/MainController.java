@@ -45,6 +45,15 @@ public class MainController {
     public String login(){
         return "login";
     }
+    @GetMapping("/clientlogin")
+    public String clientlogin(){
+        return "clientlogin";
+    }
+
+    @GetMapping("/ownerlogin")
+    public String ownerlogin(){
+        return "ownerlogin";
+    }
 
     @GetMapping("/header")
     public String header(){

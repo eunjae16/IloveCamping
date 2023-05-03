@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -62,7 +61,7 @@ public class CommunityController extends Timestamp {
     // read [ one ] > 글 찾는 api 를 만들기만 해준 기능 !  > 메인컨트롤러에서 이 메소드사용해서 처리해줘야함 !
     @GetMapping("/community/readone")
     public Community getCommunityByWriteCode(@RequestParam String writeCode) {
-        Community community = communityRepository.getCommunitiesByWriteCode(writeCode);
+        Community community = communityRepository.getCommunityByWriteCode(writeCode);
         System.out.println(community.getTitle());
         return community;
     }

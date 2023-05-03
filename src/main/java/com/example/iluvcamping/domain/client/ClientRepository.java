@@ -10,4 +10,6 @@ public interface ClientRepository extends JpaRepository<Client, String> {
     public List<Client> getAllByClientIdAndClientPassword(String id, String password);
 
     public Client getClientByClientCode(String clientCode);
+
+
 }

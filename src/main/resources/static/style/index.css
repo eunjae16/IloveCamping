@@ -1,5 +1,26 @@
+
 header {
+    background-color: rgba(0, 0, 0, 0.2);
     position: relative;
+}
+
+.header-wrap {
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu, .side-menu {
+    display: flex;
+}
+
+.menu li a, .side-menu li a {
+    padding: 10px;
+    line-height: 40px;
+    font-size: 1.2em
 }
 
 .index-bg {
@@ -52,4 +73,18 @@ header {
     padding: 10px;
     border: 0;
     background-color: #251749;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+    text-align: center;
+    line-height: 60px;
 }
