@@ -41,7 +41,7 @@ public class CommunityService {
     @DeleteMapping("/community/delete")
     public void deleteByWriteCode(String writeCode) {
         Community community =
-                communityRepository.getCommunitiesByWriteCode(writeCode);
+                communityRepository.getCommunityByWriteCode(writeCode);
 
         if(community != null) {
             communityRepository.deleteById(community.getWriteCategoryCode());
