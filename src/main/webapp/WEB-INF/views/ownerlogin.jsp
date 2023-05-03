@@ -12,7 +12,7 @@
     <title>사업자 로그인</title>
 </head>
 <body>
-<h1>로그인하기</h1>
+<h1>사업자 로그인</h1>
 <form method="POST" action="ownerlogin">
     <table>
         <tr>
