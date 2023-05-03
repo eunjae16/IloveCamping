@@ -21,6 +21,6 @@
   </table>
 </form>
 <c:import url="/footer"/>
-<script src="script/login.js"></script>
+<script src="script/clientlogin.js"></script>
 </body>
 </html>
