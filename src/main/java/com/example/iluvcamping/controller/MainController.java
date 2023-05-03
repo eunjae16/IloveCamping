@@ -91,6 +91,7 @@ public class MainController {
 
         ModelAndView modelAndView = new ModelAndView("communityread");
         modelAndView.addObject("community", community);
+        System.out.println("modelread : " + community.getWriterNickname());
 
         return modelAndView;
     }
