@@ -2,6 +2,8 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.client.ClientRepository;
+import com.example.iluvcamping.domain.owner.Owner;
+import com.example.iluvcamping.domain.owner.OwnerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +16,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LoginController {
     private final ClientRepository clientRepository;
+    private final OwnerRepository ownerRepository;
 
-    @PostMapping("/login")
-    public String login(@RequestParam String id, @RequestParam String password, HttpSession session) {
+    @PostMapping("/clientlogin")
+    public String clientlogin(@RequestParam String id, @RequestParam String password, HttpSession session) {
         List<Client> clients = clientRepository.getAllByClientIdAndClientPassword(id, password);
 
         if (clients.isEmpty()) {
@@ -28,6 +31,21 @@ public class LoginController {
             session.setAttribute("log", loggedInClient);
             session.setAttribute("usertype", "client");
 
+            return "redirect:/"; // 로그인 성공 시 홈페이지로 리디렉션
+        }
+    }
+
+    @PostMapping("/ownerlogin")
+    public String ownerlogin(@RequestParam String id, @RequestParam String password, HttpSession session) {
+        List<Owner> owners = ownerRepository.getAllByOwnerIdAndOwnerPassword(id, password);
+        Owner loggedInOwner;
+        if (owners.isEmpty()) {
+            return "redirect:/login"; // 로그인 실패 시 다시 로그인 페이지로 리디렉션
+        } else {
+            loggedInOwner = owners.get(0);
+
+            session.setAttribute("log", loggedInOwner);
+            session.setAttribute("usertype", "owner");
             return "redirect:/"; // 로그인 성공 시 홈페이지로 리디렉션
         }
     }
