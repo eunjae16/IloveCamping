@@ -2,7 +2,9 @@ function communityWrite(htmlForm) {
     let url = "communitywrite?"
 
     const title = $('#title').val();
+    console.log("title : " + title);
     const content = $('#content').val();
+    console.log("content : " + content);
 
     let check = false;
 
@@ -26,7 +28,6 @@ function communityWrite(htmlForm) {
         location.href = url;
     }
     else {
-
         const settings = {
             "url": "http://localhost:8080/communitywrite",
             "method": "GET",
@@ -43,14 +44,15 @@ function communityWrite(htmlForm) {
 
         htmlForm.submit();
 
+        // function submit(data) {
+        //     $.ajax(settings).done(function (response) {
+        //         console.log(response);
+        //         location.href="/community/write";
+        //     });
+        // };
+
     }
 
-    function submit(data) {
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-            location.href="/community/add"
-        });
-    };
 }
 
 

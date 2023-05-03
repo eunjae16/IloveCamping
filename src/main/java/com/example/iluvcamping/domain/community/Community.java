@@ -26,12 +26,16 @@ public class Community extends Timestamp {
 
 
     public Community(CommunityRequestDTO communityDto) {
-        this.writeCode = communityDto.getWriteCode();
+        this.writeCode = "";
         this.writerNickname = communityDto.getWriterNickname();
         this.writeCategoryCode = communityDto.getWriteCategoryCode();
         this.title = communityDto.getTitle();
         this.content = communityDto.getContent();
         this.bookingCode = communityDto.getBookingCode();
+    }
+
+    public void setWriteCode(String writeCode) {
+        this.writeCode = writeCode;
     }
 
     public void setCommunity(Community community) {

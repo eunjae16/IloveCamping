@@ -92,14 +92,6 @@ public class MainController {
         return "communitywrite";
     }
 
-
-
-
-
-
-//    @GetMapping("/error")
-//    public String error() { return "error"; }
-
     @GetMapping("/ownerSales")
     public String ownerSales() {
         return "ownerSales";
