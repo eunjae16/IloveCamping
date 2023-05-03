@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -7,17 +8,32 @@
 </head>
 <body>
 <section>
-    <div class="community-bg"><h2>캠핑 이야기</h2></div>
+    <div class="community-bg"><h2>캠핑이야기</h2></div>
     <table>
         <tr>
-            <th>작성자코드</th>
+            <th>게시글코드</th>
             <th>카테고리</th>
+            <th>닉네임</th>
             <th>제목</th>
             <th>등록일</th>
         </tr>
     </table>
     <div>
-        <input type="button" value="글쓰기" onclick="location.href='communitywrite'">
+        <c:choose>
+            <c:when test="${sessionScope.usertype eq 'owner'}">
+                <input type="button" value="글쓰기" onclick="location.href='communityownerwrite'">
+            </c:when>
+            <c:when test="${sessionScope.usertype eq 'client'}">
+                <input type="button" value="글쓰기" onclick="location.href='communityclientwrite'">
+            </c:when>
+            <c:when test="${sessionScope.admin eq 'admin'}">
+                <input type="button" value="글쓰기" onclick="location.href='communityadmintwrite'">
+            </c:when>
+            <c:when test="${empty sessionScope}">
+                <input type="button" value="로그인 후 작성가능" onclick="location.href='#'">
+            </c:when>
+        </c:choose>
+
     </div>
 </section>
 <script src="script/community.js"></script>

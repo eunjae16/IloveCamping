@@ -8,7 +8,6 @@ import com.example.iluvcamping.service.CommunityService;
 import com.example.iluvcamping.util.KeyGenerator;
 import com.example.iluvcamping.util.Timestamp;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -34,14 +33,14 @@ public class CommunityController extends Timestamp {
     }
 
 
-    // wriete community
-    @PostMapping("/community/write")
-    public String communityWrite(@RequestBody CommunityRequestDTO communityDto) {
+    // write [ community ]
+  @PostMapping("/community/write")
+    public String communityClientWrite(@RequestBody CommunityRequestDTO communityDto) {
         Community community = new Community(communityDto);
         String code = keyGenerator.randomKey("H");
         community.setWriteCode(code);
+
         addCommunity(community);
-        System.out.println("communiy:" + community.getTitle());
 
         return "community";
     }
@@ -67,10 +66,9 @@ public class CommunityController extends Timestamp {
 
     // paging
     @GetMapping("/community/page")
-    public List<Community> getCommunityPage(@PageableDefault(sort={"writeCode"}, direction = Sort.Direction.DESC) Pageable pageable) {
-        return communityService.getCommunityWithPage((SpringDataWebProperties.Pageable) pageable.withPage(1));
+    public List<Community> getCommunityPage(@PageableDefault(sort={"registeredDate"}, direction = Sort.Direction.DESC) Pageable pageable) {
+        return communityService.getCommunityWithPage(pageable.withPage(1));
     }
-
 
 
 }

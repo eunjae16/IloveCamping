@@ -9,6 +9,7 @@ $.ajax(settings).done(function (response) {
         $('table').append(`
         <tr id="${content.writeCode}">
         <td>${content.writeCode}</td>
+        <td>${content.writeCategoryCode}</td>
         <td>${content.writerNickname}</td>
         <td><span class="title">${content.title}</span></td>
         <td>${content.registeredDate}</td>

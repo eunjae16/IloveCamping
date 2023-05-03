@@ -96,10 +96,21 @@ public class MainController {
     }
 
     // 게시판 글 작성하는 페이지
-    @GetMapping("/communitywrite")
-    public String communitywrite() {
-        return "communitywrite";
+    @GetMapping("/communityclientwrite")
+    public String communityClientWrite() {
+        return "communityClientWrite";
     }
+
+    @GetMapping("/communityownerwrite")
+    public String communityOwnerWrite() {
+        return "communityOwnerWrite";
+    }
+
+//    @GetMapping("/community/edit")
+//    public ModelAndView communityEdit(@RequestParam String writeCode) {
+//        Community community =
+//                co
+//    }
 
     @GetMapping("/modifyclient")
     public String modifyClient() { return "modifyClient"; }
@@ -123,6 +134,11 @@ public class MainController {
     @GetMapping("/mypageowner")
     public String mypageOwner() {
         return "mypageOwner";
+    }
+
+    @GetMapping("/editownerwrite")
+    public String editOwnerWrite() {
+        return "editOwnerWrite";
     }
 
 }
