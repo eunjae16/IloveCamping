@@ -18,8 +18,15 @@ public class CampController {
     }
 
     @GetMapping("/getCampList")
-    public List<Camp> getCampList(@RequestParam String selectedValue) {
+    public List<Camp> getCampList(@RequestParam("selectedValue") String selectedValue) {
         List<Camp> campList = campRepository.findByCampAddress1StartingWith(selectedValue.substring(0, 2));
+        return campList;
+    }
+
+
+    @GetMapping("/searchCamp")
+    public List<Camp> searchCamp(@RequestParam String selectedOption) {
+        List<Camp> campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
         return campList;
     }
 }
