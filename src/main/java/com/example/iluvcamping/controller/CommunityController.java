@@ -3,6 +3,7 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.domain.community.CommunityRepository;
+import com.example.iluvcamping.domain.community.CommunityRequestDTO;
 import com.example.iluvcamping.service.CommunityService;
 import com.example.iluvcamping.util.KeyGenerator;
 import com.example.iluvcamping.util.Timestamp;
@@ -11,10 +12,8 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,17 +34,26 @@ public class CommunityController extends Timestamp {
         communityRepository.save(community);
     }
 
-//    public String communityWrite(
-//     String code = keyGenerator
-//    )
+
+    // wriete community
+    @PostMapping("/community/write")
+    public String communityWrite(@RequestBody CommunityRequestDTO communityDto) {
+        Community community = new Community(communityDto);
+        String code = keyGenerator.randomKey("H");
+        community.setWriteCode(code);
+        addCommunity(community);
+        System.out.println("communiy:" + community.getTitle());
+
+        return "community";
+    }
+
+
 
     // read [ all ]
     @GetMapping("/community/readall")
     public List<Community> getAllCommunity(){
         return communityRepository.findAll();
     }
-
-
 
 
     // read [ one ] > 글 찾는 api 를 만들기만 해준 기능 !  > 메인컨트롤러에서 이 메소드사용해서 처리해줘야함 !
@@ -55,7 +63,6 @@ public class CommunityController extends Timestamp {
         System.out.println(community.getTitle());
         return community;
     }
-
 
 
 
