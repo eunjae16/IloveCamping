@@ -3,11 +3,12 @@
 <html>
 <head>
     <c:import url="/header"/>
-    <title>login</title>
+    <link rel="stylesheet" href="style/login.css">
 </head>
 <body>
-<h1>로그인하기</h1>
-<div class="regist-choice">
+<h2>로그인</h2>
+<h3>회원 유형을 선택 후 로그인을 진행해 주세요.</h3>
+<div class="login-choice">
     <button type="button" onclick="location.href='<c:url value='/clientlogin'/>'">일반유저 로그인</button>
     <button type="button" onclick="location.href='<c:url value='/ownerlogin'/>'">사업자 로그인</button>
 </div>
