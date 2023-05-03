@@ -22,20 +22,23 @@
             </ul>
             <ul>
                 <c:if test="${sessionScope.usertype eq 'owner'}">
-                    <li><a href="../service?command=logout">로그아웃</a></li>
                     <li><a href="/mypageowner">내 정보</a></li>
                 </c:if>
                 <c:if test="${sessionScope.usertype eq 'client'}">
-                    <li><a href="../service?command=logout">로그아웃</a></li>
                     <li><a href="/mypageclient">내 정보</a></li>
                 </c:if>
                 <c:if test="${empty sessionScope.log}">
                     <li><a href="/login">로그인</a></li>
                     <li><a href="/regist">회원가입</a></li>
                 </c:if>
+                <c:if test="${!empty sessionScope.log}">
+                    <li><a id="logoutBtn">로그아웃</a></li>
+                </c:if>
             </ul>
         </nav>
     </div>
 </header>
+
+<script src="script/logout.js"></script>
 </body>
 </html>
