@@ -7,6 +7,7 @@
     <div>
         <p>지역 선택</p>
         <select id="selectSite" name="selectSite" required onchange="searchCamp()">
+            <option value="none" selected hidden>선택</option>
             <option value="viewAll">전체보기</option>
             <option value="서울">서울</option>
             <option value="경기">경기도</option>
