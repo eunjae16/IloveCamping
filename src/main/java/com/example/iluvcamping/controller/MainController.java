@@ -106,6 +106,12 @@ public class MainController {
         return "communityOwnerWrite";
     }
 
+//    @GetMapping("/community/edit")
+//    public ModelAndView communityEdit(@RequestParam String writeCode) {
+//        Community community =
+//                co
+//    }
+
     @GetMapping("/modifyclient")
     public String modifyClient() { return "modifyClient"; }
 
@@ -128,6 +134,11 @@ public class MainController {
     @GetMapping("/mypageowner")
     public String mypageOwner() {
         return "mypageOwner";
+    }
+
+    @GetMapping("/editownerwrite")
+    public String editOwnerWrite() {
+        return "editOwnerWrite";
     }
 
 }

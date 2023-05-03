@@ -11,6 +11,9 @@
     <h4>커뮤니티</h4>
     <table>
         <tr>
+            <td>${community.writeCode}</td>
+        </tr>
+        <tr>
             <td>${community.title}</td>
         </tr>
         <tr>
@@ -25,6 +28,13 @@
 
         </tr>
     </table>
+        <div>
+            <input type="button" value="글목록" onclick="location.href='community'">
+            <c:if test="${sessionScope.log.ownerNickname == community.writerNickname}">
+                <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}}'">
+            </c:if>
+
+
     <table>
         <tr>
             <th>댓글</th>
@@ -34,10 +44,6 @@
             <td><input type="submit" value="저장"></td>
         </tr>
     </table>
-
-
-
-
 </section>
 </body>
 </html>

@@ -2,26 +2,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>글 작성하기</title>
+    <title>업체 글쓰기페이지</title>
 </head>
 <c:import url="header.jsp"/>
 <link rel="stylesheet" href="style/header.css">
 <body>
 <section>
-    <form action="/community/write" method="POST">
+    <form>
         <table>
             <tr>
-                <th>제목</th>
+                <td>
+                    <select id="category" name="category">
+                        <option value="">카테고리선택</option>
+                        <option value="CC100003">질문</option>
+                        <option value="CC100004">자유게시판</option>
+                        <option value="CC100005">캠핑팁</option>
+                    </select>
+                </td>
+                <td>작성자 : </td>
+                <td id="nickname" name="nickname" value="${sessionScope.log.ownerNickname}">${sessionScope.log.ownerNickname}</td>
+            </tr>
+            <tr>
                 <td><input type="text" id="title" name="title" placeholder="제목"></td>
             </tr>
             <tr>
-                <td><textarea id="content" name="content" placeholder="오너페이지에요."></textarea>
+                <td><textarea id="content" name="content" placeholder="[업체] 내용 작성"></textarea>
             </tr>
         </table>
-        <input type="button" id="addwrite" value="등록" onclick="communityWrite(form)">
+        <input type="button" value="등록" onclick="ownerWrite(form)">
         <input type="button" value="작성취소" onclick="location.href='community'">
     </form>
 </section>
-<sciprt src="/script/communityWrite.js"></sciprt>
+<script src="/script/ownerWriteCheck.js"></script>
 </body>
 </html>

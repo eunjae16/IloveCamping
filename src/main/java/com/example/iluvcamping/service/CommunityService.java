@@ -7,9 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -31,8 +30,10 @@ public class CommunityService {
         }
     }
 
-    public List<Community> getCommunityWithPage(SpringDataWebProperties.Pageable pageable) {
-        return communityRepository.findAll((Pageable) pageable).getContent();
+
+
+    public List<Community> getCommunityWithPage(Pageable pageable) {
+        return communityRepository.findAll(pageable).getContent();
     }
 
 

@@ -8,11 +8,12 @@
 </head>
 <body>
 <section>
-    <div class="community-bg"><h2>캠핑 이야기</h2></div>
+    <div class="community-bg"><h2>캠핑이야기</h2></div>
     <table>
         <tr>
-            <th>작성자코드</th>
+            <th>게시글코드</th>
             <th>카테고리</th>
+            <th>닉네임</th>
             <th>제목</th>
             <th>등록일</th>
         </tr>
@@ -25,9 +26,12 @@
             <c:when test="${sessionScope.usertype eq 'client'}">
                 <input type="button" value="글쓰기" onclick="location.href='communityclientwrite'">
             </c:when>
-            <c:otherwise>
+            <c:when test="${sessionScope.admin eq 'admin'}">
                 <input type="button" value="글쓰기" onclick="location.href='communityadmintwrite'">
-            </c:otherwise>
+            </c:when>
+            <c:when test="${empty sessionScope}">
+                <input type="button" value="로그인 후 작성가능" onclick="location.href='#'">
+            </c:when>
         </c:choose>
 
     </div>
