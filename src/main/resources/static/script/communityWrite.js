@@ -1,10 +1,10 @@
 function communityWrite(htmlForm) {
-    let url = "communitywrite?"
+    let url = "communityclientwrite?"
 
+    const category = $('#category').val();
+    const nickname = $('#nickname').val();
     const title = $('#title').val();
-    console.log("title : " + title);
     const content = $('#content').val();
-    console.log("content : " + content);
 
     let check = false;
 
@@ -28,28 +28,23 @@ function communityWrite(htmlForm) {
         location.href = url;
     }
     else {
-        const settings = {
-            "url": "http://localhost:8080/communitywrite",
-            "method": "GET",
+        $.ajax({
+            "url": "/community/clientwrite",
+            "method": "POST",
             "timeout": 0,
             "headers": {
                 "Content-Type": "application/json",
-                "Cookie": "JSESSIONID=1F44238C6BAA6322AC8056DD7B076709"
             },
             "data": JSON.stringify({
+                "writeCode": "",
+                "writerNickname": nickname,
+                "writeCategoryCode": category,
                 "title": title,
                 "content": content
-            })
-        };
-
-        htmlForm.submit();
-
-        // function submit(data) {
-        //     $.ajax(settings).done(function (response) {
-        //         console.log(response);
-        //         location.href="/community/write";
-        //     });
-        // };
+            }),
+        }).done(function (url) {
+            location.href = url;
+        });
 
     }
 

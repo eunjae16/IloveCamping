@@ -87,9 +87,14 @@ public class MainController {
     }
 
     // 게시판 글 작성하는 페이지
-    @GetMapping("/communitywrite")
-    public String communitywrite() {
-        return "communitywrite";
+    @GetMapping("/communityclientwrite")
+    public String communityClientWrite() {
+        return "communityClientWrite";
+    }
+
+    @GetMapping("/communityownerwrite")
+    public String communityOwnerWrite() {
+        return "communityOwnerWrite";
     }
 
     @GetMapping("/modifyclient")

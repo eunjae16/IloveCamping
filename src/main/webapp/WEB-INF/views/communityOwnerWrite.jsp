@@ -15,13 +15,13 @@
                 <td><input type="text" id="title" name="title" placeholder="제목"></td>
             </tr>
             <tr>
-                <td><textarea id="content" name="content" placeholder="글을 작성해주세요."></textarea>
+                <td><textarea id="content" name="content" placeholder="오너페이지에요."></textarea>
             </tr>
         </table>
         <input type="button" id="addwrite" value="등록" onclick="communityWrite(form)">
         <input type="button" value="작성취소" onclick="location.href='community'">
     </form>
 </section>
-<script src="script/community.js"></script>
+<sciprt src="/script/communityWrite.js"></sciprt>
 </body>
 </html>

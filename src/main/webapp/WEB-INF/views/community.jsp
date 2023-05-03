@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -18,7 +19,18 @@
         </tr>
     </table>
     <div>
-        <input type="button" value="글쓰기" onclick="location.href='communitywrite'">
+        <c:choose>
+            <c:when test="${sessionScope.usertype eq 'owner'}">
+                <input type="button" value="글쓰기" onclick="location.href='communityownerwrite'">
+            </c:when>
+            <c:when test="${sessionScope.usertype eq 'client'}">
+                <input type="button" value="글쓰기" onclick="location.href='communityclientwrite'">
+            </c:when>
+            <c:otherwise>
+                <input type="button" value="글쓰기" onclick="location.href='communityadmintwrite'">
+            </c:otherwise>
+        </c:choose>
+
     </div>
 </section>
 <script src="script/community.js"></script>

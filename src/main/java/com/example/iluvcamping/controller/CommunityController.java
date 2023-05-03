@@ -36,13 +36,16 @@ public class CommunityController extends Timestamp {
 
 
     // wriete community
-    @PostMapping("/community/write")
-    public String communityWrite(@RequestBody CommunityRequestDTO communityDto) {
+  @PostMapping("/community/clientwrite")
+    public String communityClientWrite(@RequestBody CommunityRequestDTO communityDto) {
         Community community = new Community(communityDto);
         String code = keyGenerator.randomKey("H");
         community.setWriteCode(code);
+        System.out.println("code: "+ community.getWriteCode());
+        System.out.println("communiy:" + community.getWriteCategoryCode());
+        System.out.println("code:" + community.getWriterNickname());
+
         addCommunity(community);
-        System.out.println("communiy:" + community.getTitle());
 
         return "community";
     }
