@@ -3,7 +3,7 @@
 <html>
 <head>
     <c:import url="/header"/>
-    <link rel="stylesheet" href="style/clientRegister.css">
+    <link rel="stylesheet" href="style/ownerRegister.css">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -26,13 +26,13 @@
                 <td><input type="text" name="account" id="account" placeholder="계좌번호"></td>
             </tr>
         </table>
-        <div>
+        <div class="button-container">
             <input id="join-button" type="button" value="회원가입" onclick="checkValue(form)">
         </div>
         <script src="/script/ownerRegister.js"></script>
     </form>
-    <c:import url="/footer"/>
 </div>
+    <c:import url="/footer"/>
 
 </body>
 </html>
