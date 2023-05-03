@@ -1,7 +1,7 @@
 function searchCamp() {
     var selectedOption = document.querySelector('#selectSite').value;
 
-    fetch('/getCampList?selectedValue=' + selectedOption)
+    fetch('/searchCamp?selectedOption=' + selectedOption)
         .then(response => response.json())
         .then(data => {
             var campListDiv = document.getElementById('campList');
