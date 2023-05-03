@@ -2,6 +2,7 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
+import com.example.iluvcamping.service.CampService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,9 +14,11 @@ import java.util.List;
 public class CampController {
 
     private final CampRepository campRepository;
+    private final CampService campService;
 
-    public CampController(CampRepository campRepository) {
+    public CampController(CampRepository campRepository, CampService campService) {
         this.campRepository = campRepository;
+        this.campService = campService;
     }
 
     @GetMapping("/getCampList")
@@ -24,12 +27,23 @@ public class CampController {
         return campList;
     }
 
+    @GetMapping("/getCampAll")
+    @ResponseBody
+    public List<Camp> getCampAll() {
+        return campService.getCampAll();
+    }
 
     @GetMapping("/searchCamp")
     @ResponseBody
     public List<Camp> searchCamp(@RequestParam String selectedOption) {
-        List<Camp> campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
+        List<Camp> campList;
+
+        if (selectedOption.equals("viewAll")) {
+            campList = campService.getCampAll();
+        } else {
+            campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
+        }
+
         return campList;
     }
-
 }
