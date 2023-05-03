@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -47,6 +49,14 @@ public class RegistController {
         session.setAttribute("log" , owner);
 
         return "joinSuccess";
+    }
+
+    @RequestMapping("/regist/leave/owner")
+    public ModelAndView leaveOwner(HttpSession session, ModelAndView mv) {
+        Owner owner = (Owner) session.getAttribute("log");
+        String ownerId = owner.getOwnerId();
+
+        return mv;
     }
 
 }

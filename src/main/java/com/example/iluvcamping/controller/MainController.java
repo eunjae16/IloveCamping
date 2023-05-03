@@ -92,18 +92,28 @@ public class MainController {
         return "communitywrite";
     }
 
+    @GetMapping("/modifyclient")
+    public String modifyClient() { return "modifyClient"; }
 
+    @GetMapping("/modifyowner")
+    public String modifyOwner() { return "modifyOwner"; }
 
-
-
-
-//    @GetMapping("/error")
-//    public String error() { return "error"; }
+    @GetMapping("/error")
+    public String error() { return "error"; }
 
     @GetMapping("/ownerSales")
     public String ownerSales() {
         return "ownerSales";
     }
 
+    @GetMapping("/mypageclient")
+    public String mypageClient() {
+        return "mypageClient";
+    }
+
+    @GetMapping("/mypageowner")
+    public String mypageOwner() {
+        return "mypageOwner";
+    }
 
 }
