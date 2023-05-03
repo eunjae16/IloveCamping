@@ -3,23 +3,25 @@
 <html>
 <head>
 <c:import url="/header"/>
-  <title>일반유저 로그인</title>
+  <link rel="stylesheet" href="style/clientlogin.css">
 </head>
 <body>
-<h1>일반사용자 로그인</h1>
-<form method="POST" action="clientlogin">
-  <table>
-    <tr>
-      <th>ID</th>
-      <td><input type="text" id="id" name="id" placeholder="아이디" required></td>
-    </tr>
-    <tr>
-      <th>PW</th>
-      <td><input type="password" id="password" name="password" placeholder="비밀번호" required onkeydown="if (event.keyCode == 13) checkValues(this.form)"></td>
-      <td><input type="button" value="로그인" onclick="checkValues(form)"></td>
-    </tr>
-  </table>
-</form>
+<div class="login-box">
+  <h2>일반유저 로그인</h2>
+  <form method="POST" action="clientlogin">
+    <table>
+      <tr>
+        <td><input type="text" id="id" name="id" placeholder="아이디" required></td>
+      </tr>
+      <tr>
+        <td><input type="password" id="password" name="password" placeholder="비밀번호" required onkeydown="if (event.keyCode == 13) checkValues(this.form)"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="로그인" onclick="checkValues(form)"></td>
+      </tr>
+    </table>
+  </form>
+</div>
 <c:import url="/footer"/>
 <script src="script/clientlogin.js"></script>
 </body>

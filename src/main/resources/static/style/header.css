@@ -11,12 +11,16 @@ a {
     color: white;
 }
 
+a:hover {
+    color: #495579;
+}
+
 ul {
     list-style: none;
 }
 
 header {
-    background-color: #2C3639;
+    background-color: black;
 }
 
 .header-wrap {

@@ -2,10 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>글 작성하기</title>
+    <c:import url="/header"/>
+    <link rel="stylesheet" href="style/communitywrite.css">
 </head>
-<c:import url="header.jsp"/>
-<link rel="stylesheet" href="style/header.css">
 <body>
 <section>
     <form action="/community/write" method="POST">
@@ -15,11 +14,13 @@
                 <td><input type="text" id="title" name="title" placeholder="제목"></td>
             </tr>
             <tr>
-                <td><input type="textarea" id="content" name="content" placeholder="글을 작성해주세요."></td>
+                <td colspan="2"><input type="textarea" id="content" name="content" placeholder="글을 작성해 주세요."></td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="addwrite" value="등록" onclick="communityWrite(form)"></td>
+                <td><input type="button" value="작성취소" onclick="location.href='community'"></td>
             </tr>
         </table>
-        <input type="submit" id="addwrite" value="등록" onclick="communityWrite(form)">
-        <input type="button" value="작성취소" onclick="location.href='community'">
     </form>
 </section>
 <sciprt src="/script/communityWrite.js"></sciprt>

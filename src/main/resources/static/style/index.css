@@ -50,7 +50,6 @@ header {
 .search-box select {
     width: 90px;
     height: 50px;
-    border-radius: 15px;
     padding: 5px;
     border: 0;
     background-color: #251749;
@@ -62,14 +61,12 @@ header {
     width: 500px;
     height: 50px;
     padding: 5px;
-    border-radius: 15px;
     border: 0;
 }
 
 .search-box button {
     width: 50px;
     height: 50px;
-    border-radius: 30px;
     padding: 10px;
     border: 0;
     background-color: #251749;
