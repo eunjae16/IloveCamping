@@ -10,7 +10,6 @@
 <section>
     <div class="index-bg"></div>
     <div class="search-box">
-        <h2>${empty sessionScope.check} : ${sessionScope.check}</h2>
         <p>오늘은 어디로 갈까?</p>
         <form action="" method="post">
             <select>

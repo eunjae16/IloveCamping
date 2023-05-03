@@ -12,10 +12,6 @@
 <div class="regist-choice">
     <button type="button" onclick="location.href='<c:url value='/clientregister'/>'">일반유저 회원가입</button>
     <button type="button" onclick="location.href='<c:url value='/ownerregister'/>'">사업자 회원가입</button>
-    <ul>
-        <li><a href="clientregister">일반유저 회원가입</a></li>
-        <li><a href="ownerregister">사업자 회원가입</a></li>
-    </ul>
 </div>
 
 <c:import url="/footer"/>

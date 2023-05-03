@@ -29,7 +29,10 @@
                 <td><input type="text" name="email" id="email" placeholder="이메일"></td>
             </tr>
             <tr>
-                <td><input type="text" id="address_number" name="addressCode" placeholder="우편번호"><input type="button" onclick="pop()" value="우편번호 찾기"></td>
+                <td><input type="button" onclick="pop()" value="우편번호 찾기"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="address_number" name="addressCode" placeholder="우편번호"></td>
             </tr>
             <tr>
                 <td><input type="text" id="address" name="address" placeholder="주소" readonly></td>

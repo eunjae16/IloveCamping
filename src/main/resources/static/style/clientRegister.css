@@ -1,10 +1,37 @@
 .client-register-container {
     margin: 0 auto;
     width: 400px;
-    height: 500px;
-    background-color: #FFFBEB;
+    height: 420px;
+    background-color: #495579;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.client-register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.client-register-container table {
+    border-spacing: 10px;
+    margin: 0 auto;
 }
 
 input[type=text], input[type=password] {
     border: 0;
+    height: 30px;
+    padding: 5px;
+    width: 100%;
+}
+
+.button-container {
+    text-align: center;
+}
+
+input[type=button], button {
+    border: 1px solid white;
+    background-color: #495579;
+    color: white;
+    padding: 5px;
 }
