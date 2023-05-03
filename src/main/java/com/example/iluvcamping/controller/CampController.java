@@ -6,7 +6,6 @@ import com.example.iluvcamping.service.CampService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -27,23 +26,23 @@ public class CampController {
         return campList;
     }
 
-    @GetMapping("/getCampAll")
-    @ResponseBody
-    public List<Camp> getCampAll() {
-        return campService.getCampAll();
-    }
+//    @GetMapping("/getCampAll")
+//    @ResponseBody
+//    public List<Camp> getCampAll() {
+//        return campService.getCampAll();
+//    }
 
-    @GetMapping("/searchCamp")
-    @ResponseBody
-    public List<Camp> searchCamp(@RequestParam String selectedOption) {
-        List<Camp> campList;
-
-        if (selectedOption.equals("viewAll")) {
-            campList = campService.getCampAll();
-        } else {
-            campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
-        }
-
-        return campList;
-    }
+//    @GetMapping("/searchCamp")
+//    @ResponseBody
+//    public List<Camp> searchCamp(@RequestParam String selectedOption) {
+//        List<Camp> campList;
+//
+//        if (selectedOption.equals("viewAll")) {
+//            campList = campService.getCampAll();
+//        } else {
+//            campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
+//        }
+//
+//        return campList;
+//    }
 }
