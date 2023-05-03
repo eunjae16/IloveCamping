@@ -1,12 +1,13 @@
 package com.example.iluvcamping.service;
 
 import com.example.iluvcamping.domain.client.ClientRepository;
+import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.owner.Owner;
 import com.example.iluvcamping.domain.owner.OwnerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -18,6 +19,10 @@ public class OwnerService {
 
     public void addOwner(Owner owner) {
         ownerRepository.save(owner);
+    }
+
+    public List<Owner> getOwnerAllByIdAndPassword(String id, String password){
+        return ownerRepository.getAllByOwnerIdAndOwnerPassword(id, password);
     }
 
     public Optional<Owner> getOwner(String id) {

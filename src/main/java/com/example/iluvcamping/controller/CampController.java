@@ -5,6 +5,7 @@ import com.example.iluvcamping.domain.camp.CampRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -25,8 +26,10 @@ public class CampController {
 
 
     @GetMapping("/searchCamp")
+    @ResponseBody
     public List<Camp> searchCamp(@RequestParam String selectedOption) {
         List<Camp> campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
         return campList;
     }
+
 }

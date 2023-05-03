@@ -1,5 +1,5 @@
 function checkValues(htmlForm){
-    let url = "login"
+    let url = "clientlogin"
 
     const userCode = document.getElementById("id").value;
     const userPassword = document.getElementById("password").value;

@@ -1,7 +1,7 @@
 function searchCamp() {
     var selectedOption = document.querySelector('#selectSite').value;
 
-    fetch('/getCampList?selectedValue=' + selectedOption)
+    fetch('/searchCamp?selectedOption=' + selectedOption)
         .then(response => response.json())
         .then(data => {
             var campListDiv = document.getElementById('campList');
@@ -11,7 +11,15 @@ function searchCamp() {
             if (Array.isArray(data)) { // 배열인지 확인
                 data.forEach(camp => {
                     var campDiv = document.createElement('div');
-                    campDiv.textContent = '캠핑장 이름: ' + camp.campName + ', 주소: ' + camp.campAddress1;
+                    var campName = document.createElement('p');
+                    var campAddress = document.createElement('p');
+                    var campImg = document.createElement('img'); // img 엘리먼트 생성
+                    campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
+                    campName.textContent += '캠핑장 이름: ' + camp.campName;
+                    campAddress.textContent += '주소: ' + camp.campAddress1;
+                    campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
+                    campDiv.appendChild(campName);
+                    campDiv.appendChild(campAddress);
                     campListDiv.appendChild(campDiv);
                 });
             }
@@ -20,6 +28,7 @@ function searchCamp() {
             }
         })
         .catch(error => console.log(error));
+
 }
 
 // select 요소의 변경 이벤트에 searchCamp 함수 연결
