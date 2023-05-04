@@ -25,20 +25,6 @@ $.ajax(settings).done(function (response) {
         location.href = `/communityread?writeCode=${id}`;
     });
 });
-        // $.ajax({
-        //     "url": `/communityread?writeCode=${id}`,
-        //     "method": "GET",
-        //     "timeout": 0
-        // }).done(function (response) {
-        //     // if(response === 'community') {
-        //     //     console.log("ok");
-        //     location.href = '/communityread';
-        // })
-        // //     else {
-        // //
-        // //     }
-        // // });
-
 
 
 // $.ajax({

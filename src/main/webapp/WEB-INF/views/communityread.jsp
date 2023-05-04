@@ -21,29 +21,26 @@
             <td>${community.registeredDate}</td>
         </tr>
         <tr>
-            <td><p>
-                ${sessionse.log.usertype} / ${session.log.clientNickname}
-            </p>
-            </td>
+            <td>${community.content}</td>
         </tr>
+
     </table>
     <div>
         <input type="button" value="글목록" onclick="location.href='community'">
 
-<c:choose>
-    <c:when test="${session.log.usertype == 'owner' && session.log.ownerNickname == community.writerNickname}">
-        <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
-        <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
-    </c:when>
-        <c:when test="${session.log.usertype == 'client' && session.log.clientNickname == community.writerNickname}">
-        <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
-        <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
+    <c:choose>
+       <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq community.writerNickname}">
+           <input type="button" value="수정" onclick="location.href='editownerwrite?writeCode=${community.writeCode}'">
+           <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
+     </c:when>
+        <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq community.writerNickname}">
+            <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
+             <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
         </c:when>
-        <c:when test="${session.log.usertype == 'admin' && session.log.adminNickname == community.writerNickname}">
-        <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
-        <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
+        <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq community.writerNickname}">
+             <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
+             <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
         </c:when>
-
         </c:choose>
 
 

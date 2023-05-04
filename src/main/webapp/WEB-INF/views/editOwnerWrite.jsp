@@ -12,7 +12,34 @@
 </head>
 <body>
     <section>
-        [업체] 글수정하기
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <select id="category" name="category">
+                            <option value="">카테고리선택</option>
+                            <option value="CC100003">질문</option>
+                            <option value="CC100004">자유게시판</option>
+                            <option value="CC100005">캠핑팁</option>
+                        </select>
+                    </td>
+                    <td>작성자 : </td>
+                    <td id="nickname" name="nickname" value="${sessionScope.log.ownerNickname}">${sessionScope.log.ownerNickname}</td>
+                </tr>
+                <tr>
+                    <td><textarea type="text" id="title" name="title">${community.title}
+                    </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><textarea id="content" name="content">${community.content}
+                    </textarea>
+                </tr>
+            </table>
+            <input type="button" value="등록" onclick="updateCheck(form)">
+            <input type="button" value="수정취소" onclick="location.href='community'">
+        </form>
     </section>
+<script src="/script/communityUpdate.js"></script>
 </body>
 </html>
