@@ -2,6 +2,8 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
+import com.example.iluvcamping.domain.campView.CampView;
+import com.example.iluvcamping.domain.campView.CampViewRepository;
 import com.example.iluvcamping.service.CampService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,36 +15,18 @@ import java.util.List;
 public class CampController {
 
     private final CampRepository campRepository;
+    private final CampViewRepository campViewRepository;
     private final CampService campService;
 
-    public CampController(CampRepository campRepository, CampService campService) {
+    public CampController(CampRepository campRepository, CampViewRepository campViewRepository, CampService campService) {
         this.campRepository = campRepository;
         this.campService = campService;
+        this.campViewRepository = campViewRepository;
     }
 
     @GetMapping("/getCampList")
-    public List<Camp> getCampList(@RequestParam("selectedValue") String selectedValue) {
-        List<Camp> campList = campRepository.findByCampAddress1StartingWith(selectedValue.substring(0, 2));
+    public List<CampView> getCampList(@RequestParam("selectedValue") String selectedValue) {
+        List<CampView> campList = campViewRepository.findAllByCampAddress1StartingWith(selectedValue.substring(0, 2));
         return campList;
     }
-
-//    @GetMapping("/getCampAll")
-//    @ResponseBody
-//    public List<Camp> getCampAll() {
-//        return campService.getCampAll();
-//    }
-
-//    @GetMapping("/searchCamp")
-//    @ResponseBody
-//    public List<Camp> searchCamp(@RequestParam String selectedOption) {
-//        List<Camp> campList;
-//
-//        if (selectedOption.equals("viewAll")) {
-//            campList = campService.getCampAll();
-//        } else {
-//            campList = campRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
-//        }
-//
-//        return campList;
-//    }
 }
