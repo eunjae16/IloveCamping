@@ -2,7 +2,6 @@ package com.example.iluvcamping.domain.camp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.Column;
@@ -12,7 +11,6 @@ import javax.persistence.Table;
 
 @AllArgsConstructor
 @Getter
-@NoArgsConstructor
 @Table(name = "camp")
 @Entity
 public class Camp {
@@ -37,4 +35,5 @@ public class Camp {
     @NonNull
     @Column(name = "camp_phone")
     private String campPhone;
+
 }

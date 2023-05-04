@@ -3,7 +3,7 @@
 <html>
 <head>
     <c:import url="/header"/>
-    <link rel="stylesheet" href="style/clientRegister.css">
+<%--    <link rel="stylesheet" href="style/clientRegister.css">--%>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -20,7 +20,7 @@
                 <td><span id="messageId"></span></td>
             </tr>
             <tr>
-                <td><input type="button" id="checkId" value="아이디 중복검사">/td>
+                <td><input type="button" id="checkId" value="아이디 중복검사"></td>
             </tr>
             <tr>
                 <td><input type="password" name="password" id="password" placeholder="비밀번호" value="${not empty param.password ? param.password : ''}"></td>
@@ -32,7 +32,7 @@
                 <td><span id="messageNickname"></span></td>
             </tr>
             <tr>
-                <td><input type="button" id="checkNickname" value="닉네임 중복검사">/td>
+                <td><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
             </tr>
             <tr>
                 <td><input type="text" name="phone" id="phone" placeholder="연락처" value="${not empty param.phone ? param.phone : ''}"></td>

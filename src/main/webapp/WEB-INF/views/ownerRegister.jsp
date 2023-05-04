@@ -20,7 +20,7 @@
                 <td><span id="messageId"></span></td>
             </tr>
             <tr>
-                <td><input type="button" id="checkId" value="아이디 중복검사">/td>
+                <td><input type="button" id="checkId" value="아이디 중복검사"></td>
             </tr>
             <tr>
                 <td><input type="text" name="password" id="password" placeholder="비밀번호" value="${not empty param.password ? param.password : ''}"></td>
@@ -32,7 +32,7 @@
                 <td><span id="messageNickname"></span></td>
             </tr>
             <tr>
-                <td><input type="button" id="checkNickname" value="닉네임 중복검사">/td>
+                <td><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
             </tr>
             <tr>
                 <td><input type="text" name="account" id="account" placeholder="계좌번호" value="${not empty param.account ? param.account : ''}"></td>
@@ -45,6 +45,5 @@
     </form>
 </div>
     <c:import url="/footer"/>
-
 </body>
 </html>
