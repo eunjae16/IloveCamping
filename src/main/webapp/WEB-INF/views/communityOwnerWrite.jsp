@@ -33,6 +33,6 @@
         <input type="button" value="작성취소" onclick="location.href='community'">
     </form>
 </section>
-<script src="/script/ownerWriteCheck.js"></script>
+<script src="/script/community/ownerWriteCheck.js"></script>
 </body>
 </html>

@@ -11,8 +11,8 @@
 <head>
     <title>[업체] 글수정하기</title>
 </head>
-<c:import url="header.jsp"/>
-<link rel="stylesheet" href="style/header.css">
+<c:import url="../header.jsp"/>
+<link rel="stylesheet" href="../style/header.css">
 <body>
     <section>
         <form>
@@ -36,9 +36,9 @@
                 </tr>
             </table>
             <input type="button" value="등록" onclick="updateCheck(form)">
-            <input type="button" value="수정취소" onclick="location.href='community'">
+            <input type="button" value="수정취소" onclick="locatidon.href='../community'">
         </form>
     </section>
-<script src="/script/communityUpdate.js"></script>
+<script src="/script/community/updateCheck.js"></script>
 </body>
 </html>

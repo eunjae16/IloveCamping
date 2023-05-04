@@ -60,17 +60,16 @@ public class CommunityController extends Timestamp {
     }
 
     // update
-    @PutMapping("/community/ownerupdate")
+    @PutMapping("/community/update")
     public void updateByWriteCode(@RequestBody CommunityRequestDTO communityDto) {
+            communityService.updateCommunity(communityDto);
     }
 
-    // delete
-    @DeleteMapping("/community/deleteownerwrite")
-    public void removeOwnerWrite(String writeCode) {
-        System.out.println("writeCode" + writeCode);
+    // delete [ owner ]
+    @DeleteMapping("/community/deletewrite")
+    public void removeWrite(String writeCode) {
         Community community = getCommunityByWriteCode(writeCode);
-        System.out.println("del com" + community.getWriterNickname());
-        communityService.deleteOwnerWriteByWritecode(writeCode);
+        communityService.deleteWriteByWritecode(writeCode);
     }
 
     // paging

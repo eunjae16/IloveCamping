@@ -23,7 +23,7 @@ public class CommunityService {
 
     // update
     @Transactional
-    public void updateCommunityOwner(CommunityRequestDTO communityDto) {
+    public void updateCommunity(CommunityRequestDTO communityDto) {
         String writeCode = communityDto.getWriteCode();
 
         Community community = communityRepository.findById(writeCode).orElseThrow(
@@ -32,9 +32,9 @@ public class CommunityService {
         community.updateCommunity(communityDto);
     }
 
-    // delete
+    // delete [ owner ]
     @Transactional
-    public void deleteOwnerWriteByWritecode(String writeCode) {
+    public void deleteWriteByWritecode(String writeCode) {
         communityRepository.deleteById(writeCode);
     }
 

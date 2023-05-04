@@ -27,23 +27,23 @@
     </table>
     <div>
         <input type="button" value="글목록" onclick="location.href='community'">
+        <input type="hidden" id="writeCode" value="${community.writeCode}">
 
     <c:choose>
-       <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq community.writerNickname}">
-           <input type="button" value="수정" onclick="location.href='editownerwrite?writeCode=${community.writeCode}'">
-           <input type="hidden" id="writeCode" value="${community.writeCode}">
-           <input type="button" value="삭제" onclick="deleteOwnerWrite()">
+    <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq community.writerNickname}">
+        <input type="button" value="수정" onclick="location.href='/community/editowner?writeCode=${community.writeCode}'">
+           <input type="button" value="삭제" onclick="deleteWrite()">
      </c:when>
         <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq community.writerNickname}">
-            <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
-             <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
+            <input type="button" value="수정" onclick="location.href='/community/editclient?writeCode=${community.writeCode}'">
+            <input type="button" value="삭제" onclick="deleteWrite()">
         </c:when>
         <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq community.writerNickname}">
              <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
-             <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
+            <input type="button" value="삭제" onclick="deleteWrite()">
         </c:when>
         </c:choose>
-
+    </div>
 
         <table>
             <tr>
@@ -55,6 +55,6 @@
             </tr>
         </table>
 </section>
-<script src="/script/deleteOwnerWrite.js"></script>
+<script src="/script/community/deleteWrite.js"></script>
 </body>
 </html>

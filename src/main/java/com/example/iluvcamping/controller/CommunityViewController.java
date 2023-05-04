@@ -27,11 +27,22 @@ public class CommunityViewController {
 
 
     // 수정을 위한 게시글 리로드 [ owner 용 ]
-    @GetMapping("/editownerwrite")
+    @GetMapping("community/editowner")
     public ModelAndView editOwnerWrite(@RequestParam String writeCode) {
         Community community = controller.getCommunityByWriteCode(writeCode);
 
-        ModelAndView modelAndView = new ModelAndView("editOwnerWrite");
+        ModelAndView modelAndView = new ModelAndView("community/editOwner");
+        modelAndView.addObject("community" , community);
+
+        return modelAndView;
+    }
+
+    // 수정을 위한 게시글 리로드 [ client 용 ]
+    @GetMapping("community/editclient")
+    public ModelAndView editClient(@RequestParam String writeCode) {
+        Community community = controller.getCommunityByWriteCode(writeCode);
+
+        ModelAndView modelAndView = new ModelAndView("community/editClient");
         modelAndView.addObject("community" , community);
 
         return modelAndView;

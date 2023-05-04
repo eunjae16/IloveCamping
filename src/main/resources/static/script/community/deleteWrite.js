@@ -1,7 +1,7 @@
-function deleteOwnerWrite(){
+function deleteWrite(){
 
     const settings = {
-        "url": "community/deleteownerwrite?writeCode="+$('#writeCode').val(),
+        "url": "community/deletewrite?writeCode="+$('#writeCode').val(),
         "method": "DELETE",
         "timeout": 0
         }

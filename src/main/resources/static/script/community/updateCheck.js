@@ -1,5 +1,5 @@
 function updateCheck(htmlForm) {
-    let url = "/community/ownerupdate?";
+    let url = "/community/update?";
 
     const writeCode = $('#writeCode').val();
     const category = $('#category').val();
@@ -33,7 +33,7 @@ function updateCheck(htmlForm) {
 
     else {
         const settings = {
-            "url": "/community/ownerupdate",
+            "url": "/community/update",
             "method": "PUT",
             "timeout": 0,
             "headers": {
@@ -50,7 +50,7 @@ function updateCheck(htmlForm) {
         };
 
         $.ajax(settings).done(function (response) {
-            location.href = "community";
+            location.href = "../community";
         });
     }
 }
