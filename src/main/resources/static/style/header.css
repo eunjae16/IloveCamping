@@ -20,7 +20,9 @@ ul {
 }
 
 header {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    background-image: url("../image/bg-02.jpg");
 }
 
 .header-wrap {
