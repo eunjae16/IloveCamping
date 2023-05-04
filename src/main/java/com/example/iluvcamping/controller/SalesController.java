@@ -1,5 +1,7 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.DailySalesByOwner.DailySalesByOwner;
+import com.example.iluvcamping.domain.DailySalesByOwner.DailySalesByOwnerRepository;
 import com.example.iluvcamping.domain.MonthlySalesbyOwner.MonthlySalesByOwner;
 import com.example.iluvcamping.domain.MonthlySalesbyOwner.MonthlySalesByOwnerRepository;
 import lombok.AllArgsConstructor;
@@ -17,11 +19,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SalesController {
 
+    private final DailySalesByOwnerRepository dailySalesByOwnerRepository;
     private final MonthlySalesByOwnerRepository monthlySalesByOwnerRepository;
+
     @GetMapping("/get/allmonthlylist")
-    @ResponseBody // json 타입의 객체를 반환한다~
-    // 반환된 애를 js 주물주물하던가~ 아무튼 값을
-    public  List<MonthlySalesByOwner> getAllMonthlySales() {
+    @ResponseBody
+    public List<MonthlySalesByOwner> getAllMonthlySales() {
         List<MonthlySalesByOwner> list = monthlySalesByOwnerRepository.findAll();
 
         return list;
@@ -31,6 +34,14 @@ public class SalesController {
     @ResponseBody
     public List<MonthlySalesByOwner> getMonthlySalesByOwner(@RequestParam String ownerCode){
         List<MonthlySalesByOwner> list = monthlySalesByOwnerRepository.getMonthlySalesByOwnersByOwnerCode(ownerCode);
+
+        return list;
+    }
+
+    @GetMapping("/get/dailysales/ownercode")
+    @ResponseBody
+    public List<DailySalesByOwner> getDailySalesByOwner(@RequestParam String ownerCode) {
+        List <DailySalesByOwner> list = dailySalesByOwnerRepository.getDailySalesByOwnerByOrderByOwnerCode(ownerCode);
 
         return list;
     }

@@ -6,19 +6,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <body>
 <section>
     <h3>매출 현황</h3>
-    <div class="container">
+    <div class="container" id="${log.ownerCode}">
         <div class="button-container">
-            <button type="button" id="btn">연도별 매출</button>
-            <button type="button" id="btn2">월별 매출</button>
+            <button type="button" id="btn">월별 매출</button>
+            <button type="button" id="btn2">연도별 매출</button>
         </div>
         <div id="column_chart_div1" style="width: 900px; height: 500px;"></div>
     </div>
 </section>
-<script src="../resources/ownerSales.js"></script>
+<script src="script/ownerSales.js"></script>
 <c:import url="footer.jsp"/>
 </body>
 </html>
