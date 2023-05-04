@@ -1,6 +1,7 @@
 function updateCheck(htmlForm) {
-    let url = "editownerwrite?"
+    let url = "/community/ownerupdate?";
 
+    const writeCode = $('#writeCode').val();
     const category = $('#category').val();
     const nickname = $('#nickname').text();
     const title = $('#title').val();
@@ -31,6 +32,25 @@ function updateCheck(htmlForm) {
     }
 
     else {
+        const settings = {
+            "url": "/community/ownerupdate",
+            "method": "PUT",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+                "writeCode": writeCode,
+                "writerNickname": nickname,
+                "writeCategoryCode": category,
+                "title": title,
+                "content": content,
+                "bookingCode": ""
+            }),
+        };
 
+        $.ajax(settings).done(function (response) {
+            location.href = "community";
+        });
     }
 }
