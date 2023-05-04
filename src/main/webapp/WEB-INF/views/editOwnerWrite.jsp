@@ -17,15 +17,10 @@
     <section>
         <form>
             <table>
-                <td><input type="hidden" id="writeCode" name="writeCode" value="${community.writeCode}">${community.writeCode}</td>
+                <input type="hidden" id="writeCode" name="writeCode" value="${community.writeCode}"></td>
                 <tr>
                     <td>
-                        <select id="category" name="category">
-                            <option value="">카테고리선택</option>
-                            <option value="CC100003">질문</option>
-                            <option value="CC100004">자유게시판</option>
-                            <option value="CC100005">캠핑팁</option>
-                        </select>
+                        <input id="category" value="${community.writeCategoryCode}" readonly>
                     </td>
                     <td>작성자 : </td>
                     <td id="nickname" name="nickname" value="${sessionScope.log.ownerNickname}">${sessionScope.log.ownerNickname}</td>

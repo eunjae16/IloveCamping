@@ -31,7 +31,8 @@
     <c:choose>
        <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq community.writerNickname}">
            <input type="button" value="수정" onclick="location.href='editownerwrite?writeCode=${community.writeCode}'">
-           <input type="button" value="삭제" onclick="location.href='community/delete?writeCode=${community.writeCode}'">
+           <input type="hidden" id="writeCode" value="${community.writeCode}">
+           <input type="button" value="삭제" onclick="deleteOwnerWrite()">
      </c:when>
         <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq community.writerNickname}">
             <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
@@ -54,5 +55,6 @@
             </tr>
         </table>
 </section>
+<script src="/script/deleteOwnerWrite.js"></script>
 </body>
 </html>
