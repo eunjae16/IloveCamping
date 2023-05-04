@@ -14,40 +14,40 @@
     <form method="post" action="/regist/client">
         <table>
             <tr>
-                <td><input type="text" name="id" id="id" placeholder="아이디"></td>
+                <td><input type="text" name="id" id="id" placeholder="아이디" value="${not empty param.id ? param.id : ''}"></td>
             </tr>
             <tr>
-                <td><p> ### 중복체크 메세지 ###</p></td>
+                <td><span id="messageId"></span></td>
             </tr>
             <tr>
-                <td><button type="submit">아이디 중복체크</button>/td>
+                <td><input type="button" id="checkId" value="아이디 중복검사">/td>
             </tr>
             <tr>
-                <td><input type="password" name="password" id="password" placeholder="비밀번호"></td>
+                <td><input type="password" name="password" id="password" placeholder="비밀번호" value="${not empty param.password ? param.password : ''}"></td>
             </tr>
             <tr>
-                <td><input type="text" name="nickname" id="nickname" placeholder="닉네임"></td>
+                <td><input type="text" name="nickname" id="nickname" placeholder="닉네임" value="${not empty param.nickname ? param.nickname : ''}"></td>
             </tr>
             <tr>
-                <td><p> ### 중복체크 메세지 ###</p></td>
+                <td><span id="messageNickname"></span></td>
             </tr>
             <tr>
-                <td><button type="submit">닉네임 중복체크</button>/td>
+                <td><input type="button" id="checkNickname" value="닉네임 중복검사">/td>
             </tr>
             <tr>
-                <td><input type="text" name="phone" id="phone" placeholder="연락처"></td>
+                <td><input type="text" name="phone" id="phone" placeholder="연락처" value="${not empty param.phone ? param.phone : ''}"></td>
             </tr>
             <tr>
-                <td><input type="text" name="email" id="email" placeholder="이메일"></td>
+                <td><input type="text" name="email" id="email" placeholder="이메일" value="${not empty param.email ? param.email : ''}"></td>
             </tr>
             <tr>
                 <td><input type="button" onclick="pop()" value="우편번호 찾기"></td>
             </tr>
             <tr>
-                <td><input type="text" id="address_number" name="addressCode" placeholder="우편번호"></td>
+                <td><input type="text" id="address_number" name="addressCode" placeholder="우편번호" value="${not empty param.addressCode ? param.addressCode : ''}"></td>
             </tr>
             <tr>
-                <td><input type="text" id="address" name="address" placeholder="주소" readonly></td>
+                <td><input type="text" id="address" name="address" placeholder="주소" readonly value="${not empty param.address ? param.address : ''}"></td>
             </tr>
         </table>
         <div class="button-container">
@@ -55,7 +55,7 @@
         </div>
     </form>
 </div>
-    <c:import url="/footer"/>
+<c:import url="/footer"/>
 <script src="/script/clientRegister.js"></script>
 </body>
 </html>

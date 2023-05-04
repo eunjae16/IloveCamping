@@ -82,5 +82,78 @@ function submit(data) {
         });
 }
 
+$('#checkId').click(function () {
+    if ($('#id').val() != '') {
+        $.ajax({
+            type: 'GET',
+            url: '/login/idcheck.action',
+            data: 'id=' + $('#id').val(),
+            dataType: 'json',
+            success: function (result) {
+                if (result == '0') {
+                    $('#messageId').text('사용가능한 아이디입니다.');
+                    location.replace("/clientregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "&phone=" + $('#phone').val()
+                        + "&email=" + $('#email').val()
+                        + "&addressCode=" + $('#address_number').val()
+                        + "&address=" + $('#address').val());
+                } else {
+                    $('#messageId').text('이미 사용중인 아이디입니다.');
+                    location.replace("/clientregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "&phone=" + $('#phone').val()
+                        + "&email=" + $('#email').val()
+                        + "&addressCode=" + $('#address_number').val()
+                        + "&address=" + $('#address').val());
+                }
+            },
+            error: function (a, b, c) {
+                console.log(a, b, c);
+            }
+        });
+    } else {
+        alert('아이디를 입력하세요.');
+        $('#id').focus();
+    }
+});
 
-// error.jsp -> js 연동 -> 문서 로드 후, 3초 뒤 메인으로 이동 처리
+$('#checkNickname').click(function () {
+    if ($('#nickname').val() != '') {
+        $.ajax({
+            type: 'GET',
+            url: '/login/nicknamecheck.action',
+            data: 'nickname=' + $('#nickname').val(),
+            dataType: 'json',
+            success: function (result) {
+                if (result == '0') {
+                    $('#messageId').text('사용가능한 아이디입니다.');
+                    location.replace("/clientregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "&phone=" + $('#phone').val()
+                        + "&email=" + $('#email').val()
+                        + "&addressCode=" + $('#address_number').val()
+                        + "&address=" + $('#address').val());
+                } else {
+                    $('#messageId').text('이미 사용중인 아이디입니다.');
+                    location.replace("/clientregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "&phone=" + $('#phone').val()
+                        + "&email=" + $('#email').val()
+                        + "&addressCode=" + $('#address_number').val()
+                        + "&address=" + $('#address').val());
+                }
+            },
+            error: function (a, b, c) {
+                console.log(a, b, c);
+            }
+        });
+    } else {
+        alert('닉네임을 입력하세요.');
+        $('#nickname').focus();
+    }
+});

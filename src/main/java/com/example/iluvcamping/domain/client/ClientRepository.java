@@ -11,5 +11,5 @@ public interface ClientRepository extends JpaRepository<Client, String> {
 
     public Client getClientByClientCode(String clientCode);
 
-
+    public Client getClientByClientNickname(String nickname);
 }

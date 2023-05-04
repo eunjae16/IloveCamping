@@ -14,16 +14,28 @@
     <form method="post" action="/regist/owner">
         <table>
             <tr>
-                <td><input type="text" name="id" id="id" placeholder="아이디"></td>
+                <td><input type="text" name="id" id="id" placeholder="아이디" value="${not empty param.id ? param.id : ''}"></td>
             </tr>
             <tr>
-                <td><input type="text" name="password" id="password" placeholder="비밀번호"></td>
+                <td><span id="messageId"></span></td>
             </tr>
             <tr>
-                <td><input type="text" name="nickname" id="nickname" placeholder="닉네임"></td>
+                <td><input type="button" id="checkId" value="아이디 중복검사">/td>
             </tr>
             <tr>
-                <td><input type="text" name="account" id="account" placeholder="계좌번호"></td>
+                <td><input type="text" name="password" id="password" placeholder="비밀번호" value="${not empty param.password ? param.password : ''}"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="nickname" id="nickname" placeholder="닉네임" value="${not empty param.nickname ? param.nickname : ''}"></td>
+            </tr>
+            <tr>
+                <td><span id="messageNickname"></span></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="checkNickname" value="닉네임 중복검사">/td>
+            </tr>
+            <tr>
+                <td><input type="text" name="account" id="account" placeholder="계좌번호" value="${not empty param.account ? param.account : ''}"></td>
             </tr>
         </table>
         <div class="button-container">

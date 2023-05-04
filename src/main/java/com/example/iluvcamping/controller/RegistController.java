@@ -1,16 +1,17 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.client.Client;
+import com.example.iluvcamping.domain.client.ClientRepository;
 import com.example.iluvcamping.domain.client.ClientRequestDTO;
 import com.example.iluvcamping.domain.owner.Owner;
+import com.example.iluvcamping.domain.owner.OwnerRepository;
 import com.example.iluvcamping.domain.owner.OwnerRequestDTO;
+import com.example.iluvcamping.service.ClientService;
+import com.example.iluvcamping.service.OwnerService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,9 +20,12 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 public class RegistController {
 
-    private final com.example.iluvcamping.service.ClientService clientService;
-    private final com.example.iluvcamping.service.OwnerService ownerService;
+    private final ClientService clientService;
+    private final OwnerService ownerService;
     private final KeyGenerator keyGenerator;
+
+    private final ClientRepository clientRepository;
+    private final OwnerRepository ownerRepository;
 
     // Join / Create
 
@@ -51,12 +55,31 @@ public class RegistController {
         return "joinSuccess";
     }
 
-    @RequestMapping("/regist/leave/owner")
-    public ModelAndView leaveOwner(HttpSession session, ModelAndView mv) {
-        Owner owner = (Owner) session.getAttribute("log");
-        String ownerId = owner.getOwnerId();
+    @ResponseBody
+    @RequestMapping("/login/idcheck.action")
+    public String checkId(@RequestParam("id") String id){
+        Client client = clientRepository.getClientByClientId(id);
+        Owner owner = ownerRepository.getOwnerByOwnerId(id);
 
-        return mv;
+        if(client == null && owner == null)
+            return "0";
+        else
+            return "1";
     }
+
+    @ResponseBody
+    @RequestMapping("/login/nicknamecheck.action")
+    public String checkNickname(@RequestParam("nickname") String nickname){
+        Client client = clientRepository.getClientByClientNickname(nickname);
+        Owner owner = ownerRepository.getOwnerByOwnerNickname(nickname);
+
+        if(client == null && owner == null)
+            return "0";
+        else return "1";
+    }
+
+
+
+
 
 }

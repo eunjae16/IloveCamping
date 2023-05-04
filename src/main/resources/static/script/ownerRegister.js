@@ -58,3 +58,71 @@ function submit(data){
             location.href = "error";
         });
 }
+
+$('#checkId').click(function (){
+    if($('#id').val != ''){
+        $.ajax({
+            type: 'GET',
+            url: '/login/idcheck/owner.action',
+            data: 'id=' + $('#id').val(),
+            dataType:'json',
+            success: function (result){
+                if(result == '0'){
+                    $('#messageId').text('사용가능한 아이디입니다.');
+                    location.replace("/ownerregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "$account=" +$('#account').val());
+                }
+                else{
+                    $('#messageId').text('사용가능한 아이디입니다.');
+                    location.replace("/ownerregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "$account=" +$('#account').val());
+                }
+            },
+            error: function (a,b,c){
+                console.log(a,b,c);
+            }
+        });
+    }
+    else {
+        alert('아이디를 입력하세요.');
+        $('#id').focus();
+    }
+});
+
+$('#checkNickname').click(function (){
+    if($('#nickname').val != ''){
+        $.ajax({
+            type: 'GET',
+            url: '/login/nicknamecheck/owner.action',
+            data: 'id=' + $('#id').val(),
+            dataType:'json',
+            success: function (result){
+                if(result == '0'){
+                    $('#messageNickname').text('사용가능한 닉네임입니다.');
+                    location.replace("/ownerregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "$account=" +$('#account').val());
+                }
+                else{
+                    $('#messageNickname').text('사용가능한 닉네임입니다.');
+                    location.replace("/ownerregister?id=" + $('#id').val()
+                        + "&password=" + $('#password').val()
+                        + "&nickname=" + $('#nickname').val()
+                        + "$account=" +$('#account').val());
+                }
+            },
+            error: function (a,b,c){
+                console.log(a,b,c);
+            }
+        });
+    }
+    else {
+        alert('닉네임을 입력하세요.');
+        $('#nickname').focus();
+    }
+});
