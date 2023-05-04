@@ -63,7 +63,7 @@ $('#checkId').click(function (){
     if($('#id').val != ''){
         $.ajax({
             type: 'GET',
-            url: '/login/idcheck/owner.action',
+            url: '/regist/idcheck/owner.action',
             data: 'id=' + $('#id').val(),
             dataType:'json',
             success: function (result){
@@ -97,7 +97,7 @@ $('#checkNickname').click(function (){
     if($('#nickname').val != ''){
         $.ajax({
             type: 'GET',
-            url: '/login/nicknamecheck/owner.action',
+            url: '/regist/nicknamecheck/owner.action',
             data: 'id=' + $('#id').val(),
             dataType:'json',
             success: function (result){

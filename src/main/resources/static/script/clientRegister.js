@@ -86,7 +86,7 @@ $('#checkId').click(function () {
     if ($('#id').val() != '') {
         $.ajax({
             type: 'GET',
-            url: '/login/idcheck.action',
+            url: '/regist/idcheck.action',
             data: 'id=' + $('#id').val(),
             dataType: 'json',
             success: function (result) {
@@ -124,7 +124,7 @@ $('#checkNickname').click(function () {
     if ($('#nickname').val() != '') {
         $.ajax({
             type: 'GET',
-            url: '/login/nicknamecheck.action',
+            url: '/regist/nicknamecheck.action',
             data: 'nickname=' + $('#nickname').val(),
             dataType: 'json',
             success: function (result) {

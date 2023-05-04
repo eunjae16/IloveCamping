@@ -56,7 +56,7 @@ public class RegistController {
     }
 
     @ResponseBody
-    @RequestMapping("/login/idcheck.action")
+    @RequestMapping("/regist/idcheck.action")
     public String checkId(@RequestParam("id") String id){
         Client client = clientRepository.getClientByClientId(id);
         Owner owner = ownerRepository.getOwnerByOwnerId(id);
@@ -68,7 +68,7 @@ public class RegistController {
     }
 
     @ResponseBody
-    @RequestMapping("/login/nicknamecheck.action")
+    @RequestMapping("/regist/nicknamecheck.action")
     public String checkNickname(@RequestParam("nickname") String nickname){
         Client client = clientRepository.getClientByClientNickname(nickname);
         Owner owner = ownerRepository.getOwnerByOwnerNickname(nickname);
@@ -76,6 +76,30 @@ public class RegistController {
         if(client == null && owner == null)
             return "0";
         else return "1";
+    }
+
+    @ResponseBody
+    @RequestMapping("/regist/idcheck/owner.action")
+    public String checkIdOwner(@RequestParam("id") String id){
+        Client client = clientRepository.getClientByClientId(id);
+        Owner owner = ownerRepository.getOwnerByOwnerId(id);
+
+        if(client == null && owner == null)
+            return "0";
+        else
+            return "1";
+    }
+
+    @ResponseBody
+    @RequestMapping("/regist/nicknamecheck/owner.action")
+    public String checkNicknameOwner(@RequestParam("nickname") String nickname){
+        Client client = clientRepository.getClientByClientNickname(nickname);
+        Owner owner = ownerRepository.getOwnerByOwnerNickname(nickname);
+
+        if(client == null && owner == null)
+            return "0";
+        else
+            return "1";
     }
 
 
