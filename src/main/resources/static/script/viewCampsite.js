@@ -29,6 +29,13 @@ function searchCamp() {
                         campDiv.appendChild(campAddress);
                         campDiv.appendChild(campTheme);
                         campDiv.appendChild(campCategory);
+
+                        // campCategory이 같은 캠핑장을 찾아서 속성 추가
+                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.campCategory !== camp.Category);
+                        sameCampNameCategory.forEach(c => {
+                            campCategory.textContent += ', ' + c.campCategory;
+                        });
+
                         campListDiv.appendChild(campDiv);
                     });
                 } else {
@@ -65,6 +72,13 @@ function searchCamp() {
                         campDiv.appendChild(campAddress);
                         campDiv.appendChild(campTheme);
                         campDiv.appendChild(campCategory);
+
+                        // campCategory이 같은 캠핑장을 찾아서 속성 추가
+                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.campCategory !== camp.Category);
+                        sameCampNameCategory.forEach(c => {
+                            campCategory.textContent += ', ' + c.campCategory;
+                        });
+
                         campListDiv.appendChild(campDiv);
                     });
                 } else {
@@ -77,4 +91,3 @@ function searchCamp() {
 
 // select 요소의 변경 이벤트에 searchCamp 함수 연결
 document.querySelector('#selectSite').addEventListener('change', searchCamp);
-
