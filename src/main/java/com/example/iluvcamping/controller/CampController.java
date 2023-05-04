@@ -5,6 +5,8 @@ import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.campView.CampViewRepository;
 import com.example.iluvcamping.service.CampService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,22 +27,27 @@ public class CampController {
         this.campViewRepository = campViewRepository;
     }
 
+    @GetMapping("/getCampList")
+    @ResponseBody
+    public ResponseEntity<List<CampView>> getCampList(@RequestParam("selectedValue") String selectedValue) {
+        List<CampView> campList;
+        if (selectedValue.equals("viewAll")) {
+            campList = campService.getCampAll();
+        } else {
+            campList = campViewRepository.findAllByCampAddress1StartingWith(selectedValue.substring(0, 2));
+        }
+        return ResponseEntity.ok(campList);
+    }
+
     @GetMapping("/searchCamp")
     @ResponseBody
-    public List<CampView> searchCamp(@RequestParam String selectedOption) {
+    public ResponseEntity<List<CampView>> searchCamp(@RequestParam String selectedOption) {
         List<CampView> campList;
-
         if (selectedOption.equals("viewAll")) {
             campList = campService.getCampAll();
         } else {
-            campList = campViewRepository.findByCampAddress1StartingWith(selectedOption.substring(0, 2));
+            campList = campViewRepository.findAllByCampAddress1StartingWith(selectedOption.substring(0, 2));
         }
-
-        return campList;
-    }
-
-    @GetMapping("/getCampAll")
-    public List<CampView> getCampAll() {
-        return campService.getCampAll();
+        return ResponseEntity.ok(campList);
     }
 }
