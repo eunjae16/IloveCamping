@@ -1,3 +1,6 @@
+let idCheck = false;
+let nickCheck = false;
+
 function pop() {
     new daum.Postcode({
         oncomplete: function (data) {
@@ -48,7 +51,7 @@ function checkValue(htmlForm) {
         check = false;
     }
 
-    if (check === false) {
+    if (check === false || idCheck === false || nickCheck === false) {
         location.href = url;
     } else {
         const data = {
@@ -82,78 +85,55 @@ function submit(data) {
         });
 }
 
-$('#checkId').click(function () {
-    if ($('#id').val() != '') {
+$('#checkId').click(checkIdReq);
+$('#id').change(checkIdReq);
+
+function checkIdReq() {
+    if ($('#id').val() !== '') {
         $.ajax({
             type: 'GET',
-            url: '/regist/idcheck.action',
-            data: 'id=' + $('#id').val(),
-            dataType: 'json',
+            url: `/regist/idcheck/client?id=${$('#id').val()}`,
             success: function (result) {
-                if (result == '0') {
+                if (result === '0') {
                     $('#messageId').text('사용가능한 아이디입니다.');
-                    location.replace("/clientregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&phone=" + $('#phone').val()
-                        + "&email=" + $('#email').val()
-                        + "&addressCode=" + $('#address_number').val()
-                        + "&address=" + $('#address').val());
+                    idCheck = true;
                 } else {
                     $('#messageId').text('이미 사용중인 아이디입니다.');
-                    location.replace("/clientregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&phone=" + $('#phone').val()
-                        + "&email=" + $('#email').val()
-                        + "&addressCode=" + $('#address_number').val()
-                        + "&address=" + $('#address').val());
+                    idCheck = false;
                 }
             },
-            error: function (a, b, c) {
-                console.log(a, b, c);
+            error: function (error) {
+                console.log(error);
             }
         });
     } else {
         alert('아이디를 입력하세요.');
         $('#id').focus();
     }
-});
+}
+$('#checkNickname').click(checkNicknameReq);
+$('#nickname').change(checkNicknameReq);
 
-$('#checkNickname').click(function () {
-    if ($('#nickname').val() != '') {
+function checkNicknameReq() {
+    if ($('#nickname').val() !== '') {
         $.ajax({
             type: 'GET',
-            url: '/regist/nicknamecheck.action',
-            data: 'nickname=' + $('#nickname').val(),
-            dataType: 'json',
+            url: `/regist/nicknamecheck/client?nickname=${$('#nickname').val()}`,
             success: function (result) {
-                if (result == '0') {
-                    $('#messageId').text('사용가능한 아이디입니다.');
-                    location.replace("/clientregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&phone=" + $('#phone').val()
-                        + "&email=" + $('#email').val()
-                        + "&addressCode=" + $('#address_number').val()
-                        + "&address=" + $('#address').val());
+                if (result === '0') {
+                    $('#messageNickname').text('사용가능한 닉네임입니다.');
+                    nickCheck = true;
                 } else {
-                    $('#messageId').text('이미 사용중인 아이디입니다.');
-                    location.replace("/clientregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&phone=" + $('#phone').val()
-                        + "&email=" + $('#email').val()
-                        + "&addressCode=" + $('#address_number').val()
-                        + "&address=" + $('#address').val());
+                    $('#messageNickname').text('이미 사용중인 닉네임입니다');
+                    nickCheck = true;
                 }
             },
-            error: function (a, b, c) {
-                console.log(a, b, c);
+            error: function (error) {
+                console.log(error);
             }
         });
     } else {
         alert('닉네임을 입력하세요.');
         $('#nickname').focus();
     }
-});
+}

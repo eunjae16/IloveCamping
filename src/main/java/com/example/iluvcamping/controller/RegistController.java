@@ -56,7 +56,7 @@ public class RegistController {
     }
 
     @ResponseBody
-    @RequestMapping("/regist/idcheck.action")
+    @RequestMapping("/regist/idcheck/client")
     public String checkId(@RequestParam("id") String id){
         Client client = clientRepository.getClientByClientId(id);
         Owner owner = ownerRepository.getOwnerByOwnerId(id);
@@ -68,7 +68,7 @@ public class RegistController {
     }
 
     @ResponseBody
-    @RequestMapping("/regist/nicknamecheck.action")
+    @RequestMapping("/regist/nicknamecheck/client")
     public String checkNickname(@RequestParam("nickname") String nickname){
         Client client = clientRepository.getClientByClientNickname(nickname);
         Owner owner = ownerRepository.getOwnerByOwnerNickname(nickname);
@@ -79,7 +79,7 @@ public class RegistController {
     }
 
     @ResponseBody
-    @RequestMapping("/regist/idcheck/owner.action")
+    @RequestMapping("/regist/idcheck/owner")
     public String checkIdOwner(@RequestParam("id") String id){
         Client client = clientRepository.getClientByClientId(id);
         Owner owner = ownerRepository.getOwnerByOwnerId(id);
@@ -91,7 +91,7 @@ public class RegistController {
     }
 
     @ResponseBody
-    @RequestMapping("/regist/nicknamecheck/owner.action")
+    @RequestMapping("/regist/nicknamecheck/owner")
     public String checkNicknameOwner(@RequestParam("nickname") String nickname){
         Client client = clientRepository.getClientByClientNickname(nickname);
         Owner owner = ownerRepository.getOwnerByOwnerNickname(nickname);

@@ -1,4 +1,7 @@
 
+let checkId = false;
+let checkNickname = false;
+
 function checkValue(htmlForm) {
     let url = "ownerregister?"
 
@@ -28,7 +31,7 @@ function checkValue(htmlForm) {
         check = true;
     }
 
-    if(check === true){
+    if(check === true || checkId === false || checkNickname === false){
         location.href = url;
     } else {
         const data =  {
@@ -59,31 +62,26 @@ function submit(data){
         });
 }
 
-$('#checkId').click(function (){
-    if($('#id').val != ''){
+$('#checkId').click(checkIdReq);
+$('#id').change(checkIdReq);
+
+function checkIdReq(){
+    if($('#id').val !== ''){
         $.ajax({
             type: 'GET',
-            url: '/regist/idcheck/owner.action',
-            data: 'id=' + $('#id').val(),
-            dataType:'json',
+            url: `/regist/idcheck/owner?id=${$('#id').val()}`,
             success: function (result){
-                if(result == '0'){
-                    $('#messageId').text('사용가능한 아이디입니다.');
-                    location.replace("/ownerregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&account=" +$('#account').val());
+                if(result === '0'){
+                    $('#messageId').text('사용 가능한 아이디입니다.');
+                    checkId = true;
                 }
                 else{
-                    $('#messageId').text('사용가능한 아이디입니다.');
-                    location.replace("/ownerregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&account=" +$('#account').val());
+                    $('#messageId').text('이미 사용중인 아이디입니다.');
+                    checkId = false;
                 }
             },
-            error: function (a,b,c){
-                console.log(a,b,c);
+            error: function (error) {
+                console.log(error);
             }
         });
     }
@@ -91,33 +89,28 @@ $('#checkId').click(function (){
         alert('아이디를 입력하세요.');
         $('#id').focus();
     }
-});
+}
 
-$('#checkNickname').click(function (){
-    if($('#nickname').val != ''){
+$('#checkNickname').click(checkNicknameReq);
+$('#nickname').change(checkNicknameReq);
+
+function checkNicknameReq(){
+    if($('#nickname').val !== ''){
         $.ajax({
             type: 'GET',
-            url: '/regist/nicknamecheck/owner.action',
-            data: 'id=' + $('#id').val(),
-            dataType:'json',
+            url: `/regist/nicknamecheck/owner?nickname=${$('#nickname').val()}`,
             success: function (result){
-                if(result == '0'){
+                if(result === '0'){
                     $('#messageNickname').text('사용가능한 닉네임입니다.');
-                    location.replace("/ownerregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&account=" +$('#account').val());
+                    checkNickname = true;
                 }
                 else{
                     $('#messageNickname').text('사용가능한 닉네임입니다.');
-                    location.replace("/ownerregister?id=" + $('#id').val()
-                        + "&password=" + $('#password').val()
-                        + "&nickname=" + $('#nickname').val()
-                        + "&account=" +$('#account').val());
+                    checkNickname = false;
                 }
             },
-            error: function (a,b,c){
-                console.log(a,b,c);
+            error: function (error) {
+                console.log(error);
             }
         });
     }
@@ -125,4 +118,4 @@ $('#checkNickname').click(function (){
         alert('닉네임을 입력하세요.');
         $('#nickname').focus();
     }
-});
+}

@@ -1,6 +1,5 @@
 package com.example.iluvcamping.service;
 
-import com.example.iluvcamping.domain.booking.Booking;
 import com.example.iluvcamping.domain.booking.BookingRepository;
 import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.client.ClientRepository;
@@ -55,7 +54,7 @@ public class MemberService {
             String nickname = owner.getOwnerNickname();
 
             // community > 이 회원이 쓴 글 조회
-            List<Community> communityList = communityRepository.getCommunitiesByWriterNickname(nickname);
+            List<Community> communityList = communityRepository.getAllByWriterNickname(nickname);
 
             // 조회된 모든 글들의 닉네임 >> "탈퇴한회원" 으로 업데이트
             communityRepository.updateCommunitiesByWriterNickname(nickname);
@@ -81,16 +80,16 @@ public class MemberService {
         if(client != null){
             String nickname = client.getClientNickname();
 
-            List<Community> communityList = communityRepository.getCommunitiesByWriterNickname(nickname);
+            List<Community> communityList = communityRepository.getAllByWriterNickname(nickname);
             communityRepository.updateCommunitiesByWriterNickname(nickname);
 
-            List<Reply> replyList = replyRepository.getRepliesByReplierNickname(nickname);
-            replyRepository.updateRepliesByReplierNickname(nickname);
+//            List<Reply> replyList = replyRepository.getRepliesByReplierNickname(nickname);
+//            replyRepository.updateRepliesByReplierNickname(nickname);
+//
+//            List<Booking> bookingList = bookingRepository.getBookingsByUserCode(clientCode);
+//            bookingRepository.updateBookingsByWriterNickname(clientCode);
 
-            List<Booking> bookingList = bookingRepository.getBookingsByUserCode(clientCode);
-            bookingRepository.updateBookingsByWriterNickname(clientCode);
-
-            clientRepository.deleteById(clientCode);
+//            clientRepository.deleteById(clientCode);
         }
     }
 

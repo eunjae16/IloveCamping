@@ -16,6 +16,7 @@
     <div>
         <button onclick="location.href='modifyclient'">회원정보수정</button>
         <input type="button" onclick="leave()" value="탈퇴하기">
+        <input type="hidden" id="clientCode" value="${sessionScope.log.clientCode}">
     </div>
 </div>
 <script src="/script/mypage.js"></script>

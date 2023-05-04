@@ -11,7 +11,7 @@ public interface CommunityRepository extends JpaRepository<Community , String> {
 
     public Community getCommunityByWriteCode(String writeCode);
 
-    public List<Community> getCommunitiesByWriterNickname(String nickname);
+    public List<Community> getAllByWriterNickname(String nickname);
 
     @Modifying
     @Query(nativeQuery = true, value = "UPDATE Community c SET c.writerNickname = '탈퇴한회원' WHERE c.writerNickname = :nick")

@@ -5,7 +5,8 @@ function leaveOwner(){
 }
 
 function leave(){
+    const clientCode = document.querySelector("#clientCode").value;
     if(window.confirm("탈퇴하시겠습니까?")){
-        location.href=`/regist/leave/client?clientCode=${sessionScope.log.}`;
+        location.href=`/regist/leave/client?clientCode=${clientCode}`;
     }
 }

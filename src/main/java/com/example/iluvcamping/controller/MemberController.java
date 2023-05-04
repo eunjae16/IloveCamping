@@ -4,6 +4,7 @@ import com.example.iluvcamping.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -20,7 +21,7 @@ public class MemberController {
     }
 
     // Client 탈퇴
-    @GetMapping("/register/leave/client")
+    @PostMapping("/register/leave/client")
     public String leaveClientByCode(@RequestParam String clientCode){
         memberService.deleteClientByCode(clientCode);
         return "index";
