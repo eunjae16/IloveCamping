@@ -24,6 +24,6 @@ public class CampView {
     private String campImage;
     @Column(name = "camp_address1")
     private String campAddress1;
-    @Column(name = "camp_theme")
+    @Column(name = "theme_name")
     private String campTheme;
 }
