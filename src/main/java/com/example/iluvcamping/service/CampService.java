@@ -3,8 +3,9 @@ package com.example.iluvcamping.service;
 
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
-import com.example.iluvcamping.domain.campThemView.CampThemeView;
-import com.example.iluvcamping.domain.campThemView.CampThemeViewRepository;
+
+import com.example.iluvcamping.domain.campView.CampView;
+import com.example.iluvcamping.domain.campView.CampViewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,7 @@ import java.util.List;
 @Service
 public class CampService {
     public final CampRepository campRepository;
-    public final CampThemeViewRepository campThemeViewRepository;
+    public final CampViewRepository campViewRepository;
 
-    public List<Camp> getCampAll(){
-        return campRepository.findAll();
-    }
-    public List<CampThemeView> getViewAllById(List<String> ids){
-        return campThemeViewRepository.findAllById(ids);
-    }
+    public List<CampView> getCampAll(){ return campViewRepository.findAll();}
 }
