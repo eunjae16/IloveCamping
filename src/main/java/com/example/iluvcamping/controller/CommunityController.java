@@ -64,6 +64,8 @@ public class CommunityController extends Timestamp {
 
 
 
+
+
     // paging
     @GetMapping("/community/page")
     public List<Community> getCommunityPage(@PageableDefault(sort={"registeredDate"}, direction = Sort.Direction.DESC) Pageable pageable) {

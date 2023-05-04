@@ -20,7 +20,7 @@ public class CommunityService {
 
     // update
     @Transactional
-    @PutMapping("updateCommunity")
+    @PutMapping("/community/update")
     public void updateByWriteCode(Community newcommunity) {
         Community community =
                 communityRepository.getReferenceById(newcommunity.getWriteCode());
@@ -32,6 +32,7 @@ public class CommunityService {
 
 
 
+    // 페이징처리
     public List<Community> getCommunityWithPage(Pageable pageable) {
         return communityRepository.findAll(pageable).getContent();
     }

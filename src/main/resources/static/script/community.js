@@ -18,34 +18,28 @@ $.ajax(settings).done(function (response) {
 
     });
 
+
     $('.title').on('click', e => {
         const id = e.target.parentNode.parentNode.id;
 
-        $.ajax({
-            "url": `/community/readone?writeCode=${id}`,
-            "method": "GET",
-            "timeout": 0
-        }).done(function (response) {
-            if(response === 'communityRead') {
-                location.href = '/communityread';
-            }
-            else {
-
-            }
-        });
+        location.href = `/communityread?writeCode=${id}`;
     });
 });
 
 
-function pick() {
+// $.ajax({
+    //     url: `/community/readone?writeCode=${id}`,
+    //     method: "GET",
+    //     "headers": {
+    //         "Content-Type": "application/json",
+    //     }
+    // }).done(function (response) {
+    //         const community = JSON.stringify;
+    //
+    //         const url = `/community/readone?writeCode=${community.writeCode}`;
+    //         console.log("writecode : " + community.writeCode);
+    //         window.location.href = url;
+    //     });
+    // });
 
-    var settings = {
-        "url": "http://localhost:8080/community/readone?writeCode=CO100004",
-        "method": "GET",
-        "timeout": 0,
-    };
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
-}

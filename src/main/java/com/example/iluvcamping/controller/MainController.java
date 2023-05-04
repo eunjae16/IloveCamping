@@ -17,62 +17,67 @@ public class MainController {
     private final CommunityController controller;
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     @GetMapping("/regist")
-    public String regist(){
+    public String regist() {
         return "regist";
     }
 
     @GetMapping("/clientregister")
-    public String clientRegister(){
+    public String clientRegister() {
         return "clientRegister";
     }
 
     @GetMapping("/ownerregister")
-    public String ownerRegister(){
+    public String ownerRegister() {
         return "ownerRegister";
     }
 
     @GetMapping("/joinsuccess")
-    public String joinSuccess(){
+    public String joinSuccess() {
         return "joinSuccess";
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
+
     @GetMapping("/clientlogin")
-    public String clientlogin(){
+    public String clientlogin() {
         return "clientlogin";
     }
 
     @GetMapping("/ownerlogin")
-    public String ownerlogin(){
+    public String ownerlogin() {
         return "ownerlogin";
     }
 
     @GetMapping("/header")
-    public String header(){
+    public String header() {
         return "header";
     }
 
     @GetMapping("/footer")
-    public String footer(){
+    public String footer() {
         return "footer";
     }
 
     @GetMapping("/nearsite")
-    public String nearSite(){ return "nearSite"; }
+    public String nearSite() {
+        return "nearSite";
+    }
 
     @GetMapping("/weather")
-    public String weather(){ return "weather"; }
+    public String weather() {
+        return "weather";
+    }
 
     @GetMapping("/viewCampsite")
-    public String viewCampsite(){
+    public String viewCampsite() {
         return "viewCampsite";
     }
 
@@ -83,16 +88,6 @@ public class MainController {
         model.addAttribute("list", list);
 
         return "community";
-    }
-
-    @GetMapping("/communityread")
-    public ModelAndView communityRead(@RequestParam String writeCode){
-        Community community = controller.getCommunityByWriteCode(writeCode);
-
-        ModelAndView modelAndView = new ModelAndView("communityread");
-        modelAndView.addObject("community", community);
-
-        return modelAndView;
     }
 
     // 게시판 글 작성하는 페이지
@@ -106,20 +101,20 @@ public class MainController {
         return "communityOwnerWrite";
     }
 
-//    @GetMapping("/community/edit")
-//    public ModelAndView communityEdit(@RequestParam String writeCode) {
-//        Community community =
-//                co
-//    }
-
     @GetMapping("/modifyclient")
-    public String modifyClient() { return "modifyClient"; }
+    public String modifyClient() {
+        return "modifyClient";
+    }
 
     @GetMapping("/modifyowner")
-    public String modifyOwner() { return "modifyOwner"; }
+    public String modifyOwner() {
+        return "modifyOwner";
+    }
 
     @GetMapping("/error")
-    public String error() { return "error"; }
+    public String error() {
+        return "error";
+    }
 
     @GetMapping("/ownerSales")
     public String ownerSales() {
@@ -134,11 +129,6 @@ public class MainController {
     @GetMapping("/mypageowner")
     public String mypageOwner() {
         return "mypageOwner";
-    }
-
-    @GetMapping("/editownerwrite")
-    public String editOwnerWrite() {
-        return "editOwnerWrite";
     }
 
 }
