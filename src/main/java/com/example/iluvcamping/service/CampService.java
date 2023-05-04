@@ -7,6 +7,8 @@ import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.campView.CampViewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class CampService {
     public final CampRepository campRepository;
     public final CampViewRepository campViewRepository;
 
+    @GetMapping("/getCampAll")
+    @ResponseBody
     public List<CampView> getCampAll(){ return campViewRepository.findAll();}
 
     public List<Camp>searchCamp(String query){
