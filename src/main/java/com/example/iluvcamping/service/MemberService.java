@@ -73,6 +73,7 @@ public class MemberService {
         }
     }
 
+    @Transactional
     public void deleteClientByCode(String clientCode){
 
         Client client = getClientById(clientCode);

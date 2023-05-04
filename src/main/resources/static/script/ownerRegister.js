@@ -72,14 +72,14 @@ $('#checkId').click(function (){
                     location.replace("/ownerregister?id=" + $('#id').val()
                         + "&password=" + $('#password').val()
                         + "&nickname=" + $('#nickname').val()
-                        + "$account=" +$('#account').val());
+                        + "&account=" +$('#account').val());
                 }
                 else{
                     $('#messageId').text('사용가능한 아이디입니다.');
                     location.replace("/ownerregister?id=" + $('#id').val()
                         + "&password=" + $('#password').val()
                         + "&nickname=" + $('#nickname').val()
-                        + "$account=" +$('#account').val());
+                        + "&account=" +$('#account').val());
                 }
             },
             error: function (a,b,c){
@@ -106,14 +106,14 @@ $('#checkNickname').click(function (){
                     location.replace("/ownerregister?id=" + $('#id').val()
                         + "&password=" + $('#password').val()
                         + "&nickname=" + $('#nickname').val()
-                        + "$account=" +$('#account').val());
+                        + "&account=" +$('#account').val());
                 }
                 else{
                     $('#messageNickname').text('사용가능한 닉네임입니다.');
                     location.replace("/ownerregister?id=" + $('#id').val()
                         + "&password=" + $('#password').val()
                         + "&nickname=" + $('#nickname').val()
-                        + "$account=" +$('#account').val());
+                        + "&account=" +$('#account').val());
                 }
             },
             error: function (a,b,c){

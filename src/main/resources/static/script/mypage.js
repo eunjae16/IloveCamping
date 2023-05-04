@@ -6,6 +6,6 @@ function leaveOwner(){
 
 function leave(){
     if(window.confirm("탈퇴하시겠습니까?")){
-        location.href="/regist/leave/client";
+        location.href=`/regist/leave/client?clientCode=${sessionScope.log.}`;
     }
 }
