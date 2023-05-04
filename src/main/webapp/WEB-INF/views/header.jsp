@@ -20,7 +20,7 @@
                 <li><a href="/">검색</a></li>
                 <li><a href="/community">캠핑 이야기</a></li>
             </ul>
-            <ul>
+            <ul class="side-menu">
                 <c:if test="${sessionScope.usertype eq 'owner'}">
                     <li><a href="/mypageowner">내 정보</a></li>
                 </c:if>

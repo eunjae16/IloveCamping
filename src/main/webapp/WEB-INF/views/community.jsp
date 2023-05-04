@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="style/community.css">
 </head>
 <body>
-<section>
     <div class="community-bg"><h2>캠핑이야기</h2></div>
+<section>
     <table>
         <tr>
             <th>게시글코드</th>

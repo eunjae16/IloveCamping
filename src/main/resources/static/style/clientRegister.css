@@ -1,7 +1,7 @@
 .client-register-container {
     margin: 0 auto;
     width: 400px;
-    height: 420px;
+    height: fit-content;
     background-color: #495579;
     margin-top: 50px;
     padding: 20px;
