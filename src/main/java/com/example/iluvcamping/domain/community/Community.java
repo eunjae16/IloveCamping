@@ -38,10 +38,9 @@ public class Community extends Timestamp {
         this.writeCode = writeCode;
     }
 
-    public void setCommunity(Community community) {
-        this.writeCategoryCode = community.getWriteCategoryCode();
-        this.title = community.getTitle();
-        this.content = community.getContent();
+    public void updateCommunity(CommunityRequestDTO communityDto) {
+        this.title = communityDto.getTitle();
+        this.content = communityDto.getContent();
     }
 
 }

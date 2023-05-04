@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,9 +25,6 @@ public class CommunityController extends Timestamp {
     private final KeyGenerator keyGenerator;
 
     // create
-
-//    public String addCommunity(@RequestBody )
-
     @PostMapping("/community/add")
     public void addCommunity(Community community) {
         communityRepository.save(community);
@@ -46,7 +44,6 @@ public class CommunityController extends Timestamp {
     }
 
 
-
     // read [ all ]
     @GetMapping("/community/readall")
     public List<Community> getAllCommunity(){
@@ -62,15 +59,24 @@ public class CommunityController extends Timestamp {
         return community;
     }
 
+    // update
+    @PutMapping("/community/ownerupdate")
+    public void updateByWriteCode(@RequestBody CommunityRequestDTO communityDto) {
+    }
 
-
-
+    // delete
+    @DeleteMapping("/community/deleteownerwrite")
+    public void removeOwnerWrite(String writeCode) {
+        System.out.println("writeCode" + writeCode);
+        Community community = getCommunityByWriteCode(writeCode);
+        System.out.println("del com" + community.getWriterNickname());
+        communityService.deleteOwnerWriteByWritecode(writeCode);
+    }
 
     // paging
     @GetMapping("/community/page")
     public List<Community> getCommunityPage(@PageableDefault(sort={"registeredDate"}, direction = Sort.Direction.DESC) Pageable pageable) {
         return communityService.getCommunityWithPage(pageable.withPage(1));
     }
-
 
 }

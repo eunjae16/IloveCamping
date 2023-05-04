@@ -23,20 +23,20 @@ public class CommunityService {
 
     // update
     @Transactional
-    public void updateByWriteCode(Community newcommunity) {
-        Community community = communityRepository.findById(newcommunity.getWriteCode()).orElseThrow(
+    public void updateCommunityOwner(CommunityRequestDTO communityDto) {
+        String writeCode = communityDto.getWriteCode();
+
+        Community community = communityRepository.findById(writeCode).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 회원입니다.")
         );
-        community.setCommunity(newcommunity);
+        community.updateCommunity(communityDto);
     }
 
-    @PutMapping("/community/ownerupdate")
-    public void updateCommunityOwner(@RequestBody CommunityRequestDTO communityDto) {
-        Community community = new Community(communityDto);
-        System.out.println("ommunity/ownerupdate : " + community.getContent());
-        updateByWriteCode(community);
+    // delete
+    @Transactional
+    public void deleteOwnerWriteByWritecode(String writeCode) {
+        communityRepository.deleteById(writeCode);
     }
-
 
     // 페이징처리
     public List<Community> getCommunityWithPage(Pageable pageable) {
@@ -44,16 +44,6 @@ public class CommunityService {
     }
 
 
-    // delete
-    @Transactional
-    @DeleteMapping("/community/delete")
-    public void deleteByWriteCode(String writeCode) {
-        Community community =
-                communityRepository.getCommunityByWriteCode(writeCode);
 
-        if(community != null) {
-            communityRepository.deleteById(community.getWriteCategoryCode());
-        }
-    }
 
 }

@@ -18,5 +18,4 @@ public interface CommunityRepository extends JpaRepository<Community , String> {
     public void updateCommunitiesByWriterNickname(@Param("nick") String nick);
 
 
-
 }
