@@ -13,15 +13,24 @@ function searchCamp() {
                         var campDiv = document.createElement('div');
                         var campName = document.createElement('p');
                         var campAddress = document.createElement('p');
+                        var campCategory = document.createElement('p');
+                        var campTheme = document.createElement('p');
                         var campImg = document.createElement('img'); // img 엘리먼트 생성
 
-                        campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
+
                         campDiv.id = 'listResult'; // id 부여
+                        campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
                         campName.textContent += '캠핑장 이름: ' + camp.campName;
                         campAddress.textContent += '주소: ' + camp.campAddress1;
+                        campTheme.textContent += '테마 : ' + camp.theme;
+                        campCategory.textContent += '시설 : ' + camp.categoryName;
+
+
                         campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
                         campDiv.appendChild(campName);
                         campDiv.appendChild(campAddress);
+                        campDiv.appendChild(campTheme);
+                        campDiv.appendChild(campCategory);
                         campListDiv.appendChild(campDiv);
                     });
                 }
@@ -43,15 +52,22 @@ function searchCamp() {
                         var campDiv = document.createElement('div');
                         var campName = document.createElement('p');
                         var campAddress = document.createElement('p');
+                        var campCategory = document.createElement('p');
+                        var campTheme = document.createElement('p');
                         var campImg = document.createElement('img'); // img 엘리먼트 생성
 
-                        campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
                         campDiv.id = 'listResult'; // id 부여
+                        campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
                         campName.textContent += '캠핑장 이름: ' + camp.campName;
                         campAddress.textContent += '주소: ' + camp.campAddress1;
+                        campTheme.textContent += '테마 : ' + camp.theme;
+                        campCategory.textContent += '시설 : ' + camp.categoryName;
+
                         campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
                         campDiv.appendChild(campName);
                         campDiv.appendChild(campAddress);
+                        campDiv.appendChild(campTheme);
+                        campDiv.appendChild(campCategory);
                         campListDiv.appendChild(campDiv);
                     });
                 } else {
