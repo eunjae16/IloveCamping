@@ -26,7 +26,7 @@ public class Community extends Timestamp {
 
 
     public Community(CommunityRequestDTO communityDto) {
-        this.writeCode = "";
+        this.writeCode = communityDto.getWriteCode();
         this.writerNickname = communityDto.getWriterNickname();
         this.writeCategoryCode = communityDto.getWriteCategoryCode();
         this.title = communityDto.getTitle();
@@ -39,12 +39,9 @@ public class Community extends Timestamp {
     }
 
     public void setCommunity(Community community) {
-        this.writeCode = community.getWriteCode();
-        this.writerNickname = community.getWriterNickname();
         this.writeCategoryCode = community.getWriteCategoryCode();
         this.title = community.getTitle();
         this.content = community.getContent();
-        this.bookingCode = community.getBookingCode();
     }
 
 }
