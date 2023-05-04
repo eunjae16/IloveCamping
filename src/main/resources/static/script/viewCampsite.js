@@ -1,7 +1,7 @@
 function searchCamp() {
     var selectedOption = document.querySelector('#selectSite').value;
     if (selectedOption === "viewAll") {
-        fetch('/getCampAll')
+        fetch('/getCampList?selectedValue=viewAll')
             .then(response => response.json())
             .then(data => {
                 var campListDiv = document.getElementById('campList');
@@ -17,14 +17,12 @@ function searchCamp() {
                         var campTheme = document.createElement('p');
                         var campImg = document.createElement('img'); // img 엘리먼트 생성
 
-
                         campDiv.id = 'listResult'; // id 부여
                         campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
-                        campName.textContent += '캠핑장 이름: ' + camp.campName;
-                        campAddress.textContent += '주소: ' + camp.campAddress1;
-                        campTheme.textContent += '테마 : ' + camp.theme;
-                        campCategory.textContent += '시설 : ' + camp.categoryName;
-
+                        campName.textContent = '캠핑장 이름: ' + camp.campName;
+                        campAddress.textContent = '주소: ' + camp.campAddress1;
+                        campTheme.textContent = '테마: ' + camp.campTheme;
+                        campCategory.textContent = '시설: ' + camp.categoryName;
 
                         campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
                         campDiv.appendChild(campName);
@@ -33,8 +31,7 @@ function searchCamp() {
                         campDiv.appendChild(campCategory);
                         campListDiv.appendChild(campDiv);
                     });
-                }
-                else {
+                } else {
                     console.log('서버에서 받은 응답이 배열이 아닙니다.');
                 }
             })
@@ -58,10 +55,10 @@ function searchCamp() {
 
                         campDiv.id = 'listResult'; // id 부여
                         campImg.src = camp.campImage; // img 엘리먼트의 src 속성 설정
-                        campName.textContent += '캠핑장 이름: ' + camp.campName;
-                        campAddress.textContent += '주소: ' + camp.campAddress1;
-                        campTheme.textContent += '테마 : ' + camp.theme;
-                        campCategory.textContent += '시설 : ' + camp.categoryName;
+                        campName.textContent = '캠핑장 이름: ' + camp.campName;
+                        campAddress.textContent = '주소: ' + camp.campAddress1;
+                        campTheme.textContent = '테마: ' + camp.campTheme;
+                        campCategory.textContent = '시설: ' + camp.categoryName;
 
                         campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
                         campDiv.appendChild(campName);
@@ -80,3 +77,4 @@ function searchCamp() {
 
 // select 요소의 변경 이벤트에 searchCamp 함수 연결
 document.querySelector('#selectSite').addEventListener('change', searchCamp);
+
