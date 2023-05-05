@@ -45,16 +45,36 @@
         </c:choose>
     </div>
 
-        <table>
-            <tr>
-                <th>댓글</th>
-            </tr>
-            <tr>
-                <td><input type="textarea"></td>
-                <td><input type="submit" value="저장"></td>
-            </tr>
-        </table>
+
+
+<%--    댓글작성폼 --%>
+    <c:if test="${empty sessionScope}">
+        <input type="text" placeholder="로그인 후 작성가능합니다." readonly>
+    </c:if>
+    <c:if test="${!empty sessionScope}">
+        <form id="comment">
+            <input type="hidden" id="writeCode" value="${community.writeCode}">
+            <c:choose>
+                <c:when test="${sessionScope.usertype eq 'owner'}">
+                    <input type="hidden" id="nickname" value="${sessionScope.log.ownerNickname}" placeholder="작성자">
+                </c:when>
+                <c:when test="${sessionScope.usertype eq 'client'}">t 69ok6
+                    <input type="hidden" id="nickname" value="${sessionScope.log.clientNickname}" placeholder="작성자">
+                </c:when>
+                <c:when test="${sessionScope.usertype eq 'admin'}">
+                    <input type="hidden" id="nickname" value="${sessionScope.log.adminNickname}" placeholder="작성자">
+                </c:when>
+            </c:choose>
+            <input typ="text" id="replyContent" placeholder="댓글내용">
+            <input type="submit" value="등록" onclick="replyWrite(form)">
+        </form>
+
+<%--    댓글 리스트--%>
+    <div id="replyList">
+
+    </div>
 </section>
 <script src="/script/community/deleteWrite.js"></script>
+<script src="/script/community/replyWrite.js"></script>
 </body>
 </html>

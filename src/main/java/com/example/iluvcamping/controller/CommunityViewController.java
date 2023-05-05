@@ -1,6 +1,7 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.community.Community;
+import com.example.iluvcamping.domain.reply.Reply;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +15,15 @@ public class CommunityViewController {
     private final CommunityController controller;
 
 
-    // 게시글의 상세페이지로 이동 [ 1개의 클릭 게시물 ]
+    // 게시글의 상세페이지로 이동 [ 1개의 클릭 게시물 의 정보 + 리플리스트 들고 옴 ]
     @GetMapping("/communityread")
     public ModelAndView communityRead(@RequestParam String writeCode){
         Community community = controller.getCommunityByWriteCode(writeCode);
+//        Reply reply = controller.getReplyByWriteCode(writeCode);
 
         ModelAndView modelAndView = new ModelAndView("communityread");
         modelAndView.addObject("community", community);
+//        modelAndView.addObject("reply" , reply);
 
         return modelAndView;
     }

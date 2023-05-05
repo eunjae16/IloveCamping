@@ -26,7 +26,7 @@ public class Reply {
     private Boolean modifiedCheck;
 
     public Reply(ReplyRequestDTO replyDto){
-        this.replyCode = "";
+        this.replyCode = replyDto.getReplyCode();
         this.comment = replyDto.getComment();
         this.replierNickname = replyDto.getReplierNickname();
         this.registeredDate = replyDto.getRegisteredDate();
