@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -34,7 +35,7 @@ public class ReplyController extends Timestamp {
 
         addReply(reply);
 
-        return "reply";
+        return "communityread?writeCode=";
     }
 
 
@@ -45,13 +46,34 @@ public class ReplyController extends Timestamp {
     }
 
 
-//    @GetMapping("/reply/readlist")
-//    // read [ find by writecode ]
-//    public List<Reply> getReplyListByWriteCode(@RequestParam String writeCode) {
-//        return replyRepository.findById(writeCode).orElse(
-//                () -> new IllegalArgumentException("존재하지 않는 코드입니다.")
-//        );
-//    }
+    // read [ 특정 게시물에 해당하는 댓글목록 ]
+    @GetMapping("/reply/readlist")
+    public List<Reply> getReplyListByWriteCode(@RequestParam String writeCode) {
+        return replyRepository.findByWriteCode(writeCode);
+    }
+
+    // read [ one ] by replycode
+    public Reply getReplyByReplyCode(@RequestParam String replyCode) {
+        Reply reply = replyRepository.getReplyByReplyCode(replyCode);
+        System.out.println("delete reply: "+replyCode);
+        return reply;
+    }
+
+    // update
+    @PutMapping("/reply/update")
+    public void updateByReplyCode(@RequestParam String replyCode, @RequestBody ReplyRequestDTO replyDto) {
+        replyDto.setReplyCode(replyCode);
+        replyDto.setModifiedCheck(true);
+        System.out.println("modicheck: " + replyDto.isModifiedCheck());
+        replyService.updateReply(replyDto);
+    }
+
+    // delete
+    @DeleteMapping("/reply/delete")
+    public void deleteReply(String replyCode) {
+        Reply reply = getReplyByReplyCode(replyCode);
+        replyService.deleteReplyByReplyCode(replyCode);
+    }
 
 
 

@@ -8,22 +8,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+
 @RequiredArgsConstructor
 @Controller
 public class CommunityViewController {
 
     private final CommunityController controller;
+    private final ReplyController replyController;
 
 
     // 게시글의 상세페이지로 이동 [ 1개의 클릭 게시물 의 정보 + 리플리스트 들고 옴 ]
     @GetMapping("/communityread")
     public ModelAndView communityRead(@RequestParam String writeCode){
         Community community = controller.getCommunityByWriteCode(writeCode);
-//        Reply reply = controller.getReplyByWriteCode(writeCode);
+        ArrayList<Reply> replyList = (ArrayList<Reply>) replyController.getReplyListByWriteCode(writeCode);
 
         ModelAndView modelAndView = new ModelAndView("communityread");
         modelAndView.addObject("community", community);
-//        modelAndView.addObject("reply" , reply);
+        modelAndView.addObject("reply" , replyList);
 
         return modelAndView;
     }

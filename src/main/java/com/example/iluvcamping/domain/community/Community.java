@@ -1,13 +1,15 @@
 package com.example.iluvcamping.domain.community;
 
+import com.example.iluvcamping.domain.reply.Reply;
 import com.example.iluvcamping.util.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.aop.AfterReturningAdvice;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +26,9 @@ public class Community extends Timestamp {
     private String content;
     private String bookingCode;
 
+//
+//    @OneToMany(mappedBy = "community" , cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+//    private List<Reply> replyList = new ArrayList<>();
 
     public Community(CommunityRequestDTO communityDto) {
         this.writeCode = communityDto.getWriteCode();

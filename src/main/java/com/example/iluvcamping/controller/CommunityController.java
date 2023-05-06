@@ -55,7 +55,6 @@ public class CommunityController extends Timestamp {
     @GetMapping("/community/readone")
     public Community getCommunityByWriteCode(@RequestParam String writeCode) {
         Community community = communityRepository.getCommunityByWriteCode(writeCode);
-        System.out.println(community.getTitle());
         return community;
     }
 

@@ -1,19 +1,19 @@
 package com.example.iluvcamping.domain.reply;
 
+import com.example.iluvcamping.domain.community.Community;
+import com.example.iluvcamping.util.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "reply")
 @Entity
-public class Reply {
+public class Reply extends Timestamp {
 
     @Id
     private String replyCode;
@@ -21,21 +21,27 @@ public class Reply {
     private String writeCode;
     private String comment;
     private String replierNickname;
-    private String registeredDate;
-    private String modifiedDate;
-    private Boolean modifiedCheck;
+
+    @Column(columnDefinition = "tinyint(1)")
+    private boolean modifiedCheck;
 
     public Reply(ReplyRequestDTO replyDto){
+        this.writeCode = replyDto.getWriteCode();
         this.replyCode = replyDto.getReplyCode();
         this.comment = replyDto.getComment();
         this.replierNickname = replyDto.getReplierNickname();
-        this.registeredDate = replyDto.getRegisteredDate();
-        this.modifiedDate = replyDto.getModifiedDate();
-        this.modifiedCheck = replyDto.getModifiedCheck();
+        this.modifiedCheck = replyDto.isModifiedCheck();
     }
+
+
 
     public void setReplyCode(String replyCode){
         this.replyCode = replyCode;
+    }
+
+
+    public void updateReply(ReplyRequestDTO replyDto) {
+        this.comment = replyDto.getComment();
     }
 
 }

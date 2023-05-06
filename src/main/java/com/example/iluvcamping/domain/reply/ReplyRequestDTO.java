@@ -18,5 +18,10 @@ public class ReplyRequestDTO {
     private String replierNickname;
     private String registeredDate;
     private String modifiedDate;
-    private Boolean modifiedCheck;
+    private boolean modifiedCheck;
+
+    public boolean isModifiedCheck() {
+        return modifiedCheck;
+    }
+
 }

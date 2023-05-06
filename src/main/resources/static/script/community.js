@@ -22,9 +22,11 @@ $.ajax(settings).done(function (response) {
     $('.title').on('click', e => {
         const id = e.target.parentNode.parentNode.id;
 
+        console.log("community ' Id : " + id);
         location.href = `/communityread?writeCode=${id}`;
     });
 });
+
 
 
 // $.ajax({
