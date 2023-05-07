@@ -1,0 +1,15 @@
+div {
+    text-align: center;
+}
+
+button, input[type=button] {
+    background-color: #495579;
+    color: white;
+    border: 0;
+    padding: 10px;
+}
+
+button:hover, input[type=button]:hover {
+    background-color: white;
+    color: #495579;
+}

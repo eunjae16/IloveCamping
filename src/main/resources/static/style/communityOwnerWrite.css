@@ -44,3 +44,15 @@ input[type="button"] {
 input[type="button"]:last-child {
     margin-right: 0;
 }
+
+input[type=submit], input[type=button] {
+    background-color: #495579;
+    color: white;
+    border: 0;
+    padding: 10px;
+}
+
+input[type=submit]:hover, input[type=button]:hover {
+    background-color: white;
+    color: #495579;
+}
