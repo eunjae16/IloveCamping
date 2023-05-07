@@ -21,7 +21,7 @@
             <tr>
                 <td>
                     <select id="category" name="category">
-                        <option value="">카테고리선택</option>
+                        <option value="">카테고리</option>
                         <option value="CC100002">리뷰</option>
                         <option value="CC100003">질문</option>
                         <option value="CC100004">자유게시판</option>
@@ -32,14 +32,16 @@
                 <td id="nickname" name="nickname" value="${sessionScope.log.clientNickname}">${sessionScope.log.clientNickname}</td>
             </tr>
             <tr>
-                <td><input type="text" id="title" name="title" placeholder="제목"></td>
+                <td colspan="2"><input type="text" id="title" name="title" placeholder="제목"></td>
             </tr>
             <tr>
-                <td><textarea id="content" name="content" placeholder="[고객] 내용 작성]"></textarea>
+                <td colspan="2"><textarea id="content" name="content" placeholder="[고객] 내용 작성]"></textarea>
+            </tr>
+            <tr>
+                <td><input type="button" value="등록" onclick="clientWrite(form)"></td>
+                <td><input type="button" value="작성취소" onclick="location.href='community'"></td>
             </tr>
         </table>
-        <input type="button" value="등록" onclick="clientWrite(form)">
-        <input type="button" value="작성취소" onclick="location.href='community'">
     </form>
 </section>
 <script src="/script/clientWriteCheck.js"></script>
