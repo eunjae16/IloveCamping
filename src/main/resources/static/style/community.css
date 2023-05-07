@@ -25,3 +25,23 @@ table {
 section {
     position: relative;
 }
+
+.title {
+    cursor: pointer;
+}
+
+div input[type=button] {
+    padding: 10px;
+    border: 0;
+    background-color: #251749;
+    color: white;
+}
+
+div input[type=button]:hover {
+    background-color: white;
+    color: #251749;
+}
+
+div {
+    text-align: center;
+}

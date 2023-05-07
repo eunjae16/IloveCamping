@@ -11,10 +11,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>고객 글쓰기페이지</title>
+    <c:import url="header.jsp"/>
+    <link rel="stylesheet" href="style/communityClientWrite.css">
 </head>
-<c:import url="header.jsp"/>
-<link rel="stylesheet" href="style/header.css">
 <body>
 <section>
     <form>
