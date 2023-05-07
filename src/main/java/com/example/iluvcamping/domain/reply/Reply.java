@@ -22,7 +22,6 @@ public class Reply extends Timestamp {
     private String comment;
     private String replierNickname;
 
-//    @Column(columnDefinition = "tinyint(1)")
     private boolean modifiedCheck;
 
     public Reply(ReplyRequestDTO replyDto){

@@ -46,3 +46,9 @@ input[type="text"], textarea {
 #reply-write input[type="text"] {
     width: 80%;
 }
+
+/*.edit-box{*/
+/*    resize: none;*/
+/*    width: 720px;*/
+/*    height: 70px*/
+/*}*/
