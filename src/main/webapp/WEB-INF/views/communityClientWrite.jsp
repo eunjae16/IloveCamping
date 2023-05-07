@@ -12,12 +12,16 @@
 <html>
 <head>
     <c:import url="header.jsp"/>
-    <link rel="stylesheet" href="style/communityClientWrite.css">
+<%--    <link rel="stylesheet" href="style/communityClientWrite.css">--%>
+    <link rel="stylesheet" href="style/communityOwnerWrite.css">
 </head>
 <body>
 <section>
     <form>
         <table>
+            <tr>
+                <td id="nickname" name="nickname" value="${sessionScope.log.clientNickname}">${sessionScope.log.clientNickname}</td>
+            </tr>
             <tr>
                 <td>
                     <select id="category" name="category">
@@ -28,8 +32,6 @@
                         <option value="CC100005">캠핑팁</option>
                     </select>
                 </td>
-                <td>작성자 : </td>
-                <td id="nickname" name="nickname" value="${sessionScope.log.clientNickname}">${sessionScope.log.clientNickname}</td>
             </tr>
             <tr>
                 <td><input type="text" id="title" name="title" placeholder="제목"></td>

@@ -25,9 +25,11 @@ public class Community extends Timestamp {
     private String title;
     private String content;
     private String bookingCode;
+    private int communityNumber;
 
-    @JoinColumn(name="communityCategoryName", referencedColumnName = "writeCode")
-    private String categoryName;
+
+//    @JoinColumn(name="communityCategoryName", referencedColumnName = "writeCode")
+//    private String categoryName;
 
     public Community(CommunityRequestDTO communityDto) {
         this.writeCode = communityDto.getWriteCode();
@@ -40,6 +42,10 @@ public class Community extends Timestamp {
 
     public void setWriteCode(String writeCode) {
         this.writeCode = writeCode;
+    }
+
+    public void setCommunityNumber(int communityNumber) {
+        this.communityNumber = communityNumber;
     }
 
     public void updateCommunity(CommunityRequestDTO communityDto) {

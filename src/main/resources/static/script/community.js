@@ -7,32 +7,41 @@ const settings = {
 $.ajax(settings).done(function (response) {
     // registeredDate 기준으로 내림차순 정렬
     response.sort((a, b) => new Date(b.registeredDate) - new Date(a.registeredDate));
-    response.forEach(content => {
-        if(content.writeCategoryCode === 'CC100001'){
+    response.forEach((content, index) => {
+        if (content.writeCategoryCode === 'CC100001') {
             $('#notice').append(`
-        <tr id="${content.writeCode}">
-        <td>${content.writeCode}</td>
-        <td>${content.writeCategoryCode}</td>
+      <tr id="${content.writeCode}">
+        <td>${index + 1}</td>
+        <td>공지사항</td>
         <td><span class="title">${content.title}</span></td>
         <td>${content.writerNickname}</td>
         <td>${content.registeredDate}</td>
-        </tr>
-        `);
-        }
-        else {
+      </tr>
+    `);
+        } else {
+            let category = '';
+            if (content.writeCategoryCode === 'CC100002') {
+                category = '리뷰';
+            } else if (content.writeCategoryCode === 'CC100003') {
+                category = '질문';
+            } else if (content.writeCategoryCode === 'CC100004') {
+                category = '자유게시판';
+            } else if (content.writeCategoryCode === 'CC100005') {
+                category = '캠핑팁';
+            }
+
             $('#list').append(`
-        <tr id="${content.writeCode}">
-        <td>${content.writeCode}</td>
-        <td>${content.writeCategoryCode}</td>
+      <tr id="${content.writeCode}">
+        <td>${index + 1}</td>
+        <td>${category}</td>
         <td><span class="title">${content.title}</span></td>
         <td>${content.writerNickname}</td>
         <td>${content.registeredDate}</td>
-        </tr>
-        `);
+      </tr>
+    `);
         }
-
-
     });
+
 
 
     $('.title').on('click', e => {
@@ -46,18 +55,16 @@ $.ajax(settings).done(function (response) {
 
 
 // $.ajax({
-    //     url: `/community/readone?writeCode=${id}`,
-    //     method: "GET",
-    //     "headers": {
-    //         "Content-Type": "application/json",
-    //     }
-    // }).done(function (response) {
-    //         const community = JSON.stringify;
-    //
-    //         const url = `/community/readone?writeCode=${community.writeCode}`;
-    //         console.log("writecode : " + community.writeCode);
-    //         window.location.href = url;
-    //     });
-    // });
-
-
+//     url: `/community/readone?writeCode=${id}`,
+//     method: "GET",
+//     "headers": {
+//         "Content-Type": "application/json",
+//     }
+// }).done(function (response) {
+//         const community = JSON.stringify;
+//
+//         const url = `/community/readone?writeCode=${community.writeCode}`;
+//         console.log("writecode : " + community.writeCode);
+//         window.location.href = url;
+//     });
+// });

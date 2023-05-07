@@ -6,6 +6,7 @@
 </head>
 <c:import url="header.jsp"/>
 <link rel="stylesheet" href="style/header.css">
+<link rel="stylesheet" href="style/communityread.css">
 <body>
 <section>
     <h4>커뮤니티</h4>

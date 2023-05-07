@@ -11,11 +11,7 @@
 <section>
     <table id="notice">
         <tr>
-            <th></th>
-            <th></th>
-            <th>공지사항</th>
-            <th>닉네임</th>
-            <th>등록일</th>
+            <th colspan="5">공지사항</th>
         </tr>
     </table>
     <table id="list">
