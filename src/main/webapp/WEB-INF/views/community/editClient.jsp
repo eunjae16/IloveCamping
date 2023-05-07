@@ -13,6 +13,8 @@
 </head>
 <c:import url="../header.jsp"/>
 <link rel="stylesheet" href="../style/header.css">
+<link rel="stylesheet" href="../style/communityOwnerWrite.css">
+
 <body>
 <section>
     <form>
@@ -22,7 +24,8 @@
                 <td>
                     <input id="category" value="${community.writeCategoryCode}" readonly>
                 </td>
-                <td>작성자 : </td>
+            </tr>
+            <tr>
                 <td id="nickname" name="nickname" value="${sessionScope.log.clientNickname}">${sessionScope.log.clientNickname}</td>
             </tr>
             <tr>
