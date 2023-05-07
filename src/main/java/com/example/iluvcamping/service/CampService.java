@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,7 +22,24 @@ public class CampService {
 
     @GetMapping("/getCampAll")
     @ResponseBody
-    public List<CampView> getCampAll(){ return campViewRepository.findAll();}
+    public List<CampView> getCampAll() {
+        List<Object[]> camps = campViewRepository.findAllCamps();
+        List<CampView> campViews = new ArrayList<>();
+        for (Object[] camp : camps) {
+            String campName = (String) camp[0];
+            String categoryName = (String) camp[1];
+
+            CampView campView = new CampView();
+            campView.setCampName(campName);
+            campView.setCategoryName(categoryName);
+            campView.setCampImage((String) camp[2]);
+            campView.setCampAddress1((String) camp[3]);
+            campView.setCampTheme((String) camp[4]);
+            campViews.add(campView);
+        }
+        return campViews;
+    }
+
 
     public List<Camp>searchCamp(String query){
         // 검색값이 포함되어 있는 게시글을 가져옴
