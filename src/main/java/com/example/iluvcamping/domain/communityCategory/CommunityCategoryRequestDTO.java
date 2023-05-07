@@ -9,7 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class CommunityCategoryRequestDTO {
     private String communityCategoryCode;
     private String communityCategoryName;

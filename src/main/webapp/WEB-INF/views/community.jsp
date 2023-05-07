@@ -9,7 +9,16 @@
 <body>
     <div class="community-bg"><h2>캠핑이야기</h2></div>
 <section>
-    <table>
+    <table id="notice">
+        <tr>
+            <th></th>
+            <th></th>
+            <th>공지사항</th>
+            <th>닉네임</th>
+            <th>등록일</th>
+        </tr>
+    </table>
+    <table id="list">
         <tr>
             <th></th>
             <th>카테고리</th>

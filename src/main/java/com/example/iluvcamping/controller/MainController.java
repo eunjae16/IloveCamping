@@ -1,6 +1,7 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.community.Community;
+import com.example.iluvcamping.domain.community.CommunityView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

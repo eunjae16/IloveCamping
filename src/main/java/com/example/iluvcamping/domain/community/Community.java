@@ -26,9 +26,8 @@ public class Community extends Timestamp {
     private String content;
     private String bookingCode;
 
-//
-//    @OneToMany(mappedBy = "community" , cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
-//    private List<Reply> replyList = new ArrayList<>();
+    @JoinColumn(name="communityCategoryName", referencedColumnName = "writeCode")
+    private String categoryName;
 
     public Community(CommunityRequestDTO communityDto) {
         this.writeCode = communityDto.getWriteCode();

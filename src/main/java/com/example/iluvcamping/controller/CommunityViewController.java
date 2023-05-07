@@ -1,6 +1,7 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.community.Community;
+import com.example.iluvcamping.domain.communityCategory.CommunityCategory;
 import com.example.iluvcamping.domain.reply.Reply;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,13 @@ public class CommunityViewController {
     private final ReplyController replyController;
 
 
+
     // 게시글의 상세페이지로 이동 [ 1개의 클릭 게시물 의 정보 + 리플리스트 들고 옴 ]
     @GetMapping("/communityread")
     public ModelAndView communityRead(@RequestParam String writeCode){
+        // 글목록
         Community community = controller.getCommunityByWriteCode(writeCode);
+        // 댓글목록
         ArrayList<Reply> replyList = (ArrayList<Reply>) replyController.getReplyListByWriteCode(writeCode);
         replyList.sort((a, b) -> b.getRegisteredDate().compareTo(a.getRegisteredDate()));
 
