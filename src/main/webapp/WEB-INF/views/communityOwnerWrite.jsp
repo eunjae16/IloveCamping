@@ -22,13 +22,13 @@
                 <td id="nickname" name="nickname" value="${sessionScope.log.ownerNickname}">${sessionScope.log.ownerNickname}</td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" id="title" name="title" placeholder="제목"></td>
+                <td colspan="3"><input type="text" id="title" name="title" placeholder="제목"></td>
             </tr>
             <tr>
-                <td colspan="2"><textarea id="content" name="content" placeholder="[업체] 내용 작성"></textarea>
+                <td colspan="3"><textarea id="content" name="content" placeholder="[업체] 내용 작성"></textarea>
             </tr>
             <tr>
-                <td><input type="button" value="등록" onclick="ownerWrite(form)"></td>
+                <td colspan="2"><input type="button" value="등록" onclick="ownerWrite(form)"></td>
                 <td><input type="button" value="작성취소" onclick="location.href='community'"></td>
             </tr>
         </table>
