@@ -81,15 +81,15 @@
             <c:choose>
                 <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq reply.replierNickname}">
                     <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
-                    <td><input type="button" value="삭제" onclick="deleteReply()"></td>
+                    <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
                 </c:when>
                 <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq reply.replierNickname}">
                     <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
-                    <td><input type="button" value="삭제" onclick="deleteReply()"></td>
+                    <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
                 </c:when>
                 <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq reply.replierNickname}">
                     <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
-                    <td><input type="button" value="삭제" onclick="deleteReply()"></td>
+                    <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
                 </c:when>
             </c:choose>
         </tr>

@@ -55,7 +55,6 @@ public class ReplyController extends Timestamp {
     // read [ one ] by replycode
     public Reply getReplyByReplyCode(@RequestParam String replyCode) {
         Reply reply = replyRepository.getReplyByReplyCode(replyCode);
-        System.out.println("delete reply: "+replyCode);
         return reply;
     }
 
@@ -63,8 +62,6 @@ public class ReplyController extends Timestamp {
     @PutMapping("/reply/update")
     public void updateByReplyCode(@RequestParam String replyCode, @RequestBody ReplyRequestDTO replyDto) {
         replyDto.setReplyCode(replyCode);
-        replyDto.setModifiedCheck(true);
-        System.out.println("modicheck: " + replyDto.isModifiedCheck());
         replyService.updateReply(replyDto);
     }
 

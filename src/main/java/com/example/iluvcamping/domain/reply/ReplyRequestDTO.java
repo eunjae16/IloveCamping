@@ -20,8 +20,4 @@ public class ReplyRequestDTO {
     private String modifiedDate;
     private boolean modifiedCheck;
 
-    public boolean isModifiedCheck() {
-        return modifiedCheck;
-    }
-
 }

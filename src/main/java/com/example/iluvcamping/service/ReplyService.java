@@ -18,10 +18,12 @@ public class ReplyService {
     @Transactional
     public void updateReply(ReplyRequestDTO replyDto) {
         String replyCode = replyDto.getReplyCode();
+//        boolean modifiedCheck = replyDto.isModifiedCheck();
 
         Reply reply = replyRepository.findById(replyCode).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 코드입니다."));
 
+        reply.setModifiedCheck(true);
         reply.updateReply(replyDto);
     }
 

@@ -1,8 +1,8 @@
-function deleteReply(){
+function deleteReply(replyCode){
 
     const writeCode = $('#writeCode').val();
     const settings = {
-        "url": "reply/delete?replyCode="+$('#replyCode').val(),
+        "url": "reply/delete?replyCode="+replyCode,
         "method": "DELETE",
         "timeout": 0
     }

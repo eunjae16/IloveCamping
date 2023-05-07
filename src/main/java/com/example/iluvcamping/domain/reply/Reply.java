@@ -22,7 +22,7 @@ public class Reply extends Timestamp {
     private String comment;
     private String replierNickname;
 
-    @Column(columnDefinition = "tinyint(1)")
+//    @Column(columnDefinition = "tinyint(1)")
     private boolean modifiedCheck;
 
     public Reply(ReplyRequestDTO replyDto){
@@ -39,6 +39,8 @@ public class Reply extends Timestamp {
         this.replyCode = replyCode;
     }
 
+    // 댓글 수정여부 체크설정
+    public void setModifiedCheck(boolean modifiedCheck) {this.modifiedCheck = modifiedCheck; }
 
     public void updateReply(ReplyRequestDTO replyDto) {
         this.comment = replyDto.getComment();

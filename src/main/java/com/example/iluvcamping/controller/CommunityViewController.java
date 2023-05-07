@@ -23,6 +23,7 @@ public class CommunityViewController {
     public ModelAndView communityRead(@RequestParam String writeCode){
         Community community = controller.getCommunityByWriteCode(writeCode);
         ArrayList<Reply> replyList = (ArrayList<Reply>) replyController.getReplyListByWriteCode(writeCode);
+        replyList.sort((a, b) -> b.getRegisteredDate().compareTo(a.getRegisteredDate()));
 
         ModelAndView modelAndView = new ModelAndView("communityread");
         modelAndView.addObject("community", community);

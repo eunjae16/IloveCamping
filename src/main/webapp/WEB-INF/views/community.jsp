@@ -11,10 +11,10 @@
 <section>
     <table>
         <tr>
-            <th>게시글코드</th>
+            <th></th>
             <th>카테고리</th>
-            <th>닉네임</th>
             <th>제목</th>
+            <th>닉네임</th>
             <th>등록일</th>
         </tr>
     </table>
