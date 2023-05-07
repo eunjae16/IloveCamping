@@ -36,6 +36,12 @@ function searchCamp() {
                             campCategory.textContent += ', ' + c.campCategory;
                         });
 
+                        // 같은 캠핑장명을 가진 데이터를 필터링하여 categoryName을 추가로 표시
+                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.categoryName !== camp.categoryName);
+                        sameCampNameCategory.forEach(c => {
+                            campCategory.textContent += ', ' + c.categoryName;
+                        });
+
                         campListDiv.appendChild(campDiv);
                     });
                 } else {
@@ -77,6 +83,12 @@ function searchCamp() {
                         var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.campCategory !== camp.Category);
                         sameCampNameCategory.forEach(c => {
                             campCategory.textContent += ', ' + c.campCategory;
+                        });
+
+                        // 같은 캠핑장명을 가진 데이터를 필터링하여 categoryName을 추가로 표시
+                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.categoryName !== camp.categoryName);
+                        sameCampNameCategory.forEach(c => {
+                            campCategory.textContent += ', ' + c.categoryName;
                         });
 
                         campListDiv.appendChild(campDiv);
