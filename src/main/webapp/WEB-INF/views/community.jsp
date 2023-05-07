@@ -42,7 +42,6 @@
                 <input type="button" value="로그인 후 작성가능" onclick="location.href='#'">
             </c:when>
         </c:choose>
-
     </div>
 </section>
 <script src="script/community.js"></script>
