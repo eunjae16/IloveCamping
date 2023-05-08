@@ -11,10 +11,6 @@
 <section>
     <h4>커뮤니티</h4>
     <table>
-        <tr>
-            <td>${community.writeCode}</td>
-        </tr>
-        <tr>
             <td>${community.title}</td>
         </tr>
         <tr>

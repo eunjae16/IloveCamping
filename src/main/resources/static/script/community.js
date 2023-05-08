@@ -52,19 +52,3 @@ $.ajax(settings).done(function (response) {
     });
 });
 
-
-
-// $.ajax({
-//     url: `/community/readone?writeCode=${id}`,
-//     method: "GET",
-//     "headers": {
-//         "Content-Type": "application/json",
-//     }
-// }).done(function (response) {
-//         const community = JSON.stringify;
-//
-//         const url = `/community/readone?writeCode=${community.writeCode}`;
-//         console.log("writecode : " + community.writeCode);
-//         window.location.href = url;
-//     });
-// });

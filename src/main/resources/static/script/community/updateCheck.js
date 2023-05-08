@@ -9,6 +9,7 @@ function updateCheck(htmlForm) {
 
     let check = false;
 
+
     if(title !== "")
         url += "&title=" + title;
 
@@ -17,6 +18,12 @@ function updateCheck(htmlForm) {
 
     if(title === "") {
         alert('제목을 입력해주세요');
+        check = true;
+        return;
+    }
+
+    if(category === "") {
+        alert('카테고리를 선택해주세요.');
         check = true;
         return;
     }
