@@ -10,11 +10,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <c:import url="/header"/>
+    <link rel="stylesheet" href="style/modifyClient.css">
 </head>
 <body>
+<section>
 
-
-
-
+</section>
+<c:import url="/footer"/>
 </body>
 </html>

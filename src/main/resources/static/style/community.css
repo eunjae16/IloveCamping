@@ -1,5 +1,5 @@
 .community-bg {
-    background-image: url("../image/bg-03.png");
+    background-image: url("../image/bg-03.jpg");
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -17,29 +17,65 @@
 }
 
 table {
+    width: 730px;
     margin: 0 auto;
-    border-spacing: 20px;
+    border-spacing: 10px;
     border-top: 1px solid #495579;
 }
 
 section {
     position: relative;
+    margin: 50px 0;
 }
 
 .title {
     cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display:inline-block;
+}
+
+.title:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    bottom: 50%;
+    left: 0px;
+    width: 100%;
+    height: 5px;
+    background: #e3eaf1;
+    display: block;
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+}
+
+.title:hover::before {
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1)
 }
 
 div input[type=button] {
     padding: 10px;
     border: 0;
-    background-color: #251749;
+    background-color: #203040;
     color: white;
 }
 
 div input[type=button]:hover {
     background-color: white;
-    color: #251749;
+    color: #203040;
 }
 
 div {

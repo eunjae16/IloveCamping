@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style/mypageOwner.css">
 </head>
 <body>
+<section>
 <div class="mypage-box">
     <h2>${sessionScope.log.ownerNickname}님의 마이페이지</h2>
     <div>
@@ -21,6 +22,7 @@
         <input type="button" onclick="leaveOwner()" value="탈퇴하기">
     </div>
 </div>
+</section>
 <c:import url="/footer"/>
 <script src="/script/mypage.js"></script>
 </body>

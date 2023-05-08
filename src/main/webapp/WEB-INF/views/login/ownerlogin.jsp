@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style/ownerlogin.css">
 </head>
 <body>
+<section>
 <div class="login-box">
     <h2>사업자 로그인</h2>
     <form method="POST" action="ownerlogin">
@@ -29,6 +30,7 @@
         </table>
     </form>
 </div>
+</section>
 <c:import url="/footer"/>
 <script src="script/ownerlogin.js"></script>
 </body>

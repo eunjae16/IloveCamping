@@ -13,14 +13,13 @@
     <table>
             <td>${community.title}</td>
         </tr>
-        <tr>
+        <tr class="box-bottom">
             <td>${community.writerNickname}</td>
             <td>${community.registeredDate}</td>
         </tr>
         <tr>
             <td>${community.content}</td>
         </tr>
-
     </table>
     <div>
         <input type="button" value="글목록" onclick="location.href='community'">

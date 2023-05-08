@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="style/community.css">
 </head>
 <body>
-    <div class="community-bg"><h2>캠핑이야기</h2></div>
 <section>
+    <div class="community-bg"><h2>캠핑이야기</h2></div>
     <table id="notice">
         <tr>
             <th colspan="5">공지사항</th>

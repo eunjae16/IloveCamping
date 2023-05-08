@@ -13,6 +13,7 @@
     <div class="dot"></div>
 </div>
 <p id="message"></p>
+<h3>페이지 오류 발생</h3>
 <script src="/script/error.js"></script>
 </body>
 </html>

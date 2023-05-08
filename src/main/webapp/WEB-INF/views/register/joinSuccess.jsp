@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="style/joinSuccess.css">
 <script src="https://tistory4.daumcdn.net/tistory/3134841/skin/images/confetti_v2.js"></script>
 <body>
+<section>
 <div class="success-box">
     <h2>회원가입을 축하합니다!</h2>
 </div>
@@ -13,6 +14,7 @@
     <button class="canvasBtn" id="startButton">한 번 더!</button>
 </div>
 <canvas id="canvas"></canvas>
+</section>
 <c:import url="../sementic/footer.jsp"/>
 <script type="text/javascript" src="script/joinSuccess.js"></script>
 </body>
