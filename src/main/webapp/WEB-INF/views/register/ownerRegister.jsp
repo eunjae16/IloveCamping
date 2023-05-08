@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-
+<section>
 <div class="owner-register-container">
     <h2>사업자 회원가입</h2>
     <form method="post" action="/regist/owner">
@@ -44,6 +44,7 @@
         <script src="/script/ownerRegister.js"></script>
     </form>
 </div>
+</section>
     <c:import url="/footer"/>
 </body>
 </html>

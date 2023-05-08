@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="style/viewCampsite.css">
     </head>
     <body>
+    <section>
     <div>
         <h2>지역 선택</h2>
         <select id="selectSite" name="selectSite" required onchange="searchCamp()">
@@ -25,7 +26,7 @@
 
         </div>
     </div>
-
+    </section>
     <c:import url="/footer"/>
     <script src="script/viewCampsite.js"></script>
     </body>

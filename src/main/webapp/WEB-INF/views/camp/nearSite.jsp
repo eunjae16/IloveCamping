@@ -3,17 +3,15 @@
 
 <html>
 <head>
-    <title>내 주변 캠프사이트</title>
-
+    <c:import url="../sementic/header.jsp"/>
+    <link rel="stylesheet" href="style/nearstieMap.css">
 </head>
-<link rel="stylesheet" href="style/nearstieMap.css">
 <%-- 마커를 클러스팅할 수 있는 라이브러리--%>
 <%--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>--%>
 <%-- 장소검색 & 주소-좌표 반환 할 수 있는 라이브러리--%>
 <%--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>--%>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5670ccd025e23c03c5a4887d46695c55">
 </script>
-
 <body>
 <section>
     <div id="map">

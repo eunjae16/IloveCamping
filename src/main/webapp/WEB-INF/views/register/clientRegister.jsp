@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-
+<section>
 <div class="client-register-container">
     <h2>일반유저 회원가입</h2>
     <form method="post" action="/regist/client">
@@ -55,6 +55,7 @@
         </div>
     </form>
 </div>
+</section>
 <c:import url="/footer"/>
 <script src="/script/clientRegister.js"></script>
 </body>

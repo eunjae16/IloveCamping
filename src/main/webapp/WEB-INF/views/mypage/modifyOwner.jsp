@@ -10,9 +10,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <html>
 <head>
-    <title>Title</title>
+    <c:import url="/header"/>
+    <link rel="stylesheet" href="style/modifyOwner.css">
 </head>
 <body>
+<section>
 
-</body>
+</section>
+<c:import url="/footer"/>
 </html>

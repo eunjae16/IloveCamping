@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style/clientlogin.css">
 </head>
 <body>
+<section>
 <div class="login-box">
   <h2>일반유저 로그인</h2>
   <form method="POST" action="clientlogin">
@@ -22,6 +23,7 @@
     </table>
   </form>
 </div>
+</section>
 <c:import url="/footer"/>
 <script src="script/clientlogin.js"></script>
 </body>
