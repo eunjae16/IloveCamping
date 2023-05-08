@@ -8,13 +8,22 @@ function ownerWrite(htmlForm) {
 
     let check = false;
 
+    if(category !== "")
+        url += "&category=" + category;
+
     if(title !== "")
         url += "&title=" + title;
 
     if(content !== "")
         url += "&content=" + content;
 
-    if(title === ""){
+    if(category === ""){
+        alert('카테고리가 선택되지 않았습니다.');
+        check = true;
+        return;
+    }
+
+    else if(title === ""){
         alert('제목을 입력해주세요');
         check = true;
         return;

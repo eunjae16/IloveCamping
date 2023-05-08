@@ -21,9 +21,16 @@
         <table>
             <input type="hidden" id="writeCode" name="writeCode" value="${community.writeCode}"></td>
             <tr>
+            <tr>
                 <td>
-                    <input id="category" value="${community.writeCategoryCode}" readonly>
+                    <select id="category" name="category" value="${community.writeCategoryCode}">
+                        <option value="" ${community.writeCategoryCode == '' ? 'selected="selected"' : ''}>카테고리</option>
+                        <option value="CC100003" ${community.writeCategoryCode == 'CC100003' ? 'selected="selected"' : ''}>질문</option>
+                        <option value="CC100004" ${community.writeCategoryCode == 'CC100004' ? 'selected="selected"' : ''}>자유게시판</option>
+                        <option value="CC100005" ${community.writeCategoryCode == 'CC100005' ? 'selected="selected"' : ''}>캠핑팁</option>
+                    </select>
                 </td>
+            </tr>
             </tr>
             <tr>
                 <td id="nickname" name="nickname" value="${sessionScope.log.clientNickname}">${sessionScope.log.clientNickname}</td>
