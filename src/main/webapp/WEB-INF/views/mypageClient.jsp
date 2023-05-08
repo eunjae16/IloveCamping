@@ -13,7 +13,7 @@
  3. 회원탈퇴
  -->
 
-<div>
+<div class="mypage-box">
     <h2>${sessionScope.log.clientNickname}님의 마이페이지</h2>
     <div>
         <button onclick="location.href='modifyclient'">회원정보 수정</button>

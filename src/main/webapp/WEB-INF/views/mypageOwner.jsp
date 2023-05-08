@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style/mypageOwner.css">
 </head>
 <body>
-<div>
+<div class="mypage-box">
     <h2>${sessionScope.log.ownerNickname}님의 마이페이지</h2>
     <div>
         <button onclick="location.href='ownerSales'">매출 통계</button>

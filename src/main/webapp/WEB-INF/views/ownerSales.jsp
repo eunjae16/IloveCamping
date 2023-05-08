@@ -8,11 +8,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>
 <section>
-    <h3>매출 현황</h3>
+    <h3>매출 통계</h3>
     <div class="container" id="${log.ownerCode}">
         <div class="button-container">
             <button type="button" id="btn">월별 매출</button>
-            <button type="button" id="btn2">연도별 매출</button>
+            <button type="button" id="btn2">일별 매출</button>
         </div>
         <div id="column_chart_div1" style="width: 900px; height: 500px;"></div>
     </div>
