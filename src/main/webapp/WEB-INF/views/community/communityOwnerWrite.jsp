@@ -10,6 +10,9 @@
     <form>
         <table>
             <tr>
+                <td id="nickname" name="nickname" value="${sessionScope.log.ownerNickname}">${sessionScope.log.ownerNickname}</td>
+            </tr>
+            <tr>
                 <td>
                     <select id="category" name="category">
                         <option value="">카테고리</option>
@@ -18,8 +21,6 @@
                         <option value="CC100005">캠핑팁</option>
                     </select>
                 </td>
-                <td>작성자 : </td>
-                <td id="nickname" name="nickname" value="${sessionScope.log.ownerNickname}">${sessionScope.log.ownerNickname}</td>
             </tr>
             <tr>
                 <td colspan="3"><input type="text" id="title" name="title" placeholder="제목"></td>

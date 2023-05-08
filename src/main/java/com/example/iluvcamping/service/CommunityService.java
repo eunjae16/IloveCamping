@@ -45,8 +45,11 @@ public class CommunityService {
     @Transactional
     public void deleteWriteByWritecode(String writeCode) {
 
-//        List<Reply> replyList =
+        List<Reply> replyList = replyRepository.findByWriteCode(writeCode);
 
+        for (Reply reply : replyList) {
+            replyRepository.delete(reply);
+        }
         communityRepository.deleteById(writeCode);
     }
 
