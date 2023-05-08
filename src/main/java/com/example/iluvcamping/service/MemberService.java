@@ -4,6 +4,8 @@ import com.example.iluvcamping.domain.booking.Booking;
 import com.example.iluvcamping.domain.booking.BookingRepository;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
+import com.example.iluvcamping.domain.campSite.CampSite;
+import com.example.iluvcamping.domain.campSite.CampSiteRepository;
 import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.client.ClientRepository;
 import com.example.iluvcamping.domain.community.Community;
@@ -28,6 +30,7 @@ public class MemberService {
     private final ReplyRepository replyRepository;
     private final BookingRepository bookingRepository;
     private final CampRepository campRepository;
+    private final CampSiteRepository campSiteRepository;
 
     public Owner getOwnerById(String ownerId){
         Owner owner = null;
@@ -68,7 +71,18 @@ public class MemberService {
             }
 
             List<Camp> campList = campRepository.getAllByCampOwner(ownerCode);
+
             if(!campList.isEmpty()){
+                for(Camp camp : campList){
+                    String campCode = camp.getCampCode();
+
+                    List<CampSite> campSiteList = campSiteRepository.getAllByCampCode(campCode);
+
+                    if(!campSiteList.isEmpty()){
+                        campSiteRepository.deleteCampSiteByCampCode(campCode);
+                    }
+                }
+
                 campRepository.deleteCampByCampOwner(ownerCode);
             }
 

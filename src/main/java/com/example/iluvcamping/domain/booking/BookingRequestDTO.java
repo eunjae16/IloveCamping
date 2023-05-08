@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingRequestDTO {
+
     private String bookingCode;
 
     private String userCode;

@@ -22,11 +22,12 @@ public class CampSite {
 
     private String campCode;
     private String siteName;
+    private int siteMinPerson;
+    private int siteMaxPerson;
+    private int sitePrice;
+
     private Integer siteExtraPersonPrice;
     private Integer siteExtraCarabanPrice;
-    private Integer siteMinPerson;
-    private Integer siteMaxPerson;
-    private Integer sitePrice;
 
     public CampSite(String siteCode, String campCode, String siteName, int siteMinPerson, int siteMaxPerson, int sitePrice) {
         this.siteCode = siteCode;
@@ -35,6 +36,20 @@ public class CampSite {
         this.siteMinPerson = siteMinPerson;
         this.siteMaxPerson = siteMaxPerson;
         this.sitePrice = sitePrice;
+        this.siteExtraPersonPrice = null;
+        this.siteExtraCarabanPrice = null;
     }
+
+    public CampSite(CampSiteRequestDTO campSiteRequestDTO){
+        this.siteCode = campSiteRequestDTO.getSiteCode();
+        this.campCode = campSiteRequestDTO.getCampCode();
+        this.siteName = campSiteRequestDTO.getSiteName();
+        this.siteMinPerson = campSiteRequestDTO.getSiteMinPerson();
+        this.siteMaxPerson = campSiteRequestDTO.getSiteMaxPerson();
+        this.sitePrice = campSiteRequestDTO.getSitePrice();
+        this.siteExtraPersonPrice = campSiteRequestDTO.getSiteExtraPersonPrice();
+        this.siteExtraCarabanPrice = campSiteRequestDTO.getSiteExtraCarabanPrice();
+    }
+
 }
 
