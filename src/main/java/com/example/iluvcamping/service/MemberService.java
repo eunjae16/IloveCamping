@@ -1,6 +1,9 @@
 package com.example.iluvcamping.service;
 
+import com.example.iluvcamping.domain.booking.Booking;
 import com.example.iluvcamping.domain.booking.BookingRepository;
+import com.example.iluvcamping.domain.camp.Camp;
+import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.client.ClientRepository;
 import com.example.iluvcamping.domain.community.Community;
@@ -24,6 +27,7 @@ public class MemberService {
     private final CommunityRepository communityRepository;
     private final ReplyRepository replyRepository;
     private final BookingRepository bookingRepository;
+    private final CampRepository campRepository;
 
     public Owner getOwnerById(String ownerId){
         Owner owner = null;
@@ -49,24 +53,24 @@ public class MemberService {
 
         Owner owner = getOwnerById(ownerCode);
 
-
         if(owner != null) {
             String nickname = owner.getOwnerNickname();
 
             // community > 이 회원이 쓴 글 조회
             List<Community> communityList = communityRepository.getAllByWriterNickname(nickname);
+            if(!communityList.isEmpty()){
+                communityRepository.updateCommunityByWriterNickname(nickname);
+            }
 
-            // 조회된 모든 글들의 닉네임 >> "탈퇴한회원" 으로 업데이트
-            communityRepository.updateCommunitiesByWriterNickname(nickname);
+            List<Reply> replyList = replyRepository.getAllByReplierNickname(nickname);
+            if(!replyList.isEmpty()){
+                replyRepository.updateReplyByReplierNickname(nickname);
+            }
 
-            // reply > 이 회원이 쓴 댓글 조회
-            List<Reply> replyList = replyRepository.getRepliesByReplierNickname(nickname);
-
-            // 조회된 모든 댓글의 닉네임 >> "탈퇴한회원" 으로 업데이트
-            replyRepository.updateRepliesByReplierNickname(nickname);
-
-            // booking > 이 회원이 예약한 모든 내역 조회
-            // 조회된 모든 내역의 정보 >> "탈퇴한회원" 으로 업데이트 >> client만 가능!
+            List<Camp> campList = campRepository.getAllByCampOwner(ownerCode);
+            if(!campList.isEmpty()){
+                campRepository.deleteCampByCampOwner(ownerCode);
+            }
 
             ownerRepository.deleteById(ownerCode);
         }
@@ -81,15 +85,23 @@ public class MemberService {
             String nickname = client.getClientNickname();
 
             List<Community> communityList = communityRepository.getAllByWriterNickname(nickname);
-            communityRepository.updateCommunitiesByWriterNickname(nickname);
+            if (!communityList.isEmpty()) {
+                communityRepository.updateCommunityByWriterNickname(nickname);
+            }
 
-//            List<Reply> replyList = replyRepository.getRepliesByReplierNickname(nickname);
-//            replyRepository.updateRepliesByReplierNickname(nickname);
-//
-//            List<Booking> bookingList = bookingRepository.getBookingsByUserCode(clientCode);
-//            bookingRepository.updateBookingsByWriterNickname(clientCode);
 
-//            clientRepository.deleteById(clientCode);
+            List<Reply> replyList = replyRepository.getAllByReplierNickname(nickname);
+            if(!replyList.isEmpty()){
+                replyRepository.updateReplyByReplierNickname(nickname);
+            }
+
+
+            List<Booking> bookingList = bookingRepository.getAllByUserCode(clientCode);
+            if(!bookingList.isEmpty()){
+                bookingRepository.updateBookingByUserCode(clientCode);
+            }
+
+            clientRepository.deleteById(clientCode);
         }
     }
 

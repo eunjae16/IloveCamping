@@ -10,5 +10,9 @@ public interface CampRepository extends JpaRepository<Camp, String> {
     List<Camp> findByCampAddress1StartingWith(String addressPrefix);
 
     List<Camp> findByCampNameContainingOrCampAddress1Containing(String name, String address);
+
+    public List<Camp> getAllByCampOwner(String campOwnerCode);
+
+    public void deleteCampByCampOwner(String ownerCode);
 }
 

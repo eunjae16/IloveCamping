@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking,String> {
 
-    public List<Booking> getBookingsByUserCode(String clientCode);
+    public List<Booking> getAllByUserCode(String clientCode);
 
     @Modifying
-    @Query(nativeQuery = true, value = "UPDATE Booking b SET b.user_code = '00000000' WHERE b.user_code = :usercode")
-    public void updateBookingsByWriterNickname(@Param("usercode") String usercode);
+    @Query(nativeQuery = true, value = "UPDATE booking SET user_code = '00000000' WHERE user_code = :usercode")
+    public void updateBookingByUserCode(@Param("usercode") String usercode);
 
 }
