@@ -11,7 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <c:import url="header.jsp"/>
+    <c:import url="../sementic/header.jsp"/>
 <%--    <link rel="stylesheet" href="style/communityClientWrite.css">--%>
     <link rel="stylesheet" href="style/communityOwnerWrite.css">
 </head>

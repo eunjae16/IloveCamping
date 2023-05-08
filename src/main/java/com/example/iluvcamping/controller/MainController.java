@@ -1,13 +1,10 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.community.Community;
-import com.example.iluvcamping.domain.community.CommunityView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -19,67 +16,67 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        return "index";
+        return "sementic/index";
     }
 
     @GetMapping("/regist")
     public String regist() {
-        return "regist";
+        return "register/regist";
     }
 
     @GetMapping("/clientregister")
     public String clientRegister() {
-        return "clientRegister";
+        return "register/clientRegister";
     }
 
     @GetMapping("/ownerregister")
     public String ownerRegister() {
-        return "ownerRegister";
+        return "register/ownerRegister";
     }
 
     @GetMapping("/joinsuccess")
     public String joinSuccess() {
-        return "joinSuccess";
+        return "register/joinSuccess";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "login/login";
     }
 
     @GetMapping("/clientlogin")
     public String clientlogin() {
-        return "clientlogin";
+        return "login/clientlogin";
     }
 
     @GetMapping("/ownerlogin")
     public String ownerlogin() {
-        return "ownerlogin";
+        return "login/ownerlogin";
     }
 
     @GetMapping("/header")
     public String header() {
-        return "header";
+        return "sementic/header";
     }
 
     @GetMapping("/footer")
     public String footer() {
-        return "footer";
+        return "sementic/footer";
     }
 
     @GetMapping("/nearsite")
     public String nearSite() {
-        return "nearSite";
+        return "camp/nearSite";
     }
 
     @GetMapping("/weather")
     public String weather() {
-        return "weather";
+        return "camp/weather";
     }
 
     @GetMapping("/viewCampsite")
     public String viewCampsite() {
-        return "viewCampsite";
+        return "camp/viewCampsite";
     }
 
     @GetMapping("/community")
@@ -88,28 +85,28 @@ public class MainController {
         List<Community> list = controller.getAllCommunity();
         model.addAttribute("list", list);
 
-        return "community";
+        return "community/community";
     }
 
     // 게시판 글 작성하는 페이지
     @GetMapping("/communityclientwrite")
     public String communityClientWrite() {
-        return "communityClientWrite";
+        return "community/communityClientWrite";
     }
 
     @GetMapping("/communityownerwrite")
     public String communityOwnerWrite() {
-        return "communityOwnerWrite";
+        return "community/communityOwnerWrite";
     }
 
     @GetMapping("/modifyclient")
     public String modifyClient() {
-        return "modifyClient";
+        return "mypage/modifyClient";
     }
 
     @GetMapping("/modifyowner")
     public String modifyOwner() {
-        return "modifyOwner";
+        return "mypage/modifyOwner";
     }
 
     @GetMapping("/error")
@@ -119,17 +116,17 @@ public class MainController {
 
     @GetMapping("/ownerSales")
     public String ownerSales() {
-        return "ownerSales";
+        return "mypage/ownerSales";
     }
 
     @GetMapping("/mypageclient")
     public String mypageClient() {
-        return "mypageClient";
+        return "mypage/mypageClient";
     }
 
     @GetMapping("/mypageowner")
     public String mypageOwner() {
-        return "mypageOwner";
+        return "mypage/mypageOwner";
     }
 
 }

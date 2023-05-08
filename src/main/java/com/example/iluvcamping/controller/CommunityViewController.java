@@ -2,7 +2,6 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.domain.community.CommunityRepository;
-import com.example.iluvcamping.domain.communityCategory.CommunityCategory;
 import com.example.iluvcamping.domain.reply.Reply;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -38,7 +37,7 @@ public class CommunityViewController {
 
         community.setCommunityNumber(communityNumber); // communityNumber 설정
 
-        ModelAndView modelAndView = new ModelAndView("communityread");
+        ModelAndView modelAndView = new ModelAndView("community/communityread");
         modelAndView.addObject("community", community);
         modelAndView.addObject("reply" , replyList);
 

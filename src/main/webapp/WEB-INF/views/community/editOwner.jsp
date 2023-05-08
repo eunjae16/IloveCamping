@@ -11,7 +11,7 @@
 <head>
     <title>[업체] 글수정하기</title>
 </head>
-<c:import url="../header.jsp"/>
+<c:import url="../sementic/header.jsp"/>
 <link rel="stylesheet" href="../style/header.css">
 <link rel="stylesheet" href="../style/communityOwnerWrite.css">
 

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<c:import url="header.jsp"/>
+<c:import url="../sementic/header.jsp"/>
 <link rel="stylesheet" href="style/ownerSales.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -18,6 +18,6 @@
     </div>
 </section>
 <script src="script/ownerSales.js"></script>
-<c:import url="footer.jsp"/>
+<c:import url="../sementic/footer.jsp"/>
 </body>
 </html>

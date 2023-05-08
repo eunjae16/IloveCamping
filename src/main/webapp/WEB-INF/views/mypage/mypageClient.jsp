@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <c:import url="header.jsp"/>
+    <c:import url="../sementic/header.jsp"/>
     <link rel="stylesheet" href="style/mypageClient.css">
 </head>
 <body>

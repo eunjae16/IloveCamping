@@ -39,7 +39,7 @@ public class RegistController {
         session.setAttribute("usertype" , "client");
         session.setAttribute("log" , client);
 
-        return "joinSuccess";
+        return "register/joinSuccess";
     }
 
     @PostMapping("/regist/owner")
@@ -52,7 +52,7 @@ public class RegistController {
         session.setAttribute("usertype" , "owner");
         session.setAttribute("log" , owner);
 
-        return "joinSuccess";
+        return "register/joinSuccess";
     }
 
     @ResponseBody

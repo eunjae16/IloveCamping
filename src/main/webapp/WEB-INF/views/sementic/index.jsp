@@ -1,13 +1,17 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <html>
-    <head>
-        <c:import url="header.jsp"/>
-        <link rel="stylesheet" href="style/viewCampsite.css">
-    </head>
-    <body>
-    <div>
-        <h2>지역 선택</h2>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <c:import url="/header"/>
+    <link rel="stylesheet" href="style/index.css">
+    <script src="https://kit.fontawesome.com/412ff5bbec.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<section>
+    <div class="index-bg"></div>
+    <div class="search-box">
+        <p>오늘은 어디로 갈까?</p>
         <select id="selectSite" name="selectSite" required onchange="searchCamp()">
             <option value="none" selected hidden>선택</option>
             <option value="viewAll">전체보기</option>
@@ -21,12 +25,11 @@
             <option value="경북">경상북도</option>
             <option value="경남">경상남도</option>
         </select>
-        <div id="campList"> <!-- 캠핑장 목록을 표시 -->
-
-        </div>
+        <input type="text" placeholder="검색어를 입력해 주세요." id="searchBox">
+        <button type="button" id="btnSearch"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
     </div>
-
-    <c:import url="/footer"/>
-    <script src="script/viewCampsite.js"></script>
-    </body>
-    </html>
+</section>
+<c:import url="/footer"/>
+<script src="/script/index.js"></script>
+</body>
+</html>

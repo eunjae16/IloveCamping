@@ -15,17 +15,17 @@
             </div>
             <ul class="menu">
                 <li><a href="/">전체</a></li>
-                <li><a href="/">캠핑</a></li>
+                <li><a href="/viewCampsite">캠핑</a></li>
                 <li><a href="/">글램핑/카라반</a></li>
                 <li><a href="/">검색</a></li>
                 <li><a href="/community">캠핑 이야기</a></li>
             </ul>
             <ul class="side-menu">
                 <c:if test="${sessionScope.usertype eq 'owner'}">
-                    <li><a href="/mypageowner">내 정보</a></li>
+                    <li><a href="/mypageowner">마이페이지</a></li>
                 </c:if>
                 <c:if test="${sessionScope.usertype eq 'client'}">
-                    <li><a href="/mypageclient">내 정보</a></li>
+                    <li><a href="/mypageclient">마이페이지</a></li>
                 </c:if>
                 <c:if test="${empty sessionScope.log}">
                     <li><a href="/login">로그인</a></li>

@@ -4,7 +4,7 @@
 <head>
     <title>게시글 상세페이지</title>
 </head>
-<c:import url="header.jsp"/>
+<c:import url="../sementic/header.jsp"/>
 <link rel="stylesheet" href="style/header.css">
 <link rel="stylesheet" href="style/communityread.css">
 <body>
