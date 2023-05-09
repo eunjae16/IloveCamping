@@ -96,4 +96,15 @@ public class CampController {
         }
         return new ResponseEntity<>(campView, HttpStatus.OK);
     }
+
+
+    // 지도에 표시할 목적의 모든 camp read
+    @ResponseBody
+    @GetMapping("/camp/readall")
+    public List<Camp> getCampListAll()  {
+        List<Camp> list = campRepository.findAll();
+
+        return list;
+    }
 }
+
