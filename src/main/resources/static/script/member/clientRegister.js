@@ -125,7 +125,7 @@ function checkNicknameReq() {
                     nickCheck = true;
                 } else {
                     $('#messageNickname').text('이미 사용중인 닉네임입니다');
-                    nickCheck = true;
+                    nickCheck = false;
                 }
             },
             error: function (error) {

@@ -19,7 +19,7 @@
 </c:if>
 <section>
     <h3>회원수정</h3>
-    <form method="post" action="">
+    <form method="post">
         <input type="hidden" id="ownerCode" value="${sessionScope.log.ownerCode}">
         <table>
             <tr>

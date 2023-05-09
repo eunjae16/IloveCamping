@@ -76,7 +76,7 @@ public class MainController {
 
     @GetMapping("/viewcampsite")
     public String viewCampsite() {
-        return "viewcampsite";
+        return "camp/viewCampsite";
     }
 
     @GetMapping("/community")

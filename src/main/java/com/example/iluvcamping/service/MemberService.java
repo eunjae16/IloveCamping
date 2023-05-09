@@ -8,6 +8,7 @@ import com.example.iluvcamping.domain.campSite.CampSite;
 import com.example.iluvcamping.domain.campSite.CampSiteRepository;
 import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.client.ClientRepository;
+import com.example.iluvcamping.domain.client.ClientRequestDTO;
 import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.domain.community.CommunityRepository;
 import com.example.iluvcamping.domain.owner.Owner;
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -39,6 +41,7 @@ public class MemberService {
         owner = ownerRepository.findById(ownerCode).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 사용자 입니다.")
         );
+
         return owner;
     }
 
@@ -123,17 +126,54 @@ public class MemberService {
     // 회원수정
 
     @Transactional
-    public void updateOwnerByCode(OwnerRequestDTO updateOwner, String ownerCode){
+    public void updateOwnerByCode(String ownerCode, OwnerRequestDTO ownerRequestDTO) {
         Owner owner = getOwnerById(ownerCode);
 
-        if(owner != null){
-            owner.setOwnerNickname(updateOwner.getOwnerNickname());
-            owner.setOwnerPassword(updateOwner.getOwnerPassword());
-            owner.setAccount(updateOwner.getAccount());
-
-            ownerRepository.save(owner);
+        if (owner == null) {
+            throw new EntityNotFoundException("Owner not found with code: " + ownerCode);
         }
 
+        if (ownerRequestDTO.getOwnerPassword() != null) {
+            owner.setOwnerPassword(ownerRequestDTO.getOwnerPassword());
+        }
+        if (ownerRequestDTO.getOwnerNickname() != null) {
+            owner.setOwnerNickname(ownerRequestDTO.getOwnerNickname());
+        }
+        if (ownerRequestDTO.getAccount() != null) {
+            owner.setAccount(ownerRequestDTO.getAccount());
+        }
+
+        ownerRepository.save(owner);
     }
+
+    @Transactional
+    public void updateClientByCode(String clientCode, ClientRequestDTO clientDto){
+        Client client = getClientById(clientCode);
+
+        if(client == null){
+            throw new EntityNotFoundException("Client not found with code: " + clientCode);
+        }
+
+        if(clientDto.getClientPassword() != null)
+            client.setClientPassword(clientDto.getClientPassword());
+
+        if(clientDto.getClientNickname() != null)
+            client.setClientNickname(clientDto.getClientNickname());
+
+        if(clientDto.getClientPhone() != null)
+            client.setClientPhone(clientDto.getClientPhone());
+
+        if(clientDto.getClientEmail() != null)
+            client.setClientEmail(clientDto.getClientEmail());
+
+        if(clientDto.getAddressCode() != null)
+            client.setAddressCode(clientDto.getAddressCode());
+
+        if(clientDto.getAddress() != null)
+            client.setAddress(clientDto.getAddress());
+
+        clientRepository.save(client);
+    }
+
 
 }
