@@ -39,4 +39,28 @@ public class Client {
     public void setClientCode(String clientCode) {
         this.clientCode = clientCode;
     }
+
+    public void setClientNickname(String nickname) {
+        this.clientNickname = nickname;
+    }
+
+    public void setClientPassword(String password){
+        this.clientPassword = password;
+    }
+
+    public void setClientPhone(String phone){
+        this.clientPhone = phone;
+    }
+
+    public void setClientEmail(String email){
+        this.clientEmail = email;
+    }
+
+    public void setAddressCode(String addressCode){
+        this.addressCode = addressCode;
+    }
+
+    public void setAddress(String address){
+        this.address = address;
+    }
 }

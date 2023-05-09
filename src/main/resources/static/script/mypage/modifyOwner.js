@@ -3,22 +3,19 @@ let checkNickname = false;
 function checkValue(htmlForm){
     let url = "modifyowner?";
 
-    const ownerId = $('id').val();
+    const ownerCode = $('#ownerCode').val();
+    const ownerId = $('#id').val();
     const ownerPassword = $('#password').val();
-    const ownerNickname = $('nickname').val();
+    const ownerNickname = $('#nickname').val();
     const account = $('#account').val();
 
     let check = true;
 
-    if(ownerId !== "") url += "&ownerId=" + ownerId;
     if(ownerPassword !== "") url += "&ownerPassword=" + ownerPassword;
     if(ownerNickname !== "") url += "&ownerNickname=" + ownerNickname;
     if(account !== "") url += "&account=" + account;
 
-    if(ownerId === ""){
-        alert("아이디를 입력해주세요.");
-        check = false;
-    } else if(ownerPassword === ""){
+    if(ownerPassword === ""){
         alert("비밀번호를 입력해주세요.");
         check = false;
     } else if(ownerNickname === ""){
@@ -33,6 +30,7 @@ function checkValue(htmlForm){
         location.href = url;
     } else{
         const data =  {
+            "ownerCode" : ownerCode,
             "ownerId" : ownerId,
             "ownerPassword" : ownerPassword,
             "ownerNickname" : ownerNickname,
@@ -75,7 +73,7 @@ function checkNicknameReq(){
                     checkNickname = true;
                 }
                 else{
-                    $('#messageNickname').text('사용가능한 닉네임입니다.');
+                    $('#messageNickname').text('사용불가한 닉네임입니다.');
                     checkNickname = false;
                 }
             },

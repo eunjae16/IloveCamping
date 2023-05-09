@@ -57,6 +57,6 @@
 </div>
 </section>
 <c:import url="/footer"/>
-<script src="/script/clientRegister.js"></script>
+<script src="/script/member/clientRegister.js"></script>
 </body>
 </html>

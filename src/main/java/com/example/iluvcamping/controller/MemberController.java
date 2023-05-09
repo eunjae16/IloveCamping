@@ -1,5 +1,6 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.client.ClientRequestDTO;
 import com.example.iluvcamping.domain.owner.OwnerRequestDTO;
 import com.example.iluvcamping.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -43,12 +44,16 @@ public class MemberController {
 
     // Owner 수정
     @PostMapping("/modify/owner")
-    public String updateOwnerByCode(@RequestBody OwnerRequestDTO updateOwner, @RequestParam String ownerCode){
-        memberService.updateOwnerByCode(updateOwner,ownerCode);
-        return "mypageowner";
+    public String updateOwnerByCode(@RequestBody OwnerRequestDTO updateOwner){
+        memberService.updateOwnerByCode(updateOwner.getOwnerCode(), updateOwner);
+        return "/mypage/mypageOwner";
     }
 
     // Client 수정
-
+    @PostMapping("/modify/client")
+    public  String updateClientByCode(@RequestBody ClientRequestDTO updateClient){
+        memberService.updateClientByCode(updateClient.getClientCode(), updateClient);
+        return "/mypage/mypageClient";
+    }
 
 }
