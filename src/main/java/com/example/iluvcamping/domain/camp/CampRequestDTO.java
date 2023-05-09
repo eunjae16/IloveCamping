@@ -17,4 +17,6 @@ public class CampRequestDTO {
     private String campAddressCode;
     private String campAddress1;
     private String campPhone;
+    private double x;
+    private double y;
 }
