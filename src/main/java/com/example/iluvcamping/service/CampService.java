@@ -47,6 +47,4 @@ public class CampService {
 
         return searchCamps;
     }
-
-
 }
