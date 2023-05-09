@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
@@ -13,17 +16,27 @@ public class MemberController {
     private final MemberService memberService;
 
     // Owner 탈퇴
-    @PostMapping("/regist/leave/owner")
-    public String leaveOwnerByCode(@RequestParam String ownerCode){
+    @PostMapping("/register/leave/owner")
+    public String leaveOwnerByCode(@RequestParam String ownerCode , HttpServletRequest request){
         memberService.deleteOwnerByCode(ownerCode);
-        return "sementic/index";
+        deleteSession(request);
+        return "register/byebye";
     }
 
     // Client 탈퇴
     @PostMapping("/register/leave/client")
-    public String leaveClientByCode(@RequestParam String clientCode){
+    public String leaveClientByCode(@RequestParam String clientCode, HttpServletRequest request){
         memberService.deleteClientByCode(clientCode);
-        return "sementic/index";
+        deleteSession(request);
+        return "register/byebye";
+    }
+
+    public void deleteSession(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.removeAttribute("log");
+            session.removeAttribute("usertype");
+        }
     }
 
 

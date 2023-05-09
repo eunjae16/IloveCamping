@@ -129,4 +129,9 @@ public class MainController {
         return "mypage/mypageOwner";
     }
 
+    @GetMapping("/byebye")
+    public String byebye() {
+        return "register/byebye";
+    }
+
 }

@@ -14,8 +14,23 @@
     <link rel="stylesheet" href="style/modifyOwner.css">
 </head>
 <body>
-<section>
+<c:if test="${empty log}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
 
+<section>
+    <h3>회원수정</h3>
+    <form method="post" action="">
+        <table>
+            <tr>
+                <th>아이디</th>
+                <td>${sessionScope.log.ownerId}</td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+        </table>
+    </form>
 </section>
 <c:import url="/footer"/>
 </html>
