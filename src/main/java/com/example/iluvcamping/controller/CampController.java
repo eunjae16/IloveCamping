@@ -8,11 +8,12 @@ import com.example.iluvcamping.service.CampService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class CampController {
@@ -27,27 +28,72 @@ public class CampController {
         this.campViewRepository = campViewRepository;
     }
 
-    @GetMapping("/getCampList")
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<List<CampView>> getCampList(@RequestParam("selectedValue") String selectedValue) {
-        List<CampView> campList;
-        if (selectedValue.equals("viewAll")) {
-            campList = campService.getCampAll();
-        } else {
-            campList = campViewRepository.findAllByCampAddress1StartingWith(selectedValue.substring(0, 2));
+    public List<CampView> searchCampsites(@RequestParam(value = "site", required = false) String site, @RequestParam(value = "query", required = false) String query) {
+        // select 옵션 선택 시 campView에 있는 campAddress1의 맨 처음 두 글자가 일치하면 일치하는 데이터들을 모두 찾음
+        List<CampView> campViews = new ArrayList<>();
+        if (site != null && site.equals("address")) {
+            if (query != null) {
+                List<CampView> selectedCamps = campViewRepository.findAllByCampAddress1StartingWith(query.substring(0, 2));
+                for (CampView campView : selectedCamps) {
+                    if (campView.getCampName().contains(site)) {
+                        campViews.add(campView);
+                    }
+                }
+            }
+        } else if (site != null && site.equals("name")) {
+            if (query != null) {
+                List<Camp> searchedCamps = campService.searchCamp(query);
+                for (Camp camp : searchedCamps) {
+                    List<CampView> foundCamps = campViewRepository.findAllByCampName(camp.getCampName());
+                    campViews.addAll(foundCamps);
+                }
+            }
         }
-        return ResponseEntity.ok(campList);
+        return campViews;
     }
 
-    @GetMapping("/searchCamp")
-    @ResponseBody
-    public ResponseEntity<List<CampView>> searchCamp(@RequestParam String selectedOption) {
-        List<CampView> campList;
-        if (selectedOption.equals("viewAll")) {
-            campList = campService.getCampAll();
-        } else {
-            campList = campViewRepository.findAllByCampAddress1StartingWith(selectedOption.substring(0, 2));
+    @GetMapping("/campsite/search")
+    public String searchCamp(@RequestParam(name = "query", required = false) String query, Model model) {
+        List<Camp> searchCamps = new ArrayList<>();
+        if (query != null && !query.isEmpty()) {
+            searchCamps = campService.searchCamp(query);
         }
-        return ResponseEntity.ok(campList);
+        model.addAttribute("camps", searchCamps);
+        return "viewCampsite";
+    }
+
+
+    @PostMapping("/campsite/search")
+    public ResponseEntity<List<Camp>> searchCamps(@RequestBody String query) {
+        List<Camp> camps = campService.searchCamp(query);
+        return new ResponseEntity<>(camps, HttpStatus.OK);
+    }
+
+    @GetMapping("/getCampAll")
+    @ResponseBody
+    public List<CampView> getCampAll() {
+        List<Object[]> camps = campViewRepository.findAllCamps();
+        List<CampView> campViews = new ArrayList<>();
+        for (Object[] camp : camps) {
+            CampView campView = new CampView();
+            campView.setCampName((String) camp[0]);
+            campView.setCampImage((String) camp[1]);
+            campView.setCampAddress1((String) camp[2]);
+            campView.setCampTheme((String) camp[3]);
+
+            campViews.add(campView);
+        }
+        return campViews;
+    }
+
+    @GetMapping("/camp/{name}")
+    public ResponseEntity<CampView> getCamp(@PathVariable String name) {
+        CampView campView = campViewRepository.findById(name).orElse(null);
+        if (campView == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(campView, HttpStatus.OK);
     }
 }
