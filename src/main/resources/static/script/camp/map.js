@@ -1,5 +1,6 @@
 
 
+
 const mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
     // 지도 중심좌표
@@ -9,22 +10,34 @@ const mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+const settings = {
+    // "url" =
+}
+
 // 마커를 표시할 위치와 title 객체 배열입니다
 let positions;
+
 positions = [
     {
+        title: '소나무 캠프',
+        latlng: new kakao.maps.LatLng(37.76329732940934, 128.1667803111291),
+
+    },
+
+    {
         title: '자연소리 캠프',
-        latlng: new kakao.maps.LatLng(37.76329732940934, 128.1667803111291)
+        latlng: new kakao.maps.LatLng(36.8711159, 127.9314478),
     }
+
     ];
 
 // 마커 이미지의 이미지 주소입니다
-const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+const imageSrc = "image/tent.png";
 
 for (let i = 0; i < positions.length; i ++) {
 
     // 마커 이미지의 이미지 크기 입니다
-    var imageSize = new kakao.maps.Size(24, 35);
+    var imageSize = new kakao.maps.Size(40, 30);
 
     // 마커 이미지를 생성합니다
     var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);

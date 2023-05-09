@@ -11,7 +11,7 @@
 <section>
     <h4>커뮤니티</h4>
     <table>
-            <td>${community.title}</td>
+        <td>${community.title}</td>
         </tr>
         <tr class="box-bottom">
             <td>${community.writerNickname}</td>
@@ -25,19 +25,19 @@
         <input type="button" value="글목록" onclick="location.href='community'">
         <input type="hidden" id="writeCode" value="${community.writeCode}">
 
-    <c:choose>
-    <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq community.writerNickname}">
-        <input type="button" value="수정" onclick="location.href='/community/editowner?writeCode=${community.writeCode}'">
-           <input type="button" value="삭제" onclick="deleteWrite()">
-     </c:when>
-        <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq community.writerNickname}">
-            <input type="button" value="수정" onclick="location.href='/community/editclient?writeCode=${community.writeCode}'">
-            <input type="button" value="삭제" onclick="deleteWrite()">
-        </c:when>
-        <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq community.writerNickname}">
-             <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
-            <input type="button" value="삭제" onclick="deleteWrite()">
-        </c:when>
+        <c:choose>
+            <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq community.writerNickname}">
+                <input type="button" value="수정" onclick="location.href='/community/editowner?writeCode=${community.writeCode}'">
+                <input type="button" value="삭제" onclick="deleteWrite()">
+            </c:when>
+            <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq community.writerNickname}">
+                <input type="button" value="수정" onclick="location.href='/community/editclient?writeCode=${community.writeCode}'">
+                <input type="button" value="삭제" onclick="deleteWrite()">
+            </c:when>
+            <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq community.writerNickname}">
+                <input type="button" value="수정" onclick="location.href='community/edit?writeCode=${community.writeCode}'">
+                <input type="button" value="삭제" onclick="deleteWrite()">
+            </c:when>
         </c:choose>
     </div>
 
@@ -61,34 +61,34 @@
     <table>
         <c:forEach var="reply" items="${reply}">
             <tr>
-            <input type="hidden" id="replyCode" value="${reply.replyCode}">
-            <td>${reply.replierNickname}</td>
-            <td>
-                <span id="comment-${reply.replyCode}">${reply.comment}</span>
-                <textarea id="edit-comment-${reply.replyCode}" style="display: none;"></textarea>
-            </td>
-            <c:if test="${reply.modifiedCheck}">
-                <td>[수정됨]</td>
-            </c:if>
-            <c:if test="${!reply.modifiedCheck}">
-            <td></td>
-            </c:if>
-            <td>${reply.registeredDate.replaceAll('T', ' ')}</td>
-            <c:choose>
-                <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq reply.replierNickname}">
-                    <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
-                    <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
-                </c:when>
-                <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq reply.replierNickname}">
-                    <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
-                    <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
-                </c:when>
-                <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq reply.replierNickname}">
-                    <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
-                    <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
-                </c:when>
-            </c:choose>
-        </tr>
+                <input type="hidden" id="replyCode" value="${reply.replyCode}">
+                <td>${reply.replierNickname}</td>
+                <td>
+                    <span id="comment-${reply.replyCode}">${reply.comment}</span>
+                    <textarea id="edit-comment-${reply.replyCode}" style="display: none;"></textarea>
+                </td>
+                <c:if test="${reply.modifiedCheck}">
+                    <td>[수정됨]</td>
+                </c:if>
+                <c:if test="${!reply.modifiedCheck}">
+                    <td></td>
+                </c:if>
+                <td>${reply.registeredDate}</td>
+                <c:choose>
+                    <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq reply.replierNickname}">
+                        <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
+                        <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
+                    </c:when>
+                    <c:when test="${sessionScope.usertype eq 'client' && sessionScope.log.clientNickname eq reply.replierNickname}">
+                        <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
+                        <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
+                    </c:when>
+                    <c:when test="${sessionScope.usertype eq 'admin' && sessionScope.log.adminNickname eq reply.replierNickname}">
+                        <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>
+                        <td><input type="button" value="삭제" onclick="deleteReply('${reply.replyCode}')"></td>
+                    </c:when>
+                </c:choose>
+            </tr>
         </c:forEach>
     </table>
 

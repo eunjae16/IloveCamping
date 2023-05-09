@@ -30,6 +30,10 @@ public class Camp {
     private String campAddress1;
     @Column(name = "camp_phone")
     private String campPhone;
+    private double x;
+    private double y;
+
+
 
 
 }

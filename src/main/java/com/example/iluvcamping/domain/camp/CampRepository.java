@@ -14,5 +14,7 @@ public interface CampRepository extends JpaRepository<Camp, String> {
     public List<Camp> getAllByCampOwner(String campOwnerCode);
 
     public void deleteCampByCampOwner(String ownerCode);
+
+
 }
 
