@@ -74,7 +74,7 @@ public class MainController {
         return "camp/weather";
     }
 
-    @GetMapping("/viewCampsite")
+    @GetMapping("/viewcampsite")
     public String viewCampsite() {
         return "camp/viewCampsite";
     }
