@@ -55,4 +55,18 @@
     <script src="script/camp/map.js"></script>
     </body>
     </html>
+    <div id="camplist">
+        <c:if test="${not empty camp}">
+            <h2>${camp.campName}</h2>
+            <p>${camp.campAddress1} ${camp.campAddress2}</p>
+            <img src="${camp.campImage}" alt="campsite-image">
+            <p>${camp.campInfo}</p>
+        </c:if>
+    </div>
+    </section>
+    <c:import url="/footer"/>
+    <script src="script/viewCampsite.js"></script>
+    <script src="script/camp/map.js"></script>
+    </body>
+    </html>
 
