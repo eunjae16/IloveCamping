@@ -134,4 +134,9 @@ public class MainController {
         return "register/byebye";
     }
 
+    @GetMapping("/ownerCampRegist")
+    public String ownerCampRegist() {
+        return "mypage/ownerCampRegist";
+    }
+
 }
