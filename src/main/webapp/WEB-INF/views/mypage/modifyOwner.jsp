@@ -17,7 +17,6 @@
 <c:if test="${empty log}">
     <c:redirect url="/"></c:redirect>
 </c:if>
-
 <section>
     <h3>회원수정</h3>
     <form method="post" action="">
@@ -36,9 +35,10 @@
                 <td><input type="text" name="nickname" id="nickname" placeholder="닉네임" value="${sessionScope.log.ownerNickname}"></td>
             </tr>
             <tr>
-                <td><span id="messageNickname"></span></td>
+                <td colspan="2"><span id="messageNickname"></span></td>
             </tr>
             <tr>
+                <td></td>
                 <td><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
             </tr>
             <tr>
