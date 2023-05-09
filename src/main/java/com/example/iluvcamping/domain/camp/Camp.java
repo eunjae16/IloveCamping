@@ -34,4 +34,6 @@ public class Camp {
     private double y;
 
 
+
+
 }

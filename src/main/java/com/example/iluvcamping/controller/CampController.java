@@ -102,7 +102,9 @@ public class CampController {
     @ResponseBody
     @GetMapping("/camp/readall")
     public List<Camp> getCampListAll()  {
-        return campRepository.findAll();
+        List<Camp> list = campRepository.findAll();
+
+        return list;
     }
 }
 
