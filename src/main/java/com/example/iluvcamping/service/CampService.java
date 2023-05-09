@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -37,6 +36,10 @@ public class CampService {
         return campViews;
     }
 
+    public List<CampView> findCampsByAddressPrefix(String addressPrefix) {
+        return campViewRepository.findAllByCampAddress1StartingWith(addressPrefix);
+    }
+
 
     public List<Camp>searchCamp(String query){
         // 검색값이 포함되어 있는 게시글을 가져옴
@@ -44,4 +47,6 @@ public class CampService {
 
         return searchCamps;
     }
+
+
 }
