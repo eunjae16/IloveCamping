@@ -139,4 +139,9 @@ public class MainController {
         return "camp/campDetailPage";
     }
 
+    @GetMapping("/ownerCampRegist")
+    public String ownerCampRegist() {
+        return "mypage/ownerCampRegist";
+    }
+
 }

@@ -26,6 +26,7 @@
         <h2>${sessionScope.log.ownerNickname}님의 마이페이지</h2>
         <div>
             <button onclick="location.href='ownerSales'">매출 통계</button>
+            <button onclick="location.href='ownerCampRegist'">캠핑장 등록</button>
             <button onclick="location.href='modifyowner'">회원정보 수정</button>
             <input type="hidden" id="ownerCode" value="${sessionScope.log.ownerCode}">
             <input type="button" onclick="leaveOwner()" value="탈퇴하기">
