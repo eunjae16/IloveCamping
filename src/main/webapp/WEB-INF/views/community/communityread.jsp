@@ -60,7 +60,7 @@
     <%-- 댓글 리스트 --%>
     <table>
         <c:forEach var="reply" items="${reply}">
-        <tr>
+            <tr>
             <input type="hidden" id="replyCode" value="${reply.replyCode}">
             <td>${reply.replierNickname}</td>
             <td>
@@ -73,7 +73,7 @@
             <c:if test="${!reply.modifiedCheck}">
             <td></td>
             </c:if>
-            <td>${reply.registeredDate}</td>
+            <td>${reply.registeredDate.replaceAll('T', ' ')}</td>
             <c:choose>
                 <c:when test="${sessionScope.usertype eq 'owner' && sessionScope.log.ownerNickname eq reply.replierNickname}">
                     <td><input type="button" value="수정" onclick="editReply('${reply.replyCode}', '${reply.comment}')"></td>

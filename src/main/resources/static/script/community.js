@@ -7,7 +7,9 @@ const settings = {
 $.ajax(settings).done(function (response) {
     // registeredDate 기준으로 내림차순 정렬
     response.sort((a, b) => new Date(b.registeredDate) - new Date(a.registeredDate));
+
     response.forEach((content, index) => {
+        const regiDate = content.registeredDate.replaceAll('T', ' ');
         if (content.writeCategoryCode === 'CC100001') {
             $('#notice').append(`
       <tr id="${content.writeCode}">
@@ -15,7 +17,7 @@ $.ajax(settings).done(function (response) {
         <td>공지사항</td>
         <td><span class="title">${content.title}</span></td>
         <td>${content.writerNickname}</td>
-        <td>${content.registeredDate}</td>
+        <td>${regiDate}</td>
       </tr>
     `);
         } else {
@@ -32,11 +34,11 @@ $.ajax(settings).done(function (response) {
 
             $('#list').append(`
       <tr id="${content.writeCode}">
-        <td>${index + 1}</td>
+        <td>${index +1}</td>
         <td>${category}</td>
         <td><span class="title">${content.title}</span></td>
         <td>${content.writerNickname}</td>
-        <td>${content.registeredDate}</td>
+        <td>${regiDate}</td>
       </tr>
     `);
         }

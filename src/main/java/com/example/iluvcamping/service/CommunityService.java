@@ -8,6 +8,7 @@ import com.example.iluvcamping.domain.reply.Reply;
 import com.example.iluvcamping.domain.reply.ReplyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,8 +55,8 @@ public class CommunityService {
     }
 
     // 페이징처리
-    public List<Community> getCommunityWithPage(Pageable pageable) {
-        return communityRepository.findAll(pageable).getContent();
+    public Page<Community> getCommunityWithPage(Pageable pageable) {
+        return communityRepository.findAll(pageable);
     }
 
 
