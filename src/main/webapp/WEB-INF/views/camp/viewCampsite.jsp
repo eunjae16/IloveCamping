@@ -4,7 +4,8 @@
     <head>
         <c:import url="../sementic/header.jsp"/>
         <link rel="stylesheet" href="style/viewCampsite.css">
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5670ccd025e23c03c5a4887d46695c55"></script>
+        <link rel="stylesheet" href="style/map.css">
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=809a084e1da465e0b2b1b9bbefbd6d37"></script>
     </head>
     <body>
     <section>
@@ -30,13 +31,14 @@
         <div>
             <h2>지도에용</h2>
 <%--          지도 담는 영역--%>
-            <div id="map" style="width:500px;height:400px;"></div>
+            <div id="map"></div>
 
 
         </div>
     </section>
     <c:import url="/footer"/>
     <script src="script/viewCampsite.js"></script>
-    <script src="/camp/map.js"></script>
+    <script src="script/camp/map.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=809a084e1da465e0b2b1b9bbefbd6d37&libraries=services,clusterer,drawing"></script>
     </body>
     </html>
