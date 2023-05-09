@@ -20,8 +20,6 @@ public class CampView {
     @Id
     @Column(name = "camp_name")
     private String campName;
-    @Column(name = "category_name")
-    private String categoryName;
     @Column(name = "camp_image")
     private String campImage;
     @Column(name = "camp_address1")

@@ -26,15 +26,12 @@ public class CampService {
         List<Object[]> camps = campViewRepository.findAllCamps();
         List<CampView> campViews = new ArrayList<>();
         for (Object[] camp : camps) {
-            String campName = (String) camp[0];
-            String categoryName = (String) camp[1];
-
             CampView campView = new CampView();
-            campView.setCampName(campName);
-            campView.setCategoryName(categoryName);
-            campView.setCampImage((String) camp[2]);
-            campView.setCampAddress1((String) camp[3]);
-            campView.setCampTheme((String) camp[4]);
+            campView.setCampName((String) camp[0]);
+            campView.setCampImage((String) camp[1]);
+            campView.setCampAddress1((String) camp[2]);
+            campView.setCampTheme((String) camp[3]);
+
             campViews.add(campView);
         }
         return campViews;

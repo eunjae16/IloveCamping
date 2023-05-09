@@ -13,7 +13,6 @@ function searchCamp() {
                         var campDiv = document.createElement('div');
                         var campName = document.createElement('p');
                         var campAddress = document.createElement('p');
-                        var campCategory = document.createElement('p');
                         var campTheme = document.createElement('p');
                         var campImg = document.createElement('img'); // img 엘리먼트 생성
 
@@ -22,25 +21,11 @@ function searchCamp() {
                         campName.textContent = '캠핑장 이름: ' + camp.campName;
                         campAddress.textContent = '주소: ' + camp.campAddress1;
                         campTheme.textContent = '테마: ' + camp.campTheme;
-                        campCategory.textContent = '시설: ' + camp.categoryName;
 
                         campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
                         campDiv.appendChild(campName);
                         campDiv.appendChild(campAddress);
                         campDiv.appendChild(campTheme);
-                        campDiv.appendChild(campCategory);
-
-                        // campCategory이 같은 캠핑장을 찾아서 속성 추가
-                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.campCategory !== camp.Category);
-                        sameCampNameCategory.forEach(c => {
-                            campCategory.textContent += ', ' + c.campCategory;
-                        });
-
-                        // 같은 캠핑장명을 가진 데이터를 필터링하여 categoryName을 추가로 표시
-                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.categoryName !== camp.categoryName);
-                        sameCampNameCategory.forEach(c => {
-                            campCategory.textContent += ', ' + c.categoryName;
-                        });
 
                         campListDiv.appendChild(campDiv);
                     });
@@ -62,7 +47,6 @@ function searchCamp() {
                         var campDiv = document.createElement('div');
                         var campName = document.createElement('p');
                         var campAddress = document.createElement('p');
-                        var campCategory = document.createElement('p');
                         var campTheme = document.createElement('p');
                         var campImg = document.createElement('img'); // img 엘리먼트 생성
 
@@ -71,25 +55,11 @@ function searchCamp() {
                         campName.textContent = '캠핑장 이름: ' + camp.campName;
                         campAddress.textContent = '주소: ' + camp.campAddress1;
                         campTheme.textContent = '테마: ' + camp.campTheme;
-                        campCategory.textContent = '시설: ' + camp.categoryName;
 
                         campDiv.appendChild(campImg); // img 엘리먼트를 campDiv에 추가
                         campDiv.appendChild(campName);
                         campDiv.appendChild(campAddress);
                         campDiv.appendChild(campTheme);
-                        campDiv.appendChild(campCategory);
-
-                        // campCategory이 같은 캠핑장을 찾아서 속성 추가
-                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.campCategory !== camp.Category);
-                        sameCampNameCategory.forEach(c => {
-                            campCategory.textContent += ', ' + c.campCategory;
-                        });
-
-                        // 같은 캠핑장명을 가진 데이터를 필터링하여 categoryName을 추가로 표시
-                        var sameCampNameCategory = data.filter(c => c.campName === camp.campName && c.categoryName !== camp.categoryName);
-                        sameCampNameCategory.forEach(c => {
-                            campCategory.textContent += ', ' + c.categoryName;
-                        });
 
                         campListDiv.appendChild(campDiv);
                     });
