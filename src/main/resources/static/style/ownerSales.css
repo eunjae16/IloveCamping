@@ -6,3 +6,15 @@ section {
 section div {
     margin: 0 auto;
 }
+
+button {
+    border: 0;
+    background-color: #495579;
+    color: white;
+    padding: 10px;
+}
+
+button:hover {
+    color: #495579;
+    background-color: white;
+}

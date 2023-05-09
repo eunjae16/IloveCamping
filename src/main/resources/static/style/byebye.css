@@ -1,0 +1,19 @@
+section {
+    margin: 50px 0;
+}
+
+div {
+    text-align: center;
+}
+
+img {
+    margin-bottom: 30px;
+}
+
+p a {
+    color: red;
+}
+
+p a:hover {
+    color: #495579;
+}

@@ -10,11 +10,13 @@
 <html>
 <head>
   <c:import url="/header"/>
+  <link rel="stylesheet" href="style/byebye.css">
 </head>
 <body>
 <section>
   <div>
-    <p>byeybye..우리는 당신을 잊지않을거에용</p>
+    <img src="https://em-content.zobj.net/source/skype/289/crying-face_1f622.png">
+    <p>bye bye.. 우리는 당신을 잊지 않을 거예용</p>
     <p><a href="/">홈으로 돌아가기</a></p>
   </div>
 </section>
