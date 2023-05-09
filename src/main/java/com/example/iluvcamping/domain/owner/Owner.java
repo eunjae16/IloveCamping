@@ -34,4 +34,8 @@ public class Owner {
         this.ownerCode = ownerCode;
     }
 
+    public void setOwnerPassword(String password) {this.ownerPassword = password; }
+    public void setOwnerNickname(String ownerNickname) {this.ownerNickname = ownerNickname; }
+    public void setAccount(String account){this.account = account; }
+
 }

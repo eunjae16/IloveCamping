@@ -21,15 +21,35 @@
 <section>
     <h3>회원수정</h3>
     <form method="post" action="">
+        <input type="hidden" id="ownerCode" value="${sessionScope.log.ownerCode}">
         <table>
             <tr>
                 <th>아이디</th>
-                <td>${sessionScope.log.ownerId}</td>
+                <td><input type="text" name="id" id="id" value="${sessionScope.log.ownerId}" readonly></td>
             </tr>
             <tr>
-                <th></th>
+                <th>비밀번호</th>
+                <td><input type="text" name="password" id="password" placeholder="비밀번호"></td>
+            </tr>
+            <tr>
+                <th>닉네임</th>
+                <td><input type="text" name="nickname" id="nickname" placeholder="닉네임" value="${sessionScope.log.ownerNickname}"></td>
+            </tr>
+            <tr>
+                <td><span id="messageNickname"></span></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
+            </tr>
+            <tr>
+                <th>계좌번호</th>
+                <td><input type="text" name="account" id="account" placeholder="계좌번호" value="${sessionScope.log.account}"></td>
             </tr>
         </table>
+        <div>
+            <input type="button" value="수정하기" onclick="checkValue(form)">
+        </div>
+        <script src="/script/mypage/modifyOwner.js"></script>
     </form>
 </section>
 <c:import url="/footer"/>

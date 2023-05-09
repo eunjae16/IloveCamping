@@ -12,6 +12,7 @@ import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.domain.community.CommunityRepository;
 import com.example.iluvcamping.domain.owner.Owner;
 import com.example.iluvcamping.domain.owner.OwnerRepository;
+import com.example.iluvcamping.domain.owner.OwnerRequestDTO;
 import com.example.iluvcamping.domain.reply.Reply;
 import com.example.iluvcamping.domain.reply.ReplyRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,19 +33,19 @@ public class MemberService {
     private final CampRepository campRepository;
     private final CampSiteRepository campSiteRepository;
 
-    public Owner getOwnerById(String ownerId){
+    public Owner getOwnerById(String ownerCode){
         Owner owner = null;
 
-        owner = ownerRepository.findById(ownerId).orElseThrow(
+        owner = ownerRepository.findById(ownerCode).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 사용자 입니다.")
         );
         return owner;
     }
 
-    public Client getClientById(String clientId){
+    public Client getClientById(String clientCode){
         Client client = null;
 
-        client = clientRepository.findById(clientId).orElseThrow(
+        client = clientRepository.findById(clientCode).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 사용자 입니다.")
         );
         return client;
@@ -120,5 +121,19 @@ public class MemberService {
     }
 
     // 회원수정
+
+    @Transactional
+    public void updateOwnerByCode(OwnerRequestDTO updateOwner, String ownerCode){
+        Owner owner = getOwnerById(ownerCode);
+
+        if(owner != null){
+            owner.setOwnerNickname(updateOwner.getOwnerNickname());
+            owner.setOwnerPassword(updateOwner.getOwnerPassword());
+            owner.setAccount(updateOwner.getAccount());
+
+            ownerRepository.save(owner);
+        }
+
+    }
 
 }

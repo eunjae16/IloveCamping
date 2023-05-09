@@ -1,9 +1,11 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.owner.OwnerRequestDTO;
 import com.example.iluvcamping.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +40,15 @@ public class MemberController {
             session.removeAttribute("usertype");
         }
     }
+
+    // Owner 수정
+    @PostMapping("/modify/owner")
+    public String updateOwnerByCode(@RequestBody OwnerRequestDTO updateOwner, @RequestParam String ownerCode){
+        memberService.updateOwnerByCode(updateOwner,ownerCode);
+        return "mypageowner";
+    }
+
+    // Client 수정
 
 
 }
