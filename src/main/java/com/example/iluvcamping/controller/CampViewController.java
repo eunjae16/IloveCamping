@@ -6,6 +6,8 @@ import com.example.iluvcamping.domain.campFacilityView.CampFacilityView;
 import com.example.iluvcamping.domain.campFacilityView.CampFacilityViewRepository;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundView;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepository;
+import com.example.iluvcamping.domain.campThemeName.CampThemeName;
+import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,13 +24,15 @@ public class CampViewController {
     private final CampRepository campRepository;
     private final CampSurroundViewRepository campSurroundViewRepository;
     private final CampFacilityViewRepository campFacilityViewRepository;
+    private final CampThemeNameRepository campThemeNameRepository;
 
     @GetMapping("/get/campinfo")
     @ResponseBody
     public ModelAndView getCampInfo(@RequestParam String campCode){
         Camp camp = campRepository.getCampByCampCode(campCode);
-        if(camp != null){
 
+        if(camp != null){
+            CampThemeName campThemeName = campThemeNameRepository.getCampThemeNameByCampCode(campCode);
             List<CampSurroundView> surroundList = campSurroundViewRepository.findAllByCampCode(campCode);
             List<CampFacilityView> facilityList = campFacilityViewRepository.findAllByCampCode(campCode);
 
@@ -36,6 +40,7 @@ public class CampViewController {
             modelAndView.addObject("camp", camp);
             modelAndView.addObject("surroundList", surroundList);
             modelAndView.addObject("facilityList", facilityList);
+            modelAndView.addObject("campThemeName", campThemeName);
             return modelAndView;
         }
         return null;

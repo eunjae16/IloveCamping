@@ -13,7 +13,7 @@ $.ajax(settings).done(function (response) {
             <img class="camp-img" src="${listTheme.campImage}">
             <p>${listTheme.campName}</p>
             <p>${listTheme.campCategoryName}</p>
-            <input type="button" value="예약하기" onclick="location.href='get/campinfo?campCode=${listTheme.campCode}';">
+            <input type="button" value="예약하기" onclick="location.href='/get/campinfo?campCode=${listTheme.campCode}';">
             </div>
         `);
     });

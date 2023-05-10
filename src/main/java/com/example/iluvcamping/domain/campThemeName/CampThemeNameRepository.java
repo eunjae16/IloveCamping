@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CampThemeNameRepository extends JpaRepository<CampThemeName, String> {
 
-
+    public CampThemeName getCampThemeNameByCampCode(String campCode);
 
 }
