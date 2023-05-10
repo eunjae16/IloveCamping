@@ -26,6 +26,7 @@ public class CampController {
     private final KeyGenerator keyGenerator;
     private final CampRepository campRepository;
     private final CampThemeRepository campThemeRepository;
+    private final CampRepository campRepository;
 
     @GetMapping("/viewCampsite")
     public String viewCampsite(Model model, @RequestParam(value = "campList", required = false) List<CampView> campList) {
