@@ -5,6 +5,7 @@
 <head>
     <c:import url="../sementic/header.jsp"/>
     <link rel="stylesheet" href="style/nearstieMap.css">
+
 </head>
 <%-- 마커를 클러스팅할 수 있는 라이브러리--%>
 <%--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>--%>

@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="style/campDetailPage.css">
 </head>
 <body>
-<%--<c:if test="${empty camp}">--%>
-<%--    <c:redirect url="/"></c:redirect>--%>
-<%--</c:if>--%>
+<c:if test="${empty camp}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
 
 <section>
     <div>
@@ -26,7 +26,7 @@
         <p>${camp.campPhone}</p>
     </div>
     <div>
-        <a id="go-review">리뷰 보러가기!</a>
+        <a id="go-review" href="/bookingcamp">리뷰 보러가기!</a>
     </div>
     <div id="map">
         <input type="hidden" id="x" value="${camp.x}">
