@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="style/ownerCampRegist.css">
 </head>
 <body>
+<section>
+    <div>
+        <h2>캠핑장 등록</h2>
+        <form method="post" action="">
+            <table class="camp-regist">
+            </table>
+        </form>
+    </div>
+</section>
 <c:import url="../sementic/footer.jsp"/>
+<script src="script/ownerCampRegist.js"></script>
 </body>
 </html>
