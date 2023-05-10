@@ -1,6 +1,7 @@
 package com.example.iluvcamping.controller;
 
 
+import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.domain.community.CommunityRepository;
 import com.example.iluvcamping.domain.community.CommunityRequestDTO;
