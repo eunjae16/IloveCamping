@@ -19,25 +19,12 @@ public class CampService {
     public final CampRepository campRepository;
     public final CampViewRepository campViewRepository;
 
-    @GetMapping("/getCampAll")
-    @ResponseBody
-    public List<CampView> getCampAll() {
-        List<Object[]> camps = campViewRepository.findAllCamps();
-        List<CampView> campViews = new ArrayList<>();
-        for (Object[] camp : camps) {
-            CampView campView = new CampView();
-            campView.setCampName((String) camp[0]);
-            campView.setCampImage((String) camp[1]);
-            campView.setCampAddress1((String) camp[2]);
-            campView.setCampTheme((String) camp[3]);
-
-            campViews.add(campView);
-        }
-        return campViews;
+    public List<CampView> getCampsByAddressPrefix(String prefix) {
+        return campViewRepository.findByCampAddress1StartingWith(prefix);
     }
 
-    public List<CampView> findCampsByAddressPrefix(String addressPrefix) {
-        return campViewRepository.findAllByCampAddress1StartingWith(addressPrefix);
+    public List<CampView> getAllCamp() {
+        return campViewRepository.findAll();
     }
 
 
@@ -47,4 +34,6 @@ public class CampService {
 
         return searchCamps;
     }
+
+    public void addCamp(Camp camp) { campRepository.save(camp); }
 }

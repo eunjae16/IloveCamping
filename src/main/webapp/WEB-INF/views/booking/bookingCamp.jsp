@@ -26,15 +26,15 @@
 --%>
 <section>
   <div>
-    <div class="camp-info\">
+    <div class="camp-img">
+      <img src="${camp.campImage}">
+    </div>
+    <div class="camp-info">
+      <p>${camp.campName}</p>
+      <p>${camp.}</p>
     </div>
 <%-- 이하 calendar --%>
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center mb-5">
-          <h2 class="heading-section">Calendar #03</h2>
-        </div>
-      </div>
       <div class="row">
         <div class="col-md-12">
           <div class="calendar-section">
@@ -81,6 +81,7 @@
       </div>
     </div>
 <%-- 이상 calendar --%>
+    <div class="campsites-list"></div>
   </div>
 </section>
 
@@ -89,5 +90,6 @@
 <script src="/script/booking/popper.js"></script>
 <script src="/script/booking/bootstrap.min.js"></script>
 <script src="/script/booking/main.js"></script>
+<script src="/script/booking/bookingCamp.js"></script>
 </body>
 </html>
