@@ -10,6 +10,7 @@
 <html>
 <head>
     <c:import url="/header"/>
+    <link rel="stylesheet" href="style/campDetailPage.css">
 </head>
 <body>
 <%--<c:if test="${empty camp}">--%>
@@ -25,7 +26,7 @@
         <p>${camp.campPhone}</p>
     </div>
     <div>
-        <a id="go-review">리뷰보러가기!</a>
+        <a id="go-review">리뷰 보러가기!</a>
     </div>
     <div id="map">
         <p>여기는 지도입니당 // 뽀독이가 할거에용</p>

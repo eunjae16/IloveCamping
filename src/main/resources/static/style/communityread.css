@@ -47,6 +47,10 @@ input[type="text"], textarea {
     border: 1px solid #ccc;
 }
 
+#reply-write {
+    text-align: center;
+}
+
 #reply-write input[type="text"] {
     width: 80%;
 }

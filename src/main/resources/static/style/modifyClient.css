@@ -1,0 +1,35 @@
+section {
+    margin: 50px 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+table input[type=button] {
+    width: 100%;
+    background-color: #495579;
+    color: white;
+    padding: 5px;
+    border: 0;
+}
+
+div {
+    text-align: center;
+}
+
+input[type=button] {
+    background-color: #495579;
+    color: white;
+    padding: 10px;
+    border: 0;
+}
+
+input[type=button]:hover {
+    background-color: white;
+    color: #495579;
+}
