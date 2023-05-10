@@ -1,15 +1,19 @@
-const mapContainer = document.getElementById('map'), // 지도를 표시할 div
-    mapOption = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+// 해당 캠핑장의 좌표
 
-const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+const mapContainer = document.getElementsByClassName('map')[0];
+const [x, y] = mapContainer.id.split('/');
+const address = $('#address').text();
+const campName = $('#campName').text();
+
+const mapOption = {
+    center: new kakao.maps.LatLng(x, y), // 지도의 중심좌표
+    level: 5 // 지도의 확대 레벨
+};
+
+
+const map = new kakao.maps.Map(mapContainer, mapOption);
 
 // 마커가 표시될 위치입니다
-const x = $('#x').val();
-const y = $('#y').val();
-
 const markerPosition  = new kakao.maps.LatLng(x, y);
 
 // 마커를 생성합니다
@@ -20,5 +24,19 @@ const marker = new kakao.maps.Marker({
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);
 
-// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-// marker.setMap(null);    
+// 길찾기 옵션
+const iwContent = '<div style="padding:5px;">'+campName+'<br>' +
+        '<a href="https://map.kakao.com/link/map/' + campName + ',' + x + ',' + y + '"style="color:blue" target="_blank"></a>' +
+'<a href="https://map.kakao.com/link/to/' + campName + ',' + x + ',' + y + '" style="color:blue" target="_blank">길찾기</a></div>',
+    // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new kakao.maps.LatLng(x, y); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+const infowindow = new kakao.maps.InfoWindow({
+    position : iwPosition,
+    content : iwContent
+});
+
+// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker);
+
