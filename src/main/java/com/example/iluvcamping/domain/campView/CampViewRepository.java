@@ -6,10 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CampViewRepository extends JpaRepository<CampView, String> {
-    List<CampView> findAllByCampAddress1StartingWith(String addressPrefix);
-    List<CampView> findAllByCampName(String campName);
-
-    List<CampView> findAllByCampNameContaining(String query);
+    List<CampView> findByCampAddress1StartingWith(String prefix);
+    List<CampView> findAll();
 
     @Query("SELECT camp.campName, camp.campImage, camp.campAddress1, camp.campTheme FROM CampView camp")
     List<Object[]> findAllCamps();
