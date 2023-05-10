@@ -39,6 +39,7 @@ input[type="button"] {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
+    float: right;
 }
 
 input[type="button"]:last-child {

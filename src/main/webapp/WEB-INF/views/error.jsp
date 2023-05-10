@@ -12,8 +12,10 @@
     <div class="dot"></div>
     <div class="dot"></div>
 </div>
-<p id="message"></p>
+<div class="text">
 <h3>페이지 오류 발생</h3>
+<p id="message"></p>
+</div>
 <script src="/script/error.js"></script>
 </body>
 </html>
