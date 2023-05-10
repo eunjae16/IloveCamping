@@ -10,6 +10,7 @@ function pop() {
 function checkValue(htmlForm) {
     let url = "ownercampregist?";
 
+    const campOwner = $('#campOwner').val();
     const campCategoryCode = $('.campCategoryCode').val();
     const campName = $('#name').val();
     // const campImage = $('#file').val();
@@ -19,6 +20,7 @@ function checkValue(htmlForm) {
 
     let check = true;
 
+    if (campOwner !== "") url += "&campOwner=" + campOwner;
     if (campCategoryCode !== "") url += "&campCategoryCode=" + campCategoryCode;
     if (campName !== "") url += "&campName=" + campName;
     // if (campImage !== "") url += "&campImage=" + campImage;
@@ -47,6 +49,7 @@ function checkValue(htmlForm) {
         location.href = url;
     } else {
         const data = {
+            "campOwner": campOwner,
             "campCategoryCode": campCategoryCode,
             "campName": campName,
             // "campImage": campImage,
