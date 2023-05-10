@@ -9,15 +9,16 @@ $.ajax(settings).done(function (response) {
 
     response.forEach((listTheme) => {
         $('#camp-card').append(`
+            <div id="${listTheme.campCode}">
             <img class="camp-img" src="${listTheme.campImage}">
             <p>${listTheme.campName}</p>
             <p>${listTheme.campCategoryName}</p>
-            <input type="hidden" class="camp-code" value="${listTheme.campCode}">
+            </div>
         `);
     });
 
     $('.camp-img').on('click', e => {
-        const id = e.currentTarget.previousElementSibling.value;
+        const id = e.target.parentNode.id;
 
         console.log("camp ' Id : " + id);
         location.href = `/get/campinfo?campCode=${id}`;

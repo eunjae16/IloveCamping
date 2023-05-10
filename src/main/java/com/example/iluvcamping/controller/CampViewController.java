@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,11 +16,12 @@ public class CampViewController {
     private final CampRepository campRepository;
 
     @GetMapping("/get/campinfo")
+    @ResponseBody
     public ModelAndView getCampInfo(@RequestParam String campCode){
 
         Camp camp = campRepository.getCampByCampCode(campCode);
 
-        ModelAndView modelAndView = new ModelAndView("/campdetail");
+        ModelAndView modelAndView = new ModelAndView("/camp/campDetailPage");
         modelAndView.addObject("camp", camp);
 
         return modelAndView;
