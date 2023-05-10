@@ -28,7 +28,8 @@
         <a id="go-review">리뷰보러가기!</a>
     </div>
     <div id="map">
-        <p>여기는 지도입니당 // 뽀독이가 할거에용</p>
+        <input type="hidden" id="x" value="${camp.x}">
+        <input type="hidden" id="y" value="${camp.y}">
     </div>
     <div>
         <div id="theme">테마</div>
@@ -52,6 +53,7 @@
         </div>
     </div>
 </section>
+<script src="script/camp/map.js"></script>
 </body>
 <c:import url="/footer"/>
 </html>
