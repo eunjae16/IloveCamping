@@ -105,6 +105,13 @@ public class CampController {
         return listTheme;
     }
 
+    @GetMapping("/camp/campall")
+    @ResponseBody
+    public List<Camp> getCampForMap() {
+        List<Camp> camp = campRepository.findAll();
+        return camp;
+    }
+
 
 }
 

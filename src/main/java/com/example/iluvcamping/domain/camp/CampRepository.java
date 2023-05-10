@@ -19,5 +19,7 @@ public interface CampRepository extends JpaRepository<Camp, String> {
 
     public Camp getCampByCampCode(String campCode);
 
+
+
 }
 
