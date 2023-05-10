@@ -1,11 +1,13 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.community.Community;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -15,6 +17,7 @@ public class MainController {
 
     private final CommunityController controller;
     private final CampController campController;
+    private final BookingController bookingController;
 
     @GetMapping("/")
     public String index() {
@@ -151,7 +154,10 @@ public class MainController {
     }
 
     @GetMapping("/bookingcamp")
-    public String bookingCamp(){
+    public String bookingCamp(Model model,@RequestParam String campCode){
+
+        Camp camp = bookingController.getCampByCode(campCode);
+
         return "booking/bookingCamp";
     }
 
