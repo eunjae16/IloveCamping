@@ -30,7 +30,7 @@ $.ajax(mapSettings).done(function (response) {
         // 마커를 생성합니다
 
         const latLng  = new kakao.maps.LatLng(response[i].x, response[i].y);
-
+        const pick = response[i];
         const marker = new kakao.maps.Marker({
             map: map, // 마커를 표시할 지도
             position: latLng, // 마커를 표시할 위치
@@ -44,6 +44,8 @@ $.ajax(mapSettings).done(function (response) {
             // 클릭 발생시 해당장소의 위치로 지도 변경
             const id = e.target.parentNode.id;
 
+            const x = pick.x;
+            const y = pick.y;
             console.log("camp ' Id : " + id);
 
             const mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -54,13 +56,13 @@ $.ajax(mapSettings).done(function (response) {
 
             const newMap = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-            console.log("move1 x : " + id.x);
-            console.log("move1 y : " + id.y);
+            console.log("move1 x : " + x);
+            console.log("move1 y : " + y);
             function setCenter() {
                 // 이동할 위도 경도 위치를 생성합니다
-                console.log("move2 x : " + id.x);
-                console.log("move2 y : " + id.y);
-                const moveLatLon = new kakao.maps.LatLng(id.x, id.y);
+                console.log("move2 x : " + x);
+                console.log("move2 y : " + y);
+                const moveLatLon = new kakao.maps.LatLng(x, y);
 
                 // 지도 중심을 이동 시킵니다
                 map.setCenter(moveLatLon);
@@ -68,7 +70,7 @@ $.ajax(mapSettings).done(function (response) {
 
             function panTo() {
                 // 이동할 위도 경도 위치를 생성합니다
-                const moveLatLon = new kakao.maps.LatLng(id.x, id.y);
+                const moveLatLon = new kakao.maps.LatLng(x, y);
 
                 // 지도 중심을 부드럽게 이동시킵니다
                 // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
