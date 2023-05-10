@@ -150,6 +150,11 @@ public class MainController {
         return "camp/campList";
     }
 
+    @GetMapping("/bookingcamp")
+    public String bookingCamp(){
+        return "booking/bookingCamp";
+    }
+
 
     @GetMapping("/ownerCampRegist")
     public String ownerCampRegist() {

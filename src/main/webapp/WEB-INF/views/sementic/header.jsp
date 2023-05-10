@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>I♡CAMPING</title>
-    <link rel="stylesheet" href="style/sementic/header.css">
+    <link rel="stylesheet" href="../../style/sementic/header.css">
 </head>
 <body>
 <header>
@@ -39,6 +39,6 @@
     </div>
 </header>
 
-<script src="script/logout.js"></script>
+<script src="../../script/logout.js"></script>
 </body>
 </html>
