@@ -28,7 +28,3 @@ $.ajax(settings).done(function (response) {
 
 
 });
-
-
-
-

@@ -29,12 +29,7 @@ public class CampController {
     private final CampThemeNameRepository campThemeNameRepository;
     private final KeyGenerator keyGenerator;
     private final CampThemeRepository campThemeRepository;
-
-    @GetMapping("/viewCampsite")
-    public String viewCampsite(Model model, @RequestParam(value = "campList", required = false) List<CampView> campList) {
-        model.addAttribute("campList", campList);
-        return "viewcampsite";
-    }
+    private final CampRepository campRepository;
 
     @GetMapping("/campsite/search")
     @ResponseBody
@@ -68,7 +63,6 @@ public class CampController {
 
         return list;
     }
-}
 
     @PostMapping("/camp/regist")
     public String campRegist (@RequestBody CampRequestDTO campDto, HttpSession session) {
