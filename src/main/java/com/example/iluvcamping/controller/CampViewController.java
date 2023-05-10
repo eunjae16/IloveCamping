@@ -12,7 +12,6 @@ import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.service.CampService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,12 +49,6 @@ public class CampViewController {
         return null;
     }
 
-    @GetMapping("/viewCampsite")
-    public String viewCampsite(Model model, @RequestParam(value = "campList", required = false) List<CampView> campList) {
-        model.addAttribute("campList", campList);
-        return "viewcampsite";
-    }
-
     @GetMapping("/viewCampsite/search")
     @ResponseBody
     public List<CampView> searchCampsite(@RequestParam("selectedSite") String selectedSite, @RequestParam("query") String query) {
@@ -74,12 +67,5 @@ public class CampViewController {
         return filteredList;
     }
 
-    @GetMapping("testtest")
-    @ResponseBody
-    public List<CampFacilityView> testtest(@RequestParam String campCode){
-        List<CampFacilityView> facilityList = campFacilityViewRepository.findAllByCampCode(campCode);
-
-        return facilityList;
-    }
 
 }
