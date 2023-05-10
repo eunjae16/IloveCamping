@@ -25,83 +25,26 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class CampController {
-
-    private final CampRepository campRepository;
-    private final CampViewRepository campViewRepository;
     private final CampService campService;
     private final CampThemeNameRepository campThemeNameRepository;
     private final KeyGenerator keyGenerator;
     private final CampThemeRepository campThemeRepository;
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    @ResponseBody
-    public List<CampView> searchCampsites(@RequestParam(value = "site", required = false) String site, @RequestParam(value = "query", required = false) String query) {
-        // select 옵션 선택 시 campView에 있는 campAddress1의 맨 처음 두 글자가 일치하면 일치하는 데이터들을 모두 찾음
-        List<CampView> campViews = new ArrayList<>();
-        if (site != null && site.equals("address")) {
-            if (query != null) {
-                List<CampView> selectedCamps = campViewRepository.findAllByCampAddress1StartingWith(query.substring(0, 2));
-                for (CampView campView : selectedCamps) {
-                    if (campView.getCampName().contains(site)) {
-                        campViews.add(campView);
-                    }
-                }
-            }
-        } else if (site != null && site.equals("name")) {
-            if (query != null) {
-                List<Camp> searchedCamps = campService.searchCamp(query);
-                for (Camp camp : searchedCamps) {
-                    List<CampView> foundCamps = campViewRepository.findAllByCampName(camp.getCampName());
-                    campViews.addAll(foundCamps);
-                }
-            }
-        }
-        return campViews;
+    @GetMapping("/viewCampsite")
+    public String viewCampsite(Model model, @RequestParam(value = "campList", required = false) List<CampView> campList) {
+        model.addAttribute("campList", campList);
+        return "viewcampsite";
     }
 
     @GetMapping("/campsite/search")
-    public String searchCamp(@RequestParam(name = "query", required = false) String query, Model model) {
-        List<Camp> searchCamps = new ArrayList<>();
-        if (query != null && !query.isEmpty()) {
-            searchCamps = campService.searchCamp(query);
-        }
-        model.addAttribute("camps", searchCamps);
-        return "viewCampsite";
-    }
-
-
-    @PostMapping("/campsite/search")
-    public ResponseEntity<List<Camp>> searchCamps(@RequestBody String query) {
-        List<Camp> camps = campService.searchCamp(query);
-        return new ResponseEntity<>(camps, HttpStatus.OK);
-    }
-
-    @GetMapping("/getCampAll")
     @ResponseBody
-    public List<CampView> getCampAll() {
-        List<Object[]> camps = campViewRepository.findAllCamps();
-        List<CampView> campViews = new ArrayList<>();
-        for (Object[] camp : camps) {
-            CampView campView = new CampView();
-            campView.setCampName((String) camp[0]);
-            campView.setCampImage((String) camp[1]);
-            campView.setCampAddress1((String) camp[2]);
-            campView.setCampTheme((String) camp[3]);
-
-            campViews.add(campView);
+    public List<CampView> searchCampsite(@RequestParam("site") String site, @RequestParam("query") String query) {
+        if (site.equals("viewAll")) {
+            return campService.getAllCamp();
+        } else {
+            return campService.getCampsByAddressPrefix(site.substring(0, 2));
         }
-        return campViews;
     }
-
-    @GetMapping("/camp/{name}")
-    public ResponseEntity<CampView> getCamp(@PathVariable String name) {
-        CampView campView = campViewRepository.findById(name).orElse(null);
-        if (campView == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(campView, HttpStatus.OK);
-    }
-
 
     // 지도에 표시할 목적의 모든 camp read
     @GetMapping("/camp/readall")
@@ -125,6 +68,7 @@ public class CampController {
 
         return list;
     }
+}
 
     @PostMapping("/camp/regist")
     public String campRegist (@RequestBody CampRequestDTO campDto, HttpSession session) {

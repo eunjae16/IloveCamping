@@ -12,7 +12,7 @@
     <div class="index-bg"></div>
     <div class="search-box">
         <p>오늘은 어디로 갈까?</p>
-        <select id="selectSite" name="selectSite" required onchange="searchCamp()">
+        <select id="selectSite" name="selectSite" required>
             <option value="none" selected hidden>선택</option>
             <option value="viewAll">전체보기</option>
             <option value="서울">서울</option>
@@ -26,7 +26,7 @@
             <option value="경남">경상남도</option>
         </select>
         <input type="text" placeholder="검색어를 입력해 주세요." id="searchBox">
-        <button type="button" id="btnSearch" onclick="searchCamp()"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+        <button type="button" id="btnSearch"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
     </div>
 </section>
 <c:import url="/footer"/>
