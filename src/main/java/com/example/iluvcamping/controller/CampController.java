@@ -28,6 +28,7 @@ public class CampController {
     private final CampService campService;
     private final CampThemeNameRepository campThemeNameRepository;
     private final KeyGenerator keyGenerator;
+    private final CampRepository campRepository;
     private final CampThemeRepository campThemeRepository;
 
     @GetMapping("/viewCampsite")
@@ -68,8 +69,6 @@ public class CampController {
 
         return list;
     }
-}
-
     @PostMapping("/camp/regist")
     public String campRegist (@RequestBody CampRequestDTO campDto, HttpSession session) {
         Camp camp = new Camp(campDto);
