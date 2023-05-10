@@ -10,16 +10,18 @@ function pop() {
 function checkValue(htmlForm) {
     let url = "ownercampregist?";
 
+    const campCategoryCode = $('.campCategoryCode').val();
     const campName = $('#name').val();
-    const campImage = $('#file').val();
+    // const campImage = $('#file').val();
     const campAddressCode = $('#address_number').val();
     const campAddress1 = $('#address').val();
     const campPhone = $('#phone').val();
 
     let check = true;
 
+    if (campCategoryCode !== "") url += "&campCategoryCode=" + campCategoryCode;
     if (campName !== "") url += "&campName=" + campName;
-    if (campImage !== "") url += "&campImage=" + campImage;
+    // if (campImage !== "") url += "&campImage=" + campImage;
     if (campAddressCode !== "") url += "&campAddressCode=" + campAddressCode;
     if (campAddress1 !== "") url += "&campAddress1=" + campAddress1;
     if (campPhone !== "") url += "&campPhone=" + campPhone;
@@ -27,9 +29,9 @@ function checkValue(htmlForm) {
     if (campName === "") {
         alert("캠핑장 이름을 입력해 주세요.");
         check = false;
-    } else if (campImage === "") {
-        alert("이미지를 등록해 주세요.");
-        check = false;
+    // } else if (campImage === "") {
+    //     alert("이미지를 등록해 주세요.");
+    //     check = false;
     } else if (campAddressCode === "") {
         alert("우편번호를 입력해 주세요.");
         check = false;
@@ -45,8 +47,9 @@ function checkValue(htmlForm) {
         location.href = url;
     } else {
         const data = {
+            "campCategoryCode": campCategoryCode,
             "campName": campName,
-            "campImage": campImage,
+            // "campImage": campImage,
             "campAddressCode": campAddressCode,
             "campAddress1": campAddress1,
             "campPhone": campPhone

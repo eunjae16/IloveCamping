@@ -19,34 +19,34 @@
                         <select>
                             <c:if test="${not empty list}">
                                 <c:forEach items="${list}" var="theme">
-                                        <option>${theme.themeName}</option>
+                                        <option class="campCategoryCode">${theme.themeName}</option>
                                 </c:forEach>
                             </c:if>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>캠핑장 이름</td>
+                    <th>캠핑장 이름</th>
                     <td><input type="text" name="name" id="name" placeholder="캠핑장 이름"></td>
                 </tr>
-                <%--                <tr>--%>
-                <%--                    <td>캠핑장 사진</td>--%>
-                <%--                    <td><input type="file" name="file" id="file" placeholder="캠핑장 사진"></td>--%>
-                <%--                </tr>--%>
+<%--                <tr>--%>
+<%--                     <td>캠핑장 사진</td>--%>
+<%--                     <td><input type="file" name="file" id="file" placeholder="캠핑장 사진"></td>--%>
+<%--                </tr>--%>
                 <tr>
-                    <td>우편번호 찾기</td>
+                    <th>우편번호 찾기</th>
                     <td><input type="button" onclick="pop()" value="우편번호 찾기"></td>
                 </tr>
                 <tr>
-                    <td>우편번호</td>
+                    <th>우편번호</th>
                     <td><input type="text" id="address_number" name="addressCode" placeholder="우편번호"></td>
                 </tr>
                 <tr>
-                    <td>주소</td>
+                    <th>주소</th>
                     <td><input type="text" id="address" name="address" placeholder="주소" readonly></td>
                 </tr>
                 <tr>
-                    <td>연락처</td>
+                    <th>연락처</th>
                     <td><input type="text" id="phone" name="phone" placeholder="연락처"></td>
                 </tr>
                 <tr>
