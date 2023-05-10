@@ -54,8 +54,8 @@
         </div>
     </div>
 </section>
-<script src="script/camp/map.js"></script>
-<script src="script/camp/campDetailPage.js"></script>
+<%--<script src="script/camp/map.js"></script>--%>
+<script src="static/script/camp/campDetail.js"></script>
 </body>
 <c:import url="/footer"/>
 </html>
