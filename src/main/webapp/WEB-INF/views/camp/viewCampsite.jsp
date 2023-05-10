@@ -47,6 +47,5 @@
 </section>
 <c:import url="/footer"/>
 <%--<script src="script/viewCampsite.js"></script>--%>
-<script src="script/camp/map.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ const campName = $('#campName').text();
 
 const mapOption = {
     center: new kakao.maps.LatLng(x, y), // 지도의 중심좌표
-    level: 10 // 지도의 확대 레벨
+    level: 5 // 지도의 확대 레벨
 };
 
 
@@ -24,9 +24,10 @@ const marker = new kakao.maps.Marker({
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);
 
+// 길찾기 옵션
 const iwContent = '<div style="padding:5px;">'+campName+'<br>' +
-        '<a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank"></a>' +
-        '<a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>',
+        '<a href="https://map.kakao.com/link/map/' + campName + ',' + x + ',' + y + '"style="color:blue" target="_blank"></a>' +
+'<a href="https://map.kakao.com/link/to/' + campName + ',' + x + ',' + y + '" style="color:blue" target="_blank">길찾기</a></div>',
     // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
     iwPosition = new kakao.maps.LatLng(x, y); //인포윈도우 표시 위치입니다
 

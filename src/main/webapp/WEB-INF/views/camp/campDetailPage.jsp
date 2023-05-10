@@ -25,12 +25,13 @@
     <div>
         <p id="address">${camp.campAddress1}</p>
         <p>${camp.campPhone}</p>
-        <p>${camp.campCode}</p>
     </div>
     <div>
         <a id="go-review" href="/bookingcamp?campCode=${camp.campCode}">리뷰 보러가기!</a>
     </div>
     <%--    지도 --%>
+<%--    지도 --%>
+    <div class="map" id="${camp.x}/${camp.y}" style="width:500px;height:400px;"></div>
     <div>
         <div id="theme">테마</div>
         <div id="theme-detail">${camp.campCategoryName}</div>
@@ -55,7 +56,6 @@
                 <p>${facility.categoryName}</p>
             </c:forEach>
         </div>
-        <div class="map" id="${camp.x}/${camp.y}" style="width:500px;height:400px;"></div>
     </div>
 </section>
 <script src="../../script/camp/campDetail.js"></script>
