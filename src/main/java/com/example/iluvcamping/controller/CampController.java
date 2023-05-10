@@ -2,9 +2,12 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
+import com.example.iluvcamping.domain.campThemeName.CampThemeName;
+import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.campView.CampViewRepository;
 import com.example.iluvcamping.service.CampService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,20 +16,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
+@AllArgsConstructor
 public class CampController {
 
     private final CampRepository campRepository;
     private final CampViewRepository campViewRepository;
     private final CampService campService;
-
-    public CampController(CampRepository campRepository, CampViewRepository campViewRepository, CampService campService) {
-        this.campRepository = campRepository;
-        this.campService = campService;
-        this.campViewRepository = campViewRepository;
-    }
+    private final CampThemeNameRepository campThemeNameRepository;
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     @ResponseBody
@@ -99,12 +97,14 @@ public class CampController {
 
 
     // 지도에 표시할 목적의 모든 camp read
-    @ResponseBody
     @GetMapping("/camp/readall")
-    public List<Camp> getCampListAll()  {
-        List<Camp> list = campRepository.findAll();
+    @ResponseBody
+    public List<CampThemeName> getCampListAll()  {
+        List<CampThemeName> listTheme = campThemeNameRepository.findAll();
 
-        return list;
+        return listTheme;
     }
+
+
 }
 

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,24 +15,35 @@ import javax.persistence.Table;
 @Entity
 public class Camp {
     @Id
-    @Column(name = "camp_code")
     private String campCode;
-    @Column(name = "camp_owner")
     private String campOwner;
-    @Column(name = "camp_name")
+    private String campCategoryCode;
     private String campName;
-    @Column(name = "camp_image")
     private String campImage;
-    @Column(name = "camp_address_code")
     private String campAddressCode;
-    @Column(name = "camp_address1")
     private String campAddress1;
-    @Column(name = "camp_phone")
+    private String campAddress2;
     private String campPhone;
     private double x;
     private double y;
 
+    public Camp(CampRequestDTO campDto){
+        this.campCode = "";
+        this.campOwner = campDto.getCampOwner();
+        this.campCategoryCode = campDto.getCampCategoryCode();
+        this.campName = campDto.getCampName();
+        this.campImage = campDto.getCampImage();
+        this.campAddressCode = campDto.getCampAddressCode();
+        this.campAddress1 = campDto.getCampAddress1();
+        this.campAddress2 = campDto.getCampAddress2();
+        this.campPhone = campDto.getCampPhone();
+        this.x = campDto.getX();
+        this.y = campDto.getY();
+    }
 
+    public void setCampCode(String campCode){
+        this.campCode = campCode;
+    }
 
 
 }

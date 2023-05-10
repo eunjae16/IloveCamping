@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>I♡CAMPING</title>
-    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/sementic/header.css">
 </head>
 <body>
 <header>
@@ -14,7 +14,7 @@
                 <h1><a href="/">I♡CAMPING</a></h1>
             </div>
             <ul class="menu">
-                <li><a href="/">전체</a></li>
+                <li><a href="/camplist">전체</a></li>
                 <li><a href="/viewcampsite">캠핑</a></li>
                 <li><a href="/">글램핑/카라반</a></li>
                 <li><a href="/">검색</a></li>

@@ -1,5 +1,6 @@
 package com.example.iluvcamping.controller;
 
+import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.community.Community;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import java.util.List;
 public class MainController {
 
     private final CommunityController controller;
+    private final CampController campController;
 
     @GetMapping("/")
     public String index() {
@@ -138,6 +140,16 @@ public class MainController {
     public String campDetailPage() {
         return "camp/campDetailPage";
     }
+
+    @GetMapping("/camplist")
+    public String campList(Model model) {
+
+        List<CampThemeName> list = campController.getCampListAll();
+        model.addAttribute("list", list);
+
+        return "camp/campList";
+    }
+
 
     @GetMapping("/ownerCampRegist")
     public String ownerCampRegist() {
