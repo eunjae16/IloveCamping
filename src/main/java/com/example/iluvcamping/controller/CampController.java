@@ -2,11 +2,15 @@ package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
+import com.example.iluvcamping.domain.camp.CampRequestDTO;
+import com.example.iluvcamping.domain.campTheme.CampTheme;
+import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.campView.CampViewRepository;
 import com.example.iluvcamping.service.CampService;
+import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +30,8 @@ public class CampController {
     private final CampViewRepository campViewRepository;
     private final CampService campService;
     private final CampThemeNameRepository campThemeNameRepository;
+    private final KeyGenerator keyGenerator;
+    private final CampThemeRepository campThemeRepository;
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     @ResponseBody
@@ -99,7 +106,7 @@ public class CampController {
     // 지도에 표시할 목적의 모든 camp read
     @GetMapping("/camp/readall")
     @ResponseBody
-    public List<CampThemeName> getCampListAll()  {
+    public List<CampThemeName> getCampListAll() {
         List<CampThemeName> listTheme = campThemeNameRepository.findAll();
 
         return listTheme;
@@ -112,6 +119,21 @@ public class CampController {
         return camp;
     }
 
+    @GetMapping("/camptheme/readall")
+    public List<CampTheme> getAllCampTheme() {
+        List<CampTheme> list = campThemeRepository.findAll();
+
+        return list;
+    }
+
+    @PostMapping("/camp/regist")
+    public String campRegist (@RequestBody CampRequestDTO campDto, HttpSession session) {
+        Camp camp = new Camp(campDto);
+        String code = keyGenerator.randomKey("D");
+        camp.setCampCode(code);
+        campService.addCamp(camp);
+
+        return "mypage/registsuccess";
+    }
 
 }
-

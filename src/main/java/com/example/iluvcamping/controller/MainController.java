@@ -1,9 +1,11 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.camp.Camp;
+import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.community.Community;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -161,10 +163,17 @@ public class MainController {
         return "booking/bookingCamp";
     }
 
+    @GetMapping("/ownercampregist")
+    public String ownerCampRegist(Model model) {
+        List<CampTheme> list = campController.getAllCampTheme();
+        model.addAttribute("list", list);
 
-    @GetMapping("/ownerCampRegist")
-    public String ownerCampRegist() {
         return "mypage/ownerCampRegist";
+    }
+
+    @GetMapping("/registsuccess")
+    public String registsuccess() {
+        return "mypage/registsuccess";
     }
 
 }

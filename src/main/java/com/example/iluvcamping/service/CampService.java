@@ -47,4 +47,6 @@ public class CampService {
 
         return searchCamps;
     }
+
+    public void addCamp(Camp camp) { campRepository.save(camp); }
 }
