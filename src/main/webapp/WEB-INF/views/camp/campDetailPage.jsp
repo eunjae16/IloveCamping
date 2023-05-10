@@ -27,7 +27,9 @@
         <p>${camp.campPhone}</p>
     </div>
     <div>
-        <a id="go-review" href="/bookingcamp">예약하기</a>
+        <form method="POST" action="/post/goreservation?campCode=${camp.campCode}">
+            <input type="submit" value="예약하러 가기!">
+        </form>
     </div>
     <%--    지도 --%>
     <div class="map" id="${camp.x}/${camp.y}" style="width:500px;height:400px;"></div>
@@ -58,7 +60,6 @@
         </div>
     </div>
 </section>
-<%--<script src="script/camp/map.js"></script>--%>
 <script src="../../script/camp/campDetail.js"></script>
 <c:import url="/footer"/>
 </body>

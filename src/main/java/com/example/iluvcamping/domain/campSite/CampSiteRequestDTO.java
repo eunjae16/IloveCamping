@@ -22,4 +22,5 @@ public class CampSiteRequestDTO {
     private Integer siteExtraPersonPrice;
     private Integer siteExtraCarabanPrice;
 
+    private String campsiteImage;
 }

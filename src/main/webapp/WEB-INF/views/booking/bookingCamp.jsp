@@ -31,16 +31,18 @@
     </div>
     <div class="camp-info">
       <p>${camp.campName}</p>
-      <p>${camp.}</p>
+      <p>H.P : ${camp.campPhone}</p>
+      <p>${camp.campAddress1}</p>
+      <p>${camp.campAddress2}</p>
+      <p>${camp.campCategoryName}</p>
     </div>
-<%-- 이하 calendar --%>
+    <%-- 이하 calendar --%>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="calendar-section">
             <div class="row no-gutters">
               <div class="col-md-6">
-
                 <div class="calendar calendar-first" id="calendar_first">
                   <div class="calendar_header">
                     <button class="switch-month switch-left">
@@ -54,10 +56,8 @@
                   <div class="calendar_weekdays"></div>
                   <div class="calendar_content"></div>
                 </div>
-
               </div>
               <div class="col-md-6">
-
                 <div class="calendar calendar-second" id="calendar_second">
                   <div class="calendar_header">
                     <button class="switch-month switch-left">
@@ -71,17 +71,20 @@
                   <div class="calendar_weekdays"></div>
                   <div class="calendar_content"></div>
                 </div>
-
               </div>
-
             </div> <!-- End Row -->
-
           </div> <!-- End Calendar -->
         </div>
       </div>
     </div>
-<%-- 이상 calendar --%>
-    <div class="campsites-list"></div>
+    <%-- 이상 calendar --%>
+    <div class="campsites-list">
+      <c:forEach items="${campsite}" var="campsite">
+        <div class="campsite-card">
+          <p></p>
+        </div>
+      </c:forEach>
+    </div>
   </div>
 </section>
 
