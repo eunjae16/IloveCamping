@@ -9,8 +9,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <c:import url="/header"/>
-    <link rel="stylesheet" href="style/campDetailPage.css">
+    <c:import url="../sementic/header.jsp"/>
+    <link rel="stylesheet" href="../../style/campDetailPage.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5670ccd025e23c03c5a4887d46695c55&libraries=services,drawing"></script>
 </head>
 <body>
 <%--<c:if test="${empty camp}">--%>
@@ -19,19 +20,17 @@
 
 <section>
     <div>
-        <h3>${camp.campName}</h3>
+        <h3 id="campName">${camp.campName}</h3>
     </div>
     <div>
-        <p>${camp.campAddress1}</p>
+        <p id="address">${camp.campAddress1}</p>
         <p>${camp.campPhone}</p>
+        <p>${camp.campCode}</p>
     </div>
     <div>
         <a id="go-review">리뷰 보러가기!</a>
     </div>
-    <div id="map">
-        <input type="hidden" id="x" value="${camp.x}">
-        <input type="hidden" id="y" value="${camp.y}">
-    </div>
+<%--    지도 --%>
     <div>
         <div id="theme">테마</div>
         <div id="theme-detail">테마 상세</div>
@@ -52,10 +51,11 @@
                 <p id="facility-name"></p>
             </div>
         </div>
+        <div class="map" id="${camp.x}/${camp.y}" style="width:500px;height:400px;"></div>
     </div>
 </section>
 <%--<script src="script/camp/map.js"></script>--%>
-<script src="static/script/camp/campDetail.js"></script>
-</body>
+<script src="../../script/camp/campDetail.js"></script>
 <c:import url="/footer"/>
+</body>
 </html>
