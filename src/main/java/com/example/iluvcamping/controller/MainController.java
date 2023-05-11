@@ -185,9 +185,6 @@ public class MainController {
     @GetMapping("/themecamping")
     public String themeCapming(){ return "camp/themeCamping"; }
 
-    @GetMapping("/themeglamping")
-    public String themeGlapming(){ return "camp/themeGlamping"; }
-
-    @GetMapping("/themecaravan")
-    public String themeCaravan(){ return "camp/themeCaravan"; }
+    @GetMapping("/themeglamping&caravan")
+    public String themeGlapmingAndCaravan(){ return "camp/themeGlampingAndCaravan"; }
 }
