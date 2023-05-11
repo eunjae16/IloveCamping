@@ -3,6 +3,8 @@ package com.example.iluvcamping.controller;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
+import com.example.iluvcamping.domain.categoryCount.CategoryCount;
+import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.domain.community.Community;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.Banner;
@@ -22,7 +24,7 @@ public class MainController {
     private final BookingController bookingController;
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
         return "sementic/index";
     }
 

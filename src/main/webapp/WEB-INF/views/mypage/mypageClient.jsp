@@ -22,6 +22,7 @@
 <section>
 <div class="mypage-box">
     <h2>${sessionScope.log.clientNickname}님의 마이페이지</h2>
+    <img src="https://em-content.zobj.net/thumbs/120/google/350/camping_1f3d5-fe0f.png">
     <div>
         <button onclick="location.href='modifyclient'">회원정보 수정</button>
         <input type="button" onclick="leaveClient()" value="탈퇴하기">

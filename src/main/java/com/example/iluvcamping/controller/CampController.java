@@ -8,6 +8,8 @@ import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
+import com.example.iluvcamping.domain.categoryCount.CategoryCount;
+import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
@@ -26,6 +28,8 @@ public class CampController {
     private final KeyGenerator keyGenerator;
     private final CampRepository campRepository;
     private final CampThemeRepository campThemeRepository;
+    private final CategoryCountRepository categoryCountRepository;
+
 
     @GetMapping("/viewCampsite")
     public String viewCampsite(Model model, @RequestParam(value = "campList", required = false) List<CampView> campList) {
@@ -76,4 +80,12 @@ public class CampController {
         return "mypage/registsuccess";
     }
 
+    @GetMapping("/get/categorycount")
+    @ResponseBody
+    public List<CategoryCount> getCategoryCount(Model model){
+        List<CategoryCount> list = categoryCountRepository.findAll();
+        model.addAttribute("list", list);
+
+        return list;
+    }
 }

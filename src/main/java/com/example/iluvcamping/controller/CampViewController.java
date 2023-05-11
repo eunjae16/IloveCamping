@@ -9,9 +9,12 @@ import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepositor
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
+import com.example.iluvcamping.domain.categoryCount.CategoryCount;
+import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +31,7 @@ public class CampViewController {
     private final CampSurroundViewRepository campSurroundViewRepository;
     private final CampFacilityViewRepository campFacilityViewRepository;
     private final CampThemeNameRepository campThemeNameRepository;
+    private final CategoryCountRepository categoryCountRepository;
 
     @GetMapping("/get/campinfo")
     @ResponseBody
@@ -66,6 +70,8 @@ public class CampViewController {
         }
         return filteredList;
     }
+
+
 
 
 }

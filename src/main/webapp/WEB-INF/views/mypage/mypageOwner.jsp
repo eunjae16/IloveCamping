@@ -24,6 +24,7 @@
 <section>
     <div class="mypage-box">
         <h2>${sessionScope.log.ownerNickname}님의 마이페이지</h2>
+        <img src="https://em-content.zobj.net/thumbs/120/google/350/camping_1f3d5-fe0f.png">
         <div>
             <button onclick="location.href='ownerSales'">매출 통계</button>
             <button onclick="location.href='ownercampregist'">캠핑장 등록</button>

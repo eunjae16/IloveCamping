@@ -14,3 +14,7 @@ button:hover, input[type=button]:hover {
     background-color: white;
     color: #495579;
 }
+
+img {
+    margin: 20px 0;
+}

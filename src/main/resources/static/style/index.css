@@ -85,3 +85,14 @@ footer p {
     text-align: center;
     line-height: 60px;
 }
+
+#whole-count, #camping-count, #caraban-count {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 6px solid white;
+    box-shadow: 0 0 16px rgb(221, 221, 221);
+    text-align: center;
+    line-height: 200px;
+    color: white;
+}

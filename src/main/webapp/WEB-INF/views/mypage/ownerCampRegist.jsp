@@ -9,17 +9,20 @@
 </head>
 <body>
 <section>
-    <div>
+    <div class="camp-regist-box">
         <h2>캠핑장 등록</h2>
         <form method="post" action="">
             <table class="camp-regist">
+                <tr>
+                    <td colspan="2"><input type="hidden" name="campOwner" id="campOwner" value="${sessionScope.log.ownerCode}" readonly></td>
+                </tr>
                 <tr>
                     <th>캠핑장 분류</th>
                     <td>
                         <select>
                             <c:if test="${not empty list}">
                                 <c:forEach items="${list}" var="theme">
-                                        <option class="campCategoryCode">${theme.themeName}</option>
+                                        <option class="campCategoryCode" value="${theme.themeCode}">${theme.themeName}</option>
                                 </c:forEach>
                             </c:if>
                         </select>
@@ -51,7 +54,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input id="regist-button" type="button" value="캠핑장 등록" onclick="checkValue(form)">
+                        <input type="button" id="regist-button" value="캠핑장 등록" onclick="checkValue(form)">
                     </td>
                 </tr>
             </table>
