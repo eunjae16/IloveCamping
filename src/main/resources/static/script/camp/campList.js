@@ -18,13 +18,24 @@ $.ajax(settings).done(function (response) {
         `);
     });
 
-    // $('.camp-img').on('click', e => {
-    //     // 클릭 발생시 해당장소의 위치로 지도 변경
-    //     const id = e.target.parentNode.id;
-    //
-    //     console.log("camp ' Id : " + id);
-    //     location.href = `/get/campinfo?campCode=${id}`;
-    // });
+    $('.camp-img').on('click', e => {
+        let campCode = "";
+        let pick = -1;
+        const id = e.target.parentNode.id;
+
+        for(let i=0; i<tmpArr.length; i++) {
+            if(tmpArr[i].campCode === id) {
+                campCode = id;
+                pick = i;
+            }
+        }
+
+        // const id = $(e.currentTarget).data('id');
+        const x = tmpArr[pick].x;
+        const y = tmpArr[pick].y;
+        const moveLatLon = new kakao.maps.LatLng(x, y);
+        map.panTo(moveLatLon);
+    });
 
 
 });
