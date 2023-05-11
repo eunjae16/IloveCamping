@@ -17,53 +17,54 @@
 <c:if test="${empty camp}">
     <c:redirect url="/"></c:redirect>
 </c:if>
-
 <section>
     <div class="left">
-        <div>
+        <div class="info">
             <h3 id="campName">${camp.campName}</h3>
-        </div>
-        <div>
             <p id="address">${camp.campAddress1}</p>
             <p>${camp.campPhone}</p>
-        </div>
-        <div>
             <form method="POST" action="/post/goreservation">
                 <input type="hidden" value="${camp.campCode}" name="campCode" id="campCode">
                 <input type="submit" value="예약하러 가기!">
             </form>
-        </div>
-        <div>
-            <div><img src="${camp.campImage}"></div>
-            <div id="theme">테마</div>
-            <div id="theme-detail">${campThemeName.campCategoryName}</div>
-            <div id="surround">주변</div>
-            <div id="surround-detail">
-                <c:forEach var="surround" items="${surroundList}">
-                    <p>${surround.surroundCategoryName}</p>
-                </c:forEach>
-            </div>
-            <div id="ground-sun">
-                <div id="sunhead"><p>오늘 : </p></div>
-                <div id="sunrise">
-                    <span>일출시간</span>
+            <div>
+                <div class="img-box"><img src="${camp.campImage}"></div>
+                <div class="flex-box">
+                    <div id="left-box">
+                        <div id="theme"><span>테마</span></div>
+                        <div id="theme-detail"><span>${campThemeName.campCategoryName}</span></div>
+                        <div id="surround"><span>주변</span></div>
+                        <div id="surround-detail">
+                            <c:forEach var="surround" items="${surroundList}">
+                                <span>${surround.surroundCategoryName}</span>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <div id="right-box">
+                        <div id="sunhead"><span>오늘:</span></div>
+                        <div id="sunrise">
+                            <span>일출시간</span>
+                        </div>
+                        <div id="sunset">
+                            <span>일몰시간</span>
+                        </div>
+                    </div>
                 </div>
-                <div id="sunset">
-                    <span>일몰시간</span>
+                <div id="facilities-all">
+                    <c:forEach var="facility" items="${facilityList}">
+                        <div>
+                            <img src="${facility.facilityImgUrl}">
+                            <span>${facility.categoryName}</span>
+                        </div>
+                    </c:forEach>
                 </div>
-            </div>
-            <div id="facilities-all">
-                <c:forEach var="facility" items="${facilityList}">
-                    <img src="${facility.facilityImgUrl}">
-                    <p>${facility.categoryName}</p>
-                </c:forEach>
             </div>
         </div>
     </div>
     <%-- 지도 --%>
-    <div class="right"><div class="map" id="${camp.x}/${camp.y}" style="width:500px;height:400px;"></div></div>
+    <div class="right"><div class="map" id="${camp.x}/${camp.y}"></div></div>
 </section>
-<script src="../../script/camp/campDetail.js"></script>
 <c:import url="/footer"/>
+<script src="../../script/camp/campDetail.js"></script>
 </body>
 </html>

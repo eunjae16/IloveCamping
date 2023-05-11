@@ -40,3 +40,16 @@ const infowindow = new kakao.maps.InfoWindow({
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, marker);
 
+var xhr = new XMLHttpRequest();
+var url = 'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo'; /*URL*/
+var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'unQxKQrF1AU5TOE9cX9FpU5bOaWN2J6Hlhf0V9i4y9iYTnl0WVya53CopLztL2%2BW6lyx5cwB9X7DlaDPjIXGGA%3D%3D'; /*Service Key*/
+queryParams += '&' + encodeURIComponent('locdate') + '=' + encodeURIComponent('20150101'); /**/
+queryParams += '&' + encodeURIComponent('location') + '=' + encodeURIComponent('서울'); /**/
+xhr.open('GET', url + queryParams);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+        alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+    }
+};
+
+xhr.send('');
