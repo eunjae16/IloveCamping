@@ -11,7 +11,4 @@ public interface CategoryCountRepository extends JpaRepository<CategoryCount, St
 
     public List<CategoryCount> findAll();
 
-    @Query(nativeQuery = true, value = "SELECT SUM(count) AS total_count FROM category_count")
-    Long getTotalCount();
-
 }

@@ -8,23 +8,21 @@ $.ajax(setting).done(function (response) {
     console.log(response);
 
     response.forEach((list) => {
-        if (list.categoryCode === `CT100001`) {
+        if (list.totalCount > 0) {
             $('#percent').append(
-                `<div id="whole-count" class="progress" data-percent="${list.count}"><p>${list.count}</p><span>전체</span></div>`
+                `<div id="whole-count" class="progress" data-percent="${list.totalCount}"><p>${list.totalCount}</p><span>전체</span></div>`
             );
-        } else if (list.categoryCode === `CT100002`) {
+        } else if (list.campCategoryCode === `CT100001`) {
             $('#percent').append(
                 `<div id="camping-count" class="progress" data-percent="${list.count}"><p>${list.count}</p><span>캠핑</span></div>`
             );
-        } else {
+        } else if (list.campCategoryCode === `CT100002`) {
             $('#percent').append(
                 `<div id="caraban-count" class="progress" data-percent="${list.count}"><p>${list.count}</p><span>카라반</span></div>`
             );
         }
     });
 })
-
-
 
 $(document).ready(function() {
     // selectSite 변경 시
