@@ -12,10 +12,9 @@
     <div class="index-bg"></div>
     <div class="search-box">
         <p>오늘은 어디로 갈까?</p>
-        <form method="POST" action="/camp/search">
-            <select id="region" name="region" required>
-                <option value="none" selected hidden>선택</option>
-                <option value="viewAll">전체보기</option>
+        <form method="GET" action="/camp/search">
+            <select id="region" name="region">
+                <option value="" selected>전체보기</option>
                 <option value="서울">서울</option>
                 <option value="경기">경기도</option>
                 <option value="강원">강원도</option>
