@@ -12,6 +12,7 @@
 <div class="login-choice">
     <button type="button" onclick="location.href='<c:url value='/clientlogin'/>'">일반유저 로그인</button>
     <button type="button" onclick="location.href='<c:url value='/ownerlogin'/>'">사업자 로그인</button>
+    <button type="button" onclick="location.href='<c:url value='/adminlogin'/>'">관리자 로그인</button>
 </div>
 </section>
 <c:import url="/footer"/>

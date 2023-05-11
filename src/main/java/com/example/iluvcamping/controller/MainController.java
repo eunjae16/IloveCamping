@@ -63,6 +63,9 @@ public class MainController {
         return "login/ownerlogin";
     }
 
+    @GetMapping("/adminlogin")
+    public String adminlogin() { return "login/adminlogin"; }
+
     @GetMapping("/header")
     public String header() {
         return "sementic/header";
