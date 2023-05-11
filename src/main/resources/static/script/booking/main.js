@@ -319,7 +319,8 @@
 				var added_year = secondClicked.year;
 				var added_month = secondClicked.month;
 				var added_date = secondClicked.date;
-				console.log(selected);
+				selectedObj = selected;
+				console.log('selectedObj : ', selectedObj);
 
 				if (added_year > firstClicked.year) {	
 					// first add all dates from all months of Second-Clicked-Year
@@ -391,6 +392,7 @@
 			}
 			return selected;
 		}
-});
+
+	});
 
 })(jQuery);

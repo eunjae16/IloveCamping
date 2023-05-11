@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="/style/booking/style.css">
-
+  <script src="/script/booking/jquery.min.js"></script>
+  <script src="/script/booking/popper.js"></script>
+  <script src="/script/booking/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -80,13 +82,13 @@
     <%-- 이상 calendar --%>
     <div class="campsites-list">
       <c:forEach items="${campsite}" var="campsite">
-        <div class="campsite-card">
+        <div class="campsite-card" id="${campsite.siteCode}" style="width: fit-content">
           <img src="${campsite.campsiteImage}">
           <p>${campsite.siteName}</p>
           <p>추가 인원 금액 : ${campsite.siteExtraPersonPrice}원</p>
           <p>추가 카라반 금액 : ${campsite.siteExtraCarabanPrice}원</p>
           <p>최소 인원 : ${campsite.siteMinPerson}</p>
-          <p>최소 인원 : ${campsite.siteMaxPerson}</p>
+          <p>최대 인원 : ${campsite.siteMaxPerson}</p>
         </div>
       </c:forEach>
     </div>
@@ -94,9 +96,6 @@
 </section>
 
 
-<script src="/script/booking/jquery.min.js"></script>
-<script src="/script/booking/popper.js"></script>
-<script src="/script/booking/bootstrap.min.js"></script>
 <script src="/script/booking/main.js"></script>
 <script src="/script/booking/bookingCamp.js"></script>
 </body>
