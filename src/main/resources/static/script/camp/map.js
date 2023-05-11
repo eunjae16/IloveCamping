@@ -24,22 +24,43 @@ let tmpArr = [];
 
     $.ajax(mapSettings).done(function (response) {
         for (let i = 0; i < response.length; i ++) {
+
             tmpArr.push(response[i]);
             const imageSize = new kakao.maps.Size(24, 35);
 
+
             // 마커 이미지를 생성합니다
             const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-            // 마커를 생성합니다
+
 
             const latLng  = new kakao.maps.LatLng(response[i].x, response[i].y);
             const pick = i;
             const marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
                 position: latLng, // 마커를 표시할 위치
-                title : response[i].campName, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                image : markerImage // 마커 이미지
+                title : response[i].campAddress1, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                image : markerImage, // 마커 이미지
             });
 
+            const campName = response[i].campName;
+            const x = response[i].x;
+            const y = response[i].y;
+
+            const iwContent = '<div style="padding:5px;">'+campName+'</div>',
+                //인포윈도우 표시 위치입니다
+                iwPosition = new kakao.maps.LatLng(x, y);
+
+
+
+            // 인포윈도우 생성
+            const infowindow = new kakao.maps.InfoWindow({
+                position : iwPosition,
+                content : iwContent
+            });
+
+            // 마커를 생성합니
+
+            infowindow.open(map, marker);
             }
         });
 
