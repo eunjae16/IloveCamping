@@ -7,8 +7,6 @@ import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.campView.CampViewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,4 +34,25 @@ public class CampService {
     }
 
     public void addCamp(Camp camp) { campRepository.save(camp); }
+
+    public List<Camp> searchCampByKeyword(String keyword) {
+        List<Camp> allCamps = campRepository.findAll();
+        List<Camp> filteredCamps = new ArrayList<>();
+
+        for (Camp camp : allCamps) {
+            if (camp.getCampCode().contains(keyword) ||
+                    camp.getCampOwner().contains(keyword) ||
+                    camp.getCampCategoryCode().contains(keyword) ||
+                    camp.getCampName().contains(keyword) ||
+                    camp.getCampImage().contains(keyword) ||
+                    camp.getCampAddressCode().contains(keyword) ||
+                    camp.getCampAddress1().contains(keyword) ||
+                    camp.getCampAddress2().contains(keyword) ||
+                    camp.getCampPhone().contains(keyword)) {
+                filteredCamps.add(camp);
+            }
+        }
+
+        return filteredCamps;
+    }
 }
