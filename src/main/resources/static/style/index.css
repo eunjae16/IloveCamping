@@ -86,13 +86,23 @@ footer p {
     line-height: 60px;
 }
 
+#percent {
+    width: 50%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #whole-count, #camping-count, #caraban-count {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 6px solid white;
+    border: 3px solid white;
     box-shadow: 0 0 16px rgb(221, 221, 221);
     text-align: center;
-    line-height: 200px;
+    line-height: 150px;
     color: white;
 }

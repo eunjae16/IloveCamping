@@ -4,32 +4,31 @@ const setting = {
     "timeout" : 0
 }
 
-$.ajax(setting).done(function (response){
+$.ajax(setting).done(function (response) {
     console.log(response);
 
     response.forEach((list) => {
-        if(list.categoryCode === `CT100001`) {
+        if (list.categoryCode === `CT100001`) {
             $('#percent').append(
-                `<div id="whole-count" class="chart" data-percent="${list.count}"><p>${list.count}</p></div>`
+                `<div id="whole-count" class="progress" data-percent="${list.count}"><p>${list.count}</p></div>`
             );
-        } else if(list.categoryCode === `CT100002`) {
+        } else if (list.categoryCode === `CT100002`) {
             $('#percent').append(
-                `<div id="camping-count" class="chart" data-percent="${list.count}"><p>${list.count}</p></div>`
+                `<div id="camping-count" class="progress" data-percent="${list.count}"><p>${list.count}</p></div>`
             );
         } else {
             $('#percent').append(
-                `<div id="caraban-count" class="chart" data-percent="${list.count}"><p>${list.count}</p></div>`
+                `<div id="caraban-count" class="progress" data-percent="${list.count}"><p>${list.count}</p></div>`
             );
         }
     });
-});
+})
 
 $(document).ready(function() {
     // selectSite 변경 시
     $('#selectSite').change(function() {
         var selectedOption = $(this).val();
         var searchBoxValue = $('#searchBox').val();
-
 
 // 페이지가 로드되면 이벤트 리스너를 등록합니다.
 // window.onload = function() {
