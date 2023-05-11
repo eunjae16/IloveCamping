@@ -49,6 +49,14 @@ public class BookingController {
         else return "error";
     }
 
+    @GetMapping("/get/campsite/list")
+    @ResponseBody
+    public List<CampSite> getCampSiteListByCampCode(@RequestParam String campCode, Model model){
+        List<CampSite> list = campSiteRepository.getAllByCampCode(campCode);
+
+        return list;
+    }
+
 //    // create booking
 
 

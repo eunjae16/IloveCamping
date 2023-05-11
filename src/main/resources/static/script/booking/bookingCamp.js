@@ -22,15 +22,8 @@ var arrayDate = extractSelectedValues(selectedObj);
 let firstDate = arrayDate[0];
 let lastDate = arrayDate[1];
 
-function submitReservation(){
-    $.ajax({
-        type: `POST`,
-        url: ``,
-    })
-}
 
 $('.campsite-card').on("click", e => {
-    const id = e.target.parentNode.id;
-
-
+    const campCode = e.target.id;
+    const url = `/get/campsite/list?campCode=${campCode}`;
 })

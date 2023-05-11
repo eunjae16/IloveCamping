@@ -23,4 +23,5 @@ public class CampSiteRequestDTO {
     private Integer siteExtraCarabanPrice;
 
     private String campsiteImage;
+    private boolean booked;
 }

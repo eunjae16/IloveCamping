@@ -31,7 +31,9 @@ public class CampSite {
 
     private String campsiteImage;
 
-    public CampSite(String siteCode, String campCode, String siteName, int siteMinPerson, int siteMaxPerson, int sitePrice, String campsiteImage) {
+    private boolean booked;
+
+    public CampSite(String siteCode, String campCode, String siteName, int siteMinPerson, int siteMaxPerson, int sitePrice, String campsiteImage, boolean booked) {
         this.siteCode = siteCode;
         this.campCode = campCode;
         this.siteName = siteName;
@@ -41,6 +43,7 @@ public class CampSite {
         this.siteExtraPersonPrice = null;
         this.siteExtraCarabanPrice = null;
         this.campsiteImage = null;
+        this.booked = booked;
     }
 
     public CampSite(CampSiteRequestDTO campSiteRequestDTO){
@@ -53,7 +56,11 @@ public class CampSite {
         this.siteExtraPersonPrice = campSiteRequestDTO.getSiteExtraPersonPrice();
         this.siteExtraCarabanPrice = campSiteRequestDTO.getSiteExtraCarabanPrice();
         this.campsiteImage = campSiteRequestDTO.getCampsiteImage();
+        this.booked = campSiteRequestDTO.isBooked();
     }
 
+    public void setBooked(boolean booked) {
+        this.booked = booked;
+    }
 }
 
