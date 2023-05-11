@@ -15,8 +15,8 @@
             </div>
             <ul class="menu">
                 <li><a href="/camplist">전체</a></li>
-                <li><a href="/viewcampsite">캠핑</a></li>
-                <li><a href="/selecttheme">글램핑/카라반</a></li>
+                <li><a href="/selectcamping">캠핑</a></li>
+                <li><a href="/selectglampingandcaravan">글램핑/카라반</a></li>
                 <li><a href="/">검색</a></li>
                 <li><a href="/community">캠핑 이야기</a></li>
             </ul>
