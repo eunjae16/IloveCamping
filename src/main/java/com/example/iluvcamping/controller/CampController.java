@@ -14,6 +14,7 @@ import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.Banner;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -140,27 +141,10 @@ public class CampController {
 
     // 전체페이지 > 검색
     @GetMapping("/camp/search")
-    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content, @RequestParam String page,
-                                      @PageableDefault(page = 0, size = 3, sort = {"campName"}, direction = Sort.Direction.ASC) Pageable pageable){
+    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content){
         List<CampThemeName> result = null;
 
-        int number = 0;
-        try {
-            number = Integer.parseInt(page);
-        }
-        catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-
-
         result = campThemeNameRepository.findAllByCampAddress1ContainingAndCampNameContaining(region, content);
-//        result = campThemeNameRepository.findAllByCampAddress1ContainingAndCampNameContaining(region, content, pageable.withPage(number));
-
-        System.out.println("number : " + number);
-        System.out.println("region : " + region);
-        System.out.println("result.size() : " + result.size());
-
-//        int nowPage = result.getNumber() + 1;
 
         ModelAndView modelAndView = new ModelAndView("camp/searchResult");
         modelAndView.addObject("result", result);

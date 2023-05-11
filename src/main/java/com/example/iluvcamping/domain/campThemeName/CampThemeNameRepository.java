@@ -11,6 +11,6 @@ public interface CampThemeNameRepository extends JpaRepository<CampThemeName, St
     public CampThemeName getCampThemeNameByCampCode(String campCode);
 
     // [지역카테고리] 만으로 검색결과
-    public List<CampThemeName> findAllByCampAddress1ContainingAndCampNameContaining(String region, String content);
+    public List<CampThemeName> findAllByCampAddress1ContainingAndCampNameContaining(String region, String contente);
 
 }
