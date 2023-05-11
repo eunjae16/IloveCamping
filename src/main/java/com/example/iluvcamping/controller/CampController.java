@@ -127,6 +127,12 @@ public class CampController {
         return list;
     }
 
+    @GetMapping("/get/categorytotalcount")
+    @ResponseBody
+    public Long getTotalCount() {
+        return categoryCountRepository.getTotalCount();
+    }
+
     // 전체페이지 > 검색
     @PostMapping("/camp/search")
     public String searchResult (@RequestParam String region, @RequestParam String content , Model model){
