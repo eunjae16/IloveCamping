@@ -28,9 +28,7 @@
         <input type="text" placeholder="검색어를 입력해 주세요." id="searchBox">
         <button type="button" id="btnSearch"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
     </div>
-    <div id="whole-count"></div>
-    <div id="camping-count"></div>
-    <div id="caraban-count"></div>
+    <div id="percent"></div>
 </section>
 <c:import url="/footer"/>
 <script src="/script/index.js"></script>
