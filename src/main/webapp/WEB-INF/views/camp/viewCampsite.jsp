@@ -6,15 +6,19 @@
     <link rel="stylesheet" href="style/viewCampsite.css">
     <link rel="stylesheet" href="style/map.css">
 </head>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5670ccd025e23c03c5a4887d46695c55&libraries=services,clusterer,drawing"></script>
 <body>
 <section>
     <div class="campList">
+        <c:forEach var="camp" items="${campList}">
+            <div class="campItem">
 
+            </div>
+        </c:forEach>
     </div>
 </section>
 
 <c:import url="../sementic/footer.jsp"/>
-<script src="map.js"></script>
+<script src="/script/map.js"></script>
+<script src="/script/viewCampsite.js"></script>
 </body>
 </html>
