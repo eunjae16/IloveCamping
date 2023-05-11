@@ -176,4 +176,15 @@ public class MainController {
         return "mypage/registsuccess";
     }
 
+    @GetMapping("/selecttheme")
+    public String selectTheme(){ return "camp/selectTheme"; }
+
+    @GetMapping("/themecamping")
+    public String themeCapming(){ return "camp/themeCamping"; }
+
+    @GetMapping("/themeglamping")
+    public String themeGlapming(){ return "camp/themeGlamping"; }
+
+    @GetMapping("/themecaravan")
+    public String themeCaravan(){ return "camp/themeCaravan"; }
 }
