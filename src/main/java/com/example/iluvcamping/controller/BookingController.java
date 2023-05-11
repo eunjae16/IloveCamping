@@ -38,7 +38,7 @@ public class BookingController {
     }
 
     @PostMapping("/post/goreservation")
-    public String goReservation(@RequestParam String campCode, Model model){
+    public String goReservation(@RequestParam("campCode") String campCode, Model model){
         CampThemeName camp = campThemeNameRepository.getCampThemeNameByCampCode(campCode);
         if(camp != null){
             List<CampSite> campsite = campSiteRepository.getAllByCampCode(campCode);

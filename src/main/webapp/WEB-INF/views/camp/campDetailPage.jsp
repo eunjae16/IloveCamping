@@ -27,7 +27,8 @@
         <p>${camp.campPhone}</p>
     </div>
     <div>
-        <form method="POST" action="/post/goreservation?campCode=${camp.campCode}">
+        <form method="POST" action="/post/goreservation">
+            <input type="hidden" value="${camp.campCode}" name="campCode" id="campCode">
             <input type="submit" value="예약하러 가기!">
         </form>
     </div>

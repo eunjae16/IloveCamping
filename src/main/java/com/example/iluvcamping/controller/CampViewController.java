@@ -9,13 +9,12 @@ import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepositor
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
-import com.example.iluvcamping.domain.categoryCount.CategoryCount;
 import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,9 +32,9 @@ public class CampViewController {
     private final CampThemeNameRepository campThemeNameRepository;
     private final CategoryCountRepository categoryCountRepository;
 
-    @GetMapping("/get/campinfo")
+    @PostMapping("/get/campinfo")
     @ResponseBody
-    public ModelAndView getCampInfo(@RequestParam String campCode){
+    public ModelAndView getCampInfo(@RequestParam("campCode") String campCode){
         Camp camp = campRepository.getCampByCampCode(campCode);
 
         if(camp != null){
