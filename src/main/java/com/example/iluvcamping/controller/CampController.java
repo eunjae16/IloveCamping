@@ -13,9 +13,14 @@ import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
+import org.springframework.boot.Banner;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -32,47 +37,47 @@ public class CampController {
     private final CategoryCountRepository categoryCountRepository;
 
 
-    @GetMapping("/viewCampsite")
-    public String viewCampsite(@RequestParam(name = "selectSite", required = false) String selectSite,
-                               @RequestParam(name = "searchBox", required = false) String searchBox,
-                               Model model) {
-        List<Camp> campList = new ArrayList<>();
-
-        if (selectSite != null && !selectSite.equals("none")) {
-            if (selectSite.equals("viewAll")) {
-                campList = campRepository.findAll();
-            } else {
-                String selectSitePrefix = selectSite.substring(0, 2);
-                campList = campRepository.findByCampAddress1StartingWith(selectSitePrefix);
-            }
-        } else if (searchBox != null && !searchBox.isEmpty()) {
-            campList = campService.searchCampByKeyword(searchBox);
-        } else {
-            campList = campRepository.findAll();
-        }
-
-        List<Camp> filteredCampList = new ArrayList<>();
-        if (searchBox != null && !searchBox.isEmpty()) {
-            for (Camp camp : campList) {
-                if (camp.getCampCode().contains(searchBox) ||
-                        camp.getCampOwner().contains(searchBox) ||
-                        camp.getCampCategoryCode().contains(searchBox) ||
-                        camp.getCampName().contains(searchBox) ||
-                        camp.getCampImage().contains(searchBox) ||
-                        camp.getCampAddressCode().contains(searchBox) ||
-                        camp.getCampAddress1().contains(searchBox) ||
-                        camp.getCampAddress2().contains(searchBox) ||
-                        camp.getCampPhone().contains(searchBox)) {
-                    filteredCampList.add(camp);
-                }
-            }
-        } else {
-            filteredCampList = campList;
-        }
-
-        model.addAttribute("campList", filteredCampList); // 변경: 검색 결과를 사용하도록 수정
-        return "viewCampsite";
-    }
+//    @GetMapping("/viewCampsite")
+//    public String viewCampsite(@RequestParam(name = "selectSite", required = false) String selectSite,
+//                               @RequestParam(name = "searchBox", required = false) String searchBox,
+//                               Model model) {
+//        List<Camp> campList = new ArrayList<>();
+//
+//        if (selectSite != null && !selectSite.equals("none")) {
+//            if (selectSite.equals("viewAll")) {
+//                campList = campRepository.findAll();
+//            } else {
+//                String selectSitePrefix = selectSite.substring(0, 2);
+//                campList = campRepository.findByCampAddress1StartingWith(selectSitePrefix);
+//            }
+//        } else if (searchBox != null && !searchBox.isEmpty()) {
+//            campList = campService.searchCampByKeyword(searchBox);
+//        } else {
+//            campList = campRepository.findAll();
+//        }
+//
+//        List<Camp> filteredCampList = new ArrayList<>();
+//        if (searchBox != null && !searchBox.isEmpty()) {
+//            for (Camp camp : campList) {
+//                if (camp.getCampCode().contains(searchBox) ||
+//                        camp.getCampOwner().contains(searchBox) ||
+//                        camp.getCampCategoryCode().contains(searchBox) ||
+//                        camp.getCampName().contains(searchBox) ||
+//                        camp.getCampImage().contains(searchBox) ||
+//                        camp.getCampAddressCode().contains(searchBox) ||
+//                        camp.getCampAddress1().contains(searchBox) ||
+//                        camp.getCampAddress2().contains(searchBox) ||
+//                        camp.getCampPhone().contains(searchBox)) {
+//                    filteredCampList.add(camp);
+//                }
+//            }
+//        } else {
+//            filteredCampList = campList;
+//        }
+//
+//        model.addAttribute("campList", filteredCampList); // 변경: 검색 결과를 사용하도록 수정
+//        return "viewCampsite";
+//    }
 
 
     @GetMapping("/campsite/search")
@@ -128,18 +133,33 @@ public class CampController {
     }
 
     // 전체페이지 > 검색
-    @PostMapping("/camp/search")
-    public String searchResult (@RequestParam String region, @RequestParam String content , Model model){
-        if(region.equals("viewAll")) {
+    @GetMapping("/camp/search")
+    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content, @RequestParam String page,
+                                      @PageableDefault(page = 0, size = 3, sort = {"campName"}, direction = Sort.Direction.ASC) Pageable pageable){
+        List<CampThemeName> result = null;
 
+        int number = 0;
+        try {
+            number = Integer.parseInt(page);
+        }
+        catch (NumberFormatException e) {
+            e.printStackTrace();
         }
 
-        else {
 
-        }
+        result = campThemeNameRepository.findAllByCampAddress1ContainingAndCampNameContaining(region, content);
+//        result = campThemeNameRepository.findAllByCampAddress1ContainingAndCampNameContaining(region, content, pageable.withPage(number));
 
+        System.out.println("number : " + number);
+        System.out.println("region : " + region);
+        System.out.println("result.size() : " + result.size());
 
-        return "camp/searchResult";
+//        int nowPage = result.getNumber() + 1;
+
+        ModelAndView modelAndView = new ModelAndView("camp/searchResult");
+        modelAndView.addObject("result", result);
+
+        return modelAndView;
     }
 
 }
