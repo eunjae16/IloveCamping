@@ -10,9 +10,9 @@
 <head>
     <title>테마선택</title>
     <div class="theme-choice">
-        <button type="button" onclick="location.href='/themecamping'">캠핑</button>
-        <button type="button" onclick="location.href='/themeglamping'">글램핑</button>
-        <button type="button" onclick="location.href='/themecaravan'">카라반</button>
+        <a href="/selectcamping">캠핑</a>
+        <a href="/selectglamping">글램핑</a>
+        <a href="/selectcaravan">카라반</a>
     </div>
 </head>
 <body>

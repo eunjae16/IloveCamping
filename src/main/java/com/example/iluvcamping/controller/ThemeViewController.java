@@ -21,20 +21,20 @@ public class ThemeViewController {
     public String selectCamping(Model model){
         List<ThemeView> list = themeViewRepository.findByThemeName("캠핑");
         model.addAttribute("campingThemes", list);
-        return "themecamping";
+        return "camp/themeCamping";
     }
 
     @GetMapping("/selectglamping")
     public String selectGlamping(Model model){
         List<ThemeView> list = themeViewRepository.findByThemeName("글램핑");
         model.addAttribute("glampingThemes", list);
-        return "themeglamping";
+        return "camp/themeGlamping";
     }
 
     @GetMapping("/selectcaravan")
     public String selectCaravan(Model model){
         List<ThemeView> list = themeViewRepository.findByThemeName("카라반");
         model.addAttribute("caravanThemes", list);
-        return "themecaravan";
+        return "camp/themeCaravan";
     }
 }
