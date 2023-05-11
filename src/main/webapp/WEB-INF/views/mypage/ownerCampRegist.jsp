@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="style/ownerCampRegist.css">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+            integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx"
+            crossOrigin="anonymous"></script>
+
 </head>
 <body>
 <section>
@@ -47,6 +51,8 @@
                 <tr>
                     <th>주소</th>
                     <td><input type="text" id="address" name="address" placeholder="주소" readonly></td>
+                    <input type="hidden" id="x" name="x">
+                    <input type="hidden" id="y" name="y">
                 </tr>
                 <tr>
                     <th>연락처</th>

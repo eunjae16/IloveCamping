@@ -42,9 +42,21 @@ $.ajax(settings).done(function (response) {
 
         const x = tmpArr[pick].x;
         const y = tmpArr[pick].y;
+        console.log("pick: " + tmpArr[pick].campName);
+        console.log("x: " + tmpArr[pick].x);
+        console.log("y: " + tmpArr[pick].y);
         const moveLatLon = new kakao.maps.LatLng(x, y);
 
+        const moveOption = {
+            center: moveLatLon,
+            level: 3
+        };
+
+        // 지도를 이동하면서 확대 레벨을 조절합니다
+        map.setLevel(3, moveOption);
         map.panTo(moveLatLon);
+
+        // map.panTo(moveLatLon);
     });
 
 

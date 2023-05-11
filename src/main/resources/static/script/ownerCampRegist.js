@@ -3,9 +3,26 @@ function pop() {
         oncomplete: function (data) {
             document.getElementById("address_number").value = data.zonecode;
             document.getElementById("address").value = data.address;
+
+            $.ajax({
+                url: "https://dapi.kakao.com/v2/local/search/keyword.json?query=" + data.address,
+                method: "GET",
+                headers: {
+                    "Authorization": "KakaoAK 9ae243b8f4e31414331bf5d52a3ba89f"
+                },
+                success: function (response) {
+                    document.getElementById("x").value = response.documents[0].x;
+                    document.getElementById("y").value = response.documents[0].y;
+
+                },
+                error: function () {
+                        location.href = "error";
+                },
+            });
         },
     }).open();
 }
+
 
 function checkValue(htmlForm) {
     let url = "ownercampregist?";
@@ -17,6 +34,9 @@ function checkValue(htmlForm) {
     const campAddressCode = $('#address_number').val();
     const campAddress1 = $('#address').val();
     const campPhone = $('#phone').val();
+    const x = $('#x').val();
+    const y = $('#y').val();
+
 
     let check = true;
 
@@ -55,8 +75,14 @@ function checkValue(htmlForm) {
             // "campImage": campImage,
             "campAddressCode": campAddressCode,
             "campAddress1": campAddress1,
-            "campPhone": campPhone
+            "campPhone": campPhone,
+            "x" : x,
+            "y" : y
         };
+
+        if (x !== "") data["x"] = x;
+        if (y !== "") data["y"] = y;
+
         submit(data);
     }
 }
@@ -77,4 +103,7 @@ function submit(data) {
         .fail((error) => {
             location.href = "error";
         });
+
+
+
 }

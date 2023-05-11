@@ -12,7 +12,7 @@ const mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         // 지도 중심좌표
         center: new kakao.maps.LatLng(36.537784, 127.999517),
-        level: 5 // 지도의 확대 레벨
+        level: 12 // 지도의 확대 레벨
     };
 
 // 지도를 생성합니다
@@ -24,7 +24,7 @@ let tmpArr = [];
 
     $.ajax(mapSettings).done(function (response) {
         for (let i = 0; i < response.length; i ++) {
-
+            console.log("map lengh: " + response.length);
             tmpArr.push(response[i]);
             const imageSize = new kakao.maps.Size(24, 35);
 
