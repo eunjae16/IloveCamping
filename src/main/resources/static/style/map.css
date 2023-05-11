@@ -4,14 +4,14 @@ section {
 }
 
 .left {
-    width: 50%;
+    width: 30%;
     float: left;
     box-sizing: border-box;
     overflow-y: scroll;
 }
 
 .right {
-    width: 50%;
+    width: 70%;
     float: right;
     box-sizing: border-box;
 }
@@ -21,9 +21,38 @@ section {
     height: calc(100% - 60px);
 }
 
-#camp-card div {
+#camp-card > div {
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
 }
 
-#camp-card div img {
+input[type=submit] {
+    border: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    background-color: #495579;
+    padding: 10px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    color: #495579;
+    background-color: white;
+}
+
+img {
+    cursor: pointer;
+    width: 160px;
+    height: 90px;
+    overflow: hidden;
+}
+
+.list-text-box p:first-child {
+    font-weight: bold;
 }

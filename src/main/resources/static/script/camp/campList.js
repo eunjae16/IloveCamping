@@ -10,13 +10,15 @@ $.ajax(settings).done(function (response) {
     response.forEach((listTheme) => {
         $('#camp-card').append(`
             <div id="${listTheme.campCode}">
-            <img class="camp-img" src="${listTheme.campImage}">
-            <p>${listTheme.campName}</p>
-            <p>${listTheme.campCategoryName}</p>
-            <form method="post" action="/get/campinfo">
-            <input type="hidden" name="campCode" id="campCode" value="${listTheme.campCode}">
-            <input type="submit" value="예약하기">
-            </form>
+                <img class="camp-img" src="${listTheme.campImage}">
+                <div class="list-text-box">
+                    <p>${listTheme.campName}</p>
+                    <p><${listTheme.campCategoryName}></p>
+                </div>
+                <form method="post" action="/get/campinfo">
+                    <input type="hidden" name="campCode" id="campCode" value="${listTheme.campCode}">
+                    <input type="submit" value="예약">
+                </form>
             </div>
         `);
     });
