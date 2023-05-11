@@ -126,4 +126,20 @@ public class CampController {
 
         return list;
     }
+
+    // 전체페이지 > 검색
+    @PostMapping("/camp/search")
+    public String searchResult (@RequestParam String region, @RequestParam String content , Model model){
+        if(region.equals("viewAll")) {
+
+        }
+
+        else {
+
+        }
+
+
+        return "camp/searchResult";
+    }
+
 }
