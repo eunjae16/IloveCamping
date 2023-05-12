@@ -36,6 +36,7 @@
           <div id="map"></div>
       </div>
   </section>
+  <script src="script/camp/campList.js"></script>
   <script src="script/camp/map.js"></script>
 </body>
 <c:import url="/footer"/>
