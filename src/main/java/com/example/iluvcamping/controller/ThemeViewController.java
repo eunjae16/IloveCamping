@@ -24,11 +24,9 @@ public class ThemeViewController {
     }
 
     @GetMapping("/selectglampingandcaravan")
-    public String selectGlamping(Model model){
-        List<ThemeView> glamping = themeViewRepository.findByThemeName("글램핑");
-        model.addAttribute("glampingThemes", glamping);
-        List<ThemeView> caravan = themeViewRepository.findByThemeName("카라반");
-        model.addAttribute("caravanThemes", caravan);
+    public String selectThemeExceptCamping(Model model){
+        List<ThemeView> exceptCamping = themeViewRepository.findDistinctByThemeNameNotCampfireOrderByThemeName();
+        model.addAttribute("exceptCamping", exceptCamping);
         return "camp/themeGlampingAndCaravan";
     }
 }
