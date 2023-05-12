@@ -62,5 +62,9 @@ public class CampSite {
     public void setBooked(boolean booked) {
         this.booked = booked;
     }
-}
 
+    public void setSiteCode(String siteCode) {
+        this.siteCode = siteCode;
+    }
+
+}

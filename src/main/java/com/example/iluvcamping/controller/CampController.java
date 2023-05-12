@@ -3,6 +3,8 @@ package com.example.iluvcamping.controller;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.camp.CampRequestDTO;
+import com.example.iluvcamping.domain.campSite.CampSite;
+import com.example.iluvcamping.domain.campSite.CampSiteRequestDTO;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
@@ -13,18 +15,12 @@ import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.Banner;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -36,7 +32,6 @@ public class CampController {
     private final CampRepository campRepository;
     private final CampThemeRepository campThemeRepository;
     private final CategoryCountRepository categoryCountRepository;
-
 
     @GetMapping("/campsite/search")
     @ResponseBody
@@ -92,7 +87,7 @@ public class CampController {
 
     // 전체페이지 > 검색
     @GetMapping("/camp/search")
-    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content){
+    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content) {
         List<CampThemeName> result = null;
 
         result = campThemeNameRepository.findAllByCampAddress1ContainingAndCampNameContaining(region, content);
@@ -103,7 +98,15 @@ public class CampController {
         return modelAndView;
     }
 
+    @PostMapping("/campsite/regist")
+    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto, HttpSession session) {
+        CampSite campSite = new CampSite(campSiteDto);
+        String code = keyGenerator.randomKey("K");
+        campSite.setSiteCode(code);
+        campService.addCampSite(campSite);
 
+        return "mypage/registsuccess";
+    }
 
 
 }
