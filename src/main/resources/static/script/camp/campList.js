@@ -45,7 +45,7 @@ $.ajax(settings).done(function (response) {
         console.log("pick: " + tmpArr[pick].campName);
         console.log("x: " + tmpArr[pick].x);
         console.log("y: " + tmpArr[pick].y);
-        const moveLatLon = new kakao.maps.LatLng(x, y);
+        const moveLatLon = new kakao.maps.LatLng(y, x);
 
         const moveOption = {
             center: moveLatLon,

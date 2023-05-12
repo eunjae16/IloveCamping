@@ -34,7 +34,7 @@ let tmpArr = [];
             const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
 
-            const latLng  = new kakao.maps.LatLng(response[i].x, response[i].y);
+            const latLng  = new kakao.maps.LatLng(response[i].y, response[i].x);
             const pick = i;
             const marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
@@ -48,7 +48,7 @@ let tmpArr = [];
 
             const iwContent = '<div style="padding:5px;">'+campName+'</div>',
                 //인포윈도우 표시 위치입니다
-                iwPosition = new kakao.maps.LatLng(x, y);
+                iwPosition = new kakao.maps.LatLng(y, x);
 
 
 

@@ -1,9 +1,10 @@
-function pop() {
+function pop(x) {
     new daum.Postcode({
         oncomplete: function (data) {
             document.getElementById("address_number").value = data.zonecode;
             document.getElementById("address").value = data.address;
 
+            // 주소정보 받자마자 x, y 좌표 뽑기
             $.ajax({
                 url: "https://dapi.kakao.com/v2/local/search/keyword.json?query=" + data.address,
                 method: "GET",
@@ -11,8 +12,8 @@ function pop() {
                     "Authorization": "KakaoAK 9ae243b8f4e31414331bf5d52a3ba89f"
                 },
                 success: function (response) {
-                    document.getElementById("x").value = response.documents[0].x;
-                    document.getElementById("y").value = response.documents[0].y;
+                    document.getElementById("x").value = parseFloat(response.documents[0].x);
+                    document.getElementById("y").value = parseFloat(response.documents[0].y);
 
                 },
                 error: function () {
@@ -36,6 +37,8 @@ function checkValue(htmlForm) {
     const campPhone = $('#phone').val();
     const x = $('#x').val();
     const y = $('#y').val();
+    console.log("y위도 : "+ y);
+    console.log("x경도 : "+ x);
 
 
     let check = true;
@@ -78,12 +81,15 @@ function checkValue(htmlForm) {
             "campPhone": campPhone,
             "x" : x,
             "y" : y
+
         };
 
         if (x !== "") data["x"] = x;
         if (y !== "") data["y"] = y;
 
+
         submit(data);
+
     }
 }
 
