@@ -119,6 +119,39 @@
             <%-- 이하 제출버튼 --%>
             <div id="booking-button">
                 <input type="button" value="예약하기!" onclick="submitValue()">
+            <div class="booking-check">
+                <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
+                <%-- 이상 calendar --%>
+                <%-- 이하 캠프사이트 리스트 --%>
+                    <div class="campsite-card">
+                <c:forEach items="${campsite}" var="campsite">
+                </c:forEach>
+                    </div>
+                <%-- 이하 추가인원 확인 --%>
+                <div class="box-none">
+                    <p>추가 인원이 있나요?</p>
+                    <button>네</button>
+                    <button>아니오</button>
+                </div>
+                <%-- 네 클릭 시 --%>
+                <div>
+                    <p>추가 인원을 입력해 주세요 : </p>
+                    <input type="text" numberOnly>
+                </div>
+                <%-- 이하 추가카라반 확인 --%>
+                <div>
+                    <p>추가 카라반이 있나요?</p>
+                    <button>네</button>
+                    <button>아니오</button>
+                </div>
+                <div>
+                    <p>추가 카라반 수를 입력해 주세요 : </p>
+                    <input type="text" numberOnly>
+                </div>
+                <%-- 이하 제출버튼 --%>
+                <div>
+                    <input type="button" value="예약하기!">
+                </div>
             </div>
         </form>
     </div>
