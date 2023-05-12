@@ -75,34 +75,3 @@ $('#noExtraCaraban').click(function () {
 })
 
 
-function submitValue() {
-    // Get the values from the form inputs
-    var campCode = "${camp.campCode}"; // Replace with the appropriate value
-    var extraPeople = document.getElementById("extraPeople").value;
-    var extraCaraban = document.getElementById("extraCaraban").value;
-
-    // Get the selected campsite radio button value
-    var selectedCampsite = document.querySelector('input[name="selectedCampsite"]:checked').value;
-
-    // Create an object to store the data
-    var data = {
-        campCode: campCode,
-        extraPeople: extraPeople,
-        extraCaraban: extraCaraban,
-        selectedCampsite: selectedCampsite
-        // Add more properties if needed
-    };
-
-    // Send the data via AJAX
-    $.ajax({
-        type: "POST",
-        url: "/your-controller-url",
-        data: data,
-        success: function(response) {
-            console.log("Data submitted successfully!");
-        },
-        error: function(xhr, status, error) {
-            console.log("Error submitting data: " + error);
-        }
-    });
-}

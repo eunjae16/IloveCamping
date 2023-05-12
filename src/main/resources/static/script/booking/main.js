@@ -320,7 +320,6 @@
 				var added_month = secondClicked.month;
 				var added_date = secondClicked.date;
 				console.log(selected);
-				parseDate(selected);
 
 				if (added_year > firstClicked.year) {
 					// first add all dates from all months of Second-Clicked-Year
@@ -390,6 +389,7 @@
 					selected[added_year][added_month].push(i);
 				}
 			}
+			parseDate(selected);
 			return selected;
 		}
 
@@ -398,17 +398,14 @@
 })(jQuery);
 
 function parseDate(datas) {
-
-	const startDate = '';
-	const endDate = '';
-	// 파싱 후, 첫번째 & 마지막 날짜 정보 YYYY-MM-DD 를 변수에 담아
-
 	const selected = [];
 
 	Object.entries(datas).forEach(([year, months]) => {
 		Object.entries(months).forEach(([month, days]) => {
 			days.forEach((day) => {
-				selected.push(`${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`);
+				const formattedMonth = month < 10 ? '0' + month : month;
+				const formattedDay = day < 10 ? '0' + day : day;
+				selected.push(`${year}-${formattedMonth}-${formattedDay}`);
 			});
 		});
 	});
@@ -417,4 +414,34 @@ function parseDate(datas) {
 
 	// ajax 처리 함수 호출
 }
+
+function submitValue() {
+	// Get the values from the form inputs
+	let campCode = "${camp.campCode}"; // Replace with the appropriate value
+	let extraPeople = document.getElementById("extraPeople").value;
+	let extraCaraban = document.getElementById("extraCaraban").value;
+
+	let selectedCampsite = document.querySelector('input[name="selectedCampsite"]:checked').value;
+
+	let data = {
+		campCode: campCode,
+		extraPeople: extraPeople,
+		extraCaraban: extraCaraban,
+		selectedCampsite: selectedCampsite
+
+	};
+
+	$.ajax({
+		type: "POST",
+		url: "/your-controller-url",
+		data: data,
+		success: function(response) {
+			console.log("Data submitted successfully!");
+		},
+		error: function(xhr, status, error) {
+			console.log("Error submitting data: " + error);
+		}
+	});
+}
+
 
