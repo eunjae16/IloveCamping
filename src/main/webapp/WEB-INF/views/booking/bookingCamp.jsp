@@ -19,7 +19,8 @@
     <script src="/script/booking/jquery.min.js"></script>
     <script src="/script/booking/popper.js"></script>
     <script src="/script/booking/bootstrap.min.js"></script>
-
+    <c:import url="../sementic/header.jsp"/>
+    <link rel="stylesheet" href="/style/booking/bookingCamp.css">
 </head>
 <body>
 <%--
@@ -28,15 +29,17 @@
 --%>
 <section>
     <div>
-        <div class="camp-img">
-            <img src="${camp.campImage}">
-        </div>
-        <div class="camp-info">
-            <p>${camp.campName}</p>
-            <p>H.P : ${camp.campPhone}</p>
-            <p>${camp.campAddress1}</p>
-            <p>${camp.campAddress2}</p>
-            <p>${camp.campCategoryName}</p>
+        <div class="camp-width-box">
+            <div class="camp-img">
+                <img src="${camp.campImage}">
+            </div>
+            <div class="camp-info">
+                <p>${camp.campName}</p>
+                <p>H.P : ${camp.campPhone}</p>
+                <p>${camp.campAddress1}</p>
+                <p>${camp.campAddress2}</p>
+                <p>${camp.campCategoryName}</p>
+            </div>
         </div>
         <form>
             <%-- 이하 calendar --%>
@@ -88,14 +91,14 @@
                 </div>
             </c:forEach>
             <%--  이하 추가인원 확인  --%>
-            <div>
+            <div class="box-none">
                 <p>추가 인원이 있나요?</p>
                 <button>네</button>
                 <button>아니오</button>
             </div>
             <%--    네 클릭 시 --%>
             <div>
-                <p>추가 인원을 입력해주세요 : </p>
+                <p>추가 인원을 입력해 주세요 : </p>
                 <input type="text" numberOnly>
             </div>
             <%--  이하 추가카라반 확인  --%>
@@ -105,7 +108,7 @@
                 <button>아니오</button>
             </div>
             <div>
-                <p>추가 카라반 수를 입력해주세요 : </p>
+                <p>추가 카라반 수를 입력해 주세요 : </p>
                 <input type="text" numberOnly>
             </div>
 <%--            이하 제출버튼 --%>
@@ -115,8 +118,7 @@
         </form>
     </div>
 </section>
-
-
+<c:import url="/footer"/>
 <script src="/script/booking/main.js"></script>
 <script src="/script/booking/bookingCamp.js"></script>
 </body>

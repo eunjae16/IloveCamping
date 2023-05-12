@@ -1,0 +1,22 @@
+section {
+    margin: 50px 0;
+}
+
+.camp-width-box {
+    width: 100%;
+}
+
+.camp-img {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.camp-img img {
+    width: 90%;
+}
+
+.camp-info {
+    width: 50%;
+    float: right;
+}
