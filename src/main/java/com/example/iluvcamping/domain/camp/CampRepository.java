@@ -7,8 +7,6 @@ import java.util.List;
 
 @Repository
 public interface CampRepository extends JpaRepository<Camp, String> {
-    List<Camp> findByCampAddress1StartingWith(String addressPrefix);
-
     List<Camp> findByCampNameContainingOrCampAddress1Containing(String name, String address);
 
     public List<Camp> getAllByCampOwner(String campOwnerCode);
@@ -18,8 +16,5 @@ public interface CampRepository extends JpaRepository<Camp, String> {
     public List<Camp> findAll();
 
     public Camp getCampByCampCode(String campCode);
-
-
-
 }
 
