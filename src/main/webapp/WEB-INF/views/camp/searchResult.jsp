@@ -24,7 +24,7 @@
                       <p>${camp.campAddress1}</p>
                       </div>
                       <form method="POST" action="/get/campinfo">
-                          <input type="hidden" name="campCode" id="campCode" value="${camp.campCode}"</td>
+                          <input type="hidden" name="campCode" id="campCode" value="${camp.campCode}">
                           <input type="submit" value="예약">
                       </form>
                   </c:forEach>

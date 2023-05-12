@@ -62,7 +62,7 @@
         </div>
     </div>
     <%-- 지도 --%>
-    <div class="right"><div class="map" id="${camp.x}/${camp.y}"></div></div>
+    <div class="right"><div class="map" id="${camp.y}/${camp.x}"></div></div>
 </section>
 <c:import url="/footer"/>
 <script src="../../script/camp/campDetail.js"></script>
