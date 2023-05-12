@@ -18,6 +18,7 @@ $(document).ready(function() {
                     var campsite = result[i];
                     html += "<div class='campsite'>" +
                         "<label><input type='radio' name='selectedCampsite' value='" + campsite.id + "'>" +
+                        "<br>" +
                         "<img src='" + campsite.campsiteImage + "'>" +
                         "<p>" + campsite.siteName + "</p>" +
                         "<p>추가 인원 금액: " + campsite.siteExtraPersonPrice + "원</p>" +
