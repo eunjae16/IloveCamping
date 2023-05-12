@@ -2,9 +2,18 @@ section {
     margin: 50px 0;
 }
 
+.title {
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    width: fit-content;
+}
+
 .camp-width-box {
     width: 100%;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .camp-width-box:before, .camp-width-box:after {
@@ -18,7 +27,6 @@ section {
 
 .camp-img {
     width: 50%;
-    float: left;
     text-align: center;
 }
 
@@ -26,9 +34,10 @@ section {
     width: 80%;
 }
 
-.camp-info {
-    width: 50%;
-    float: right;
+.camp-info > div {
+    width: fit-content;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 .row {
@@ -43,19 +52,70 @@ section {
     width: fit-content;
     padding: 10px;
     background-color: #ccc;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .campsite-card {
     display: flex;
+    justify-content: center
 }
 
 .campsite {
     width: 400px;
     border: 1px solid #ccc;
     display: flex;
+    text-align: center;
 }
 
 .campsite img {
     width: 80%;
+}
+
+input[type=radio] {
+    margin: 10px;
+}
+
+#checkExtraPeople, #inputExtraPeopleNum, #checkExtraCaraban, #inputExtraCaraban {
+    text-align: center;
+    margin: 20px auto;
+}
+
+#checkCampSite {
+    width: fit-content;
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-box div {
+    width: fit-content;
+    padding: 10px;
+    background-color: #ccc;
+}
+
+.flex-box div:first-child {
+    margin-right: 10px;
+}
+
+.box-none {
+    width: fit-content;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#booking-button {
+    text-align: center;
+}
+
+#booking-button input[type=button] {
+    padding: 10px;
+}
+
+.box-none {
+    display: none;
 }
