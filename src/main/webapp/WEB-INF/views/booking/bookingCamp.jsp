@@ -41,120 +41,83 @@
                 <p>${camp.campCategoryName}</p>
             </div>
         </div>
-        <form>
-            <%-- 이하 calendar --%>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="calendar-section">
-                            <div class="row no-gutters">
-                                <div class="col-md-6">
-                                    <div class="calendar calendar-first" id="calendar_first">
-                                        <div class="calendar_header">
-                                            <button class="switch-month switch-left">
-                                                <i class="fa fa-chevron-left"></i>
-                                            </button>
-                                            <h2></h2>
-                                            <button class="switch-month switch-right">
-                                                <i class="fa fa-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                        <div class="calendar_weekdays"></div>
-                                        <div class="calendar_content"></div>
+        <%-- 이하 calendar --%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calendar-section">
+                        <div class="row no-gutters">
+                            <div class="col-md-6">
+                                <div class="calendar calendar-first" id="calendar_first">
+                                    <div class="calendar_header">
+                                        <button class="switch-month switch-left">
+                                            <i class="fa fa-chevron-left"></i>
+                                        </button>
+                                        <h2></h2>
+                                        <button class="switch-month switch-right">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </button>
                                     </div>
+                                    <div class="calendar_weekdays"></div>
+                                    <div class="calendar_content"></div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="calendar calendar-second" id="calendar_second">
-                                        <div class="calendar_header">
-                                            <button class="switch-month switch-left">
-                                                <i class="fa fa-chevron-left"></i>
-                                            </button>
-                                            <h2></h2>
-                                            <button class="switch-month switch-right">
-                                                <i class="fa fa-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                        <div class="calendar_weekdays"></div>
-                                        <div class="calendar_content"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="calendar calendar-second" id="calendar_second">
+                                    <div class="calendar_header">
+                                        <button class="switch-month switch-left">
+                                            <i class="fa fa-chevron-left"></i>
+                                        </button>
+                                        <h2></h2>
+                                        <button class="switch-month switch-right">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </button>
                                     </div>
+                                    <div class="calendar_weekdays"></div>
+                                    <div class="calendar_content"></div>
                                 </div>
-                            </div> <!-- End Row -->
-                        </div> <!-- End Calendar -->
-                    </div>
+                            </div>
+                        </div> <!-- End Row -->
+                    </div> <!-- End Calendar -->
                 </div>
             </div>
-            <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
-            <%-- 이상 calendar --%>
-            <%-- 이하 캠프사이트 리스트   --%>
-            <c:forEach items="${campsite}" var="campsite">
-                <div class="campsite-card">
-                </div>
-            </c:forEach>
-                <div id="checkCampSite">확인</div>
-            <%--  이하 추가인원 확인  --%>
-            <div class="box-none" id="checkExtraPeople">
-                <p>추가 인원이 있나요?</p>
-                <div id="existExtraPeople">네</div>
-                <div>아니오</div>
-            </div>
-            <%--    네 클릭 시 --%>
-            <div id="inputExtraPeopleNum">
-                <p>추가 인원을 입력해 주세요 : </p>
-                <input type="text" id="extraPeople" name="extraPeople" numberOnly>
-                <div id="${camp.campCategoryName} class="checkPeople">확인</div>
-            </div>
-            <%--  이하 추가카라반 확인  --%>
-            <c:if test="${!camp.campCategoryCode eq 'CT100001'}">
-                <div id="checkExtraCaraban">
-                    <p>추가 카라반이 있나요?</p>
-                    <div id="existExtraCaraban">네</div>
-                    <div>아니오</div>
-                </div>
-                <div id="inputExtraCaraban">
-                    <p>추가 카라반 수를 입력해 주세요 : </p>
-                    <input type="text" id="extraCaraban" name="extraCaraban" numberOnly
-                    <div class="checkCaraban">확인</div>
-                </div>
-            </c:if>
-            <%-- 이하 제출버튼 --%>
-            <div id="booking-button">
-                <input type="button" value="예약하기!" onclick="submitValue()">
-            <div class="booking-check">
-                <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
-                <%-- 이상 calendar --%>
-                <%-- 이하 캠프사이트 리스트 --%>
-                    <div class="campsite-card">
-                <c:forEach items="${campsite}" var="campsite">
-                </c:forEach>
-                    </div>
-                <%-- 이하 추가인원 확인 --%>
-                <div class="box-none">
-                    <p>추가 인원이 있나요?</p>
-                    <button>네</button>
-                    <button>아니오</button>
-                </div>
-                <%-- 네 클릭 시 --%>
-                <div>
-                    <p>추가 인원을 입력해 주세요 : </p>
-                    <input type="text" numberOnly>
-                </div>
-                <%-- 이하 추가카라반 확인 --%>
-                <div>
-                    <p>추가 카라반이 있나요?</p>
-                    <button>네</button>
-                    <button>아니오</button>
-                </div>
-                <div>
-                    <p>추가 카라반 수를 입력해 주세요 : </p>
-                    <input type="text" numberOnly>
-                </div>
-                <%-- 이하 제출버튼 --%>
-                <div>
-                    <input type="button" value="예약하기!">
-                </div>
-            </div>
-        </form>
+        </div>
+        <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
+        <%-- 이상 calendar --%>
+        <%-- 이하 캠프사이트 리스트   --%>
+
+        <div class="campsite-card">
+        </div>
+
+        <div id="checkCampSite">확인</div>
+        <%--  이하 추가인원 확인  --%>
+        <div class="box-none" id="checkExtraPeople">
+            <p>추가 인원이 있나요?</p>
+            <div id="existExtraPeople">네</div>
+            <div>아니오</div>
+        </div>
+        <%--    네 클릭 시 --%>
+        <div id="inputExtraPeopleNum">
+            <p>추가 인원을 입력해 주세요 : </p>
+            <input type="text" id="extraPeople" name="extraPeople" numberOnly>
+            <div id="${camp.campCategoryName} class="checkPeople">확인</div>
     </div>
+    <%--  이하 추가카라반 확인  --%>
+    <c:if test="${!camp.campCategoryCode eq 'CT100001'}">
+        <div id="checkExtraCaraban">
+            <p>추가 카라반이 있나요?</p>
+            <div id="existExtraCaraban">네</div>
+            <div>아니오</div>
+        </div>
+        <div id="inputExtraCaraban">
+            <p>추가 카라반 수를 입력해 주세요 : </p>
+            <input type="text" id="extraCaraban" name="extraCaraban" numberOnly
+            <div class="checkCaraban">확인</div>
+        </div>
+    </c:if>
+    <%-- 이하 제출버튼 --%>
+    <div id="booking-button">
+        <input type="button" value="예약하기!" onclick="submitValue()">
 </section>
 <c:import url="/footer"/>
 <script src="/script/booking/main.js"></script>

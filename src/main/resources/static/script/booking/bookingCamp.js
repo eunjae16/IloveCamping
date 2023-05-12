@@ -11,6 +11,9 @@ $(document).ready(function() {
                 campCode: campCode
             },
             success: function(result) {
+                // 기존에 있는 요소들 제거
+                console.log(result.length);
+
                 var html = "";
                 for (var i = 0; i < result.length; i++) {
                     var campsite = result[i];
@@ -24,6 +27,9 @@ $(document).ready(function() {
                         "<p>최대 인원: " + campsite.siteMaxPerson + "</p>" +
                         "</label></div>";
                 }
+
+                $(".campsite-card").empty();
+
                 $(".campsite-card").html(html);
             },
             error: function(xhr, status, error) {
