@@ -18,8 +18,10 @@ import javax.persistence.Table;
 @Entity
 public class CategoryCount {
     @Id
-    @Column(name = "category_code")
-    private String categoryCode;
+    @Column(name = "camp_category_code")
+    private String campCategoryCode;
     @Column(name = "count")
     private String count;
+    @Column(name = "total_count")
+    private String totalCount;
 }

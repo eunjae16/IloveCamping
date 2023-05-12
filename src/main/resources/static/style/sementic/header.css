@@ -41,5 +41,12 @@ header {
 .menu li a, .side-menu li a {
     padding: 10px;
     line-height: 40px;
-    font-size: 1.2em
+}
+
+.menu {
+    font-size: 0.9em;
+}
+
+.side-menu {
+    font-size: 0.8em;
 }
