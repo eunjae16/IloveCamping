@@ -11,7 +11,6 @@ $(document).ready(function() {
                 campCode: campCode
             },
             success: function(result) {
-                // 기존에 있는 요소들 제거
                 console.log(result.length);
 
                 var html = "";
@@ -66,4 +65,34 @@ $('.checkCaraban').click(function () {
     document.getElementById("booking-button").style.display = "block";
 })
 
-function submitValue(){}
+function submitValue() {
+    // Get the values from the form inputs
+    var campCode = "${camp.campCode}"; // Replace with the appropriate value
+    var extraPeople = document.getElementById("extraPeople").value;
+    var extraCaraban = document.getElementById("extraCaraban").value;
+
+    // Get the selected campsite radio button value
+    var selectedCampsite = document.querySelector('input[name="selectedCampsite"]:checked').value;
+
+    // Create an object to store the data
+    var data = {
+        campCode: campCode,
+        extraPeople: extraPeople,
+        extraCaraban: extraCaraban,
+        selectedCampsite: selectedCampsite
+        // Add more properties if needed
+    };
+
+    // Send the data via AJAX
+    $.ajax({
+        type: "POST",
+        url: "/your-controller-url",
+        data: data,
+        success: function(response) {
+            console.log("Data submitted successfully!");
+        },
+        error: function(xhr, status, error) {
+            console.log("Error submitting data: " + error);
+        }
+    });
+}

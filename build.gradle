@@ -45,8 +45,8 @@ dependencies {
     // json
     implementation 'org.json:json:20230227'
 
-//    // ImageBB
-//    implementation 'com.github.soroushjavdan:ImageBB-Java:1.0.0'
+    implementation 'com.uploadcare:uploadcare:3.5.1'
+
 }
 
 tasks.named('test') {
