@@ -25,7 +25,7 @@
                         <p>${theme.themeName}</p>
                     </div>
                     <form method="POST" action="/get/campinfo">
-                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"</td>
+                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"></td>
                         <input type="submit" value="예약">
                     </form>
                 </div>
@@ -38,7 +38,7 @@
                         <p>${theme.themeName}</p>
                     </div>
                     <form method="POST" action="/get/campinfo">
-                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"</td>
+                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"></td>
                         <input type="submit" value="예약">
                     </form>
                 </div>
