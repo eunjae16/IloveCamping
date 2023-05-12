@@ -90,30 +90,35 @@
                 <div class="campsite-card">
                 </div>
             </c:forEach>
+                <div id="checkCampSite">확인</div>
             <%--  이하 추가인원 확인  --%>
-            <div class="box-none">
+            <div class="box-none" id="checkExtraPeople">
                 <p>추가 인원이 있나요?</p>
-                <button>네</button>
-                <button>아니오</button>
+                <div id="existExtraPeople">네</div>
+                <div>아니오</div>
             </div>
             <%--    네 클릭 시 --%>
-            <div>
+            <div id="inputExtraPeopleNum">
                 <p>추가 인원을 입력해 주세요 : </p>
-                <input type="text" numberOnly>
+                <input type="text" id="extraPeople" name="extraPeople" numberOnly>
+                <div id="${camp.campCategoryName} class="checkPeople">확인</div>
             </div>
             <%--  이하 추가카라반 확인  --%>
-            <div>
-                <p>추가 카라반이 있나요?</p>
-                <button>네</button>
-                <button>아니오</button>
-            </div>
-            <div>
-                <p>추가 카라반 수를 입력해 주세요 : </p>
-                <input type="text" numberOnly>
-            </div>
-<%--            이하 제출버튼 --%>
-            <div>
-                <input type="button" value="예약하기!">
+            <c:if test="${!camp.campCategoryCode eq 'CT100001'}">
+                <div id="checkExtraCaraban">
+                    <p>추가 카라반이 있나요?</p>
+                    <div id="existExtraCaraban">네</div>
+                    <div>아니오</div>
+                </div>
+                <div id="inputExtraCaraban">
+                    <p>추가 카라반 수를 입력해 주세요 : </p>
+                    <input type="text" id="extraCaraban" name="extraCaraban" numberOnly
+                    <div class="checkCaraban">확인</div>
+                </div>
+            </c:if>
+            <%-- 이하 제출버튼 --%>
+            <div id="booking-button">
+                <input type="button" value="예약하기!" onclick="submitValue()">
             </div>
         </form>
     </div>

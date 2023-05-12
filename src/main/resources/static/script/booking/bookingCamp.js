@@ -32,3 +32,32 @@ $(document).ready(function() {
         });
     });
 });
+
+$('#checkCampSite').click(function () {
+    document.getElementById("checkExtraPeople").style.display = "block";
+})
+
+$('#existExtraPeople').click(function (){
+    document.getElementById("inputExtraCaraban").style.display = "block";
+})
+
+$('.checkPeople').click(function () {
+    let category = this.id;
+
+    if(category === '캠핑'){
+        document.getElementById("booking-button").style.display = "block";
+    }
+    else {
+        document.getElementById("checkExtraCaraban").style.display = "block";
+    }
+})
+
+$('#existExtraCaraban').click(function () {
+    document.getElementById("inputExtraCaraban").style.display = "block";
+})
+
+$('.checkCaraban').click(function () {
+    document.getElementById("booking-button").style.display = "block";
+})
+
+function submitValue(){}
