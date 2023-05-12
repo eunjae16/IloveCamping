@@ -85,12 +85,6 @@
             <%-- 이하 캠프사이트 리스트   --%>
             <c:forEach items="${campsite}" var="campsite">
                 <div class="campsite-card">
-                    <img src="${campsite.campsiteImage}">
-                    <p>${campsite.siteName}</p>
-                    <p>추가 인원 금액 : ${campsite.siteExtraPersonPrice}원</p>
-                    <p>추가 카라반 금액 : ${campsite.siteExtraCarabanPrice}원</p>
-                    <p>최소 인원 : ${campsite.siteMinPerson}</p>
-                    <p>최소 인원 : ${campsite.siteMaxPerson}</p>
                 </div>
             </c:forEach>
             <%--  이하 추가인원 확인  --%>
