@@ -38,49 +38,6 @@ public class CampController {
     private final CategoryCountRepository categoryCountRepository;
 
 
-//    @GetMapping("/viewCampsite")
-//    public String viewCampsite(@RequestParam(name = "selectSite", required = false) String selectSite,
-//                               @RequestParam(name = "searchBox", required = false) String searchBox,
-//                               Model model) {
-//        List<Camp> campList = new ArrayList<>();
-//
-//        if (selectSite != null && !selectSite.equals("none")) {
-//            if (selectSite.equals("viewAll")) {
-//                campList = campRepository.findAll();
-//            } else {
-//                String selectSitePrefix = selectSite.substring(0, 2);
-//                campList = campRepository.findByCampAddress1StartingWith(selectSitePrefix);
-//            }
-//        } else if (searchBox != null && !searchBox.isEmpty()) {
-//            campList = campService.searchCampByKeyword(searchBox);
-//        } else {
-//            campList = campRepository.findAll();
-//        }
-//
-//        List<Camp> filteredCampList = new ArrayList<>();
-//        if (searchBox != null && !searchBox.isEmpty()) {
-//            for (Camp camp : campList) {
-//                if (camp.getCampCode().contains(searchBox) ||
-//                        camp.getCampOwner().contains(searchBox) ||
-//                        camp.getCampCategoryCode().contains(searchBox) ||
-//                        camp.getCampName().contains(searchBox) ||
-//                        camp.getCampImage().contains(searchBox) ||
-//                        camp.getCampAddressCode().contains(searchBox) ||
-//                        camp.getCampAddress1().contains(searchBox) ||
-//                        camp.getCampAddress2().contains(searchBox) ||
-//                        camp.getCampPhone().contains(searchBox)) {
-//                    filteredCampList.add(camp);
-//                }
-//            }
-//        } else {
-//            filteredCampList = campList;
-//        }
-//
-//        model.addAttribute("campList", filteredCampList); // 변경: 검색 결과를 사용하도록 수정
-//        return "viewCampsite";
-//    }
-
-
     @GetMapping("/campsite/search")
     @ResponseBody
     public List<CampView> searchCampsite(@RequestParam("site") String site, @RequestParam("query") String query) {
@@ -145,6 +102,7 @@ public class CampController {
 
         return modelAndView;
     }
+
 
 
 

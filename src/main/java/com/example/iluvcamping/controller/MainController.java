@@ -176,6 +176,9 @@ public class MainController {
         return "mypage/ownerCampRegist";
     }
 
+    @GetMapping("/ownercampmodify")
+    public String ownerCampModify() { return "mypage/ownerCampModify"; }
+
     @GetMapping("/registsuccess")
     public String registsuccess() {
         return "mypage/registsuccess";

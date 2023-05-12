@@ -13,6 +13,7 @@ import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,7 @@ public class CampViewController {
     private final CampSurroundViewRepository campSurroundViewRepository;
     private final CampFacilityViewRepository campFacilityViewRepository;
     private final CampThemeNameRepository campThemeNameRepository;
-    private final CategoryCountRepository categoryCountRepository;
+    private final CampController campController;
 
     @PostMapping("/get/campinfo")
     @ResponseBody
@@ -71,6 +72,19 @@ public class CampViewController {
     }
 
 
+    // 해당 owner가 가진 camp 목록 출력
+    @GetMapping("/owner/readcampall")
+    public ModelAndView getCampListByOwnerCode(@RequestParam String campOwner) {
+        List<Camp> campList = null;
+        System.out.println("campow");
+
+        campList = campRepository.getAllByCampOwner(campOwner);
+
+        ModelAndView modelAndView = new ModelAndView("mypage/ownerCampModify");
+        modelAndView.addObject("campList", campList);
+
+        return modelAndView;
+    }
 
 
 }

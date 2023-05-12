@@ -10,7 +10,7 @@
 <html>
 <head>
     <c:import url="../sementic/header.jsp"/>
-    <link rel="stylesheet" href="style/mypageOwner.css">
+    <link rel="stylesheet" href="../../style/mypageOwner.css">
 </head>
 <body>
 
@@ -28,6 +28,7 @@
         <div>
             <button onclick="location.href='ownerSales'">매출 통계</button>
             <button onclick="location.href='ownercampregist'">캠핑장 등록</button>
+            <button onclick="campModify()">캠핑장 관리</button>
             <button onclick="location.href='modifyowner'">회원정보 수정</button>
             <input type="hidden" id="ownerCode" value="${sessionScope.log.ownerCode}">
             <input type="button" onclick="leaveOwner()" value="탈퇴하기">
@@ -36,5 +37,6 @@
 </section>
 <c:import url="/footer"/>
 <script src="/script/mypage/mypage.js"></script>
+<script src="/script/member/campModify.js"></script>
 </body>
 </html>
