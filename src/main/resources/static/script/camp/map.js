@@ -26,6 +26,7 @@ let tmpArr = [];
         for (let i = 0; i < response.length; i ++) {
             console.log("map lengh: " + response.length);
             tmpArr.push(response[i]);
+            console.log(response[i]);
             const imageSize = new kakao.maps.Size(24, 35);
 
 
@@ -41,7 +42,6 @@ let tmpArr = [];
                 title : response[i].campAddress1, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                 image : markerImage, // 마커 이미지
             });
-
             const campName = response[i].campName;
             const x = response[i].x;
             const y = response[i].y;
