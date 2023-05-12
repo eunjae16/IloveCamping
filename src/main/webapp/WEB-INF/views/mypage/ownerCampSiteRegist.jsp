@@ -14,13 +14,14 @@
 <section>
     <div class="camp-regist-box">
         <h2>캠프 사이트 등록</h2>
+        <p>${campCode}</p>
         <form method="post">
             <table class="campsite-regist">
                 <tr>
                     <td colspan="2"><input type="hidden" name="siteCode" id="siteCode" value="" readonly></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="hidden" name="campCode" id="campCode" value="" readonly></td>
+                    <td colspan="2"><input type="hidden" name="campCode" id="campCode" value="${camp.campCode}" readonly></td>
                 </tr>
                 <tr>
                     <th>캠프 사이트 이름</th>

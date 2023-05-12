@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.rmi.MarshalledObject;
 import java.util.List;
 
 @Controller
@@ -99,14 +100,21 @@ public class CampController {
     }
 
     @PostMapping("/campsite/regist")
-    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto, HttpSession session) {
-        CampSite campSite = new CampSite(campSiteDto);
-        String code = keyGenerator.randomKey("K");
-        campSite.setSiteCode(code);
-        campService.addCampSite(campSite);
-
-        return "mypage/registsuccess";
+    public String campSiteRegist (@RequestParam String campCode) {
+        return "mypage/ownerCampSiteRegist";
     }
+
+//    @PostMapping("/campsite/regist")
+//    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto) {
+//        System.out.println("ok");
+//        CampSite campSite = new CampSite(campSiteDto);
+//        System.out.println("ok");
+//        String code = keyGenerator.randomKey("K");
+//        campSite.setSiteCode(code);
+//        campService.addCampSite(campSite);
+//
+//        return "mypage/registsuccess";
+//    }
 
 
 }
