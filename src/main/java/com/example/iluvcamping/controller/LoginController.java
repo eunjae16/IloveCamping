@@ -58,7 +58,7 @@ public class LoginController {
         List<Admin> admins = adminRepository.getAllByAdminIdAndAdminPassword(id, password);
 
         if (admins.isEmpty()) {
-            return "redirect:/login"; // 로그인 실패 시 다시 로그인 페이지로 리디렉션
+            return "redirect:/adminlogin"; // 로그인 실패 시 다시 로그인 페이지로 리디렉션
         } else {
             Admin loggedInAdmin = admins.get(0);
 

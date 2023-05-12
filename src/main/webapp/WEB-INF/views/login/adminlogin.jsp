@@ -15,7 +15,7 @@
 <body>
 <section>
     <div class="login-box">
-        <h2>일반유저 로그인</h2>
+        <h2>관리자 로그인</h2>
         <form method="POST" action="adminlogin">
             <table>
                 <tr>
