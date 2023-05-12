@@ -2,7 +2,7 @@ const settings = {
     "url": "camp/readall",
     "method": "GET",
     "timeout": 0
-    // asink 두개의 ajax 호출이 일어날때 꼭 순서를 주고 싶다면 설정할 수 잇음
+    // async 두개의 ajax 호출이 일어날때 꼭 순서를 주고 싶다면 설정할 수 잇음
     // 해당 ajax 의 활동이 끝나기전까지 다음 호출이 일어나지 않음 (순서제어)
 };
 
