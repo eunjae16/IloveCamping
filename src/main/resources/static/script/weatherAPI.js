@@ -15,7 +15,7 @@ function getWeatherFromWeatherBit(city) {
             var sunset = data.data[0].sunset;
 
             // 결과를 웹 페이지에 표시
-            $("#sunhead").html("<span>오늘: " + weatherDescription + "</span>");
+            $("#sunhead").html("<span>오늘날씨: " + weatherDescription + "</span>");
             $("#sunrise").html("<span>일출시간: " + sunrise + "</span>");
             $("#sunset").html("<span>일몰시간: " + sunset + "</span>");
         },
