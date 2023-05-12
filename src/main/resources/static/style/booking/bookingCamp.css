@@ -4,6 +4,16 @@ section {
 
 .camp-width-box {
     width: 100%;
+    margin-bottom: 50px;
+}
+
+.camp-width-box:before, .camp-width-box:after {
+    display: block;
+    content: '';
+}
+
+.camp-width-box:after {
+    clear: both;
 }
 
 .camp-img {
@@ -13,10 +23,39 @@ section {
 }
 
 .camp-img img {
-    width: 90%;
+    width: 80%;
 }
 
 .camp-info {
     width: 50%;
     float: right;
+}
+
+.row {
+    justify-content: space-evenly;
+}
+
+.booking-check {
+    text-align: center;
+}
+
+.check-btn {
+    width: fit-content;
+    padding: 10px;
+    background-color: #ccc;
+    margin: 0 auto;
+}
+
+.campsite-card {
+    display: flex;
+}
+
+.campsite {
+    width: 400px;
+    border: 1px solid #ccc;
+    display: flex;
+}
+
+.campsite img {
+    width: 80%;
 }
