@@ -181,7 +181,6 @@ public class MainController {
         return "mypage/registsuccess";
     }
 
-
     @GetMapping("/selecttheme")
     public String selectTheme(){ return "camp/selectTheme"; }
 
@@ -190,4 +189,10 @@ public class MainController {
 
     @GetMapping("/themeglamping&caravan")
     public String themeGlapmingAndCaravan(){ return "camp/themeGlampingAndCaravan"; }
+
+    @GetMapping("/ownercampsiteregist")
+    public String ownerCampSiteRegist() {
+        return "mypage/ownerCampSiteRegist";
+    }
+
 }

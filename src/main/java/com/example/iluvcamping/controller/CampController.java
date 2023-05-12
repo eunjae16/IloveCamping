@@ -3,6 +3,8 @@ package com.example.iluvcamping.controller;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.camp.CampRequestDTO;
+import com.example.iluvcamping.domain.campSite.CampSite;
+import com.example.iluvcamping.domain.campSite.CampSiteRequestDTO;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
@@ -36,7 +38,6 @@ public class CampController {
     private final CampRepository campRepository;
     private final CampThemeRepository campThemeRepository;
     private final CategoryCountRepository categoryCountRepository;
-
 
 //    @GetMapping("/viewCampsite")
 //    public String viewCampsite(@RequestParam(name = "selectSite", required = false) String selectSite,
@@ -79,7 +80,6 @@ public class CampController {
 //        model.addAttribute("campList", filteredCampList); // 변경: 검색 결과를 사용하도록 수정
 //        return "viewCampsite";
 //    }
-
 
     @GetMapping("/campsite/search")
     @ResponseBody
@@ -135,7 +135,7 @@ public class CampController {
 
     // 전체페이지 > 검색
     @GetMapping("/camp/search")
-    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content){
+    public ModelAndView searchResult (@RequestParam String region, @RequestParam String content) {
         List<CampThemeName> result = null;
 
         result = campThemeNameRepository.findAllByCampAddress1ContainingAndCampNameContaining(region, content);
@@ -146,6 +146,14 @@ public class CampController {
         return modelAndView;
     }
 
+    @PostMapping("/campsite/regist")
+    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto, HttpSession session) {
+        CampSite campSite = new CampSite(campSiteDto);
+        String code = keyGenerator.randomKey("K");
+        campSite.setSiteCode(code);
+        campService.addCampSite(campSite);
 
+        return "mypage/registsuccess";
+    }
 
 }
