@@ -22,6 +22,7 @@
         <div class="info">
             <h3 id="campName">${camp.campName}</h3>
             <p id="address">${camp.campAddress1}</p>
+            <p id="englishAddress">${camp.campAddress2}</p>
             <p>${camp.campPhone}</p>
             <form method="POST" action="/post/goreservation">
                 <input type="hidden" value="${camp.campCode}" name="campCode" id="campCode">
