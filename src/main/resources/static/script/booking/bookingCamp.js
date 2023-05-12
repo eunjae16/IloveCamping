@@ -3,6 +3,8 @@ $(document).on("keyup", "input[numberOnly]", function() {$(this).val( $(this).va
 
 $(document).ready(function() {
     $(".check-btn").click(function() {
+        console.log('click');
+
         var campCode = $(this).attr("id");
         $.ajax({
             url: "/get/campsite/list",
@@ -11,30 +13,29 @@ $(document).ready(function() {
                 campCode: campCode
             },
             success: function(result) {
+                $(".campsite-card").empty();
                 console.log(result.length);
 
-                var html = "";
-                for (var i = 0; i < result.length; i++) {
-                    var campsite = result[i];
-                    html += "<div class='campsite'>" +
-                        "<label><input type='radio' name='selectedCampsite' value='" + campsite.id + "'>" +
-                        "<br>" +
-                        "<img src='" + campsite.campsiteImage + "'>" +
-                        "<p>" + campsite.siteName + "</p>" +
-                        "<p>추가 인원 금액: " + campsite.siteExtraPersonPrice + "원</p>" +
-                        "<p>추가 카라반 금액: " + campsite.siteExtraCarabanPrice + "원</p>" +
-                        "<p>최소 인원: " + campsite.siteMinPerson + "</p>" +
-                        "<p>최대 인원: " + campsite.siteMaxPerson + "</p>" +
-                        "</label></div>";
-                }
+                result.forEach(campsite => {
+                    $(".campsite-card").append(
+                        `<div class='campsite'>
+                            <label><input type='radio' name='selectedCampsite' value='${campsite.id}'>
+                            <br>
+                            <img src='${campsite.campsiteImage}'>
+                            <p>${campsite.siteName}</p>
+                            <p>추가 인원 금액: ${campsite.siteExtraPersonPrice}원</p>
+                            <p>추가 카라반 금액: ${campsite.siteExtraCarabanPrice}원</p>
+                            <p>최소 인원: ${campsite.siteMinPerson} </p>
+                            <p>최대 인원: ${campsite.siteMaxPerson} </p>
+                            </label></div>`)
 
-                $(".campsite-card").empty();
-
-                $(".campsite-card").html(html);
+                })
             },
             error: function(xhr, status, error) {
                 console.log(error);
             }
+
+
         });
     });
 });

@@ -87,10 +87,6 @@
         <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
         <%-- 이상 calendar --%>
         <%-- 이하 캠프사이트 리스트   --%>
-
-        <div class="campsite-card">
-        </div>
-
         <div id="checkCampSite" class="box-none">확인</div>
         <div class="campsite-card"></div>
         <div id="checkCampSite">확인</div>
