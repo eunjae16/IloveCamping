@@ -87,38 +87,36 @@
         <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
         <%-- 이상 calendar --%>
         <%-- 이하 캠프사이트 리스트   --%>
-        <div id="checkCampSite" class="box-none">확인</div>
-        <div class="campsite-card"></div>
-        <div id="checkCampSite">확인</div>
+        <div class="campsite-card">
+            <div id="checkCampSite" style="display: none;">확인</div>
+        </div>
         <%--  이하 추가인원 확인  --%>
         <div class="box-none" id="checkExtraPeople">
             <p>추가 인원이 있나요?</p>
             <div class="flex-box">
                 <div id="existExtraPeople">네</div>
-                <div>아니오</div>
+                <div id="noExtraPeople">아니오</div>
             </div>
         </div>
         <%-- 네 클릭 시 --%>
         <div class="box-none" id="inputExtraPeopleNum">
             <p>추가 인원을 입력해 주세요 :</p>
             <input type="text" id="extraPeople" name="extraPeople" numberOnly>
-            <div id="${camp.campCategoryName} class="checkPeople">확인</div>
+            <div id="${camp.campCategoryName}" class="checkPeople">확인</div>
     </div>
     <%--  이하 추가카라반 확인  --%>
-    <c:if test="${!camp.campCategoryCode eq 'CT100001'}">
-        <div class="box-none" id="checkExtraCaraban">
-            <p>추가 카라반이 있나요?</p>
-            <div class="flex-box">
-                <div id="existExtraCaraban">네</div>
-                <div>아니오</div>
-            </div>
+    <div class="box-none" id="checkExtraCaraban">
+        <p>추가 카라반이 있나요?</p>
+        <div class="flex-box">
+            <div id="existExtraCaraban">네</div>
+            <div id="noExtraCaraban">아니오</div>
         </div>
-        <div class="box-none" id="inputExtraCaraban">
-            <p>추가 카라반 수를 입력해 주세요 :</p>
-            <input type="text" id="extraCaraban" name="extraCaraban" numberOnly>
-            <div class="checkCaraban">확인</div>
-        </div>
-    </c:if>
+    </div>
+    <div class="box-none" id="inputExtraCaraban">
+        <p>추가 카라반 수를 입력해 주세요 :</p>
+        <input type="text" id="extraCaraban" name="extraCaraban" numberOnly>
+        <div class="checkCaraban">확인</div>
+    </div>
     <%-- 이하 제출버튼 --%>
     <div class="box-none" id="booking-button">
         <input type="button" value="예약하기!" onclick="submitValue()">

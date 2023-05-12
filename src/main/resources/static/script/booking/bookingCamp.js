@@ -3,7 +3,6 @@ $(document).on("keyup", "input[numberOnly]", function() {$(this).val( $(this).va
 
 $(document).ready(function() {
     $(".check-btn").click(function() {
-        console.log('click');
 
         var campCode = $(this).attr("id");
         $.ajax({
@@ -38,27 +37,31 @@ $(document).ready(function() {
 
         });
     });
+
+    document.getElementById("checkCampSite").style.display = "block";
 });
 
+// 확인 클릭
 $('#checkCampSite').click(function () {
     document.getElementById("checkExtraPeople").style.display = "block";
 })
 
+// 추가인원 네 클릭
 $('#existExtraPeople').click(function (){
-    document.getElementById("inputExtraCaraban").style.display = "block";
+    document.getElementById("inputExtraPeopleNum").style.display = "block";
 })
 
+// 추가인원 아니오 클릭
+$('#noExtraPeople').click(function (){
+    document.getElementById("checkExtraCaraban").style.display = "block";
+})
+
+// 추가인원 입력 후 확인
 $('.checkPeople').click(function () {
-    let category = this.id;
-
-    if(category === '캠핑'){
-        document.getElementById("booking-button").style.display = "block";
-    }
-    else {
         document.getElementById("checkExtraCaraban").style.display = "block";
-    }
 })
 
+// 추가 카라반
 $('#existExtraCaraban').click(function () {
     document.getElementById("inputExtraCaraban").style.display = "block";
 })
@@ -66,6 +69,11 @@ $('#existExtraCaraban').click(function () {
 $('.checkCaraban').click(function () {
     document.getElementById("booking-button").style.display = "block";
 })
+
+$('#noExtraCaraban').click(function () {
+    document.getElementById("booking-button").style.display = "block";
+})
+
 
 function submitValue() {
     // Get the values from the form inputs

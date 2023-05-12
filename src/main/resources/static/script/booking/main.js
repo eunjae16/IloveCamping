@@ -320,6 +320,7 @@
 				var added_month = secondClicked.month;
 				var added_date = secondClicked.date;
 				console.log(selected);
+				parseDate(selected);
 
 				if (added_year > firstClicked.year) {
 					// first add all dates from all months of Second-Clicked-Year
@@ -391,6 +392,29 @@
 			}
 			return selected;
 		}
+
 	});
 
 })(jQuery);
+
+function parseDate(datas) {
+
+	const startDate = '';
+	const endDate = '';
+	// 파싱 후, 첫번째 & 마지막 날짜 정보 YYYY-MM-DD 를 변수에 담아
+
+	const selected = [];
+
+	Object.entries(datas).forEach(([year, months]) => {
+		Object.entries(months).forEach(([month, days]) => {
+			days.forEach((day) => {
+				selected.push(`${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`);
+			});
+		});
+	});
+
+	console.log(selected);
+
+	// ajax 처리 함수 호출
+}
+
