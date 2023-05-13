@@ -26,14 +26,16 @@
                       <img src="${camp.campImage}">
                       <p>${camp.campName}</p>
                       <p>${camp.campAddress1}</p>
+                      <input type="button" value="캠핑사이트추가">
+                      <input type="button" value="이름변경" onclick="editName('${campList.campName}', '${cmapList.campCode}')">
+                      <input id="edit-siteName-${campList.campName}" stype="display: none">
+                      <input type="button" value="폐업신청">
                   </c:forEach>
-                  <input type="button" value="캠핑사이트추가">
-                  <input type="button" value="이름변경">
-                  <input type="button" value="폐업신청">
               </div>
           </c:if>
       </div>
   </section>
+  <script src="/script/camp/editCampName.js"></script>
   <c:import url="/footer"/>
 </body>
 </html>

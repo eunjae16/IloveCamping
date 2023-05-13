@@ -45,5 +45,9 @@ public class Camp {
         this.campCode = campCode;
     }
 
+    public void updateCampName(CampRequestDTO campDto) {
+        this.campName = campDto.getCampName();
+    }
+
 
 }

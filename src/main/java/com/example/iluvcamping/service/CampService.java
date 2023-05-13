@@ -3,12 +3,14 @@ package com.example.iluvcamping.service;
 
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
+import com.example.iluvcamping.domain.camp.CampRequestDTO;
 import com.example.iluvcamping.domain.campSite.CampSite;
 import com.example.iluvcamping.domain.campSite.CampSiteRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.campView.CampViewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,5 +61,18 @@ public class CampService {
     }
 
     public void addCampSite(CampSite campSite) { campSiteRepository.save(campSite); }
+
+    // campName 변경
+    @Transactional
+    public void updateCampName(CampRequestDTO campDto) {
+        String campCode = campDto.getCampCode();
+
+        Camp camp = campRepository.findById(campCode).orElseThrow(
+                ()-> new IllegalArgumentException("존재하지 않는 캠프코드입니다.")
+        );
+
+        camp.updateCampName(campDto);
+
+    }
 
 }
