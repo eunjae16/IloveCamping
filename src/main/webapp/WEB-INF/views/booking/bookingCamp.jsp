@@ -27,6 +27,11 @@
     1. 상세페이지 >> 예약하기 버튼을 통해 >> camp_code 받아오고
     2. 예약
 --%>
+
+<c:if test="${empty usertype}">
+    <c:redirect url="/login"></c:redirect>
+</c:if>
+
 <section>
     <div>
         <div class="camp-width-box">

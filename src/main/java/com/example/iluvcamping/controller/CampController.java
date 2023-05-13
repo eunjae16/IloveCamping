@@ -15,7 +15,6 @@ import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -99,8 +98,6 @@ public class CampController {
         return modelAndView;
     }
 
-    @PostMapping("/campsite/regist")
-    public String campSiteRegist (@RequestParam("campCode") String campCode) {
 
     @PostMapping("/campsite/registcampcode")
     public String campSiteRegistCampCode (@RequestParam("campCode") String campCode, Model model) {
