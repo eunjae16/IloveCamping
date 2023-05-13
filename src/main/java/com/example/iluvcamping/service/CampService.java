@@ -64,7 +64,7 @@ public class CampService {
 
     // campName 변경
     @Transactional
-    public void updateCampName(CampRequestDTO campDto) {
+    public void updateCamp(CampRequestDTO campDto) {
         String campCode = campDto.getCampCode();
 
         Camp camp = campRepository.findById(campCode).orElseThrow(

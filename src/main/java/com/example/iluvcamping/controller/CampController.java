@@ -111,10 +111,17 @@ public class CampController {
         return "mypage/registsuccess";
     }
 
+    // 켐프네임 변경
     @PutMapping("/campName/update")
     public void updateByCampCode(@RequestParam String campCode, @RequestBody CampRequestDTO campDto) {
-        campDto.setCampName(campCode);
-        campService.updateCampName(campDto);
+        System.out.println("update~ing : campCode: " + campCode);
+
+        campDto.setCampCode(campCode);
+
+        System.out.println("update~ing : campCode: " + campCode);
+        System.out.println("update~ing : campName1: " + campDto.getCampName());
+        campService.updateCamp(campDto);
+        System.out.println("update~ing : campName2: " + campDto.getCampName());
 
     }
 
