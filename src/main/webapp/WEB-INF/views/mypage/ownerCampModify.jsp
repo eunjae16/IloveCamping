@@ -37,5 +37,6 @@
     </div>
 </section>
 <c:import url="/footer"/>
+<script src="../../script/ownerCampSiteModify.js"></script>
 </body>
 </html>

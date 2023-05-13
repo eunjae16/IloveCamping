@@ -100,7 +100,7 @@ public class CampController {
     }
 
     @PostMapping("/campsite/regist")
-    public String campSiteRegist (@RequestParam String campCode) {
+    public String campSiteRegist (@RequestParam("campCode") String campCode) {
         return "mypage/ownerCampSiteRegist";
     }
 
