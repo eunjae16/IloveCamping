@@ -10,7 +10,6 @@ import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
-import com.example.iluvcamping.domain.categoryCount.CategoryCount;
 import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
@@ -78,12 +77,18 @@ public class CampController {
 
     @GetMapping("/get/categorycount")
     @ResponseBody
-    public List<CategoryCount> getCategoryCount(Model model){
-        List<CategoryCount> list = categoryCountRepository.findAll();
-        model.addAttribute("list", list);
+    public String getCategoryCount() {
+        String campCount = categoryCountRepository.getCategoryCountByCategoryCode("CT100001");
+        int glampingCount = Integer.parseInt(categoryCountRepository.getCategoryCountByCategoryCode("CT100002"));
+        int carabanCount = Integer.parseInt(categoryCountRepository.getCategoryCountByCategoryCode("CT100003"));
 
-        return list;
+        String bothCount = String.valueOf(glampingCount + carabanCount);
+        int total = Integer.parseInt(campCount) + glampingCount + carabanCount;
+        String totalCount = String.valueOf(total);
+
+        return campCount + "," + bothCount + "," + totalCount;
     }
+
 
     // 전체페이지 > 검색
     @GetMapping("/camp/search")

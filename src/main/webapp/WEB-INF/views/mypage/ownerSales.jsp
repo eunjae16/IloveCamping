@@ -17,7 +17,7 @@
         <div id="column_chart_div1" style="width: 900px; height: 500px;"></div>
     </div>
 </section>
-<script src="script/ownerSales.js"></script>
+<script src="script/mypage/ownerSales.js"></script>
 <c:import url="../sementic/footer.jsp"/>
 </body>
 </html>

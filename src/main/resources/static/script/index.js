@@ -1,28 +1,31 @@
 const setting = {
-    "url" : "/get/categorycount",
-    "method" : "GET",
-    "timeout" : 0
+    "url": "/get/categorycount",
+    "method": "GET",
+    "timeout": 0
 }
 
 $.ajax(setting).done(function (response) {
     console.log(response);
 
-    response.forEach((list) => {
-        if (list.totalCount > 0) {
-            $('#percent').append(
-                `<div id="whole-count" class="progress" data-percent="${list.totalCount}"><p>${list.totalCount}</p><span>전체</span></div>`
-            );
-        } else if (list.campCategoryCode === `CT100001`) {
-            $('#percent').append(
-                `<div id="camping-count" class="progress" data-percent="${list.count}"><p>${list.count}</p><span>캠핑</span></div>`
-            );
-        } else if (list.campCategoryCode === `CT100002`) {
-            $('#percent').append(
-                `<div id="caraban-count" class="progress" data-percent="${list.count}"><p>${list.count}</p><span>카라반</span></div>`
-            );
-        }
-    });
-})
+    const values = response.split(","); // 쉼표로 분리하여 배열로 저장
+
+    const campCount = values[0];
+    const bothCount = values[1];
+    const totalCount = values[2];
+
+    $('#percent').append(
+        `<div id="whole-count" class="progress" data-percent="${totalCount}"><p>${totalCount}</p><span>전체</span></div>`
+    );
+
+    $('#percent').append(
+        `<div id="camping-count" class="progress" data-percent="${campCount}"><p>${campCount}</p><span>캠핑</span></div>`
+    );
+
+    $('#percent').append(
+        `<div id="caraban-count" class="progress" data-percent="${bothCount}"><p>${bothCount}</p><span>글램핑/카라반</span></div>`
+    );
+});
+
 
 $(document).ready(function() {
     // selectSite 변경 시

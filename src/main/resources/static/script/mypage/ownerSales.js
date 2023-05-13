@@ -36,6 +36,13 @@ function columnChart1(response1) {
         arr.push([monthly, total]);
     });
 
+    if (arr.length === 1) { // arr 배열이 비어있을 경우
+        var objDiv = document.getElementById('column_chart_div1');
+        objDiv.innerHTML = '<div><p>ㅠㅠ 매출이 없어요</p><p>캠핑장을 등록해주세요!</p></div>'; // HTML 요소를 추가합니다.
+        return; // 함수 종료
+    }
+
+
     var dataTable = google.visualization.arrayToDataTable(arr);
 
     var options = {
@@ -69,6 +76,12 @@ function columnChart2(response) {
         let total = data.totalSales;
         arr.push([daily, total]);
     });
+
+    if (arr.length === 1) { // arr 배열이 비어있을 경우
+        var objDiv = document.getElementById('column_chart_div1');
+        objDiv.innerHTML = '<div><p>ㅠㅠ 매출이 없어요</p><p>캠핑장을 등록해주세요!</p></div>'; // HTML 요소를 추가합니다.
+        return; // 함수 종료
+    }
 
     var dataTable = google.visualization.arrayToDataTable(arr);
 
