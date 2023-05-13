@@ -26,7 +26,7 @@
                         <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
                         <button type="submit">캠프 사이트 추가</button>
                     </form>
-                    <form method="POST" action="">
+                    <form method="POST" action="/campsite/modify">
                         <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
                         <button type="submit">이름 변경</button>
                     </form>
