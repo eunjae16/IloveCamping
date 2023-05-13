@@ -72,7 +72,24 @@ public class CampService {
         );
 
         camp.updateCampName(campDto);
+    }
+
+    @Transactional
+    public void modifyCamp(CampRequestDTO campDto) {
+        String campCode = campDto.getCampCode();
+        String campCategoryCode = campDto.getCampCategoryCode();
+        Camp camp = campRepository.findById(campCode).orElseThrow(
+                () -> new IllegalArgumentException("존재하지 않는 코드입니다.")
+        );
+
+        camp.setCampCategoryCode(campCategoryCode);
+        camp.modifyCamp(campDto);
+        System.out.println("service update");
+        System.out.println("service category: " + campDto.getCampCategoryCode());
+        System.out.println("service x" + camp.getX());
+        System.out.println("campName: "+ camp.getCampName());
 
     }
+
 
 }

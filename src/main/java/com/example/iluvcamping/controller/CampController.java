@@ -32,15 +32,6 @@ public class CampController {
     private final CampThemeRepository campThemeRepository;
     private final CategoryCountRepository categoryCountRepository;
 
-    @GetMapping("/campsite/search")
-    @ResponseBody
-    public List<CampView> searchCampsite(@RequestParam("site") String site, @RequestParam("query") String query) {
-        if (site.equals("viewAll")) {
-            return campService.getAllCamp();
-        } else {
-            return campService.getCampsByAddressPrefix(site.substring(0, 2));
-        }
-    }
 
     // 지도에 표시할 목적의 모든 camp read
     @GetMapping("/camp/readall")
@@ -110,20 +101,6 @@ public class CampController {
         return "mypage/ownerCampSiteRegist";
     }
 
-    // 켐프네임 변경
-    @PutMapping("/campName/update")
-    public void updateByCampCode(@RequestParam String campCode, @RequestBody CampRequestDTO campDto) {
-        System.out.println("update~ing : campCode: " + campCode);
-
-        campDto.setCampCode(campCode);
-
-        System.out.println("update~ing : campCode: " + campCode);
-        System.out.println("update~ing : campName1: " + campDto.getCampName());
-        campService.updateCamp(campDto);
-        System.out.println("update~ing : campName2: " + campDto.getCampName());
-
-    }
-
     @PostMapping("/campsite/regist")
     public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto, HttpSession session) {
         CampSite campSite = new CampSite(campSiteDto);
@@ -133,5 +110,25 @@ public class CampController {
 
         return "mypage/registsuccess";
     }
+
+    // read [ one ]
+    @GetMapping("/camp/readone")
+    public Camp getCampByCampCode(@RequestParam String campCode){
+        System.out.println("campcode: " +campCode);
+        Camp camp = campRepository.getCampByCampCode(campCode);
+        return camp;
+    }
+
+
+    // update
+    @PutMapping("/camp/update")
+    public void updateByCampCode(@RequestBody CampRequestDTO campDto){
+
+        System.out.println("controller update");
+        campService.modifyCamp(campDto);
+        System.out.println("check" + campService);
+
+    }
+
 
 }
