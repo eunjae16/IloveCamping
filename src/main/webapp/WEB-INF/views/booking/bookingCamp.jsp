@@ -32,6 +32,10 @@
     <c:redirect url="/login"></c:redirect>
 </c:if>
 
+<c:if test="${usertype eq 'owner'}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
+
 <section>
     <div>
         <div class="camp-width-box">
