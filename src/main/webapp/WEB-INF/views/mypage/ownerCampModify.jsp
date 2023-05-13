@@ -22,7 +22,7 @@
                     <img src="${camp.campImage}">
                     <p>${camp.campName}</p>
                     <p>${camp.campAddress1}</p>
-                    <form method="POST" action="/campsite/regist">
+                    <form method="POST" action="/campsite/registcampcode">
                         <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
                         <button type="submit">캠프 사이트 추가</button>
                     </form>

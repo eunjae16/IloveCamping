@@ -14,14 +14,10 @@
 <section>
     <div class="camp-regist-box">
         <h2>캠프 사이트 등록</h2>
-        <p>${campCode}</p>
-        <form method="post">
+        <form method="POST">
             <table class="campsite-regist">
                 <tr>
-                    <td colspan="2"><input type="hidden" name="siteCode" id="siteCode" value="" readonly></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="hidden" name="campCode" id="campCode" value="${camp.campCode}" readonly></td>
+                    <td colspan="2"><input type="hidden" name="campCode" id="campCode" value="${campCode}" readonly></td>
                 </tr>
                 <tr>
                     <th>캠프 사이트 이름</th>
@@ -52,9 +48,8 @@
                     <td><input type="text" id="sitePrice" name="sitePrice" placeholder="캠핑장 가격"></td>
                 </tr>
                 <tr>
-                    <th>캠핑장 가격</th>
                     <td colspan="2">
-                        <input type="button" id="regist-button" value="캠핑장 등록" onclick="checkValue(form)">
+                        <input type="button" id="regist-button" value="캠프 사이트 등록" onclick="checkValue(form)">
                     </td>
                 </tr>
             </table>

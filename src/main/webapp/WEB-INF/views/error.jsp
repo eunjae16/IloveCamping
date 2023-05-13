@@ -4,7 +4,7 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="style/error.css">
+    <link rel="stylesheet" href="../../style/error.css">
 </head>
 <body>
 <div class="loader">
@@ -16,6 +16,6 @@
 <h3>페이지 오류 발생</h3>
 <p id="message"></p>
 </div>
-<script src="/script/error.js"></script>
+<script src="../../script/error.js"></script>
 </body>
 </html>
