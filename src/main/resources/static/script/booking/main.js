@@ -397,6 +397,10 @@
 
 })(jQuery);
 
+let startDate;
+let endDate;
+let length;
+
 function parseDate(datas) {
 	const selected = [];
 
@@ -412,36 +416,53 @@ function parseDate(datas) {
 
 	console.log(selected);
 
-	// ajax 처리 함수 호출
+	startDate = selected[0];
+	endDate = selected[selected.length - 1];
+	length = selected.length;
+
+	console.log(startDate);
+	console.log(endDate);
+	console.log(length);
+
 }
 
 function submitValue() {
-	// Get the values from the form inputs
-	let campCode = "${camp.campCode}"; // Replace with the appropriate value
+	let userCode = document.getElementById("userCode").value;
+	let campCode = "${camp.campCode}";
 	let extraPeople = document.getElementById("extraPeople").value;
 	let extraCaraban = document.getElementById("extraCaraban").value;
 
 	let selectedCampsite = document.querySelector('input[name="selectedCampsite"]:checked').value;
 
 	let data = {
+		userCode: userCode,
 		campCode: campCode,
-		extraPeople: extraPeople,
+		extraPerson: extraPeople,
 		extraCaraban: extraCaraban,
-		selectedCampsite: selectedCampsite
-
+		campSiteCode: selectedCampsite,
+		startDate: startDate,
+		endDate: endDate,
+		day: length
 	};
+
+
+
+	console.log(startDate);
+	console.log(endDate);
 
 	$.ajax({
 		type: "POST",
-		url: "/your-controller-url",
-		data: data,
+		url: "/get/reservation/info",
+		data: JSON.stringify(data),
+		contentType: 'application/json',
 		success: function(response) {
-			console.log("Data submitted successfully!");
+			console.log(response);
 		},
 		error: function(xhr, status, error) {
 			console.log("Error submitting data: " + error);
 		}
 	});
+
 }
 
 

@@ -3,11 +3,8 @@ package com.example.iluvcamping.controller;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
-import com.example.iluvcamping.domain.categoryCount.CategoryCount;
-import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.domain.community.Community;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -196,6 +193,11 @@ public class MainController {
     @GetMapping("/ownercampsiteregist")
     public String ownerCampSiteRegist() {
         return "mypage/ownerCampSiteRegist";
+    }
+
+    @GetMapping("/checkbookinginfo")
+    public String checkBookingInfo(){
+        return "booking/checkBookingInfo";
     }
 
 }

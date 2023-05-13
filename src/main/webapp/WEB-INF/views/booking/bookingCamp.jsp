@@ -88,10 +88,10 @@
         <%-- 이상 calendar --%>
         <%-- 이하 캠프사이트 리스트   --%>
         <div class="campsite-card">
-            <div id="checkCampSite" style="display: none;">확인</div>
         </div>
+            <div id="checkCampSite">확인</div>
         <%--  이하 추가인원 확인  --%>
-        <div class="box-none" id="checkExtraPeople">
+        <div id="checkExtraPeople" class="box-none">
             <p>추가 인원이 있나요?</p>
             <div class="flex-box">
                 <div id="existExtraPeople">네</div>
@@ -119,6 +119,7 @@
     </div>
     <%-- 이하 제출버튼 --%>
     <div class="box-none" id="booking-button">
+        <div id="userCode" value="${sessionScope.log.clientCode}"></div>
         <input type="button" value="예약하기!" onclick="submitValue()">
     </div>
 </section>

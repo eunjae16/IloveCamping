@@ -10,4 +10,6 @@ public interface CampSiteRepository extends JpaRepository<CampSite, String> {
 
     public List<CampSite> getAllByCampCode(String campCode);
 
+    public CampSite getCampSiteBySiteCode(String campsiteCode);
+
 }

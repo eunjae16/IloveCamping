@@ -22,8 +22,11 @@ public class Booking {
     private String startDate;
     private String endDate;
     private String campCode;
+    private String campsiteCode;
+
     private int totalPrice;
     private int extraPerson;
+    private int extraCaraban;
 
     public Booking(BookingRequestDTO bookingDto){
         this.bookingCode = "";
@@ -33,6 +36,8 @@ public class Booking {
         this.campCode = bookingDto.getCampCode();
         this.totalPrice = bookingDto.getTotalPrice();
         this.extraPerson = bookingDto.getExtraPerson();
+        this.extraCaraban = bookingDto.getExtraCaraban();
+        this.campsiteCode = bookingDto.getCampsiteCode();
     }
 
     public void setBookingCode(String bookingCode){

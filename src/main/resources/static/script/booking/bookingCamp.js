@@ -18,7 +18,7 @@ $(document).ready(function() {
                 result.forEach(campsite => {
                     $(".campsite-card").append(
                         `<div class='campsite'>
-                            <label><input type='radio' name='selectedCampsite' value='${campsite.id}'>
+                            <label><input type='radio' name='selectedCampsite' value='${campsite.siteCode}'>
                             <br>
                             <img src='${campsite.campsiteImage}'>
                             <p>${campsite.siteName}</p>

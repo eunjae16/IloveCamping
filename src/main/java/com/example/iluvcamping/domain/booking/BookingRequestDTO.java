@@ -17,7 +17,8 @@ public class BookingRequestDTO {
     private String startDate;
     private String endDate;
     private String campCode;
+    private String campsiteCode;
     private int totalPrice;
     private int extraPerson;
-
+    private int extraCaraban;
 }
