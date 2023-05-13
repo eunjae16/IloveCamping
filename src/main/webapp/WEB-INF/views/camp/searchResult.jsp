@@ -27,8 +27,8 @@
           <div id="map"></div>
       </div>
   </section>
-  <script src="../../script/camp/campList.js"></script>
-  <script src="../../script/camp/map.js"></script>
+  <script src="../script/camp/campList.js"></script>
+  <script src="../script/camp/map.js"></script>
   <c:import url="/footer"/>
 </body>
 </html>
