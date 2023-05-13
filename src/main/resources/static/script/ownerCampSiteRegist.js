@@ -1,7 +1,6 @@
 function checkValue(htmlForm) {
     let url = "ownercampsiteregist?";
 
-    const siteCode = $('#siteCode').val();
     const campCode = $('#campCode').val();
     const siteName = $('#siteName').val();
     const siteExtraPersonPrice = $('#siteExtraPersonPrice').val();
@@ -13,7 +12,6 @@ function checkValue(htmlForm) {
 
     let check = true;
 
-    if (siteCode !== "") url += "&siteCode=" + siteCode;
     if (campCode !== "") url += "&campCode=" + campCode;
     if (siteName !== "") url += "&siteName=" + siteName;
     if (siteExtraPersonPrice !== "") url += "&siteExtraPersonPrice=" + siteExtraPersonPrice;
@@ -41,7 +39,6 @@ function checkValue(htmlForm) {
         location.href = url;
     } else {
         const data = {
-            "siteCode": siteCode,
             "campCode": campCode,
             "siteName": siteName,
             "siteMinPerson": siteMinPerson,
@@ -50,7 +47,6 @@ function checkValue(htmlForm) {
             "siteExtraPersonPrice": siteExtraPersonPrice,
             "siteExtraCarabanPrice": siteExtraCarabanPrice,
             "campsiteImage": campsiteImage,
-            "booked" : "0"
         };
         submit(data);
     }
@@ -64,6 +60,7 @@ function submit(data) {
         headers: {
             "Content-Type": "application/json",
         },
+        dataType: "json",
         data: JSON.stringify(data),
     })
         .done((response) => {

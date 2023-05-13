@@ -15,7 +15,7 @@
 <section>
     <div class="camp-regist-box">
         <h2>캠핑장 등록</h2>
-        <form method="post" action="">
+        <form method="POST">
             <table class="camp-regist">
                 <tr>
                     <td colspan="2"><input type="hidden" name="campOwner" id="campOwner" value="${sessionScope.log.ownerCode}" readonly></td>
