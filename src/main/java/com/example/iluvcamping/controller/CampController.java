@@ -12,6 +12,7 @@ import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.categoryCount.CategoryCount;
 import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
+import com.example.iluvcamping.domain.reply.ReplyRequestDTO;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
@@ -85,6 +86,8 @@ public class CampController {
         return list;
     }
 
+
+
     // 전체페이지 > 검색
     @GetMapping("/camp/search")
     public ModelAndView searchResult (@RequestParam String region, @RequestParam String content) {
@@ -107,6 +110,21 @@ public class CampController {
 
         return "mypage/registsuccess";
     }
+
+    // 켐프네임 변경
+    @PutMapping("/campName/update")
+    public void updateByCampCode(@RequestParam String campCode, @RequestBody CampRequestDTO campDto) {
+        System.out.println("update~ing : campCode: " + campCode);
+
+        campDto.setCampCode(campCode);
+
+        System.out.println("update~ing : campCode: " + campCode);
+        System.out.println("update~ing : campName1: " + campDto.getCampName());
+        campService.updateCamp(campDto);
+        System.out.println("update~ing : campName2: " + campDto.getCampName());
+
+    }
+
 
 
 }

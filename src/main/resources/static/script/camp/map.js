@@ -58,7 +58,7 @@ let tmpArr = [];
                 content : iwContent
             });
 
-            // 마커를 생성합니
+            // 마커를 생성합니다
 
             infowindow.open(map, marker);
             }

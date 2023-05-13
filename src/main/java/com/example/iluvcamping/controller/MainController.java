@@ -73,11 +73,6 @@ public class MainController {
         return "sementic/footer";
     }
 
-    @GetMapping("/nearsite")
-    public String nearSite() {
-        return "camp/nearSite";
-    }
-
     @GetMapping("/weather")
     public String weather() {
         return "camp/weather";

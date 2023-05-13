@@ -76,7 +76,6 @@ public class CampViewController {
     @GetMapping("/owner/readcampall")
     public ModelAndView getCampListByOwnerCode(@RequestParam String campOwner) {
         List<Camp> campList = null;
-        System.out.println("campow");
 
         campList = campRepository.getAllByCampOwner(campOwner);
 
