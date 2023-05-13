@@ -3,7 +3,7 @@
 <html>
 <head>
     <c:import url="../sementic/header.jsp"/>
-    <link rel="stylesheet" href="style/ownerCampRegist.css">
+    <link rel="stylesheet" href="../../style/ownerCampRegist.css">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
@@ -14,13 +14,14 @@
 <section>
     <div class="camp-regist-box">
         <h2>캠프 사이트 등록</h2>
+        <p>${campCode}</p>
         <form method="post">
             <table class="campsite-regist">
                 <tr>
                     <td colspan="2"><input type="hidden" name="siteCode" id="siteCode" value="" readonly></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="hidden" name="campCode" id="campCode" value="" readonly></td>
+                    <td colspan="2"><input type="hidden" name="campCode" id="campCode" value="${camp.campCode}" readonly></td>
                 </tr>
                 <tr>
                     <th>캠프 사이트 이름</th>
@@ -43,7 +44,7 @@
                     <td><input type="text" id="siteMaxPerson" name="siteMaxPerson" placeholder="최대 인원"></td>
                 </tr>
                 <tr>
-                    <td>사진 등록</td>
+                    <th>사진 등록</th>
                     <td><input type="file" name="campsiteImage" id="campsiteImage" placeholder="사진 등록"></td>
                 </tr>
                 <tr>
@@ -61,6 +62,6 @@
     </div>
 </section>
 <c:import url="../sementic/footer.jsp"/>
-<script src="script/ownerCampSiteRegist.js"></script>
+<script src="../../script/ownerCampSiteRegist.js"></script>
 </body>
 </html>

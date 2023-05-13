@@ -3,8 +3,6 @@ package com.example.iluvcamping.controller;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.camp.CampRequestDTO;
-import com.example.iluvcamping.domain.campSite.CampSite;
-import com.example.iluvcamping.domain.campSite.CampSiteRequestDTO;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
@@ -12,7 +10,6 @@ import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.categoryCount.CategoryCount;
 import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
-import com.example.iluvcamping.domain.reply.ReplyRequestDTO;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
@@ -86,8 +83,6 @@ public class CampController {
         return list;
     }
 
-
-
     // 전체페이지 > 검색
     @GetMapping("/camp/search")
     public ModelAndView searchResult (@RequestParam String region, @RequestParam String content) {
@@ -102,13 +97,8 @@ public class CampController {
     }
 
     @PostMapping("/campsite/regist")
-    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto, HttpSession session) {
-        CampSite campSite = new CampSite(campSiteDto);
-        String code = keyGenerator.randomKey("K");
-        campSite.setSiteCode(code);
-        campService.addCampSite(campSite);
-
-        return "mypage/registsuccess";
+    public String campSiteRegist (@RequestParam("campCode") String campCode) {
+        return "mypage/ownerCampSiteRegist";
     }
 
     // 켐프네임 변경
