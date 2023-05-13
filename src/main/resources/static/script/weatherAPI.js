@@ -20,7 +20,7 @@ function getWeatherFromWeatherBit(city) {
             $("#sunset").html("<span>일몰시간: " + sunset + "</span>");
         },
         error: function(error) {
-            console.log("일출일몰 정보를 가져오는 데 실패했습니다.");
+            console.log("일기예보 정보를 가져오는 데 실패했습니다.");
             console.log(error);
         }
     });

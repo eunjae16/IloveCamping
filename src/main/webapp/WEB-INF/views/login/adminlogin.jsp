@@ -11,11 +11,12 @@
 <head>
     <c:import url="/header"/>
     <title>관리자 로그인</title>
+    <link rel="stylesheet" href="style/adminlogin.css">
 </head>
 <body>
 <section>
     <div class="login-box">
-        <h2>일반유저 로그인</h2>
+        <h2>관리자 로그인</h2>
         <form method="POST" action="adminlogin">
             <table>
                 <tr>
