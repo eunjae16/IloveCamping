@@ -389,7 +389,9 @@
 					selected[added_year][added_month].push(i);
 				}
 			}
+
 			parseDate(selected);
+
 			return selected;
 		}
 
@@ -423,12 +425,11 @@ function parseDate(datas) {
 	console.log(startDate);
 	console.log(endDate);
 	console.log(length);
-
 }
 
 function submitValue() {
 	let userCode = document.getElementById("userCode").value;
-	let campCode = "${camp.campCode}";
+	let campCode = $('.campCodeChecker').attr('id');
 	let extraPeople = document.getElementById("extraPeople").value;
 	let extraCaraban = document.getElementById("extraCaraban").value;
 
@@ -445,11 +446,6 @@ function submitValue() {
 		day: length
 	};
 
-
-
-	console.log(startDate);
-	console.log(endDate);
-
 	$.ajax({
 		type: "POST",
 		url: "/get/reservation/info",
@@ -457,12 +453,12 @@ function submitValue() {
 		contentType: 'application/json',
 		success: function(response) {
 			console.log(response);
+			location.href="/checkbookinginfo";
 		},
 		error: function(xhr, status, error) {
 			console.log("Error submitting data: " + error);
 		}
 	});
-
 }
 
 

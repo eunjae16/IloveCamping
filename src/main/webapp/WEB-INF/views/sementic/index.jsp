@@ -3,7 +3,7 @@
 <html>
 <head>
     <c:import url="/header"/>
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="../style/index.css">
     <script src="https://kit.fontawesome.com/412ff5bbec.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>

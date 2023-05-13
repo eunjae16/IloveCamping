@@ -15,10 +15,12 @@ import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.service.BookingService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -65,7 +67,7 @@ public class BookingController {
 
     // create booking
     @PostMapping("/get/reservation/info")
-    public String getBookingInfo(@RequestBody BookingInfoRequestDTO bookingRequest, Model model){
+    public String getBookingInfo(@RequestBody BookingInfoRequestDTO bookingRequest, HttpSession session){
 
         String bookingCode = "";
         String userCode = bookingRequest.getUserCode();
@@ -78,7 +80,11 @@ public class BookingController {
         String extraCaraban = bookingRequest.getExtraCaraban();
 
         CampSite campSite = campSiteRepository.getCampSiteBySiteCode(campsiteCode);
+
         Camp camp = campRepository.getCampByCampCode(campCode);
+
+        if(camp == null)
+            System.out.println("camp is null");
 
         // day price
         String day = bookingRequest.getDay();
@@ -90,16 +96,40 @@ public class BookingController {
 
         int totalPrice = pricePerDay * (Integer.parseInt(day) - 1) + extraPersonPrice + extraCarabanPrice;
 
-        Booking booking = new Booking(bookingCode,userCode,startDate,endDate,campCode,campsiteCode,totalPrice,Integer.parseInt(extraPerson),Integer.parseInt(extraCaraban));
+        Booking booking = new Booking(bookingCode,userCode,startDate,endDate,campCode,
+                campsiteCode,totalPrice,Integer.parseInt(extraPerson),Integer.parseInt(extraCaraban));
 
-        model.addAttribute("booking", booking);
-        model.addAttribute("camp", camp);
+        session.setAttribute("booking", booking);
+        session.setAttribute("camp", camp);
 
         return "booking/checkBookingInfo";
     }
 
+    @PostMapping("/get/bookingInfo")
+    public ResponseEntity<BookingInfoRequestDTO> getBookingInfoTest(@RequestBody BookingInfoRequestDTO bookingRequest){
+
+        Camp camp = campRepository.getCampByCampCode(bookingRequest.getCampCode());
+
+        if(camp == null)
+            return ResponseEntity.notFound().build();
+
+        BookingInfoRequestDTO bookingResponse = new BookingInfoRequestDTO();
+
+        bookingResponse.setUserCode(bookingRequest.getUserCode());
+        bookingResponse.setCampCode(camp.getCampCode());
+        bookingResponse.setStartDate(bookingRequest.getStartDate());
+        bookingResponse.setEndDate(bookingRequest.getEndDate());
+        bookingResponse.setDay(bookingRequest.getDay());
+        bookingResponse.setExtraPerson(bookingRequest.getExtraPerson());
+        bookingResponse.setExtraCaraban(bookingRequest.getExtraCaraban());
+        bookingResponse.setCampSiteCode(bookingRequest.getCampSiteCode());
+
+        return ResponseEntity.ok(bookingResponse);
+    }
+
+
     @PostMapping("/regist/reservation" )
-    public String createReservation(@RequestParam BookingRequestDTO bookingDto){
+    public String createReservation(@ModelAttribute BookingRequestDTO bookingDto){
         Booking booking = new Booking(bookingDto);
         String code = keyGenerator.randomKey("K");
         booking.setBookingCode(code);
@@ -109,5 +139,12 @@ public class BookingController {
         return "booking/bookingSuccess";
     }
 
+    @GetMapping("/booking/cancle")
+    public String deleteBookingInfo(HttpSession session){
+        session.removeAttribute("booking");
+        session.removeAttribute("camp");
+
+        return "/sementic/index";
+    }
 
 }

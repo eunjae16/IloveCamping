@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div id="${camp.campCode}" class="check-btn" style="cursor: pointer">예약 확인하기!</div>
+        <div id="${camp.campCode}" class="check-btn campCodeChecker" style="cursor: pointer">예약 확인하기!</div>
         <%-- 이상 calendar --%>
         <%-- 이하 캠프사이트 리스트   --%>
         <div class="campsite-card">
@@ -101,7 +101,7 @@
         <%-- 네 클릭 시 --%>
         <div class="box-none" id="inputExtraPeopleNum">
             <p>추가 인원을 입력해 주세요 :</p>
-            <input type="text" id="extraPeople" name="extraPeople" numberOnly>
+            <input type="text" id="extraPeople" name="extraPeople" value="0" numberOnly>
             <div id="${camp.campCategoryName}" class="checkPeople">확인</div>
     </div>
     <%--  이하 추가카라반 확인  --%>
@@ -114,12 +114,12 @@
     </div>
     <div class="box-none" id="inputExtraCaraban">
         <p>추가 카라반 수를 입력해 주세요 :</p>
-        <input type="text" id="extraCaraban" name="extraCaraban" numberOnly>
+        <input type="text" id="extraCaraban" name="extraCaraban" value="0" numberOnly>
         <div class="checkCaraban">확인</div>
     </div>
     <%-- 이하 제출버튼 --%>
     <div class="box-none" id="booking-button">
-        <div id="userCode" value="${sessionScope.log.clientCode}"></div>
+        <input type="hidden" id="userCode" value="${sessionScope.log.clientCode}">
         <input type="button" value="예약하기!" onclick="submitValue()">
     </div>
 </section>

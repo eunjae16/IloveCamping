@@ -54,6 +54,7 @@ $('#existExtraPeople').click(function (){
 // 추가인원 아니오 클릭
 $('#noExtraPeople').click(function (){
     document.getElementById("checkExtraCaraban").style.display = "block";
+    document.getElementById("inputExtraPeopleNum").style.display = "none";
 })
 
 // 추가인원 입력 후 확인
@@ -61,17 +62,19 @@ $('.checkPeople').click(function () {
         document.getElementById("checkExtraCaraban").style.display = "block";
 })
 
-// 추가 카라반
+// 추가 카라반 네 클릭
 $('#existExtraCaraban').click(function () {
     document.getElementById("inputExtraCaraban").style.display = "block";
 })
 
+// 추가 카라반 아니오 클릭
 $('.checkCaraban').click(function () {
     document.getElementById("booking-button").style.display = "block";
 })
 
 $('#noExtraCaraban').click(function () {
     document.getElementById("booking-button").style.display = "block";
+    document.getElementById("inputExtraCaraban").style.display = "none";
 })
 
 
