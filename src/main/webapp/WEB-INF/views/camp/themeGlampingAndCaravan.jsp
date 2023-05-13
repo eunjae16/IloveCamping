@@ -10,7 +10,7 @@
 <section>
     <div class="left">
         <div id="camp-card">
-            <c:forEach var="theme" items="${glampingThemes}">
+            <c:forEach var="theme" items="${exceptCamping}">
                 <div id="${theme.campCode}">
                     <img class="camp-img" src="${theme.campImage}">
                     <div class="list-text-box">
@@ -18,20 +18,7 @@
                         <p>${theme.themeName}</p>
                     </div>
                     <form method="POST" action="/get/campinfo">
-                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"</td>
-                        <input type="submit" value="예약">
-                    </form>
-                </div>
-            </c:forEach>
-            <c:forEach var="theme" items="${caravanThemes}">
-                <div id="${theme.campCode}">
-                    <img class="camp-img" src="${theme.campImage}">
-                    <div class="list-text-box">
-                        <p>${theme.campName}</p>
-                        <p>${theme.themeName}</p>
-                    </div>
-                    <form method="POST" action="/get/campinfo">
-                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"</td>
+                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"></td>
                         <input type="submit" value="예약">
                     </form>
                 </div>

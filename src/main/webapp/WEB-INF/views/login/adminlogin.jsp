@@ -11,6 +11,7 @@
 <head>
     <c:import url="/header"/>
     <title>관리자 로그인</title>
+    <link rel="stylesheet" href="style/adminlogin.css">
 </head>
 <body>
 <section>

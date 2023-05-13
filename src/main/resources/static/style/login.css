@@ -36,3 +36,7 @@ h3 {
 .login-choice button:nth-child(1) {
     margin-right: 30px;
 }
+
+.login-choice button:nth-child(2) {
+    margin-right: 30px;
+}

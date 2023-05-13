@@ -12,6 +12,7 @@
     <c:import url="../sementic/header.jsp"/>
     <link rel="stylesheet" href="../../style/campDetailPage.css">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5670ccd025e23c03c5a4887d46695c55&libraries=services,drawing"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <c:if test="${empty camp}">
@@ -22,6 +23,7 @@
         <div class="info">
             <h3 id="campName">${camp.campName}</h3>
             <p id="address">${camp.campAddress1}</p>
+            <p id="englishAddress">${camp.campAddress2}</p>
             <p>${camp.campPhone}</p>
             <form method="POST" action="/post/goreservation">
                 <input type="hidden" value="${camp.campCode}" name="campCode" id="campCode">
@@ -41,7 +43,7 @@
                         </div>
                     </div>
                     <div id="right-box">
-                        <div id="sunhead"><span>오늘:</span></div>
+                        <div id="sunhead"><span>오늘날씨:</span></div>
                         <div id="sunrise">
                             <span>일출시간</span>
                         </div>
@@ -66,5 +68,6 @@
 </section>
 <c:import url="/footer"/>
 <script src="../../script/camp/campDetail.js"></script>
+<script src="../../script/weatherAPI.js"></script>
 </body>
 </html>
