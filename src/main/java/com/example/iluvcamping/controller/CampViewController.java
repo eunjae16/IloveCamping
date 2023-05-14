@@ -6,18 +6,18 @@ import com.example.iluvcamping.domain.campFacilityView.CampFacilityView;
 import com.example.iluvcamping.domain.campFacilityView.CampFacilityViewRepository;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundView;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepository;
+import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
 import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.MDC;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -85,5 +85,19 @@ public class CampViewController {
         return modelAndView;
     }
 
+    // 수정을 위한 데이터 리로드
+    @PostMapping("/camp/modify")
+    public ModelAndView modifyCamp(@RequestParam String campCode){
+        System.out.println("modelandview campcode: " + campCode);
+        Camp camp = campController.getCampByCampCode(campCode);
+        List<CampTheme> theme = campController.getAllCampTheme();
+
+
+        ModelAndView modelAndView = new ModelAndView("mypage/campsiteModify");
+        modelAndView.addObject("camp" , camp);
+        modelAndView.addObject("theme" , theme);
+
+        return modelAndView;
+    }
 
 }

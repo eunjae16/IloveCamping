@@ -1,5 +1,6 @@
 package com.example.iluvcamping.domain.camp;
 
+import com.example.iluvcamping.domain.community.CommunityRequestDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,6 +49,22 @@ public class Camp {
     public void updateCampName(CampRequestDTO campDto) {
         this.campName = campDto.getCampName();
     }
+
+    public void setCampCategoryCode(String campCategoryCode){
+        this.campCategoryCode = campCategoryCode;
+    }
+
+
+
+    public void modifyCamp(CampRequestDTO campDto) {
+        this.campName = campDto.getCampName();
+        this.campAddressCode = campDto.getCampAddressCode();
+        this.campAddress1 = campDto.getCampAddress1();
+        this.campPhone = campDto.getCampPhone();
+        this.x = campDto.getX();
+        this.y = campDto.getY();
+    }
+
 
 
 }
