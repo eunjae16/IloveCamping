@@ -4,6 +4,8 @@ import com.example.iluvcamping.domain.booking.Booking;
 import com.example.iluvcamping.domain.booking.BookingRepository;
 import com.example.iluvcamping.domain.booking.BookingRequestDTO;
 import com.example.iluvcamping.domain.bookingInfo.BookingInfoRequestDTO;
+import com.example.iluvcamping.domain.bookingVIew.BookingView;
+import com.example.iluvcamping.domain.bookingVIew.BookingViewRepository;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.campFacilityView.CampFacilityViewRepository;
@@ -12,6 +14,9 @@ import com.example.iluvcamping.domain.campSite.CampSiteRepository;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
+import com.example.iluvcamping.domain.client.Client;
+import com.example.iluvcamping.domain.client.ClientRepository;
+import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.service.BookingService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
@@ -28,13 +33,11 @@ import java.util.List;
 public class BookingController {
 
     private final CampRepository campRepository;
-    private final CampFacilityViewRepository campFacilityViewRepository;
-    private final CampSurroundViewRepository campSurroundViewRepository;
     private final CampThemeNameRepository campThemeNameRepository;
     private final CampSiteRepository campSiteRepository;
     private final KeyGenerator keyGenerator;
-    private final BookingService bookingService;
     private final BookingRepository bookingRepository;
+    private final ClientRepository clientRepository;
 
     @GetMapping("/get/campdetail")
     @ResponseBody
@@ -149,8 +152,9 @@ public class BookingController {
 
 
     @GetMapping("/booking/readlist")
-    public String bookingList(@RequestParam String clientCode, Model model) {
+    public String bookingList(@RequestParam("clientCode") String clientCode, Model model) {
 
+        System.out.println("clientCode:" +clientCode);
         List<Booking> list = bookingRepository.getBookingByUserCode(clientCode);
         model.addAttribute("list", list);
 

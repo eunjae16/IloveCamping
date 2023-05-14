@@ -49,6 +49,13 @@ public class CampController {
         return camp;
     }
 
+    @GetMapping("/camp/campingtheme")
+    @ResponseBody
+    public List<Camp> getCampingForMap(String campCategoryCode){
+        List<Camp> camping = campRepository.findByCampCategoryCode(campCategoryCode);
+        return camping;
+    }
+
     @GetMapping("/camptheme/readall")
     public List<CampTheme> getAllCampTheme() {
         List<CampTheme> list = campThemeRepository.findAll();

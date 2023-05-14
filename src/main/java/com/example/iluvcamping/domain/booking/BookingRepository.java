@@ -1,5 +1,7 @@
 package com.example.iluvcamping.domain.booking;
 
+import com.example.iluvcamping.domain.bookingVIew.BookingView;
+import com.example.iluvcamping.domain.camp.Camp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

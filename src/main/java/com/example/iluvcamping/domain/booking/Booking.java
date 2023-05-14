@@ -1,5 +1,6 @@
 package com.example.iluvcamping.domain.booking;
 
+import com.example.iluvcamping.domain.camp.Camp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class Booking {
     private String campCode;
     private String campsiteCode;
 
+
     private int totalPrice;
     private int extraPerson;
     private int extraCaraban;
@@ -43,5 +45,6 @@ public class Booking {
     public void setBookingCode(String bookingCode){
         this.bookingCode = bookingCode;
     }
+
 
 }
