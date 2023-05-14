@@ -18,6 +18,7 @@
 <c:if test="${empty camp}">
     <c:redirect url="/"></c:redirect>
 </c:if>
+
 <section>
     <div class="left">
         <div class="info">

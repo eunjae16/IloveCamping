@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="style/joinSuccess.css">
 <script src="https://tistory4.daumcdn.net/tistory/3134841/skin/images/confetti_v2.js"></script>
 <body>
+<c:if test="${empty log}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
 <section>
 <div class="success-box">
     <h2>회원가입을 축하합니다!</h2>

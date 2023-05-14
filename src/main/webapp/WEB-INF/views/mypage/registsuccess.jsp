@@ -6,6 +6,13 @@
 <script src="https://tistory4.daumcdn.net/tistory/3134841/skin/images/confetti_v2.js"></script>
 <body>
 <section>
+  <c:if test="${empty log}">
+    <c:redirect url="/"></c:redirect>
+  </c:if>
+  <c:if test="${usertype eq 'client'}">
+    <c:redirect url="/"></c:redirect>
+  </c:if>
+
   <div class="success-box">
     <h2>캠핑장 등록이 완료되었습니다!</h2>
   </div>

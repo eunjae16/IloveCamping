@@ -8,6 +8,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+<c:if test="${!empty log}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
+<c:if test="${usertype eq 'client'}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
+
 <section>
 <div class="client-register-container">
     <h2>일반유저 회원가입</h2>

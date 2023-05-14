@@ -18,15 +18,19 @@ $(document).ready(function() {
                 result.forEach(campsite => {
                     $(".campsite-card").append(
                         `<div class='campsite'>
-                            <label><input type='radio' name='selectedCampsite' value='${campsite.siteCode}'>
-                            <br>
-                            <div class="img-wrapper"><img src='${campsite.campsiteImage}'></div>
-                            <p>${campsite.siteName}</p>
-                            <p>추가 인원 금액: ${campsite.siteExtraPersonPrice}원</p>
-                            <p>추가 카라반 금액: ${campsite.siteExtraCarabanPrice}원</p>
-                            <p>최소 인원: ${campsite.siteMinPerson} </p>
-                            <p>최대 인원: ${campsite.siteMaxPerson} </p>
-                            </label></div>`)
+                        <label>
+                            <input type='radio' name='selectedCampsite' value='${campsite.siteCode}'
+                                data-min-people='${campsite.siteMinPerson}' data-max-people='${campsite.siteMaxPerson}'>
+                        <br>
+                        <div class="img-wrapper"><img src='${campsite.campsiteImage}'></div>
+                        <p>${campsite.siteName}</p>
+                        <p>추가 인원 금액: ${campsite.siteExtraPersonPrice}원</p>
+                        <p>추가 카라반 금액: ${campsite.siteExtraCarabanPrice}원</p>
+                        <p>최소 인원: ${campsite.siteMinPerson} </p>
+                        <p>최대 인원: ${campsite.siteMaxPerson} </p>
+                        </label>
+                        </div>`
+                    )
 
                 })
             },
@@ -40,6 +44,8 @@ $(document).ready(function() {
 
     document.getElementById("checkCampSite").style.display = "block";
 });
+
+
 
 // 확인 클릭
 $('#checkCampSite').click(function () {
@@ -59,8 +65,22 @@ $('#noExtraPeople').click(function (){
 
 // 추가인원 입력 후 확인
 $('.checkPeople').click(function () {
-        document.getElementById("checkExtraCaraban").style.display = "block";
-})
+    let selectedCampsite = $('input[name="selectedCampsite"]:checked');
+    let minPeople = parseInt(selectedCampsite.data('min-people'));
+    let maxPeople = parseInt(selectedCampsite.data('max-people'));
+    let extraPeople = parseInt($('#extraPeople').val());
+    let messageElement = $('#messageForExtraPerson');
+
+    if (extraPeople > maxPeople - minPeople) {
+        messageElement.text("총 인원은 최대 인원을 넘길 수 없습니다!");
+        return;
+    } else {
+        messageElement.text("");
+    }
+
+    document.getElementById("checkExtraCaraban").style.display = "block";
+});
+
 
 // 추가 카라반 네 클릭
 $('#existExtraCaraban').click(function () {

@@ -21,6 +21,14 @@
     <link rel="stylesheet" href="style/communityOwnerWrite.css">
 </head>
 <body>
+
+<c:if test="${empty log}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
+<c:if test="${usertype eq 'client'}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
+
 <section>
     <h4>캠핑장 정보 수정</h4>
     <div class="camp-regist-box">

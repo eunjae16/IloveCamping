@@ -19,6 +19,9 @@
 <c:if test="${empty log}">
     <c:redirect url="/"></c:redirect>
 </c:if>
+<c:if test="${usertype eq 'owner'}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
 
 <section>
     <div>

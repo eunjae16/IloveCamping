@@ -98,7 +98,7 @@
         <%-- 이하 캠프사이트 리스트   --%>
         <div class="campsite-card">
         </div>
-            <div id="checkCampSite" class="box-none">확인</div>
+        <div id="checkCampSite" class="box-none">확인</div>
         <%--  이하 추가인원 확인  --%>
         <div id="checkExtraPeople" class="box-none">
             <p>추가 인원이 있나요?</p>
@@ -111,26 +111,27 @@
         <div class="box-none" id="inputExtraPeopleNum">
             <p>추가 인원을 입력해 주세요 :</p>
             <input type="text" id="extraPeople" name="extraPeople" value="0" numberOnly>
+            <p id="messageForExtraPerson"></p>
             <div id="${camp.campCategoryName}" class="checkPeople">확인</div>
-    </div>
-    <%--  이하 추가카라반 확인  --%>
-    <div class="box-none" id="checkExtraCaraban">
-        <p>추가 카라반이 있나요?</p>
-        <div class="flex-box">
-            <div id="existExtraCaraban">네</div>
-            <div id="noExtraCaraban">아니오</div>
         </div>
-    </div>
-    <div class="box-none" id="inputExtraCaraban">
-        <p>추가 카라반 수를 입력해 주세요 :</p>
-        <input type="text" id="extraCaraban" name="extraCaraban" value="0" numberOnly>
-        <div class="checkCaraban">확인</div>
-    </div>
-    <%-- 이하 제출버튼 --%>
-    <div class="box-none" id="booking-button">
-        <input type="hidden" id="userCode" value="${sessionScope.log.clientCode}">
-        <input type="button" value="예약하기!" onclick="submitValue()">
-    </div>
+        <%--  이하 추가카라반 확인  --%>
+        <div class="box-none" id="checkExtraCaraban">
+            <p>추가 카라반이 있나요?</p>
+            <div class="flex-box">
+                <div id="existExtraCaraban">네</div>
+                <div id="noExtraCaraban">아니오</div>
+            </div>
+        </div>
+        <div class="box-none" id="inputExtraCaraban">
+            <p>추가 카라반 수를 입력해 주세요 :</p>
+            <input type="text" id="extraCaraban" name="extraCaraban" value="0" numberOnly>
+            <div class="checkCaraban" style="cursor: pointer">확인</div>
+        </div>
+        <%-- 이하 제출버튼 --%>
+        <div class="box-none" id="booking-button">
+            <input type="hidden" id="userCode" value="${sessionScope.log.clientCode}">
+            <input type="button" value="예약하기!" onclick="submitValue()">
+        </div>
 </section>
 <c:import url="../sementic/footer.jsp"/>
 <script src="/script/booking/main.js"></script>
