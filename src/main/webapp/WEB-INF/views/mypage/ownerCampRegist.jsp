@@ -12,6 +12,15 @@
 
 </head>
 <body>
+
+<c:if test="${empty usertype}">
+    <c:redirect url="/login"></c:redirect>
+</c:if>
+
+<c:if test="${usertype eq 'client'}">
+    <c:redirect url="/"></c:redirect>
+</c:if>
+
 <section>
     <div class="camp-regist-box">
         <h2>캠핑장 등록</h2>

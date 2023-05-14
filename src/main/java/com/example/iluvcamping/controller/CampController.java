@@ -133,16 +133,6 @@ public class CampController {
     }
 
 
-//    // update
-//    @PutMapping("/camp/update")
-//    public void updateByCampCode(@RequestBody CampRequestDTO campDto){
-//
-//        System.out.println("controller update");
-//        campService.modifyCamp(campDto);
-//        System.out.println("check" + campService);
-//
-//    }
-
     @PutMapping("/camp/update")
     @ResponseBody
     public ResponseEntity<Camp> updateByCampCode(@RequestBody CampRequestDTO campDto) {
