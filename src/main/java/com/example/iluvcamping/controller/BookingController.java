@@ -4,20 +4,13 @@ import com.example.iluvcamping.domain.booking.Booking;
 import com.example.iluvcamping.domain.booking.BookingRepository;
 import com.example.iluvcamping.domain.booking.BookingRequestDTO;
 import com.example.iluvcamping.domain.bookingInfo.BookingInfoRequestDTO;
-import com.example.iluvcamping.domain.bookingVIew.BookingView;
-import com.example.iluvcamping.domain.bookingVIew.BookingViewRepository;
 import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.camp.CampRepository;
-import com.example.iluvcamping.domain.campFacilityView.CampFacilityViewRepository;
 import com.example.iluvcamping.domain.campSite.CampSite;
 import com.example.iluvcamping.domain.campSite.CampSiteRepository;
-import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
-import com.example.iluvcamping.domain.client.Client;
 import com.example.iluvcamping.domain.client.ClientRepository;
-import com.example.iluvcamping.domain.community.Community;
-import com.example.iluvcamping.service.BookingService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -153,10 +147,26 @@ public class BookingController {
 
     @GetMapping("/booking/readlist")
     public String bookingList(@RequestParam("clientCode") String clientCode, Model model) {
-
         System.out.println("clientCode:" +clientCode);
-        List<Booking> list = bookingRepository.getBookingByUserCode(clientCode);
-        model.addAttribute("list", list);
+
+        List<Booking> bookingList = bookingRepository.getBookingByUserCode(clientCode);
+        List<Camp> campList = new ArrayList<>();
+        List<CampSite> siteList = new ArrayList<>();
+
+        for(Booking booking : bookingList){
+            String campCode = booking.getCampCode();
+            String siteCode = booking.getCampsiteCode();
+
+            Camp camp = campRepository.getCampByCampCode(campCode);
+            CampSite campSite = campSiteRepository.getCampSiteBySiteCode(siteCode);
+
+            campList.add(camp);
+            siteList.add(campSite);
+        }
+
+
+        model.addAttribute("bookingList", bookingList);
+        model.addAttribute("campList", campList);
 
         return "booking/bookingList";
     }

@@ -12,11 +12,11 @@
   <c:import url="../sementic/header.jsp"/>
 </head>
 <body>
-  <c:if test="${empty list}">
-      <p>예약리스트가 비어있어요.</p>
-  </c:if>
-  <section>
-    <c:if test="${not empty list}"></c:if>
+<c:if test="${empty bookingList}">
+  <p>예약리스트가 비어있어요.</p>
+</c:if>
+<section>
+  <c:if test="${not empty bookingList}">
     <table>
       <thead>
       <tr>
@@ -26,18 +26,21 @@
       </tr>
       </thead>
       <tbody>
-      <c:forEach items="${list}" var="list">
+      <c:forEach items="${bookingList}" var="list" varStatus="status">
+        <c:set var="camp" value="${campList[status.index]}"/>
+        <c:set var="campSite" value="${siteList[status.index]}"/>
         <tr>
           <td>예약번호: ${list.bookingCode}</td>
-          <td>${list.campImage}</td>
-          <td>${list.campName}</td>
-          <td>${list.siteName}</td>
-          <td>${list.startDate} ~  ${list.endDate}</td>
+          <td><img src="${camp.campImage}"></td>
+          <td>${camp.campName}</td>
+          <td>${campSite.siteName}</td>
+          <td>${list.startDate.substring(0,11)} ~  ${list.endDate.substring(0,11)}</td>
           <td>${list.totalPrice}</td>
         </tr>
       </c:forEach>
       </tbody>
     </table>
-  </section>
+  </c:if>
+</section>
 </body>
 </html>
