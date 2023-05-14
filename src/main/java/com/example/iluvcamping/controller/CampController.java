@@ -133,15 +133,27 @@ public class CampController {
     }
 
 
-    // update
+//    // update
+//    @PutMapping("/camp/update")
+//    public void updateByCampCode(@RequestBody CampRequestDTO campDto){
+//
+//        System.out.println("controller update");
+//        campService.modifyCamp(campDto);
+//        System.out.println("check" + campService);
+//
+//    }
+
     @PutMapping("/camp/update")
-    public void updateByCampCode(@RequestBody CampRequestDTO campDto){
-
-        System.out.println("controller update");
-        campService.modifyCamp(campDto);
-        System.out.println("check" + campService);
-
+    @ResponseBody
+    public ResponseEntity<Camp> updateByCampCode(@RequestBody CampRequestDTO campDto) {
+        try {
+            campService.updateCamp(campDto);
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
+
 
 
 }

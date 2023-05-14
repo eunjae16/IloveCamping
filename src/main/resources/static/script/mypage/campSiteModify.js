@@ -74,36 +74,38 @@ function checkValue(htmlForm) {
     if (check === false) {
         location.href = url;
     } else {
-            const data =  {
-                "campCode": campCode,
-                "campOwner": campOwner,
-                "campCategoryCode": campCategoryCode,
-                "campName": campName,
-                // "campImage": campImage,
-                "campAddressCode": campAddressCode,
-                "campAddress1": campAddress1,
-                "campPhone": campPhone,
-                "x": x,
-                "y": y
-            };
-            submit(data);
-        }
+        const data =  {
+            "campCode": campCode,
+            "campOwner": campOwner,
+            "campCategoryCode": campCategoryCode,
+            "campName": campName,
+            // "campImage": campImage,
+            "campAddressCode": campAddressCode,
+            "campAddress1": campAddress1,
+            "campPhone": campPhone,
+            "x": x,
+            "y": y
+        };
+        submit(data);
     }
+}
 
-    function submit(data){
-        $.ajax({
-            url: "/camp/update",
-            method: "PUT",
-            timeout: 0,
-            headers: {
-                "Content-Type": "application/json",
-            },
-            data: JSON.stringify(data),
+
+function submit(data) {
+    $.ajax({
+        url: "/camp/update",
+        method: "PUT",
+        timeout: 0,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: JSON.stringify(data),
+    })
+        .done((response) => {
+            // 수정이 성공하면 페이지 이동
+            window.location.href = "/mypageowner";
         })
-            .done((response) => {
-                location.href = "/mypageowner";
-            })
-            .fail((error) => {
-                console.log(error);
-            });
-    }
+        .fail((error) => {
+            console.log(error);
+        });
+}
