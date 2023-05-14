@@ -131,7 +131,8 @@ public class BookingController {
     @PostMapping("/regist/reservation" )
     public String createReservation(@ModelAttribute BookingRequestDTO bookingDto){
         Booking booking = new Booking(bookingDto);
-        String code = keyGenerator.randomKey("K");
+
+        String code = keyGenerator.randomKey("J");
         booking.setBookingCode(code);
 
         bookingRepository.save(booking);
