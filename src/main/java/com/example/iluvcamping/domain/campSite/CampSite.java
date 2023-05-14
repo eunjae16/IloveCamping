@@ -47,7 +47,7 @@ public class CampSite {
     }
 
     public CampSite(CampSiteRequestDTO campSiteRequestDTO){
-        this.siteCode = campSiteRequestDTO.getSiteCode();
+        this.siteCode = "";
         this.campCode = campSiteRequestDTO.getCampCode();
         this.siteName = campSiteRequestDTO.getSiteName();
         this.siteMinPerson = campSiteRequestDTO.getSiteMinPerson();
