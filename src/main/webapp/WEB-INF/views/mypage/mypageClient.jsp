@@ -25,6 +25,7 @@
     <img src="https://em-content.zobj.net/thumbs/120/google/350/camping_1f3d5-fe0f.png">
     <div>
         <button onclick="location.href='modifyclient'">회원정보 수정</button>
+        <button onclick="location.href='booking/readlist?clientCode=${sessionScope.log.clientCode}'">예약내역 확인</button>
         <input type="button" onclick="leaveClient()" value="탈퇴하기">
         <input type="hidden" id="clientCode" value="${sessionScope.log.clientCode}">
     </div>

@@ -5,6 +5,10 @@
 </head>
 <body>
 <section>
+    <c:if test="${empty usertype}">
+        <c:redirect url="/login"></c:redirect>
+    </c:if>
+
     <h3>예약 확인</h3>
     <div>
         <table>

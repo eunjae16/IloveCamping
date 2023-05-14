@@ -12,6 +12,7 @@ import com.example.iluvcamping.domain.campSite.CampSiteRepository;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
+import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.service.BookingService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.awt.print.Book;
 import java.util.List;
 
 @Controller
@@ -38,7 +40,7 @@ public class BookingController {
 
     @GetMapping("/get/campdetail")
     @ResponseBody
-    public Camp getCampByCode(@RequestParam String campCode){
+    public Camp getCampByCode(@RequestParam String campCode) {
 
         Camp camp = campRepository.getCampByCampCode(campCode);
 
@@ -46,20 +48,19 @@ public class BookingController {
     }
 
     @PostMapping("/post/goreservation")
-    public String goReservation(@RequestParam("campCode") String campCode, Model model){
+    public String goReservation(@RequestParam("campCode") String campCode, Model model) {
         CampThemeName camp = campThemeNameRepository.getCampThemeNameByCampCode(campCode);
-        if(camp != null){
+        if (camp != null) {
             List<CampSite> campsite = campSiteRepository.getAllByCampCode(campCode);
             model.addAttribute("camp", camp);
             model.addAttribute("campsite", campsite);
             return "/booking/bookingCamp";
-        }
-        else return "error";
+        } else return "error";
     }
 
     @GetMapping("/get/campsite/list")
     @ResponseBody
-    public List<CampSite> getCampSiteListByCampCode(@RequestParam String campCode, Model model){
+    public List<CampSite> getCampSiteListByCampCode(@RequestParam String campCode, Model model) {
         List<CampSite> list = campSiteRepository.getAllByCampCode(campCode);
 
         return list;
@@ -67,7 +68,7 @@ public class BookingController {
 
     // create booking
     @PostMapping("/get/reservation/info")
-    public String getBookingInfo(@RequestBody BookingInfoRequestDTO bookingRequest, HttpSession session){
+    public String getBookingInfo(@RequestBody BookingInfoRequestDTO bookingRequest, HttpSession session) {
 
         String bookingCode = "";
         String userCode = bookingRequest.getUserCode();
@@ -83,7 +84,7 @@ public class BookingController {
 
         Camp camp = campRepository.getCampByCampCode(campCode);
 
-        if(camp == null)
+        if (camp == null)
             System.out.println("camp is null");
 
         // day price
@@ -96,8 +97,8 @@ public class BookingController {
 
         int totalPrice = pricePerDay * (Integer.parseInt(day) - 1) + extraPersonPrice + extraCarabanPrice;
 
-        Booking booking = new Booking(bookingCode,userCode,startDate,endDate,campCode,
-                campsiteCode,totalPrice,Integer.parseInt(extraPerson),Integer.parseInt(extraCaraban));
+        Booking booking = new Booking(bookingCode, userCode, startDate, endDate, campCode,
+                campsiteCode, totalPrice, Integer.parseInt(extraPerson), Integer.parseInt(extraCaraban));
 
         session.setAttribute("booking", booking);
         session.setAttribute("camp", camp);
@@ -106,11 +107,11 @@ public class BookingController {
     }
 
     @PostMapping("/get/bookingInfo")
-    public ResponseEntity<BookingInfoRequestDTO> getBookingInfoTest(@RequestBody BookingInfoRequestDTO bookingRequest){
+    public ResponseEntity<BookingInfoRequestDTO> getBookingInfoTest(@RequestBody BookingInfoRequestDTO bookingRequest) {
 
         Camp camp = campRepository.getCampByCampCode(bookingRequest.getCampCode());
 
-        if(camp == null)
+        if (camp == null)
             return ResponseEntity.notFound().build();
 
         BookingInfoRequestDTO bookingResponse = new BookingInfoRequestDTO();
@@ -128,8 +129,8 @@ public class BookingController {
     }
 
 
-    @PostMapping("/regist/reservation" )
-    public String createReservation(@ModelAttribute BookingRequestDTO bookingDto){
+    @PostMapping("/regist/reservation")
+    public String createReservation(@ModelAttribute BookingRequestDTO bookingDto) {
         Booking booking = new Booking(bookingDto);
 
         String code = keyGenerator.randomKey("J");
@@ -141,11 +142,21 @@ public class BookingController {
     }
 
     @GetMapping("/booking/cancle")
-    public String deleteBookingInfo(HttpSession session){
+    public String deleteBookingInfo(HttpSession session) {
         session.removeAttribute("booking");
         session.removeAttribute("camp");
 
         return "/sementic/index";
+    }
+
+
+    @GetMapping("/booking/readlist")
+    public String bookingList(@RequestParam String clientCode, Model model) {
+
+        List<Booking> list = bookingRepository.getBookingByClientCode(clientCode);
+        model.addAttribute("list", list);
+
+        return "booking/bookingList";
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.iluvcamping.domain.booking;
 
+import com.example.iluvcamping.domain.camp.Camp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +15,7 @@ public interface BookingRepository extends JpaRepository<Booking,String> {
     @Modifying
     @Query(nativeQuery = true, value = "UPDATE booking SET user_code = '00000000' WHERE user_code = :usercode")
     public void updateBookingByUserCode(@Param("usercode") String usercode);
+
+    public List<Booking> getBookingByClientCode (String clientCode);
 
 }
