@@ -1,0 +1,10 @@
+section {
+    margin: 50px 0;
+}
+
+table {
+    width: fit-content;
+    margin: 0 auto;
+    border-spacing: 10px;
+    text-align: center;
+}

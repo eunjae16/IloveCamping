@@ -10,12 +10,13 @@
 <html>
 <head>
   <c:import url="../sementic/header.jsp"/>
+  <link rel="stylesheet" href="../../style/bookingList.css">
 </head>
 <body>
-<c:if test="${empty bookingList}">
-  <p>예약리스트가 비어있어요.</p>
-</c:if>
 <section>
+  <c:if test="${empty bookingList}">
+    <p>예약리스트가 비어있어요.</p>
+  </c:if>
   <c:if test="${not empty bookingList}">
     <table>
       <thead>
