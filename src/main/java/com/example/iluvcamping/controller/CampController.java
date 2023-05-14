@@ -9,11 +9,11 @@ import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
-import com.example.iluvcamping.domain.campView.CampView;
 import com.example.iluvcamping.domain.categoryCount.CategoryCountRepository;
 import com.example.iluvcamping.service.CampService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -101,15 +101,28 @@ public class CampController {
         return "mypage/ownerCampSiteRegist";
     }
 
+
+//    @PostMapping("/campsite/regist")
+//    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto) {
+//        CampSite campSite = new CampSite(campSiteDto);
+//        String code = keyGenerator.randomKey("K");
+//        campSite.setSiteCode(code);
+//        campService.addCampSite(campSite);
+//
+//        return "mypage/registsuccess";
+//    }
+
     @PostMapping("/campsite/regist")
-    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto, HttpSession session) {
+    @ResponseBody
+    public ResponseEntity<CampSite> campSiteRegist(@RequestBody CampSiteRequestDTO campSiteDto) {
         CampSite campSite = new CampSite(campSiteDto);
         String code = keyGenerator.randomKey("K");
         campSite.setSiteCode(code);
         campService.addCampSite(campSite);
 
-        return "mypage/registsuccess";
+        return ResponseEntity.ok(campSite);
     }
+
 
     // read [ one ]
     @GetMapping("/camp/readone")

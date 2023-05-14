@@ -1,14 +1,23 @@
+let campCode;
+let siteName;
+let siteExtraPersonPrice;
+let siteExtraCarabanPrice;
+let siteMinPerson;
+let siteMaxPerson;
+let campsiteImage;
+let sitePrice;
+
 function checkValue(htmlForm) {
     let url = "ownercampsiteregist?";
 
-    const campCode = $('#campCode').val();
-    const siteName = $('#siteName').val();
-    const siteExtraPersonPrice = $('#siteExtraPersonPrice').val();
-    const siteExtraCarabanPrice = $('#siteExtraCarabanPrice').val();
-    const siteMinPerson = $('#siteMinPerson').val();
-    const siteMaxPerson = $('#siteMaxPerson').val();
-    const campsiteImage = $('#campsiteImage').val();
-    const sitePrice = $('#sitePrice').val();
+    campCode = $('#campCode').val();
+    siteName = $('#siteName').val();
+    siteExtraPersonPrice = $('#siteExtraPersonPrice').val();
+    siteExtraCarabanPrice = $('#siteExtraCarabanPrice').val();
+    siteMinPerson = $('#siteMinPerson').val();
+    siteMaxPerson = $('#siteMaxPerson').val();
+    campsiteImage = $('#campsiteImage').val();
+    sitePrice = $('#sitePrice').val();
 
     let check = true;
 
@@ -64,18 +73,11 @@ function submit(data) {
         data: JSON.stringify(data),
     })
         .done((response) => {
-            location.href = "registsuccess";
+            location.href = "/registsuccess";
         })
         .fail((error) => {
-            console.log(campCode),
-            console.log(siteName),
-            console.log(siteMinPerson),
-            console.log(siteMaxPerson),
-            console.log(sitePrice),
-            console.log(siteExtraPersonPrice),
-            console.log(siteExtraCarabanPrice),
-            console.log(campsiteImage);
-            // location.href = "error";
+            location.href = "/error";
+            console.log(error);
         });
 
 }
