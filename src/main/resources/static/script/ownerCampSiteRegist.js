@@ -67,7 +67,15 @@ function submit(data) {
             location.href = "registsuccess";
         })
         .fail((error) => {
-            location.href = "error";
+            console.log(campCode),
+            console.log(siteName),
+            console.log(siteMinPerson),
+            console.log(siteMaxPerson),
+            console.log(sitePrice),
+            console.log(siteExtraPersonPrice),
+            console.log(siteExtraCarabanPrice),
+            console.log(campsiteImage);
+            // location.href = "error";
         });
 
 }
