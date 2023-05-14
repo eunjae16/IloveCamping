@@ -8,6 +8,7 @@ h3 {
 
 table {
     margin: 0 auto;
+    border-spacing: 5px;
 }
 
 table input[type=button] {
@@ -16,6 +17,7 @@ table input[type=button] {
     color: white;
     padding: 5px;
     border: 0;
+    width: 100%;
 }
 
 div {

@@ -38,8 +38,7 @@
                 <td colspan="2"><span id="messageNickname"></span></td>
             </tr>
             <tr>
-                <td></td>
-                <td><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
+                <td colspan="2"><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
             </tr>
             <tr>
                 <th>계좌번호</th>

@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <c:import url="../sementic/header.jsp"/>
+    <link rel="stylesheet" href="/style/booking/checkBookingInfo.css">
 </head>
 <body>
 <section>
@@ -49,10 +51,11 @@
             <input type="hidden" name="extraCaraban" value="${sessionScope.booking.extraCaraban}">
             <div>
                 <input type="submit" value="예약하기">
+                <input type="button" onclick="location.href='/booking/cancle'" value="취소하기">
             </div>
-            <input type="button" onclick="location.href='/booking/cancle'" value="취소하기">
         </form>
     </div>
 </section>
+<c:import url="../sementic/footer.jsp"/>
 </body>
 </html>

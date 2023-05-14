@@ -98,7 +98,7 @@
         <%-- 이하 캠프사이트 리스트   --%>
         <div class="campsite-card">
         </div>
-            <div id="checkCampSite">확인</div>
+            <div id="checkCampSite" class="box-none">확인</div>
         <%--  이하 추가인원 확인  --%>
         <div id="checkExtraPeople" class="box-none">
             <p>추가 인원이 있나요?</p>

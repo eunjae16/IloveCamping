@@ -38,10 +38,10 @@
                     <td><input type="text" id="nickname" name="nickname" value="${sessionScope.log.clientNickname}"></td>
                 </tr>
                 <tr>
-                    <td><span id="messageNickname"></span></td>
+                    <td colspan="2"><span id="messageNickname"></span></td>
                 </tr>
                 <tr>
-                    <td><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
+                    <td colspan="2"><input type="button" id="checkNickname" value="닉네임 중복검사"></td>
                 </tr>
                 <tr>
                     <th>전화번호</th>
@@ -52,7 +52,7 @@
                     <td><input type="text" id="email" name="email" value="${sessionScope.log.clientEmail}"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" onclick="pop()" value="우편번호 찾기"></td>
+                    <td colspan="2"><input type="button" onclick="pop()" value="우편번호 찾기"></td>
                 </tr>
                 <tr>
                     <th>우편번호</th>

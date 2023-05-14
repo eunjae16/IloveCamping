@@ -1,0 +1,28 @@
+section {
+    margin: 50px auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+div {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+table {
+    border-spacing: 10px;
+}
+
+input[type=submit], input[type=button] {
+    padding: 10px;
+    border: 0;
+    background-color: #495579;
+    color: white;
+}
+
+input[type=submit]:hover, input[type=button]:hover {
+    background-color: white;
+    color: #495579;
+}

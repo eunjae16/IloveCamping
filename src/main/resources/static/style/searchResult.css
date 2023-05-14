@@ -21,7 +21,7 @@ section {
     height: calc(100% - 60px);
 }
 
-#camp-card div {
+#camp-card > div {
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -55,4 +55,8 @@ img {
 
 .list-text-box p:first-child {
     font-weight: bold;
+}
+
+.list-text-box {
+    border: 0;
 }
