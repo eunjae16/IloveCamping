@@ -12,7 +12,6 @@ import com.example.iluvcamping.domain.campSite.CampSiteRepository;
 import com.example.iluvcamping.domain.campSurroundView.CampSurroundViewRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.campThemeName.CampThemeNameRepository;
-import com.example.iluvcamping.domain.community.Community;
 import com.example.iluvcamping.service.BookingService;
 import com.example.iluvcamping.util.KeyGenerator;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.awt.print.Book;
 import java.util.List;
 
 @Controller
@@ -153,7 +151,7 @@ public class BookingController {
     @GetMapping("/booking/readlist")
     public String bookingList(@RequestParam String clientCode, Model model) {
 
-        List<Booking> list = bookingRepository.getBookingByClientCode(clientCode);
+        List<Booking> list = bookingRepository.getBookingByUserCode(clientCode);
         model.addAttribute("list", list);
 
         return "booking/bookingList";
