@@ -18,3 +18,11 @@ button:hover {
     color: #495579;
     background-color: white;
 }
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.button-container {
+    margin-bottom: 50px;
+}
