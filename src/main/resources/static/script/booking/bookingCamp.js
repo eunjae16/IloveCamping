@@ -20,7 +20,7 @@ $(document).ready(function() {
                         `<div class='campsite'>
                             <label><input type='radio' name='selectedCampsite' value='${campsite.siteCode}'>
                             <br>
-                            <img src='${campsite.campsiteImage}'>
+                            <div class="img-wrapper"><img src='${campsite.campsiteImage}'></div>
                             <p>${campsite.siteName}</p>
                             <p>추가 인원 금액: ${campsite.siteExtraPersonPrice}원</p>
                             <p>추가 카라반 금액: ${campsite.siteExtraCarabanPrice}원</p>

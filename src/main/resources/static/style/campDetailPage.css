@@ -75,6 +75,10 @@ img {
     display: flex;
 }
 
+#right-box > div {
+    margin-right: 10px;
+}
+
 #facilities-all {
     width: 100%;
     display: flex;

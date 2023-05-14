@@ -43,12 +43,12 @@
                         </div>
                     </div>
                     <div id="right-box">
-                        <div id="sunhead"><span>오늘날씨:</span></div>
+                        <div id="sunhead"><span>오늘 날씨:</span></div>
                         <div id="sunrise">
-                            <span>일출시간</span>
+                            <span>일출 시간</span>
                         </div>
                         <div id="sunset">
-                            <span>일몰시간</span>
+                            <span>일몰 시간</span>
                         </div>
                     </div>
                 </div>
