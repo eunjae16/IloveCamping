@@ -7,6 +7,7 @@
     <c:import url="../sementic/header.jsp"/>
     <link rel="stylesheet" href="style/ownerCampModify.css">
     <link rel="stylesheet" href="../../style/mypageOwner.css">
+    <link rel="stylesheet" href="../../style/ownerCampModify.css">
 </head>
 <body>
 <section>
@@ -17,23 +18,25 @@
             </div>
         </c:if>
         <c:if test="${!empty campList}">
-            <div>
+            <div class="list-box">
                 <c:forEach var="camp" items="${campList}">
                     <img src="${camp.campImage}">
                     <p>${camp.campName}</p>
                     <p>${camp.campAddress1}</p>
-                    <form method="POST" action="/campsite/registcampcode">
-                        <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
-                        <button type="submit">캠프 사이트 추가</button>
-                    </form>
-                    <form method="POST" action="/camp/modify">
-                        <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
-                        <button type="submit">이름 변경</button>
-                    </form>
-                    <form method="POST" action="">
-                        <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
-                        <button type="submit">폐업 신청</button>
-                    </form>
+                    <div class="form-box">
+                        <form method="POST" action="/campsite/registcampcode">
+                            <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
+                            <button type="submit">캠프 사이트 추가</button>
+                        </form>
+                        <form method="POST" action="/camp/modify">
+                            <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
+                            <button type="submit">이름 변경</button>
+                        </form>
+                        <form method="POST" action="">
+                            <input type="hidden" class="campCode" name="campCode" value="${camp.campCode}">
+                            <button type="submit">폐업 신청</button>
+                        </form>
+                    </div>
                 </c:forEach>
             </div>
         </c:if>

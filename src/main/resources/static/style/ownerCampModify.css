@@ -1,0 +1,17 @@
+div {
+    text-align: center;
+}
+
+.list-box {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form-box {
+    width: 50%;
+    display: flex;
+    margin: 20px auto;
+    justify-content: space-between;
+}
