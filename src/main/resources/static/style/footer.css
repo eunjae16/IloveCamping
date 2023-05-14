@@ -8,3 +8,15 @@ footer p {
     text-align: center;
     line-height: 60px;
 }
+
+footer .adminlogin {
+    width: fit-content;
+    border: 1px solid #3b3b3b;
+    float: right;
+    margin-right: 10px;
+}
+
+footer a {
+    padding: 10px;
+    color: #3b3b3b;
+}

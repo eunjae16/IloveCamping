@@ -5,9 +5,7 @@
 <footer>
     <div class="footer-wrap">
         <p>Copyright 2023. dbja. All rights reserved.</p>
-    </div>
-    <div>
-        <a href="/adminlogin">관리자 로그인</a>
+        <div class="adminlogin"><a href="/adminlogin">관리자 로그인</a></div>
     </div>
 </footer>
 </body>
