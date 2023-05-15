@@ -14,6 +14,7 @@ footer .adminlogin {
     border: 1px solid #3b3b3b;
     float: right;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 footer a {
