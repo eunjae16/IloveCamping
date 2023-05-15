@@ -32,7 +32,8 @@
     </div>
 </section>
 <c:import url="/footer"/>
-<script src="script/camp/map.js"></script>
-<script src="script/camp/campList.js"></script>
+<%--<script src="script/camp/map.js"></script>--%>
+<%--<script src="script/camp/campList.js"></script>--%>
+<script src="script/camp/campingMap.js"></script>
 </body>
 </html>
