@@ -20,9 +20,9 @@
     <button class="canvasBtn" id="stopButton">그만!</button>
     <button class="canvasBtn" id="startButton">한 번 더!</button>
   </div>
-<%--  <form action="/settingcampoptions" method="get">--%>
-<%--    <input type="submit" class="settingBtn">상세설정 하러가기!</input>--%>
-<%--  </form>--%>
+  <form action="/settingcampoptions" method="get">
+    <input type="submit" class="settingBtn" value="상세설정 하러가기!"></input>
+  </form>
   <canvas id="canvas"></canvas>
 </section>
 <c:import url="../sementic/footer.jsp"/>

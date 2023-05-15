@@ -1,0 +1,31 @@
+section {
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    border: 1px solid #Ccc;
+    border-spacing: 10px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+img {
+    width: 50px;
+}
+
+td label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+td label:hover {
+    color: #495579;
+}

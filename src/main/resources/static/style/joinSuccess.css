@@ -7,7 +7,7 @@ canvas {
 }
 
 .success-box, .buttonContainer {
-    margin: 0 auto;
+    margin: 10px auto;
     text-align: center;
 }
 
@@ -23,16 +23,21 @@ canvas {
     color: crimson;
 }
 
-.buttonContainer button {
+.buttonContainer button, .settingBtn {
     background-color: crimson;
     color: white;
     border: 0;
     padding: 10px;
 }
 
-.buttonContainer button:hover {
+.buttonContainer button:hover, .settingBtn:hover {
     color: crimson;
     background-color: white;
     border: 0;
     padding: 10px;
+}
+
+form {
+    text-align: center;
+    margin: 10px 0;
 }
