@@ -4,6 +4,10 @@ import com.example.iluvcamping.domain.camp.Camp;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
 import com.example.iluvcamping.domain.community.Community;
+import com.example.iluvcamping.domain.facilityCategory.FacilityCategory;
+import com.example.iluvcamping.domain.facilityCategory.FacilityCategoryRepository;
+import com.example.iluvcamping.domain.surroundCategory.SurroundCategory;
+import com.example.iluvcamping.domain.surroundCategory.SurroundCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,8 @@ public class MainController {
     private final CommunityController controller;
     private final CampController campController;
     private final BookingController bookingController;
+    private final FacilityCategoryRepository facilityCategoryRepository;
+    private final SurroundCategoryRepository surroundCategoryRepository;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -166,6 +172,16 @@ public class MainController {
         model.addAttribute("list", list);
 
         return "mypage/ownerCampRegist";
+    }
+
+    @GetMapping("/settingcampoptions")
+    public String settingCampOptions (Model model){
+        List<FacilityCategory> facilityCategoryList = facilityCategoryRepository.findAll();
+        List<SurroundCategory> surroundCategoryList = surroundCategoryRepository.findAll();
+        model.addAttribute("facilityCategoryList", facilityCategoryList);
+        model.addAttribute("surroundCategoryList", surroundCategoryList);
+
+        return "mypage/settingCampOptions";
     }
 
     @GetMapping("/ownercampmodify")

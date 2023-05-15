@@ -98,7 +98,7 @@
         <%-- 이하 캠프사이트 리스트   --%>
         <div class="campsite-card">
         </div>
-        <div id="checkCampSite" class="box-none">확인</div>
+        <div id="checkCampSite" class="box-none" style="cursor: pointer">확인</div>
         <%--  이하 추가인원 확인  --%>
         <div id="checkExtraPeople" class="box-none">
             <p>추가 인원이 있나요?</p>
@@ -112,7 +112,7 @@
             <p>추가 인원을 입력해 주세요 :</p>
             <input type="text" id="extraPeople" name="extraPeople" value="0" numberOnly>
             <p id="messageForExtraPerson"></p>
-            <div id="${camp.campCategoryName}" class="checkPeople">확인</div>
+            <div id="${camp.campCategoryName}" class="checkPeople" style="cursor: pointer">확인</div>
         </div>
         <%--  이하 추가카라반 확인  --%>
         <div class="box-none" id="checkExtraCaraban">

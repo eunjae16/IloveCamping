@@ -35,7 +35,7 @@
                         <select>
                             <c:if test="${not empty list}">
                                 <c:forEach items="${list}" var="theme">
-                                        <option class="campCategoryCode" value="${theme.themeCode}">${theme.themeName}</option>
+                                    <option class="campCategoryCode" value="${theme.themeCode}">${theme.themeName}</option>
                                 </c:forEach>
                             </c:if>
                         </select>
@@ -45,10 +45,10 @@
                     <th>캠핑장 이름</th>
                     <td><input type="text" name="name" id="name" placeholder="캠핑장 이름"></td>
                 </tr>
-<%--                <tr>--%>
-<%--                     <td>캠핑장 사진</td>--%>
-<%--                     <td><input type="file" name="file" id="file" placeholder="캠핑장 사진"></td>--%>
-<%--                </tr>--%>
+                <%--                <tr>--%>
+                <%--                     <td>캠핑장 사진</td>--%>
+                <%--                     <td><input type="file" name="file" id="file" placeholder="캠핑장 사진"></td>--%>
+                <%--                </tr>--%>
                 <tr>
                     <th>우편번호 찾기</th>
                     <td><input type="button" onclick="pop()" value="우편번호 찾기"></td>

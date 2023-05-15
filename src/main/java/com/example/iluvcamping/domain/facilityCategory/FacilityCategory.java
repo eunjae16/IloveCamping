@@ -19,17 +19,20 @@ public class FacilityCategory {
     private String categoryCode;
 
     private String categoryName;
+    private String facilityImgUrl;
 
 
     public FacilityCategory(FacilityCategoryRequestDTO facilityCategoryDto) {
         this.categoryCode = facilityCategoryDto.getCategoryCode();
         this.categoryName = facilityCategoryDto.getCategoryName();
+        this.facilityImgUrl = facilityCategoryDto.getFacilityImgUrl();
     }
 
 
     public void setFacility(FacilityCategory facilityCategory) {
         this.categoryCode = facilityCategory.getCategoryCode();
         this.categoryName = facilityCategory.getCategoryName();
+        this.facilityImgUrl = facilityCategory.getFacilityImgUrl();
     }
 
 }

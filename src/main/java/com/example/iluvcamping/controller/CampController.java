@@ -109,16 +109,6 @@ public class CampController {
     }
 
 
-//    @PostMapping("/campsite/regist")
-//    public String campSiteRegist (@RequestBody CampSiteRequestDTO campSiteDto) {
-//        CampSite campSite = new CampSite(campSiteDto);
-//        String code = keyGenerator.randomKey("K");
-//        campSite.setSiteCode(code);
-//        campService.addCampSite(campSite);
-//
-//        return "mypage/registsuccess";
-//    }
-
     @PostMapping("/campsite/regist")
     @ResponseBody
     public ResponseEntity<CampSite> campSiteRegist(@RequestBody CampSiteRequestDTO campSiteDto) {
