@@ -35,7 +35,7 @@ header {
 
 .search-box {
     position: absolute;
-    top: 40%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -43,8 +43,9 @@ header {
 .search-box p {
     color: white;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2em;
     margin-bottom: 10px;
+    text-shadow: 2px 2px 2px gray;
 }
 
 .search-box select {
@@ -89,7 +90,7 @@ footer p {
 #percent {
     width: 50%;
     position: absolute;
-    top: 70%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -105,4 +106,10 @@ footer p {
     text-align: center;
     line-height: 150px;
     color: white;
+    font-size: 1.5em;
+}
+
+span {
+    line-height: 100px;
+    font-size: 20px;
 }
