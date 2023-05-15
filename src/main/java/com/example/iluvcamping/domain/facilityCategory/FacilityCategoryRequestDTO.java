@@ -15,4 +15,5 @@ public class FacilityCategoryRequestDTO {
     private String categoryCode;
     @JsonProperty("category_name")
     private String categoryName;
+    private String facilityImgUrl;
 }
