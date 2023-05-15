@@ -16,6 +16,8 @@ public interface CampRepository extends JpaRepository<Camp, String> {
     public List<Camp> findAll();
 
     public List<Camp> findByCampCategoryCode(String campCategory);
+    List<Camp> findByCampCategoryCodeIn(List<String> categoryCodes);
+
 
     public Camp getCampNameByCampCode(String campCode);
 

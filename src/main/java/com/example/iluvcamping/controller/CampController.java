@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -47,13 +48,6 @@ public class CampController {
     public List<Camp> getCampForMap() {
         List<Camp> camp = campRepository.findAll();
         return camp;
-    }
-
-    @GetMapping("/camp/campingtheme")
-    @ResponseBody
-    public List<Camp> getCampingForMap(String campCategoryCode){
-        List<Camp> camping = campRepository.findByCampCategoryCode(campCategoryCode);
-        return camping;
     }
 
     @GetMapping("/camptheme/readall")
@@ -85,6 +79,32 @@ public class CampController {
         String totalCount = String.valueOf(total);
 
         return campCount + "," + bothCount + "," + totalCount;
+    }
+
+    @GetMapping("/camp/campingcategory")
+    @ResponseBody
+    public List<Camp> getCampingForMap(){
+        String category = "CT100001";
+        List<Camp> camping = campRepository.findByCampCategoryCode(category);
+
+        return camping;
+
+    }
+
+    @GetMapping("/camp/glampingcategory")
+    @ResponseBody
+    public List<Camp> getGlampingForMap(){
+        List<String> categoryCodes = new ArrayList<>();
+        String glamping = "CT100002";
+        String caravan = "CT100003";
+
+        categoryCodes.add(glamping);
+        categoryCodes.add(caravan);
+
+        List<Camp> camping = campRepository.findByCampCategoryCodeIn(categoryCodes);
+
+        return camping;
+
     }
 
 
