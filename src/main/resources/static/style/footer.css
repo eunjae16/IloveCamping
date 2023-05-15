@@ -17,3 +17,8 @@ footer {
     padding: 10px;
     color: #3b3b3b;
 }
+
+#admin {
+    float: left;
+    margin-left: 10px;
+}
