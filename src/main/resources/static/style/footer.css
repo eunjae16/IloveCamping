@@ -4,20 +4,16 @@ footer {
     background-color: white;
 }
 
-footer p {
+.footer-wrap p {
     text-align: center;
     line-height: 60px;
 }
 
-footer .adminlogin {
-    width: fit-content;
+.footer-wrap a {
     border: 1px solid #3b3b3b;
     float: right;
     margin-right: 10px;
     border-radius: 5px;
-}
-
-footer a {
     padding: 10px;
     color: #3b3b3b;
 }
