@@ -15,11 +15,12 @@ import javax.persistence.Table;
 @Entity
 public class MonthlySalesByOwner {
 
-    private String year;
+    @Id
+    private String id;
+
+    private String salesYear;
     private String month;
     private int totalSales;
-
-    @Id
     private String ownerCode;
 
 }

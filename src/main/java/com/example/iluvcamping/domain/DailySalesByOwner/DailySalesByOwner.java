@@ -15,10 +15,11 @@ import javax.persistence.Table;
 @Entity
 public class DailySalesByOwner {
 
-    private String date;
+    @Id
+    private String id;
+    private String salesDate;
     private int totalSales;
 
-    @Id
     private String ownerCode;
 
 }

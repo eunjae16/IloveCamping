@@ -403,29 +403,25 @@ let startDate;
 let endDate;
 let length;
 
-function parseDate(datas) {
+	function parseDate(datas) {
 	const selected = [];
 
 	Object.entries(datas).forEach(([year, months]) => {
-		Object.entries(months).forEach(([month, days]) => {
-			days.forEach((day) => {
-				const formattedMonth = month < 10 ? '0' + month : month;
-				const formattedDay = day < 10 ? '0' + day : day;
-				selected.push(`${year}-${formattedMonth}-${formattedDay}`);
+			Object.entries(months).forEach(([month, days]) => {
+				days.forEach((day) => {
+					const formattedMonth = month < 10 ? '0' + month : month;
+					const formattedDay = day < 10 ? '0' + day : day;
+					selected.push(`${year}-${formattedMonth}-${formattedDay}`);
+				});
 			});
 		});
-	});
 
-	console.log(selected);
+		startDate = selected[0];
+		endDate = selected[selected.length - 1];
+		length = selected.length;
+	}
 
-	startDate = selected[0];
-	endDate = selected[selected.length - 1];
-	length = selected.length;
-
-	console.log(startDate);
-	console.log(endDate);
-	console.log(length);
-}
+	// console.log(selected);
 
 function submitValue() {
 	let userCode = document.getElementById("userCode").value;

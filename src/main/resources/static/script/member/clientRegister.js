@@ -1,5 +1,4 @@
-let idCheck = false;
-let nickCheck = false;
+
 
 function pop() {
     new daum.Postcode({
@@ -9,6 +8,9 @@ function pop() {
         },
     }).open();
 }
+
+let idCheck = false;
+let nickCheck = false;
 
 function checkValue(htmlForm) {
     let url = "clientregister?";

@@ -16,23 +16,23 @@ $(document).ready(function() {
                 console.log(result.length);
 
                 result.forEach(campsite => {
+                    let carabanPrice = (campsite.siteExtraCarabanPrice !== "") ? campsite.siteExtraCarabanPrice + "원" : "0원";
                     $(".campsite-card").append(
                         `<div class='campsite'>
-                        <label>
-                            <input type='radio' name='selectedCampsite' value='${campsite.siteCode}'
-                                data-min-people='${campsite.siteMinPerson}' data-max-people='${campsite.siteMaxPerson}'>
-                        <br>
-                        <div class="img-wrapper"><img src='${campsite.campsiteImage}'></div>
-                        <p>${campsite.siteName}</p>
-                        <p>추가 인원 금액: ${campsite.siteExtraPersonPrice}원</p>
-                        <p>추가 카라반 금액: ${campsite.siteExtraCarabanPrice}원</p>
-                        <p>최소 인원: ${campsite.siteMinPerson} </p>
-                        <p>최대 인원: ${campsite.siteMaxPerson} </p>
-                        </label>
-                        </div>`
-                    )
-
-                })
+            <label>
+                <input type='radio' name='selectedCampsite' value='${campsite.siteCode}'
+                    data-min-people='${campsite.siteMinPerson}' data-max-people='${campsite.siteMaxPerson}'>
+                <br>
+                <div class="img-wrapper"><img src='${campsite.campsiteImage}'></div>
+                <p>${campsite.siteName}</p>
+                <p>추가 인원 금액: ${campsite.siteExtraPersonPrice}원</p>
+                <p>추가 카라반 금액: ${carabanPrice}</p>
+                <p>최소 인원: ${campsite.siteMinPerson}</p>
+                <p>최대 인원: ${campsite.siteMaxPerson}</p>
+            </label>
+        </div>`
+                    );
+                });
             },
             error: function(xhr, status, error) {
                 console.log(error);
