@@ -14,9 +14,14 @@ footer .adminlogin {
     border: 1px solid #3b3b3b;
     float: right;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 footer a {
     padding: 10px;
     color: #3b3b3b;
+}
+
+footer a:hover {
+    color: #495579;
 }

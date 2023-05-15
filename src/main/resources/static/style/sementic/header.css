@@ -46,3 +46,7 @@ header {
 .side-menu {
     font-size: 0.8em;
 }
+
+section {
+    min-height: 750px;
+}
