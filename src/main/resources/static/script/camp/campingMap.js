@@ -105,7 +105,6 @@ $.ajax(settings).done(function (response) {
         map.setLevel(3, moveOption);
         map.panTo(moveLatLon);
 
-        // map.panTo(moveLatLon);
     });
 
 
