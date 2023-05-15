@@ -18,7 +18,7 @@
                         <p>${theme.themeName}</p>
                     </div>
                     <form method="POST" action="/get/campinfo">
-                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}"</td>
+                        <input type="hidden" name="campCode" id="campCode" value="${theme.campCode}">
                         <input type="submit" value="예약">
                     </form>
                 </div>
@@ -32,7 +32,8 @@
     </div>
 </section>
 <c:import url="/footer"/>
-<script src="script/camp/map.js"></script>
-<script src="script/camp/campList.js"></script>
+<%--<script src="script/camp/map.js"></script>--%>
+<%--<script src="script/camp/campList.js"></script>--%>
+<script src="script/camp/campingMap.js"></script>
 </body>
 </html>
