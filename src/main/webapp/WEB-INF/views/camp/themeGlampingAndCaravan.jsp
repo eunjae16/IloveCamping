@@ -30,6 +30,6 @@
     </div>
 </section>
 <c:import url="/footer"/>
-<script src="script/camp/glampingmap.js"></script>
+<script src="/script/camp/glampingmap.js"></script>
 </body>
 </html>
