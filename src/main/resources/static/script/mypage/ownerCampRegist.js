@@ -39,7 +39,7 @@ function checkValue(htmlForm) {
     const y = $('#y').val();
     console.log("y위도 : "+ y);
     console.log("x경도 : "+ x);
-
+    const surroundCategoryCode = $('.surroundCategory').val();
 
     let check = true;
 
@@ -71,6 +71,10 @@ function checkValue(htmlForm) {
     if (check === false) {
         location.href = url;
     } else {
+        const facilityCodes = $('input[name="facility"]:checked').map(function() {
+            return $(this).val();
+        }).get();
+
         const data = {
             "campOwner": campOwner,
             "campCategoryCode": campCategoryCode,
@@ -80,8 +84,9 @@ function checkValue(htmlForm) {
             "campAddress1": campAddress1,
             "campPhone": campPhone,
             "x" : x,
-            "y" : y
-
+            "y" : y,
+            "facilityCodes": facilityCodes,
+            "surroundCategoryCode": surroundCategoryCode
         };
 
         if (x !== "") data["x"] = x;
@@ -107,7 +112,8 @@ function submit(data) {
             location.href = "registsuccess";
         })
         .fail((error) => {
-            location.href = "error";
+            // location.href = "error";
+            console.log(error);
         });
 
 

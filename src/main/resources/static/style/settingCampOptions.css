@@ -18,17 +18,12 @@ img {
     width: 50px;
 }
 
-td {
-    display: flex;
-}
-
 td label {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid #ccc;
     padding: 5px;
-    line-height: 30px;
 }
 
 td label:hover {

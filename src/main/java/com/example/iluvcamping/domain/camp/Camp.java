@@ -1,6 +1,5 @@
 package com.example.iluvcamping.domain.camp;
 
-import com.example.iluvcamping.domain.community.CommunityRequestDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -53,8 +52,6 @@ public class Camp {
     public void setCampCategoryCode(String campCategoryCode){
         this.campCategoryCode = campCategoryCode;
     }
-
-
 
     public void modifyCamp(CampRequestDTO campDto) {
         this.campName = campDto.getCampName();

@@ -1,10 +1,16 @@
 package com.example.iluvcamping.controller;
 
 import com.example.iluvcamping.domain.camp.Camp;
+import com.example.iluvcamping.domain.camp.CampRegistRequestDTO;
 import com.example.iluvcamping.domain.camp.CampRepository;
 import com.example.iluvcamping.domain.camp.CampRequestDTO;
+import com.example.iluvcamping.domain.campFacility.CampFacility;
+import com.example.iluvcamping.domain.campFacility.CampFacilityRepository;
+import com.example.iluvcamping.domain.campFacility.CampFacilityRequestDTO;
 import com.example.iluvcamping.domain.campSite.CampSite;
 import com.example.iluvcamping.domain.campSite.CampSiteRequestDTO;
+import com.example.iluvcamping.domain.campSurround.CampSurround;
+import com.example.iluvcamping.domain.campSurround.CampSurroundRepository;
 import com.example.iluvcamping.domain.campTheme.CampTheme;
 import com.example.iluvcamping.domain.campTheme.CampThemeRepository;
 import com.example.iluvcamping.domain.campThemeName.CampThemeName;
@@ -19,8 +25,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -32,7 +38,8 @@ public class CampController {
     private final CampRepository campRepository;
     private final CampThemeRepository campThemeRepository;
     private final CategoryCountRepository categoryCountRepository;
-
+    private final CampFacilityRepository campFacilityRepository;
+    private final CampSurroundRepository campSurroundRepository;
 
     // 지도에 표시할 목적의 모든 camp read
     @GetMapping("/camp/readall")
@@ -58,11 +65,47 @@ public class CampController {
     }
 
     @PostMapping("/camp/regist")
-    public String campRegist (@RequestBody CampRequestDTO campDto, HttpSession session) {
-        Camp camp = new Camp(campDto);
+    public String campRegist (@RequestBody CampRegistRequestDTO campDto) {
+
+        String campCode = campDto.getCampCode();
+        String campOwner = campDto.getCampOwner();
+        String campCategoryCode = campDto.getCampCategoryCode();
+        String campName = campDto.getCampName();
+        String campImage = campDto.getCampImage();
+        String campAddressCode = campDto.getCampAddressCode();
+        String campAddress1 = campDto.getCampAddress1();
+        String campAddress2 = campDto.getCampAddress2();
+        String campPhone = campDto.getCampPhone();
+        double x = campDto.getX();
+        double y = campDto.getY();
+
+        CampRequestDTO campDTO = new CampRequestDTO(campCode, campOwner, campCategoryCode,
+                campName, campImage, campAddressCode, campAddress1, campAddress2, campPhone, x, y);
+
+        Camp camp = new Camp(campDTO);
         String code = keyGenerator.randomKey("D");
         camp.setCampCode(code);
         campService.addCamp(camp);
+
+        String[] facilityCodes = campDto.getFacilityCodes();
+        String surroundCategoryCode = campDto.getSurroundCategoryCode();
+
+        System.out.println(Arrays.toString(facilityCodes));
+
+        for (int i = 0; i < facilityCodes.length; i++) {
+            String facilityCode = facilityCodes[i];
+            if (facilityCode != null && !facilityCode.isEmpty()) {
+                CampFacilityRequestDTO campFacilityRequestDTO = new CampFacilityRequestDTO(campCode, facilityCode);
+
+                System.out.println("facilityCode:" + campFacilityRequestDTO.getCampFacilityCode());
+
+                CampFacility campFacility = new CampFacility(campFacilityRequestDTO);
+                campFacilityRepository.save(campFacility);
+            }
+        }
+
+        CampSurround campSurround = new CampSurround(campCode, surroundCategoryCode);
+        campSurroundRepository.save(campSurround);
 
         return "mypage/registsuccess";
     }
