@@ -33,3 +33,19 @@ input[type=button]:hover {
     background-color: white;
     color: #495579;
 }
+
+#facility-url {
+    width: 50px;
+}
+
+#label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+#label:hover {
+    color: #495579;
+}

@@ -68,6 +68,30 @@
                     <td><input type="text" id="phone" name="phone" placeholder="연락처"></td>
                 </tr>
                 <tr>
+                    <th>캠프 지원 시설 [다중선택 가능]</th>
+                    <td>
+                        <c:forEach var="facility" items="${facilityCategoryList}">
+                            <label>
+                                <img src="${facility.facilityImgUrl}" alt="${facility.categoryName}">
+                                <input type="checkbox" name="facility" value="${facility.categoryCode}">
+                                    ${facility.categoryName}
+                            </label>
+                        </c:forEach>
+                    </td>
+                </tr>
+                <tr>
+                    <th>주변 환경</th>
+                    <td>
+                        <select>
+                            <c:if test="${not empty surroundCategoryList}">
+                                <c:forEach items="${surroundCategoryList}" var="surround">
+                                    <option class="surroundCategory" value="${surround.surroundCategoryCode}">${surround.surroundCategoryName}</option>
+                                </c:forEach>
+                            </c:if>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="2">
                         <input type="button" id="regist-button" value="캠핑장 등록" onclick="checkValue(form)">
                     </td>
@@ -77,6 +101,6 @@
     </div>
 </section>
 <c:import url="../sementic/footer.jsp"/>
-<script src="script/ownerCampRegist.js"></script>
+<script src="script/mypage/ownerCampRegist.js"></script>
 </body>
 </html>

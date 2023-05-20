@@ -14,11 +14,11 @@ table {
     margin: 0 auto;
 }
 
-img {
+#facility-url {
     width: 50px;
 }
 
-td label {
+#label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +26,6 @@ td label {
     padding: 5px;
 }
 
-td label:hover {
+#label:hover {
     color: #495579;
 }

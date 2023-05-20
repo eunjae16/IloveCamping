@@ -171,18 +171,14 @@ public class MainController {
         List<CampTheme> list = campController.getAllCampTheme();
         model.addAttribute("list", list);
 
-        return "mypage/ownerCampRegist";
-    }
-
-    @GetMapping("/settingcampoptions")
-    public String settingCampOptions (Model model){
         List<FacilityCategory> facilityCategoryList = facilityCategoryRepository.findAll();
         List<SurroundCategory> surroundCategoryList = surroundCategoryRepository.findAll();
         model.addAttribute("facilityCategoryList", facilityCategoryList);
         model.addAttribute("surroundCategoryList", surroundCategoryList);
 
-        return "mypage/settingCampOptions";
+        return "mypage/ownerCampRegist";
     }
+
 
     @GetMapping("/ownercampmodify")
     public String ownerCampModify() { return "mypage/ownerCampModify"; }
