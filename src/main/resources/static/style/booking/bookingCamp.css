@@ -147,3 +147,25 @@ input[type=radio] {
 #checkExtraPeople, #inputExtraPeopleNum, #checkExtraCaraban, #inputExtraCaraban, #booking-button {
     margin-top: 100px;
 }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .camp-width-box {
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .camp-img {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .camp-width-box {
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .camp-img {
+         margin-bottom: 50px;
+    }
+}

@@ -81,3 +81,15 @@ div input[type=button]:hover {
 div {
     text-align: center;
 }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    table {
+        width: 100%;
+    }
+}

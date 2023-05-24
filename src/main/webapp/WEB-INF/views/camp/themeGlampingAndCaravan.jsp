@@ -8,6 +8,9 @@
 </head>
 <body>
 <section>
+    <div class="right">
+        <div id="map"></div>
+    </div>
     <div class="left">
         <div id="camp-card">
             <c:forEach var="theme" items="${exceptCamping}">
@@ -24,9 +27,6 @@
                 </div>
             </c:forEach>
         </div>
-    </div>
-    <div class="right">
-        <div id="map"></div>
     </div>
 </section>
 <c:import url="/footer"/>

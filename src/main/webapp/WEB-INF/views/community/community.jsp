@@ -8,7 +8,7 @@
 </head>
 <body>
 <section>
-    <div class="community-bg"><h2>캠핑이야기</h2></div>
+    <div class="community-bg"><h2>캠핑 이야기</h2></div>
     <table id="notice">
         <tr>
             <th colspan="5">공지사항</th>

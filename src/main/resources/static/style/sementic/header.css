@@ -50,3 +50,38 @@ header {
 section {
     min-height: 750px;
 }
+
+.navbar-toggleBtn {
+    display: none;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header-wrap {
+        width: auto;
+        margin: 0 50px;
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-wrap {
+        width: auto;
+        margin: 0 50px;
+        justify-content: space-evenly;
+    }
+    .side-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        width: 100%;
+        text-align: center;
+        background-color: #3b3b3b;
+        display: none;
+    }
+    .navbar-toggleBtn {
+        display: block;
+    }
+    .side-menu.active {
+        display: flex;
+    }
+}

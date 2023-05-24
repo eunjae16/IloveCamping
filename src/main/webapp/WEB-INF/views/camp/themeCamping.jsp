@@ -8,6 +8,10 @@
 </head>
 <body>
 <section>
+    <div class="right">
+        <div id="map">
+        </div>
+    </div>
     <div class="left">
         <div id="camp-card">
             <c:forEach var="theme" items="${campingThemes}">
@@ -23,11 +27,6 @@
                     </form>
                 </div>
             </c:forEach>
-        </div>
-    </div>
-    <div class="right">
-        <div id="map">
-
         </div>
     </div>
 </section>

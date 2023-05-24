@@ -8,9 +8,9 @@
 </head>
 <body>
 <section>
-    <div class="left"><div id="camp-card"></div></div>
     <%-- 지도 --%>
     <div class="right"><div id="map"></div></div>
+    <div class="left"><div id="camp-card"></div></div>
 </section>
 <c:import url="/footer"/>
 <script src="script/camp/campList.js"></script>

@@ -2,9 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>게시글 상세페이지</title>
-</head>
 <c:import url="../sementic/header.jsp"/>
+</head>
 <link rel="stylesheet" href="style/header.css">
 <link rel="stylesheet" href="style/communityread.css">
 <body>
@@ -15,7 +14,7 @@
         </tr>
         <tr class="box-bottom">
             <td>${community.writerNickname}</td>
-            <td>${community.registeredDate}</td>
+            <td style="float: right">${community.registeredDate}</td>
         </tr>
         <tr>
             <td>${community.content}</td>

@@ -69,7 +69,7 @@
                 </tr>
                 <tr>
                     <th>캠프 지원 시설 [다중선택 가능]</th>
-                    <td>
+                    <td class="icon">
                         <c:forEach var="facility" items="${facilityCategoryList}">
                             <label>
                                 <img src="${facility.facilityImgUrl}" alt="${facility.categoryName}">
@@ -77,11 +77,11 @@
                                     ${facility.categoryName}
                             </label>
                         </c:forEach>
-                    </td>
+                    </td class="icon">
                 </tr>
                 <tr>
                     <th>주변 환경</th>
-                    <td>
+                    <td class="icon">
                         <select>
                             <c:if test="${not empty surroundCategoryList}">
                                 <c:forEach items="${surroundCategoryList}" var="surround">

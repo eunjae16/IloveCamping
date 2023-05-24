@@ -26,3 +26,15 @@ h3 {
 .button-container {
     margin-bottom: 50px;
 }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #column_chart_div1 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    #column_chart_div1 {
+        width: 100%;
+    }
+}
